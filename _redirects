@@ -1,0 +1,25 @@
+# Blog sempre no WordPress
+/blog                   http://162.241.62.186/blog                  200
+/blog/*                 http://162.241.62.186/blog/:splat            200
+
+# Páginas ainda no WordPress
+/gas-de-cozinha         http://162.241.62.186/gas-de-cozinha         200
+/gas-de-cozinha/*       http://162.241.62.186/gas-de-cozinha/:splat  200
+/gas-industrial-campo-grande-ms         http://162.241.62.186/gas-industrial-campo-grande-ms         200
+/gas-industrial-campo-grande-ms/*       http://162.241.62.186/gas-industrial-campo-grande-ms/:splat  200
+/gas-p45                http://162.241.62.186/gas-p45                200
+/gas-p45/*              http://162.241.62.186/gas-p45/:splat         200
+/vendas-corporativas    http://162.241.62.186/vendas-corporativas    200
+/vendas-corporativas/*  http://162.241.62.186/vendas-corporativas/:splat 200
+/agua-mineral-em-campo-grande-ms        http://162.241.62.186/agua-mineral-em-campo-grande-ms        200
+/agua-mineral-em-campo-grande-ms/*      http://162.241.62.186/agua-mineral-em-campo-grande-ms/:splat 200
+/contato                http://162.241.62.186/contato                200
+/contato/*              http://162.241.62.186/contato/:splat         200
+/sobre-a-mosko-gas      http://162.241.62.186/sobre-a-mosko-gas      200
+/sobre-a-mosko-gas/*    http://162.241.62.186/sobre-a-mosko-gas/:splat 200
+/wp-admin               http://162.241.62.186/wp-admin               200
+/wp-admin/*             http://162.241.62.186/wp-admin/:splat        200
+/wp-login.php           http://162.241.62.186/wp-login.php           200
+
+# Tudo mais que não tem HTML no repositório → WordPress
+/*                      http://162.241.62.186/:splat                 200
