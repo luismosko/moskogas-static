@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<!-- 
+  moskogas.com.br | index.html
+  Versão: 1.0.0
+  Atualizado: 2026-02-19
+  Descrição: Home page - conversão inicial do Elementor para HTML puro
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mosko Gás - Distribuidora De Gás E Água Em Campo Grande</title>
+  <meta name="description" content="Peça gás de cozinha com entrega rápida em Campo Grande MS. Botijão P13, P20 e P45. Agilidade, preço justo, qualidade Ultragaz. Ligue (67) 99333-0303.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://moskogas.com.br/">
+
+  <!-- Preconnect para imagens do servidor -->
+  <link rel="preconnect" href="https://moskogas.com.br">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul-escuro: #1a3a5c;
+      --azul-medio: #1565c0;
+      --azul-claro: #42a5f5;
+      --verde-wpp: #25a244;
+      --verde-wpp-hover: #1e8c39;
+      --azul-titulo: #1565c0;
+      --cinza-claro: #f5f7fa;
+      --cinza-texto: #444;
+      --branco: #fff;
+      --footer-bg: #0d1b2e;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--cinza-texto);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; }
+
+    /* ===================== TOPBAR ===================== */
+    .topbar {
+      background: var(--azul-escuro);
+      padding: 8px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .topbar a {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 4px;
+      transition: opacity .2s;
+    }
+    .topbar a:first-child { border: 1px solid rgba(255,255,255,0.4); }
+    .topbar a:last-child { background: var(--verde-wpp); }
+    .topbar a:hover { opacity: 0.85; }
+    .topbar svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ===================== HEADER / NAV ===================== */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo img { height: 52px; width: auto; }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--azul-escuro);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { background: #e3f2fd; color: var(--azul-medio); }
+    .nav-separator { color: #ccc; align-self: center; }
+
+    /* Hamburger mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: var(--azul-escuro);
+      border-radius: 2px;
+      transition: .3s;
+    }
+    .mobile-menu {
+      display: none;
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+      padding: 10px 20px 16px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 10px 0;
+      color: var(--azul-escuro);
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(135deg, #e0f0ff 0%, #b3d9ff 40%, #7abfff 70%, #42a5f5 100%);
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .hero-text { flex: 1; max-width: 560px; }
+    .hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 900;
+      color: var(--azul-escuro);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .hero-text p {
+      color: #1a3a5c;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .estrelas {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .avaliacoes-txt {
+      font-size: 13px;
+      color: #1a3a5c;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-wpp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--verde-wpp);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 22px;
+      border-radius: 6px;
+      transition: background .2s, transform .1s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-wpp:hover { background: var(--verde-wpp-hover); transform: translateY(-1px); }
+    .btn-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--azul-escuro);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 6px;
+      border: 2px solid var(--azul-escuro);
+      transition: all .2s;
+    }
+    .btn-tel:hover { background: var(--azul-escuro); color: #fff; }
+    .hero-img {
+      flex: 0 0 auto;
+      max-width: 340px;
+    }
+    .hero-img img {
+      width: 100%;
+      filter: drop-shadow(0 8px 24px rgba(0,80,160,0.25));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ===================== SEÇÕES GERAIS ===================== */
+    section { padding: 60px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--azul-titulo);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    /* ===================== PERTO DE VOCÊ ===================== */
+    .perto { background: #fff; }
+    .perto .container { max-width: 1100px; }
+    .perto h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--azul-titulo);
+      margin-bottom: 10px;
+    }
+    .perto p { font-size: 15px; color: #555; }
+
+    /* ===================== BAIRRO ===================== */
+    .bairro { background: var(--cinza-claro); }
+    .bairro-inner {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .bairro-text { flex: 1; }
+    .bairro-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--azul-titulo);
+      margin-bottom: 12px;
+    }
+    .bairro-text p { font-size: 15px; color: #555; margin-bottom: 20px; }
+    .bairro-img { flex: 0 0 auto; max-width: 380px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+    .bairro-img img { width: 100%; display: block; }
+
+    /* ===================== COMO PEDIR ===================== */
+    .como-pedir { background: #fff; }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .step {
+      text-align: center;
+      max-width: 180px;
+    }
+    .step img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+    .step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    /* ===================== PRODUTOS ===================== */
+    .produtos { background: var(--cinza-claro); }
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .card-produto {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 28px 22px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card-produto:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+    .card-produto img {
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+    .card-produto h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--azul-escuro);
+      margin-bottom: 10px;
+    }
+    .card-produto h3 a { color: inherit; }
+    .card-produto p { font-size: 14px; color: #666; margin-bottom: 18px; line-height: 1.5; }
+    .lista-info {
+      background: #fff;
+      border-radius: 8px;
+      padding: 18px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #555;
+    }
+    .lista-info li { padding: 4px 0; list-style: disc; margin-left: 18px; }
+
+    /* ===================== FAQ ===================== */
+    .faq { background: #fff; }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .faq-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--azul-escuro);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-btn:after {
+      content: '+';
+      font-size: 22px;
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform .3s;
+    }
+    .faq-item.open .faq-btn:after { transform: rotate(45deg); }
+    .faq-answer {
+      display: none;
+      padding: 0 0 18px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ===================== CTA MEIO ===================== */
+    .cta-meio {
+      background: var(--azul-escuro);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .cta-meio-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-tel-branco {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 6px;
+      border: 2px solid #fff;
+      transition: all .2s;
+    }
+    .btn-tel-branco:hover { background: #fff; color: var(--azul-escuro); }
+
+    /* ===================== GÁS DO POVO ===================== */
+    .gas-povo { background: var(--cinza-claro); }
+    .gas-povo-inner {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .gas-povo-img { flex: 0 0 auto; max-width: 300px; }
+    .gas-povo-img img { width: 100%; border-radius: 10px; }
+    .gas-povo-text { flex: 1; }
+    .gas-povo-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--azul-titulo);
+      margin-bottom: 12px;
+    }
+    .gas-povo-text p { font-size: 15px; color: #555; margin-bottom: 20px; }
+
+    /* ===================== REGIÕES ===================== */
+    .regioes { background: #fff; }
+    .regioes p { text-align: center; color: #666; margin-bottom: 24px; }
+    .regioes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .regiao-tag {
+      background: #e3f2fd;
+      color: var(--azul-medio);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background .2s, color .2s;
+    }
+    .regiao-tag:hover { background: var(--azul-medio); color: #fff; }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos { background: var(--cinza-claro); }
+    .google-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 36px;
+      gap: 8px;
+    }
+    .google-logo {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+    .google-logo span:nth-child(1) { color: #4285f4; }
+    .google-logo span:nth-child(2) { color: #ea4335; }
+    .google-logo span:nth-child(3) { color: #fbbc05; }
+    .google-logo span:nth-child(4) { color: #4285f4; }
+    .google-logo span:nth-child(5) { color: #34a853; }
+    .google-logo span:nth-child(6) { color: #ea4335; }
+    .estrelas-google { font-size: 22px; }
+    .avaliacoes-sub { font-size: 14px; color: #555; }
+    .ver-avaliacoes {
+      display: inline-block;
+      color: var(--azul-medio);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--azul-medio);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 700; font-size: 14px; color: #333; }
+    .review-stars { font-size: 14px; color: #fbbc05; }
+    .review-text { font-size: 14px; color: #666; line-height: 1.5; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--footer-bg);
+      color: #ccc;
+      padding: 50px 20px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 24px;
+    }
+    .footer-nav a {
+      color: #adb5bd;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .footer-nav a:hover { color: #fff; }
+    .footer-info {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #8fa0b4;
+    }
+    .footer-info strong { color: #e0e8f0; font-weight: 700; display: block; margin-bottom: 4px; }
+    .footer-bottom {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .footer-legal { font-size: 12px; color: #6c7e90; }
+    .footer-legal a { color: #8fa0b4; text-decoration: underline; margin-right: 12px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: background .2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.25); }
+    .footer-social svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { flex-direction: column; text-align: center; }
+      .hero-img { max-width: 220px; }
+      .hero-btns { justify-content: center; }
+      .bairro-inner { flex-direction: column; }
+      .bairro-img { max-width: 100%; }
+      .gas-povo-inner { flex-direction: column; }
+      .gas-povo-img { max-width: 100%; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ===================== FLOATING WPP ===================== */
+    .float-wpp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: var(--verde-wpp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 162, 68, 0.5);
+      z-index: 999;
+      transition: transform .2s;
+    }
+    .float-wpp:hover { transform: scale(1.1); }
+    .float-wpp svg { width: 30px; height: 30px; fill: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:06799333-0303">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    LIGUE (67) 99333-0303
+  </a>
+  <a href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.653-.518-5.16-1.419l-.37-.22-3.777.88.898-3.678-.242-.378A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    Peça pelo WhatsApp
+  </a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <a class="logo" href="https://moskogas.com.br/">
+      <img src="https://moskogas.com.br/wp-content/uploads/2021/08/Logo-Moskogas-Ultragaz.png" alt="Mosko Gás - Distribuidora Ultragaz Campo Grande MS" width="200" height="70">
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://moskogas.com.br/gas-de-cozinha/">Gás de Cozinha</a></li>
+      <li><span class="nav-separator">|</span></li>
+      <li><a href="https://moskogas.com.br/gas-industrial-campo-grande-ms/">Gás P45 e P20</a></li>
+      <li><span class="nav-separator">|</span></li>
+      <li><a href="https://moskogas.com.br/vendas-corporativas/">Vendas Corporativas</a></li>
+      <li><span class="nav-separator">|</span></li>
+      <li><a href="https://moskogas.com.br/agua-mineral-em-campo-grande-ms/">Água Mineral</a></li>
+      <li><span class="nav-separator">|</span></li>
+      <li><a href="https://moskogas.com.br/contato/">Contato</a></li>
+      <li><span class="nav-separator">|</span></li>
+      <li><a href="https://moskogas.com.br/sobre-a-mosko-gas/">Quem Somos</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="https://moskogas.com.br/gas-de-cozinha/">Gás de Cozinha</a>
+    <a href="https://moskogas.com.br/gas-industrial-campo-grande-ms/">Gás P45 e P20</a>
+    <a href="https://moskogas.com.br/vendas-corporativas/">Vendas Corporativas</a>
+    <a href="https://moskogas.com.br/agua-mineral-em-campo-grande-ms/">Água Mineral</a>
+    <a href="https://moskogas.com.br/contato/">Contato</a>
+    <a href="https://moskogas.com.br/sobre-a-mosko-gas/">Quem Somos</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-img">
+      <a href="tel:06799333-0303">
+        <img
+          src="https://moskogas.com.br/wp-content/uploads/elementor/thumbs/Gas-24-horas-de-Cozinha-rjcywudsaez4svm42cdjwmqn1udefk2pemhvz1vd36.webp"
+          alt="Gás de Cozinha 24 horas Campo Grande"
+          width="340"
+          height="283"
+          loading="eager"
+          fetchpriority="high"
+        >
+      </a>
+    </div>
+    <div class="hero-text">
+      <h1>Peça Agora Gás de Cozinha com Entrega Rápida em Campo Grande MS</h1>
+      <p>Peça agora o seu botijão com entrega rápida em <strong>Campo Grande.</strong><br>Agilidade na entrega, preço justo, qualidade Ultragaz e segurança.</p>
+      <p class="estrelas">⭐⭐⭐⭐⭐</p>
+      <p class="avaliacoes-txt">Mais de 350 avaliações reais no Google</p>
+      <div class="hero-btns">
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.653-.518-5.16-1.419l-.37-.22-3.777.88.898-3.678-.242-.378A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Peça pelo WhatsApp
+        </a>
+        <a class="btn-tel" href="tel:06799333-0303">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          LIGUE (67) 99333-0303
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERTO DE VOCÊ -->
+<section class="perto">
+  <div class="container">
+    <h2>Gás de cozinha perto de você.</h2>
+    <p>A Mosko Gás entrega <strong>gás de cozinha</strong> em Campo Grande/MS, com <strong>atendimento rápido perto de você</strong> e pedido fácil pelo WhatsApp.<br>Atendemos residências, comércios e empresas com agilidade e confiança.</p>
+  </div>
+</section>
+
+<!-- ESTAMOS NO SEU BAIRRO -->
+<section class="bairro">
+  <div class="container">
+    <div class="bairro-inner">
+      <div class="bairro-text">
+        <h2>Estamos no seu bairro agora</h2>
+        <p>O <strong>gás terminou</strong> enquanto preparava a comida? A Mosko Gas em Campo Grande tem a solução!<br><strong>Disk Gás Perto de Mim</strong> com equipe rápida, confiável e sempre preparada para ajudar.</p>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" style="display:inline-flex; margin-top:4px;">
+          👉 Ver bairros atendidos perto de mim
+        </a>
+      </div>
+      <div class="bairro-img">
+        <img
+          src="https://moskogas.com.br/wp-content/uploads/elementor/thumbs/Sobre-a-Mosko-Gas-%E2%80%93-Distribuidora-de-Gas-e-Agua-Mineral-em-Campo-Grande-MS-rjcxp7ph298m6ydc10j0jzaak3uue6n52fw6hll6qs.webp"
+          alt="Entrega de gás 24 horas Campo Grande MS"
+          width="400"
+          height="266"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO PEDIR -->
+<section class="como-pedir">
+  <div class="container">
+    <h2 class="section-title">Como pedir gás rápido em Campo Grande</h2>
+    <div class="steps">
+      <div class="step">
+        <img src="https://moskogas.com.br/wp-content/uploads/2026/02/Pedir-gas-Whatsaap-1.webp" alt="Fale pelo WhatsApp" width="120" height="120" loading="lazy">
+        <h3>Fale pelo WhatsApp</h3>
+      </div>
+      <div class="step">
+        <img src="https://moskogas.com.br/wp-content/uploads/2026/02/entrega-gas-campo-grande.webp" alt="Informe seu bairro" width="120" height="120" loading="lazy">
+        <h3>Informe Seu Bairro</h3>
+      </div>
+      <div class="step">
+        <img src="https://moskogas.com.br/wp-content/uploads/2026/02/pedir-gas-agora-no-whatsapp.webp" alt="Receba seu gás em casa" width="120" height="120" loading="lazy">
+        <h3>Receba seu gás em casa</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos">
+  <div class="container">
+    <h2 class="section-title">Entrega de gás em Campo Grande MS (P13, P20, P45 e P5)</h2>
+    <div class="produtos-grid">
+      <div class="card-produto">
+        <a href="https://moskogas.com.br/gas-de-cozinha">
+          <img src="https://moskogas.com.br/wp-content/uploads/2026/02/Gas-P13-Entrega-24horas-Campo-Grande.webp" alt="Botijão Gás P13 Entrega Campo Grande" width="200" height="200" loading="lazy">
+        </a>
+        <h3><a href="https://moskogas.com.br/gas-de-cozinha">Botijão de Gás P13 ou Gás de Cozinha</a></h3>
+        <p>O gás de cozinha P13 é o mais utilizado em residências, ideal para preparo de alimentos no dia a dia. Seguro, confiável e com entrega rápida em Campo Grande MS, direto no seu bairro.</p>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">👉 Pedir gás P13 Agora</a>
+      </div>
+      <div class="card-produto">
+        <a href="https://moskogas.com.br/gas-de-empilhadeira-p20">
+          <img src="https://moskogas.com.br/wp-content/uploads/elementor/thumbs/Gas-P13-Entrega-24horas-Campo-Grande.webp" alt="GLP P20 para empilhadeiras Campo Grande" width="200" height="200" loading="lazy" style="opacity:.9;">
+        </a>
+        <h3><a href="https://moskogas.com.br/gas-de-empilhadeira-p20">GLP P20 para empilhadeiras</a></h3>
+        <p>O GLP P20 para empilhadeiras é indicado para uso industrial e logístico, com cilindros projetados para operação horizontal. Atendemos empresas com fornecimento rápido e seguro em Campo Grande/MS.</p>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">👉 Pedir gás P20 Agora</a>
+      </div>
+      <div class="card-produto">
+        <a href="https://moskogas.com.br/gas-p45/">
+          <img src="https://moskogas.com.br/wp-content/uploads/elementor/thumbs/Entrega-Gas-P45-Campo-Grande-Agora-rjcyhc1inemjs9f3i0qy7fo48o5jdz2fo0gryg229s.webp" alt="Gás P45 Industrial Entrega Campo Grande" width="200" height="200" loading="lazy">
+        </a>
+        <h3><a href="https://moskogas.com.br/gas-p45/">Gás P45 ou Gás Industrial</a></h3>
+        <p>O Gás P45 (GLP Industrial) é indicado para locais de maior consumo, como restaurantes, comércios e indústrias. Fornecimento conforme normas técnicas, com entrega programada ou imediata em Campo Grande/MS.</p>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">👉 Pedir gás P45 Agora</a>
+      </div>
+    </div>
+    <div class="lista-info">
+      <ul>
+        <li>Botijão P13 (gás de cozinha) para uso doméstico</li>
+        <li>P45 para restaurantes, comércios e maior consumo</li>
+        <li>P20 e P5 conforme necessidade</li>
+        <li>Para saber preço do gás e prazo de entrega no seu bairro, chame no WhatsApp.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Perguntas frequentes sobre gás em Campo Grande</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn">Como pedir gás pelo WhatsApp?</button>
+        <div class="faq-answer">
+          <p><strong>É rápido.</strong> Você só precisa enviar: Bairro + ponto de referência. Tipo de botijão: P13 / P20 / P45. Forma de pagamento (ex.: Pix).<br>A gente responde com valor atualizado e tempo estimado de entrega em Campo Grande/MS.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Qual o preço do gás (botijão P13) em Campo Grande MS hoje?</button>
+        <div class="faq-answer">
+          <p>O preço do gás P13 pode variar conforme o dia, rota e região de entrega. Para receber o valor atualizado, envie no WhatsApp: seu bairro e se é troca (tem vasilhame vazio) ou sem vasilhame.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Vocês fazem entrega de gás em Campo Grande MS?</button>
+        <div class="faq-answer">
+          <p>Sim. Fazemos entrega de gás em Campo Grande/MS, com atendimento por bairros e regiões. Informe seu bairro, tipo de botijão e forma de pagamento no WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Qual a diferença entre gás P13, P20 e P45?</button>
+        <div class="faq-answer">
+          <p><strong>P13</strong> (gás de cozinha): ideal para casas e apartamentos. <strong>P20</strong>: indicado para usos com consumo maior ou equipamentos específicos. <strong>P45</strong>: muito usado por restaurantes, comércios e condomínios.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Vocês entregam gás P45 em Campo Grande?</button>
+        <div class="faq-answer">
+          <p>Sim. Trabalhamos com gás P45 em Campo Grande/MS, ideal para restaurantes, cozinhas industriais, condomínios e comércios com alto consumo. Chame no WhatsApp para cotação.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Vocês atendem empresas e trabalham com gás industrial em Campo Grande MS?</button>
+        <div class="faq-answer">
+          <p>Sim. Atendemos empresas e demandas de maior consumo. Para agilizar, informe no WhatsApp: CNPJ/empresa, endereço e bairro, tipo de consumo (P45, frequência e quantidade).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Em quanto tempo chega a entrega de gás perto de mim?</button>
+        <div class="faq-answer">
+          <p>O tempo depende do bairro, trânsito e rota do entregador. Envie seu bairro no WhatsApp e receba o prazo estimado antes de fechar.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Quais são as formas de pagamento?</button>
+        <div class="faq-answer">
+          <p>Geralmente trabalhamos com Pix, Cartão de Crédito, Débito e Dinheiro. Confirme no WhatsApp no momento do pedido.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Preciso ter um botijão vazio para fazer a troca de gás?</button>
+        <div class="faq-answer">
+          <p>Na maioria dos casos, sim: funciona como troca do vasilhame vazio por um cheio. Se não tiver vasilhame, avise no WhatsApp para verificarmos a melhor opção.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">GLP (botijão) é a mesma coisa que gás natural?</button>
+        <div class="faq-answer">
+          <p>Não. O GLP é o gás do botijão (P13, P20, P45). O gás natural é fornecido por rede encanada. Se tiver dúvida, envie seu bairro no WhatsApp e a gente orienta.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA MEIO -->
+<div class="cta-meio">
+  <div class="cta-meio-btns">
+    <a class="btn-tel-branco" href="tel:06799333-0303">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      LIGUE (67) 99333-0303
+    </a>
+    <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.653-.518-5.16-1.419l-.37-.22-3.777.88.898-3.678-.242-.378A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Peça pelo WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- GÁS DO POVO -->
+<section class="gas-povo">
+  <div class="container">
+    <div class="gas-povo-inner">
+      <div class="gas-povo-img">
+        <img src="https://moskogas.com.br/wp-content/uploads/2026/02/gas-do-povo-campo-grande-ms.webp" alt="Distribuidora de Gás Credenciada Gás do Povo Campo Grande" width="350" height="333" loading="lazy">
+      </div>
+      <div class="gas-povo-text">
+        <h2>Distribuidora de Gás Credenciada Gás do Povo</h2>
+        <p>Atendemos famílias beneficiárias do <a href="https://moskogas.com.br/gas-do-povo-em-campo-grande-ms/" style="color:var(--azul-medio);font-weight:600;"><strong>Gás do Povo</strong></a> em Campo Grande/MS, com venda autorizada de gás de cozinha, orientação correta e transparência no atendimento.</p>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" style="display:inline-flex;">
+          ✅ Consulte disponibilidade e condições pelo WhatsApp.
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIÕES -->
+<section class="regioes">
+  <div class="container">
+    <h2 class="section-title">Atendemos todas as Regiões de Campo Grande</h2>
+    <p>Atendemos todas as regiões de Campo Grande/MS.<br>Para valores atualizados e disponibilidade, o contato pelo WhatsApp é o meio mais rápido.</p>
+    <div class="regioes-grid">
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-na-mata-do-jacinto/">Mata do Jacinto</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-santa-fe/">Santa Fé</a>
+      <a class="regiao-tag" href="#">Giocondo Orsi</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-no-futurista/">Futurista</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-no-damha/">Damha</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-chacara-cachoeira/">Chácara Cachoeira</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-caranda-bosque/">Carandá Bosque</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-caranda-bosque/">Autonomista</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-estrela-dalva/">Estrela Dalva</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-no-alphaville/">Alphaville</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-novos-estados/">Nova Lima</a>
+      <a class="regiao-tag" href="https://moskogas.com.br/gas-novos-estados/">Novos Estados</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="container">
+    <h2 class="section-title">Depoimentos de clientes satisfeitos em Campo Grande</h2>
+    <div class="google-badge">
+      <div class="google-logo">
+        <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+      </div>
+      <div class="estrelas-google">⭐⭐⭐⭐⭐</div>
+      <p class="avaliacoes-sub">Mais de 350 avaliações reais no Google</p>
+      <a class="ver-avaliacoes" href="https://www.google.com/maps?q=Mosko+G%C3%A1s+Campo+Grande+MS" target="_blank" rel="noopener">👉 Ver avaliações no Google</a>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-name">Carlos Silva</div>
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">Entrega super rápida, melhor distribuidora de gás em Campo Grande. Recomendo!</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#e53935;">A</div>
+          <div>
+            <div class="review-name">Ana Paula</div>
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">Pedi pelo WhatsApp, peça o gás e chegou em minutos. Sempre uso a Mosko Gás!</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#6a1b9a;">M</div>
+          <div>
+            <div class="review-name">Marcos Lima</div>
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <p class="review-text">Atendimento excelente, entrega rápida. Recomendo! Recomendo a Mosko Gás.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="https://moskogas.com.br/">Home</a>
+      <a href="https://moskogas.com.br/gas-de-cozinha/">Gás de Cozinha</a>
+      <a href="https://moskogas.com.br/gas-de-empilhadeiras-p20/">Gás de Empilhadeiras P20</a>
+      <a href="https://moskogas.com.br/whatsappgas/">Gás no WhatsApp (67) 99333-0303</a>
+      <a href="https://moskogas.com.br/gas-do-povo-em-campo-grande-ms/">Gás do Povo em Campo Grande – MS</a>
+      <a href="https://moskogas.com.br/disk-gas-em-campo-grande-ms/">Disk Gás em Campo Grande MS</a>
+      <a href="https://moskogas.com.br/gas-entrega-hoje-em-campo-grande-ms/">Gás Entrega hoje em Campo Grande MS</a>
+      <a href="https://moskogas.com.br/gas-mais-proximo-em-campo-grande-ms/">Gás mais Próximo em Campo Grande MS</a>
+      <a href="https://moskogas.com.br/vendas-corporativas/">Vendas Corporativas</a>
+      <a href="https://moskogas.com.br/contato/">Contato</a>
+      <a href="https://moskogas.com.br/blog/">Blog</a>
+      <a href="https://moskogas.com.br/sobre-a-mosko-gas/">Sobre a Mosko Gás</a>
+    </div>
+    <div class="footer-info">
+      <strong>Mosko Gás Distribuidora de Gás e Água Mineral</strong>
+      Av. Panamericana, 295 – Bairro Estrela Dalva<br>
+      CEP 79034-722 – Campo Grande – MS<br>
+      WhatsApp: (67) 99333-0303<br>
+      Telefone fixo: (67) 3026-5454<br>
+      CNPJ: 12.977.901/0001-17 — Revenda autorizada pela ANP — <a href="https://cdp.anp.gov.br/consulta-revendas-glp" style="color:#8fa0b4;text-decoration:underline;" target="_blank" rel="noopener">consultar registro oficial</a><br>
+      MoskoGás® – Marca registrada no INPI | Processo nº 912827599
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="https://moskogas.com.br/politica-de-privacidade/">Política de Privacidade</a>
+        <a href="https://moskogas.com.br/termos-de-uso-mosko-gas/">Termos de Uso</a>
+        <a href="https://moskogas.com.br/politica-de-cookies/">Política de Cookies</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/gasdecozinhaCampoGrandeMosko" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/moskogas/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="#0d1b2e"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#0d1b2e" stroke-width="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a class="float-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1,%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.653-.518-5.16-1.419l-.37-.22-3.777.88.898-3.678-.242-.378A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- FAQ ACCORDION + MOBILE MENU JS (inline, mínimo) -->
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+</script>
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mosko Gás",
+  "description": "Distribuidora de Gás de Cozinha e Água Mineral em Campo Grande MS. Entrega rápida de botijão P13, P20 e P45.",
+  "url": "https://moskogas.com.br",
+  "telephone": "+556799333-0303",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Panamericana, 295",
+    "addressLocality": "Campo Grande",
+    "addressRegion": "MS",
+    "postalCode": "79034-722",
+    "addressCountry": "BR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -20.4697,
+    "longitude": -54.6201
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "350"
+  }
+}
+</script>
+
+</body>
+</html>
