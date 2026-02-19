@@ -1,4 +1,4 @@
-const WORDPRESS_IP = 'http://origin.moskogas.com.br';
+const WORDPRESS_IP = 'https://origin.moskogas.com.br';
 
 // ✅ Adicione aqui cada página que já tem HTML pronto no repositório
 const PAGINAS_ESTATICAS = [
