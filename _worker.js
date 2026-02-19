@@ -1,6 +1,7 @@
-// _worker.js | Versão: 1.3.0 | Atualizado: 2026-02-19 | Descrição: origin via sh-pro88 hostgator https
+// _worker.js | Versão: 1.4.0 | Atualizado: 2026-02-19 | Descrição: fix loop redirect HTTP→HTTPS WordPress
 
-const ORIGIN = 'https://sh-pro88.hostgator.com.br';
+const ORIGIN_HTTP = 'http://origin.moskogas.com.br';
+const ORIGIN_HTTPS = 'https://sh-pro88.hostgator.com.br';
 const DOMINIO = 'moskogas.com.br';
 
 // ✅ Páginas com HTML pronto no repositório
@@ -14,6 +15,55 @@ const PAGINAS_ESTATICAS = [
   // '/sobre-a-mosko-gas/',
   // '/contato/',
 ];
+
+// Headers padrão para o WordPress entender que vem de HTTPS
+function wpHeaders(request) {
+  const h = new Headers(request.headers);
+  h.set('Host', DOMINIO);
+  h.set('X-Forwarded-Proto', 'https');
+  h.set('X-Forwarded-Host', DOMINIO);
+  h.set('X-Real-IP', request.headers.get('CF-Connecting-IP') || '');
+  return h;
+}
+
+async function fetchWordPress(pathname, search, request) {
+  // Tenta primeiro via HTTPS (sh-pro88) — evita redirect HTTP→HTTPS
+  const url = ORIGIN_HTTPS + pathname + (search || '');
+  
+  const req = new Request(url, {
+    method: request.method,
+    headers: wpHeaders(request),
+    body: ['GET', 'HEAD'].includes(request.method) ? undefined : request.body,
+    redirect: 'manual',
+  });
+
+  const response = await fetch(req);
+
+  // Se redirect, reescreve location para o domínio correto
+  if ([301, 302, 307, 308].includes(response.status)) {
+    const location = response.headers.get('location') || '';
+    // Se redireciona para o próprio site, segue internamente (evita loop)
+    if (location.includes(DOMINIO) || location.startsWith('/')) {
+      const newPath = location.replace('https://' + DOMINIO, '').replace('http://' + DOMINIO, '');
+      return fetchWordPress(newPath, '', request);
+    }
+    // Redirect externo — devolve para o browser
+    return new Response(null, {
+      status: response.status,
+      headers: { 'Location': location },
+    });
+  }
+
+  const newHeaders = new Headers(response.headers);
+  newHeaders.delete('x-frame-options');
+  newHeaders.delete('content-security-policy');
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: newHeaders,
+  });
+}
 
 export default {
   async fetch(request, env) {
@@ -31,50 +81,11 @@ export default {
       if (asset.status !== 404) return asset;
     }
 
-    // Passa para o WordPress via servidor HostGator
-    const wpUrl = ORIGIN + url.pathname + url.search;
-
-    const wpRequest = new Request(wpUrl, {
-      method: request.method,
-      headers: (() => {
-        const h = new Headers(request.headers);
-        h.set('Host', DOMINIO);
-        h.set('X-Forwarded-Proto', 'https');
-        h.set('X-Forwarded-Host', DOMINIO);
-        return h;
-      })(),
-      body: ['GET', 'HEAD'].includes(request.method) ? undefined : request.body,
-      redirect: 'manual',
-    });
-
+    // Passa para o WordPress
     try {
-      const response = await fetch(wpRequest);
-
-      // Reescreve redirects do WordPress para o domínio correto
-      if ([301, 302, 307, 308].includes(response.status)) {
-        const location = response.headers.get('location');
-        if (location) {
-          const newLocation = location
-            .replace(ORIGIN, 'https://' + DOMINIO)
-            .replace('http://' + DOMINIO, 'https://' + DOMINIO);
-          return new Response(null, {
-            status: response.status,
-            headers: { 'Location': newLocation },
-          });
-        }
-      }
-
-      const newHeaders = new Headers(response.headers);
-      newHeaders.delete('x-frame-options');
-
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: newHeaders,
-      });
-
+      return await fetchWordPress(url.pathname, url.search, request);
     } catch (err) {
-      return new Response('Erro: ' + err.message, { status: 502 });
+      return new Response('Erro ao conectar: ' + err.message, { status: 502 });
     }
   },
 };
