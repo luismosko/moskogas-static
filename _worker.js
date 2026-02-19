@@ -1,4 +1,4 @@
-const WORDPRESS_IP = 'http://162.241.62.186';
+const WORDPRESS_IP = 'http://sh-pro88.hostgator.com.br';
 
 // ✅ Adicione aqui cada página que já tem HTML pronto no repositório
 const PAGINAS_ESTATICAS = [
