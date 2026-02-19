@@ -1,4 +1,4 @@
-// _worker.js | Versão: 1.5.0 | Atualizado: 2026-02-19 | Descrição: origin.moskogas.com.br configurado e funcionando
+// _worker.js | Versão: 1.6.0 | Atualizado: 2026-02-19 | Descrição: não normaliza slash para rotas WordPress
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -18,21 +18,22 @@ const PAGINAS_ESTATICAS = [
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    let pathname = url.pathname;
+    const pathname = url.pathname;
 
-    // Normaliza barra no final (exceto arquivos com extensão)
-    if (!pathname.endsWith('/') && !pathname.includes('.')) {
-      pathname = pathname + '/';
+    // Normaliza barra APENAS para checar páginas estáticas
+    let pathnameNorm = pathname;
+    if (!pathnameNorm.endsWith('/') && !pathnameNorm.includes('.')) {
+      pathnameNorm = pathnameNorm + '/';
     }
 
     // Serve HTML estático do Cloudflare Pages
-    if (PAGINAS_ESTATICAS.includes(pathname)) {
+    if (PAGINAS_ESTATICAS.includes(pathnameNorm)) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }
 
-    // Passa para o WordPress via origin
-    const wpUrl = ORIGIN + url.pathname + url.search;
+    // Passa para o WordPress com pathname ORIGINAL (sem modificar)
+    const wpUrl = ORIGIN + pathname + url.search;
 
     const wpRequest = new Request(wpUrl, {
       method: request.method,
