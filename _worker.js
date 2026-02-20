@@ -11,7 +11,7 @@ const PAGINAS_ESTATICAS = [
   '/gas-industrial-campo-grande-ms/',
   '/agua-mineral-em-campo-grande-ms/',
   '/vendas-corporativas/',
-  // '/sobre-a-mosko-gas/',   ← temporariamente desativado para capturar conteúdo WP
+  '/sobre-a-mosko-gas/',
   // '/contato/',   ← ainda não criada
 ];
 
