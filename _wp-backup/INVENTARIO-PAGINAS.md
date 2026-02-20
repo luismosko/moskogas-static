@@ -1,113 +1,92 @@
-# INVENTÁRIO COMPLETO — 34 páginas publicadas no WordPress
-Fonte: WordPress Admin → Páginas (ambas as páginas da listagem)
-Atualizado: 2026-02-20
+# INVENTÁRIO DEFINITIVO — moskogas.com.br
+Fonte: sitemap page-sitemap.xml (Rank Math) — 2026-02-20
+Slugs 100% confirmados, ordenados por lastmod
 
 ## LEGENDA
-- ✅ EST = Convertida para HTML estático
+- ✅ EST = Convertida para HTML estático (Cloudflare Pages)
 - ⚠️ WP  = Ainda no WordPress (a converter)
+- 🗑️ ANT = Página antiga/duplicada — redirecionar ou ignorar
 - 🔒 WP  = Fica no WordPress para sempre
-- ❓ URL = Slug precisa ser confirmado
 
 ---
 
-## PÁGINAS PRINCIPAIS (já convertidas)
-| Título WP | URL | Data WP | Status |
-|---|---|---|---|
-| Home | / | 17/08/2021 | ✅ EST v3.2.0 |
-| Gás de Cozinha | /gas-de-cozinha/ | 16/08/2021 | ✅ EST v1.1.0 |
-| Gás Industrial P45 e P20 | /gas-industrial-campo-grande-ms/ | 27/01/2026 | ✅ EST v2.2.0 |
-| Gás P45 | /gas-p45/ | 01/02/2026 | ✅ EST v1.0.0 |
-| Água Mineral em Campo Grande MS | /agua-mineral-em-campo-grande-ms/ | 02/02/2026 | ✅ EST v2.1.0 |
-| Vendas Corporativas | /vendas-corporativas/ | 16/08/2021 | ✅ EST v2.2.0 |
-| Sobre a Mosko Gás | /sobre-a-mosko-gas/ | 11/01/2026 | ✅ EST v2.7.0 |
-| Contato | /contato/ | 16/08/2021 | ✅ EST v1.0.0 |
-
----
-
-## FASE 1 — Keywords de alto tráfego (converter com prioridade)
-| Título WP | URL | Data WP |
-|---|---|---|
-| Disk Gás em Campo Grande MS | /disk-gas-em-campo-grande-ms/ | 24/01/2026 |
-| Gás Entrega hoje em Campo Grande MS | /gas-entrega-hoje-em-campo-grande-ms/ | 25/01/2026 |
-| Gás no WhatsApp (67) 99333-0303 | /whatsappgas/ | 17/08/2021 |
-| Gás do Povo em Campo Grande – MS | /gas-do-povo-em-campo-grande-ms/ | 22/01/2026 |
-| Gás mais Próximo em Campo Grande MS | /gas-mais-proximo-em-campo-grande-ms/ | 24/01/2026 |
-
----
-
-## FASE 2 — Produtos (converter)
-| Título WP | URL | Data WP |
-|---|---|---|
-| Gás de Empilhadeiras P20 | /gas-de-empilhadeiras-p20/ | 25/01/2026 |
-| EMPILHADEIRA A GÁS: PRINCIPAIS CUIDADOS | /empilhadeira-a-gas-principais-cuidados/ ❓ | 17/08/2021 |
-| Glossário sobre Gás e Água Mineral | /glossario-sobre-gas-e-agua-mineral/ ❓ | 13/12/2023 |
-
----
-
-## FASE 3 — Páginas de Bairro (13 páginas — converter em lote)
-| Título WP | URL provável | Data WP |
-|---|---|---|
-| Gás no Carandá Bosque – Entrega Rápida | /gas-carandá-bosque/ ❓ | 22/01/2026 |
-| Gás no Giocondo Orsi – Entrega Rápida | /gas-giocondo-orsi/ ❓ | 22/01/2026 |
-| Gás no Autonomista | /gas-autonomista/ ❓ | 21/01/2026 |
-| Gás Estrela Dalva – Entrega Rápida | /gas-estrela-dalva/ | 22/01/2026 |
-| Gás Novos Estados – Entrega Rápida | /gas-novos-estados/ | 22/01/2026 |
-| Gás Nova Lima – Entrega Rápida | /gas-nova-lima/ ❓ | 22/01/2026 |
-| Gás na Mata do Jacinto | /gas-mata-do-jacinto/ ❓ | 25/02/2023 |
-| Gás Santa Fé – Entrega Rápida | /gas-santa-fe/ ❓ | 23/01/2026 |
-| Gás no Alphaville – Entrega Rápida | /gas-alphaville/ ❓ | 22/01/2026 |
-| Gás no Damha – Entrega Rápida | /gas-no-damha/ | 22/01/2026 |
-| Gás no Futurista – Entrega Rápida | /gas-futurista/ ❓ | 22/01/2026 |
-| Gás no Chácara Cachoeira – Entrega Rápida | /gas-chacara-cachoeira/ ❓ | 22/01/2026 |
-| Gás no Vivendas do Bosque | /gas-vivendas-do-bosque/ | 17/08/2021 |
-
----
-
-## FICAM NO WORDPRESS (não converter)
-| Título WP | Motivo |
+## PÁGINAS JÁ CONVERTIDAS ✅
+| URL | Última mod. WP |
 |---|---|
-| Blog | Sempre no WP |
-| Local Portfolio | Página interna WP |
+| / | 2026-02-02 |
+| /gas-de-cozinha/ | 2026-02-03 |
+| /gas-p45/ | 2026-02-03 |
+| /gas-industrial-campo-grande-ms/ | 2026-02-03 |
+| /agua-mineral-em-campo-grande-ms/ | 2026-02-03 |
+| /sobre-a-mosko-gas/ | 2026-01-25 |
+| /contato/ | 2022-05-14 |
+| /vendas-corporativas/ | 2021-08-17 |
 
 ---
 
-## PÁGINAS LEGAIS (baixa prioridade)
-| Título WP | URL |
+## FASE 1 — Keywords principais ⚠️ WP
+| URL | Última mod. WP |
 |---|---|
-| Política de Privacidade | /politica-de-privacidade/ |
-| Termos de Uso – Mosko Gás | /termos-de-uso-mosko-gas/ |
-| Política de Cookies | /politica-de-cookies/ |
+| /gas-na-mata-do-jacinto/ | 2026-02-02 |
+| /gas-entrega-hoje-em-campo-grande-ms/ | 2026-01-26 |
+| /disk-gas-em-campo-grande-ms/ | 2026-01-26 |
+| /gas-mais-proximo-em-campo-grande-ms/ | 2026-01-25 |
+| /gas-do-povo-em-campo-grande-ms/ | 2026-01-22 |
+| /whatsappgas/ | 2021-08-17 |
+| /gas-de-empilhadeiras-p20/ | 2026-02-03 |
 
 ---
 
-## REGRA OBRIGATÓRIA ANTES DE QUALQUER CONVERSÃO
+## FASE 2 — Bairros ⚠️ WP (13 páginas — slugs 100% confirmados)
+| URL | Bairro | Última mod. WP |
+|---|---|---|
+| /gas-novos-estados/ | Novos Estados | 2026-01-25 |
+| /gas-nova-lima/ | Nova Lima | 2026-01-25 |
+| /gas-no-giocondo-orsi/ | Giocondo Orsi | 2026-01-25 |
+| /gas-no-futurista/ | Futurista | 2026-01-25 |
+| /gas-no-damha/ | Damha | 2026-01-25 |
+| /gas-chacara-cachoeira/ | Chácara Cachoeira | 2026-01-25 |
+| /gas-caranda-bosque/ | Carandá Bosque | 2026-01-25 |
+| /gas-no-autonomista/ | Autonomista | 2026-01-25 |
+| /gas-no-alphaville/ | Alphaville | 2026-01-25 |
+| /gas-estrela-dalva/ | Estrela Dalva | 2026-01-25 |
+| /gas-santa-fe/ | Santa Fé | ❓ não aparece no sitemap |
+| /gas-vivendas-do-bosque/ | Vivendas do Bosque | 2021-08-17 |
+
+---
+
+## FASE 3 — Conteúdo informativo ⚠️ WP
+| URL | Última mod. WP |
+|---|---|
+| /glossario-sobre-gas-e-agua-mineral/ | 2023-12-13 |
+| /empilhadeira-a-gas-principais-cuidados/ | 2022-07-09 |
+
+---
+
+## PÁGINAS ANTIGAS — redirecionar para as novas 🗑️
+| URL antiga | Redirecionar para |
+|---|---|
+| /agua-mineral-distribuidora-antigo/ | /agua-mineral-em-campo-grande-ms/ |
+| /agua-mineral-campo-grande-ms-antigo/ | /agua-mineral-em-campo-grande-ms/ |
+| /gas-p45-antigo/ | /gas-p45/ |
+| /gas-entrega-hoje-em-campo-grande-ms-antigo/ | /gas-entrega-hoje-em-campo-grande-ms/ |
+
+---
+
+## FICAM NO WORDPRESS 🔒
+| URL | Motivo |
+|---|---|
+| /blog/ | Sempre no WP |
+| /local-portfolio/ | Página interna |
+| /politica-de-privacidade/ | Baixa prioridade |
+| /termos-de-uso-mosko-gas/ | Baixa prioridade |
+| /politica-de-cookies/ | Baixa prioridade |
+
+---
+
+## REGRA OBRIGATÓRIA — FLUXO DE CONVERSÃO
 1. Fetch da página no WP → salvar em _wp-backup/slug.md
 2. Adaptar ao template mantendo TODO o conteúdo original
 3. Mostrar PREVIEW aqui → aguardar aprovação do Luis
 4. Só após OK: commitar + ativar rota no _worker.js
 
-
----
-
-## SLUGS CONFIRMADOS — PÁGINAS DE BAIRRO
-Fonte: HTML do Elementor (widget de lista de bairros) — 2026-02-20
-
-| Bairro | URL Confirmada | Observação |
-|---|---|---|
-| Mata do Jacinto | /gas-na-mata-do-jacinto/ | ✅ |
-| Santa Fé | /gas-santa-fe/ | ✅ |
-| Giocondo Orsi | /gas-no-giocondo-orsi/ | ⚠️ URL quebrada no HTML (sem domínio) — confirmar |
-| Futurista | /gas-no-futurista/ | ✅ |
-| Damha | /gas-no-damha/ | ✅ |
-| Chácara Cachoeira | /gas-chacara-cachoeira/ | ✅ |
-| Carandá Bosque | /gas-caranda-bosque/ | ✅ |
-| Autonomista | /gas-caranda-bosque/ | ⚠️ MESMO SLUG que Carandá! Bug no WP — verificar |
-| Estrela Dalva | /gas-estrela-dalva/ | ✅ |
-| Alphaville | /gas-no-alphaville/ | ✅ |
-| Nova Lima | /gas-novos-estados/ | ⚠️ MESMO SLUG que Novos Estados! Bug no WP — verificar |
-| Novos Estados | /gas-novos-estados/ | ✅ |
-
-### BUGS IDENTIFICADOS NO ELEMENTOR
-1. Autonomista aponta para /gas-caranda-bosque/ — provavelmente tem página própria, slug errado no widget
-2. Nova Lima aponta para /gas-novos-estados/ — idem, verificar slug real
-3. Giocondo Orsi tem URL inválida (http://gas-no-giocondo-orsi/ sem domínio)
