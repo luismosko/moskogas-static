@@ -1,4 +1,4 @@
-// _worker.js | Versão: 1.9.0 | Atualizado: 2026-02-20 | Descrição: 5 novas páginas ativadas (p45, industrial, agua, corporativo, sobre)
+// _worker.js | Versão: 2.0.0 | Atualizado: 2026-02-20 | Descrição: reescrita de URLs no body WP para corrigir CSS/JS quebrado
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -75,6 +75,22 @@ export default {
       const newHeaders = new Headers(response.headers);
       newHeaders.delete('x-frame-options');
       newHeaders.delete('content-security-policy');
+
+      // Reescreve URLs no body HTML para trocar origin.moskogas.com.br → moskogas.com.br
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('text/html') || contentType.includes('text/css') || contentType.includes('javascript')) {
+        let body = await response.text();
+        body = body
+          .replace(/http:\/\/origin\.moskogas\.com\.br/g, 'https://moskogas.com.br')
+          .replace(/https:\/\/origin\.moskogas\.com\.br/g, 'https://moskogas.com.br')
+          .replace(/http:\/\/moskogas\.com\.br/g, 'https://moskogas.com.br');
+        newHeaders.delete('content-encoding'); // evita conflito com gzip após reescrita
+        return new Response(body, {
+          status: response.status,
+          statusText: response.statusText,
+          headers: newHeaders,
+        });
+      }
 
       return new Response(response.body, {
         status: response.status,
