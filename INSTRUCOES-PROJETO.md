@@ -170,3 +170,16 @@ Ao final de seções relevantes, adicionar um bloco de "Veja também":
   </div>
 </section>
 ```
+
+### Regra de imagem padrão (hero)
+- **Imagem padrão do hero:** `/images/Gas-24-horas-de-Cozinha.webp` — usar SEMPRE que não houver imagem específica
+- `entrega.webp` — apenas em seções internas ("como funciona", "sobre"), NUNCA no hero
+- Imagens corretas por tipo de página:
+  | Página | Hero |
+  |---|---|
+  | Gás cozinha, P13, disk gás, entrega hoje, mais próximo | `Gas-24-horas-de-Cozinha.webp` |
+  | Gás P45 / industrial | `p45-campo-grande-ms-moskogas-ultragaz.webp` |
+  | Gás P20 / empilhadeiras | `gas-p20-entrega-campo-grande.webp` |
+  | Água mineral | `Pedir-gas-Whatsaap.webp` ou URL do WP |
+  | Sobre / institucional | `Sobre-a-Mosko-Gas-Distribuidora-(...).webp` |
+  | Gás do Povo | `gas-do-povo-campo-grande-ms.webp` |
