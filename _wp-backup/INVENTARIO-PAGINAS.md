@@ -86,3 +86,28 @@ Atualizado: 2026-02-20
 3. Mostrar PREVIEW aqui → aguardar aprovação do Luis
 4. Só após OK: commitar + ativar rota no _worker.js
 
+
+---
+
+## SLUGS CONFIRMADOS — PÁGINAS DE BAIRRO
+Fonte: HTML do Elementor (widget de lista de bairros) — 2026-02-20
+
+| Bairro | URL Confirmada | Observação |
+|---|---|---|
+| Mata do Jacinto | /gas-na-mata-do-jacinto/ | ✅ |
+| Santa Fé | /gas-santa-fe/ | ✅ |
+| Giocondo Orsi | /gas-no-giocondo-orsi/ | ⚠️ URL quebrada no HTML (sem domínio) — confirmar |
+| Futurista | /gas-no-futurista/ | ✅ |
+| Damha | /gas-no-damha/ | ✅ |
+| Chácara Cachoeira | /gas-chacara-cachoeira/ | ✅ |
+| Carandá Bosque | /gas-caranda-bosque/ | ✅ |
+| Autonomista | /gas-caranda-bosque/ | ⚠️ MESMO SLUG que Carandá! Bug no WP — verificar |
+| Estrela Dalva | /gas-estrela-dalva/ | ✅ |
+| Alphaville | /gas-no-alphaville/ | ✅ |
+| Nova Lima | /gas-novos-estados/ | ⚠️ MESMO SLUG que Novos Estados! Bug no WP — verificar |
+| Novos Estados | /gas-novos-estados/ | ✅ |
+
+### BUGS IDENTIFICADOS NO ELEMENTOR
+1. Autonomista aponta para /gas-caranda-bosque/ — provavelmente tem página própria, slug errado no widget
+2. Nova Lima aponta para /gas-novos-estados/ — idem, verificar slug real
+3. Giocondo Orsi tem URL inválida (http://gas-no-giocondo-orsi/ sem domínio)
