@@ -1,58 +1,100 @@
 # INVENTÁRIO COMPLETO DE PÁGINAS — moskogas.com.br
-Levantado via Google + fetch em 2026-02-20
-Status: WP = no WordPress | EST = já convertida p/ estático
+Fonte: WordPress Admin → Páginas (34 publicadas + 1 rascunho)
+Atualizado: 2026-02-20
 
-## PÁGINAS PRINCIPAIS (nav)
-| URL | Título | Status |
-|---|---|---|
-| / | Gás de Cozinha em Campo Grande — Entrega Rápida Ultragaz | ✅ EST v3.2.0 |
-| /gas-de-cozinha/ | Gás de Cozinha P13 Com Entrega Rápida Em Campo Grande | ✅ EST v1.1.0 |
-| /gas-industrial-campo-grande-ms/ | Gás P45 e P20 Industrial Campo Grande MS | ✅ EST v2.2.0 |
-| /agua-mineral-em-campo-grande-ms/ | Água Mineral Campo Grande MS | ✅ EST v2.1.0 |
-| /vendas-corporativas/ | Vendas Corporativas | ✅ EST v2.2.0 |
-| /sobre-a-mosko-gas/ | Sobre a Mosko Gás | ✅ EST v2.7.0 |
-| /contato/ | Contato Mosko Gás | ✅ EST v1.0.0 |
-
-## PÁGINAS DE PRODUTO / SERVIÇO (WP — a converter)
-| URL | Título | Status |
-|---|---|---|
-| /gas-de-empilhadeira-p20/ | Gás de Empilhadeiras P20 | ⚠️ WP |
-| /gas-industrial/ | Gás Industrial P45 e P20 | ⚠️ WP |
-| /whatsappgas/ | Gás no WhatsApp (67) 99333-0303 | ⚠️ WP |
-| /disk-gas-em-campo-grande-ms/ | Disk Gás em Campo Grande MS | ⚠️ WP |
-| /gas-entrega-hoje-em-campo-grande-ms/ | Gás Entrega Hoje em Campo Grande MS | ⚠️ WP |
-| /gas-mais-proximo/ | Gás Mais Próximo em Campo Grande MS | ⚠️ WP |
-| /gas-mais-proximo-em-campo-grande-ms/ | (variante da acima?) | ⚠️ WP |
-| /gas-do-povo-em-campo-grande-ms/ | Gás do Povo em Campo Grande MS | ⚠️ WP |
-| /agua-mineral-distribuidora/ | Água Mineral (versão antiga) | ⚠️ WP |
-
-## PÁGINAS DE BAIRRO (WP — a converter)
-| URL | Bairro | Status |
-|---|---|---|
-| /gas-estrela-dalva/ | Estrela Dalva | ⚠️ WP |
-| /gas-novos-estados/ | Novos Estados | ⚠️ WP |
-| /gas-autonomista-e-giocondo-orsi/ | Autonomista e Giocondo Orsi | ⚠️ WP |
-| /gas-vivendas-do-bosque/ | Vivendas do Bosque | ⚠️ WP |
-| /gas-no-damha/ | Damha | ⚠️ WP |
-| (outras — confirmar com Luis) | ... | ❓ |
-
-## BLOG
-| URL | Status |
-|---|---|
-| /blog/ | Sempre no WP — NÃO converter |
-
-## PÁGINAS LEGAIS (WP — baixa prioridade)
-| URL | Status |
-|---|---|
-| /politica-de-privacidade/ | ⚠️ WP |
-| /termos-de-uso-mosko-gas/ | ⚠️ WP |
-| /politica-de-cookies/ | ⚠️ WP |
+## LEGENDA
+- ✅ EST = Convertida para HTML estático (Cloudflare Pages)
+- ⚠️ WP  = Ainda no WordPress (proxy via worker)
+- 🔒 WP  = Fica no WordPress para sempre (não converter)
+- ❓     = Verificar URL
 
 ---
-## PRIORIDADE DE CONVERSÃO SUGERIDA
-1. /gas-do-povo-em-campo-grande-ms/ — programa social, muita busca
-2. /disk-gas-em-campo-grande-ms/ — keyword forte
-3. /gas-entrega-hoje-em-campo-grande-ms/ — keyword forte
-4. /whatsappgas/ — converte muita busca
-5. /gas-de-empilhadeira-p20/ — produto específico
-6. Páginas de bairro (em lote)
+
+## PÁGINAS PRINCIPAIS (nav)
+| Título WP | URL | Status |
+|---|---|---|
+| Home | / | ✅ EST v3.2.0 |
+| Gás de Cozinha | /gas-de-cozinha/ | ✅ EST v1.1.0 |
+| Gás Industrial P45 e P20 | /gas-industrial-campo-grande-ms/ | ✅ EST v2.2.0 |
+| Gás P45 | /gas-p45/ | ✅ EST v1.0.0 |
+| Água Mineral em Campo Grande MS | /agua-mineral-em-campo-grande-ms/ | ✅ EST v2.1.0 |
+| Vendas Corporativas | /vendas-corporativas/ | ✅ EST v2.2.0 |
+| Sobre a Mosko Gás | /sobre-a-mosko-gas/ | ✅ EST v2.7.0 |
+| Contato | /contato/ | ✅ EST v1.0.0 |
+
+---
+
+## PÁGINAS DE PRODUTO / KEYWORD (WP — converter com prioridade)
+| Título WP | URL provável | Prioridade |
+|---|---|---|
+| Gás do Povo em Campo Grande – MS | /gas-do-povo-em-campo-grande-ms/ | 🔴 Alta |
+| Disk Gás em Campo Grande MS | /disk-gas-em-campo-grande-ms/ | 🔴 Alta |
+| Gás Entrega hoje em Campo Grande MS | /gas-entrega-hoje-em-campo-grande-ms/ | 🔴 Alta |
+| Gás no WhatsApp (67) 99333-0303 | /whatsappgas/ | 🔴 Alta |
+| Gás mais Próximo em Campo Grande MS | /gas-mais-proximo-em-campo-grande-ms/ | 🟡 Média |
+| Gás de Empilhadeiras P20 | /gas-de-empilhadeiras-p20/ | 🟡 Média |
+| EMPILHADEIRA A GÁS: PRINCIPAIS CUIDADOS | /empilhadeira-a-gas-principais-cuidados/ | 🟢 Baixa |
+| Glossário sobre Gás e Água Mineral | /glossario-sobre-gas-e-agua-mineral/ | 🟢 Baixa |
+
+---
+
+## PÁGINAS DE BAIRRO (WP — converter em lote)
+| Título WP | URL provável |
+|---|---|
+| Gás no Carandá Bosque – Entrega Rápida | /gas-carandá-bosque/ ❓ |
+| Gás no Giocondo Orsi – Entrega Rápida | /gas-giocondo-orsi/ ❓ |
+| Gás no Autonomista | /gas-autonomista/ ❓ |
+| Gás Estrela Dalva – Entrega Rápida | /gas-estrela-dalva/ |
+| Gás Novos Estados – Entrega Rápida | /gas-novos-estados/ |
+| Gás Nova Lima – Entrega Rápida | /gas-nova-lima/ ❓ |
+| Gás na Mata do Jacinto | /gas-mata-do-jacinto/ ❓ |
+| Gás Santa Fé – Entrega Rápida | /gas-santa-fe/ ❓ |
+| Gás no Alphaville – Entrega Rápida | /gas-alphaville/ ❓ |
+| Gás no Damha – Entrega Rápida | /gas-no-damha/ |
+| Gás no Futurista – Entrega Rápida | /gas-futurista/ ❓ |
+| Gás no Chácara Cachoeira – Entrega Rápida | /gas-chacara-cachoeira/ ❓ |
+| Gás no Vivendas do Bosque | /gas-vivendas-do-bosque/ |
+
+---
+
+## PÁGINAS LEGAIS (WP — baixa prioridade)
+| Título WP | URL |
+|---|---|
+| Política de Privacidade | /politica-de-privacidade/ |
+| Termos de Uso – Mosko Gás | /termos-de-uso-mosko-gas/ |
+| Política de Cookies | /politica-de-cookies/ |
+
+---
+
+## PÁGINAS QUE FICAM NO WORDPRESS (não converter)
+| Título WP | Motivo |
+|---|---|
+| Blog | Sempre no WP |
+| Local Portfolio | Interno |
+| Home (WP) | Substituída pela estática |
+
+---
+
+## ORDEM DE CONVERSÃO RECOMENDADA
+### Fase 1 — Keywords de alto tráfego
+1. /disk-gas-em-campo-grande-ms/
+2. /gas-entrega-hoje-em-campo-grande-ms/
+3. /whatsappgas/
+4. /gas-do-povo-em-campo-grande-ms/
+5. /gas-mais-proximo-em-campo-grande-ms/
+
+### Fase 2 — Produtos
+6. /gas-de-empilhadeiras-p20/
+
+### Fase 3 — Bairros (lote — 13 páginas)
+7-19. Todas as páginas de bairro
+
+### Fase 4 — Legais (opcional)
+20-22. Privacidade, Termos, Cookies
+
+---
+## REGRA: FLUXO OBRIGATÓRIO ANTES DE QUALQUER CONVERSÃO
+1. fetch da página no WP → salvar em _wp-backup/slug.md
+2. Adaptar ao template → mostrar PREVIEW aqui no chat
+3. Aguardar APROVAÇÃO do Luis
+4. Só então commitar e ativar rota no worker
