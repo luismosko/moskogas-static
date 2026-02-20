@@ -68,9 +68,10 @@
     .produtos{padding:60px 20px;background:#fff}
     .produtos .container{text-align:center}
     .prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
-    .prod-card{background:var(--cinza-bg);border-radius:var(--radius);border:1.5px solid var(--borda);overflow:hidden;text-align:center;transition:.2s}
+    .prod-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--borda);overflow:hidden;text-align:center;transition:.2s}
     .prod-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,48,135,.1)}
-    .prod-img{background:var(--azul-claro);padding:30px;font-size:64px}
+    .prod-img{background:var(--azul-claro);padding:20px;min-height:180px;display:flex;align-items:center;justify-content:center}
+    .prod-img img{height:160px;width:auto;object-fit:contain}
     .prod-body{padding:20px}
     .prod-tag{display:inline-block;background:var(--azul);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--radius-btn);margin-bottom:8px}
     .prod-body h3{font-size:17px;font-weight:800;color:var(--azul);margin-bottom:6px}
@@ -201,30 +202,57 @@
     <p class="section-sub">Escolha o formato ideal para o seu consumo diário</p>
     <div class="prod-grid">
       <div class="prod-card">
-        <div class="prod-img">💧</div>
+        <div class="prod-img"><img src="/images/galao-20-litros-agua-mineral-campo-grande-moskogas.webp" alt="Galão 20 Litros Água Mineral Campo Grande" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-tag">Mais pedido</span>
           <h3>Galão 20 Litros</h3>
-          <p>Ideal para residências, escritórios e uso diário. Compatível com bebedouros de garrafão. Produto lacrado e puro.</p>
+          <p>Ideal para residências, escritórios e bebedouros. Produto lacrado, puro, entrega rápida.</p>
           <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20gal%C3%A3o%20de%20%C3%A1gua%20mineral%2020L" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Galão 20L</a>
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">📦</div>
+        <div class="prod-img"><img src="/images/galao-5-litros-agua-mineral-campo-grande-moskogas.webp" alt="Garrafão 5 Litros Descartável Água Mineral Campo Grande" loading="lazy"></div>
         <div class="prod-body">
-          <span class="prod-tag">Para empresas</span>
-          <h3>Caixa de Garrafinhas</h3>
-          <p>Para escritórios, eventos e pontos de venda. Garrafinhas individuais práticas para o dia a dia.</p>
-          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20caixa%20de%20%C3%A1gua%20mineral" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Consultar Disponibilidade</a>
+          <span class="prod-tag">Descartável</span>
+          <h3>Garrafão 5 Litros</h3>
+          <p>Embalagem descartável, prática para viagens, eventos e uso pontual. Sem necessidade de troca de vasilhame.</p>
+          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20garraf%C3%A3o%205%20litros%20descart%C3%A1vel" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Garrafão 5L</a>
         </div>
       </div>
       <div class="prod-card">
-        <div class="prod-img">🤝</div>
+        <div class="prod-img"><img src="/images/garrafa-500ml-sem-gas-agua-mineral-campo-grande-moskogas.webp" alt="Garrafa 500ml Sem Gás Água Mineral Campo Grande" loading="lazy"></div>
         <div class="prod-body">
-          <span class="prod-tag">Combo</span>
-          <h3>Gás + Água Mineral</h3>
-          <p>Peça gás de cozinha e água mineral no mesmo pedido. Praticidade e economia na mesma entrega.</p>
-          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20e%20%C3%A1gua%20mineral%20juntos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Combo Gás + Água</a>
+          <span class="prod-tag">Fardo c/ 12</span>
+          <h3>Garrafa 500ml Sem Gás</h3>
+          <p>Garrafa individual sem gás Por do Sol. Vendida em fardo com 12 garrafas. Ideal para escritórios e eventos.</p>
+          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20fardo%20garrafa%20500ml%20sem%20g%C3%A1s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Fardo 500ml</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="/images/garrafa-500ml-com-gas-agua-mineral-campo-grande-moskogas.webp" alt="Garrafa 500ml Com Gás Água Mineral Campo Grande" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-tag">Fardo c/ 12</span>
+          <h3>Garrafa 500ml Com Gás</h3>
+          <p>Água mineral gaseificada em garrafa 500ml Por do Sol. Fardo com 12 garrafas. Refrescante e prática.</p>
+          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20fardo%20garrafa%20500ml%20com%20g%C3%A1s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Fardo 500ml c/ Gás</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="/images/copo-200ml-agua-mineral-campo-grande-moskogas.webp" alt="Copo 200ml Água Mineral Campo Grande" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-tag">Caixa c/ 48</span>
+          <h3>Copo 200ml</h3>
+          <p>Água mineral em copo 200ml Por do Sol. Caixa com 48 copos. Ideal para restaurantes, clínicas e eventos.</p>
+          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20copo%20200ml%20%C3%A1gua%20mineral%20caixa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir Copo 200ml</a>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img"><img src="/images/garrafa-1-5-litros-com-gas-agua-mineral-campo-grande-moskogas.webp" alt="Garrafa 1,5 Litros Com Gás Água Mineral Campo Grande" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-tag">Fardo c/ 6</span>
+          <h3>Garrafa 1,5L Com Gás</h3>
+          <p>Garrafa 1,5 litros gaseificada Por do Sol. Fardo com 6 garrafas. Para mesa de restaurante e eventos.</p>
+          <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20fardo%20garrafa%201%2C5L%20com%20g%C3%A1s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Pedir 1,5L c/ Gás</a>
         </div>
       </div>
     </div>
