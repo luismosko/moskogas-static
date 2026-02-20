@@ -26,6 +26,7 @@ const PAGINAS_ESTATICAS = [
   '/vendas-corporativas/',
   '/sobre-a-mosko-gas/',
   '/contato/',
+  '/gas-do-povo-em-campo-grande-ms/',
 ];
 
 // Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
