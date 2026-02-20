@@ -1,0 +1,23 @@
+[17/Aug/2021:03:47:31] (I): WordPress Instance Info:
+[17/Aug/2021:03:47:31] (I): Home URL : https://moskogas.aguamineralcampogrande.com.br
+[17/Aug/2021:03:47:31] (I): Site URL : https://moskogas.aguamineralcampogrande.com.br
+[17/Aug/2021:03:47:31] (I): WordPress Version : 5.8
+[17/Aug/2021:03:47:31] (I): Onboarding Version : 1.1.16
+[17/Aug/2021:03:47:31] (I): Multisite : No
+[17/Aug/2021:03:47:31] (I): Server Info : Apache
+[17/Aug/2021:03:47:31] (I): PHP Version : 7.4.22
+[17/Aug/2021:03:47:31] (I): HTTPS : Yes
+[17/Aug/2021:03:47:31] (I): PHP Max Execution Time : 30
+[17/Aug/2021:03:47:31] (I): PHP Max Input Vars : 1000
+[17/Aug/2021:03:47:31] (I): Max Upload Size : 536870912
+[17/Aug/2021:03:47:31] (I): Plugins:
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Accelerated Mobile Pages : v1.0.77.19 (Ahmed Kaludi, Mohammed Kaludi)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Elementor Pro : v3.3.6 (Elementor.com)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Elementor : v3.4.0 (Elementor.com)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Injection Guard : v1.2.0 (Fahad Mahmood)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Loginizer : v1.6.7 (Softaculous)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] PWA for WP : v1.7.36 (Magazine3)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Sucuri Security - Auditing, Malware Scanner and Hardening : v1.8.28 (Sucuri Inc.)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Templates Patterns Collection : v1.1.16 (ThemeIsle)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Wordfence Security : v7.5.5 (Wordfence)
+[17/Aug/2021:03:47:31] (I): [PLUGIN] Yoast SEO : v16.9 (Team Yoast)
