@@ -1,4 +1,4 @@
-// _worker.js | Versão: 1.8.0 | Atualizado: 2026-02-19 | Descrição: rota /gas-de-cozinha/ ativada
+// _worker.js | Versão: 1.9.0 | Atualizado: 2026-02-20 | Descrição: 5 novas páginas ativadas (p45, industrial, agua, corporativo, sobre)
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -7,12 +7,12 @@ const DOMINIO = 'moskogas.com.br';
 const PAGINAS_ESTATICAS = [
   '/',
   '/gas-de-cozinha/',
-  // '/gas-p45/',
-  // '/gas-industrial-campo-grande-ms/',
-  // '/agua-mineral-em-campo-grande-ms/',
-  // '/vendas-corporativas/',
-  // '/sobre-a-mosko-gas/',
-  // '/contato/',
+  '/gas-p45/',
+  '/gas-industrial-campo-grande-ms/',
+  '/agua-mineral-em-campo-grande-ms/',
+  '/vendas-corporativas/',
+  '/sobre-a-mosko-gas/',
+  // '/contato/',   ← ainda não criada
 ];
 
 // Extensões de arquivos estáticos — sempre servidos pelo Cloudflare Pages
