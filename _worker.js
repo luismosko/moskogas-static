@@ -1,4 +1,4 @@
-// _worker.js | Versão: 1.6.0 | Atualizado: 2026-02-19 | Descrição: não normaliza slash para rotas WordPress
+// _worker.js | Versão: 1.7.0 | Atualizado: 2026-02-20 | Descrição: arquivos estáticos (imagens/css/js) sempre pelo Cloudflare
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -15,10 +15,19 @@ const PAGINAS_ESTATICAS = [
   // '/contato/',
 ];
 
+// Extensões de arquivos estáticos — sempre servidos pelo Cloudflare Pages
+const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|ttf|pdf|txt|xml|json)$/i;
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+
+    // Serve arquivos estáticos (imagens, fontes, etc) direto pelo Cloudflare
+    if (EXTENSOES_ESTATICAS.test(pathname)) {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
+    }
 
     // Normaliza barra APENAS para checar páginas estáticas
     let pathnameNorm = pathname;
