@@ -28,6 +28,7 @@ const PAGINAS_ESTATICAS = [
   '/contato/',
   '/gas-do-povo-em-campo-grande-ms/',
   '/disk-gas-em-campo-grande-ms/',
+  '/gas-entrega-hoje-em-campo-grande-ms/',
 ];
 
 // Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
