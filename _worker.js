@@ -1,6 +1,19 @@
-// _worker.js | Versão: 2.1.0 | Atualizado: 2026-02-20 | Descrição: fix sitemap — .xml removido de estáticos + reescrita de URLs em XML
+// _worker.js | Versão: 2.2.0 | Atualizado: 2026-02-20 | Descrição: redirects 301 para páginas -antigo + fix sitemap XML
 
 const ORIGIN = 'http://origin.moskogas.com.br';
+
+// 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
+const REDIRECTS_301 = {
+  '/agua-mineral-distribuidora-antigo/':               '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms-antigo/':             '/agua-mineral-em-campo-grande-ms/',
+  '/gas-p45-antigo/':                                  '/gas-p45/',
+  '/gas-entrega-hoje-em-campo-grande-ms-antigo/':      '/gas-entrega-hoje-em-campo-grande-ms/',
+  // slugs antigos sem trailing slash (segurança)
+  '/agua-mineral-distribuidora-antigo':                '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms-antigo':              '/agua-mineral-em-campo-grande-ms/',
+  '/gas-p45-antigo':                                   '/gas-p45/',
+  '/gas-entrega-hoje-em-campo-grande-ms-antigo':       '/gas-entrega-hoje-em-campo-grande-ms/',
+};
 const DOMINIO = 'moskogas.com.br';
 
 // ✅ Páginas com HTML pronto no repositório
@@ -23,6 +36,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+
+    // 301 permanentes — redireciona páginas antigas antes de qualquer outra lógica
+    if (REDIRECTS_301[pathname]) {
+      return Response.redirect('https://moskogas.com.br' + REDIRECTS_301[pathname], 301);
+    }
 
     // Serve arquivos estáticos (imagens, fontes, etc) direto pelo Cloudflare
     if (EXTENSOES_ESTATICAS.test(pathname)) {
