@@ -51,6 +51,9 @@ export default {
         h.set('Host', DOMINIO);
         h.set('X-Forwarded-Proto', 'https');
         h.set('X-Forwarded-Host', DOMINIO);
+        h.delete('accept-encoding'); // força resposta sem gzip — evita conflito na reescrita
+        h.delete('cf-connecting-ip');
+        h.delete('cf-ipcountry');
         return h;
       })(),
       body: ['GET', 'HEAD'].includes(request.method) ? undefined : request.body,
