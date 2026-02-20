@@ -141,3 +141,32 @@ Ao final de seções relevantes, adicionar um bloco de "Veja também":
 15. <script>         → FAQ + hamburger + carregarMapa()
 16. Schema JSON-LD   → LocalBusiness + FAQPage
 ```
+
+---
+
+## CORREÇÃO APLICADA EM 2026-02-20
+
+- Substituir "Na sua porta" por **"Na sua casa"** em todos os cards de preço de entrega
+- Mapa Google Maps: usar iframe com `loading="lazy"` nativo (não click-to-load) — carrega ao rolar, não pesa no LCP, e mantém o sinal geográfico para SEO local
+- Avaliações (review-cards): sempre adaptar os textos para referenciar o produto/serviço da página em questão
+
+### Código padrão do mapa (iframe lazy nativo — substituir o click-to-load)
+```html
+<section class="mapa-section" style="background:#fff;padding:40px 20px">
+  <div class="container" style="text-align:center">
+    <h2 class="section-title" style="margin-bottom:8px">Onde estamos</h2>
+    <p style="color:var(--cinza-sub);font-size:15px;margin-bottom:20px">
+      Av. Panamericana, 295 – Estrela Dalva – Campo Grande/MS
+    </p>
+    <div style="width:100%;max-width:900px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--borda)">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.34!2d-54.64003!3d-20.45500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e9271f3df10d%3A0x5c53b1e81df51e02!2sMosko%20G%C3%A1s!5e0!3m2!1spt-BR!2sbr!4v1"
+        width="100%" height="350" style="border:0;display:block"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mosko Gás — Localização em Campo Grande MS">
+      </iframe>
+    </div>
+  </div>
+</section>
+```
