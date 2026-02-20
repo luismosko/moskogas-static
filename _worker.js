@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.0.0 | Atualizado: 2026-02-20 | Descrição: reescrita de URLs no body WP para corrigir CSS/JS quebrado
+// _worker.js | Versão: 2.1.0 | Atualizado: 2026-02-20 | Descrição: fix sitemap — .xml removido de estáticos + reescrita de URLs em XML
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -16,7 +16,8 @@ const PAGINAS_ESTATICAS = [
 ];
 
 // Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
-const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|pdf|txt|xml)$/i;
+// .xml REMOVIDO — sitemaps e feeds XML devem sempre proxiar para o WordPress
+const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|pdf|txt)$/i;
 
 export default {
   async fetch(request, env) {
@@ -81,7 +82,7 @@ export default {
 
       // Reescreve URLs no body HTML para trocar origin.moskogas.com.br → moskogas.com.br
       const contentType = response.headers.get('content-type') || '';
-      if (contentType.includes('text/html') || contentType.includes('text/css') || contentType.includes('javascript')) {
+      if (contentType.includes('text/html') || contentType.includes('text/css') || contentType.includes('javascript') || contentType.includes('text/xml') || contentType.includes('application/xml')) {
         let body = await response.text();
         body = body
           .replace(/http:\/\/origin\.moskogas\.com\.br/g, 'https://moskogas.com.br')
