@@ -15,8 +15,8 @@ const PAGINAS_ESTATICAS = [
   // '/contato/',   ← ainda não criada
 ];
 
-// Extensões de arquivos estáticos — sempre servidos pelo Cloudflare Pages
-const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|ttf|pdf|txt|xml|json)$/i;
+// Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
+const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|pdf|txt|xml)$/i;
 
 export default {
   async fetch(request, env) {
