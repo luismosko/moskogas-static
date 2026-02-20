@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<!--
+  gas-de-cozinha/index.html | Versão: 1.0.0 | Atualizado: 2026-02-19 | Descrição: Página dedicada gás de cozinha P13 Campo Grande — SEO focado, preços, bairros, FAQs
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 103,99 | Mosko Gás Ultragaz</title>
+  <meta name="description" content="Gás de cozinha P13 em Campo Grande MS. R$ 103,99 na portaria ou R$ 124,90 com entrega. Revenda autorizada Ultragaz. 350 avaliações 5 estrelas. Peça pelo WhatsApp (67) 99333-0303.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://moskogas.com.br/gas-de-cozinha/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gás de Cozinha em Campo Grande MS — Mosko Gás Ultragaz">
+  <meta property="og:description" content="Botijão P13 R$ 103,99 na portaria. Revenda autorizada Ultragaz com 350 avaliações 5 estrelas.">
+  <meta property="og:url" content="https://moskogas.com.br/gas-de-cozinha/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --azul:#003087;--azul-medio:#1565c0;--azul-claro:#e8f0fe;
+      --verde-wpp:#25a244;--laranja:#FF6B00;
+      --cinza-texto:#374151;--cinza-sub:#6b7280;--borda:#e5e7eb;
+      --footer:#0d1b2e;--radius:14px;--radius-btn:50px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--cinza-texto);background:#fff;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* TOPBAR */
+    .topbar{background:var(--azul);padding:9px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+    .topbar-left{color:rgba(255,255,255,.85);font-size:12px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .topbar-left span{display:flex;align-items:center;gap:5px}
+    .topbar a{color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px;padding:6px 18px;background:var(--verde-wpp);border-radius:var(--radius-btn)}
+
+    /* NAV */
+    nav{background:#fff;border-bottom:1px solid var(--borda);padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.06)}
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;color:var(--azul);font-family:'Montserrat',sans-serif}
+    .logo svg{width:34px;height:34px}
+    .nav-links{display:flex;gap:4px}
+    .nav-links a{color:var(--cinza-texto);font-size:13px;font-weight:500;padding:7px 12px;border-radius:var(--radius-btn);transition:.2s;white-space:nowrap}
+    .nav-links a:hover,.nav-links a.active{background:var(--azul-claro);color:var(--azul)}
+    .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:13px;padding:9px 20px;border-radius:var(--radius-btn)}
+
+    /* HERO */
+    .hero{background:linear-gradient(130deg,#001A4D 0%,#003087 55%,#0055CC 100%);padding:56px 20px 48px;overflow:hidden;position:relative}
+    .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:rgba(255,255,255,.03);border-radius:50%}
+    .hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:48px}
+    .hero-text{flex:1;max-width:620px}
+    .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:var(--radius-btn);margin-bottom:18px;letter-spacing:.03em}
+    .hero-text h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
+    .hero-text h1 span{color:#7EC8FF}
+    .hero-text p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:22px;line-height:1.65}
+
+    /* CARD PREÇOS */
+    .preco-card{display:inline-flex;align-items:stretch;gap:0;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:var(--radius);margin-bottom:24px;overflow:hidden;flex-wrap:wrap}
+    .preco-item{padding:16px 24px;display:flex;flex-direction:column;gap:3px}
+    .preco-item+.preco-item{border-left:1px solid rgba(255,255,255,.2)}
+    .preco-label{color:rgba(255,255,255,.65);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+    .preco-valor{color:#fff;font-size:1.9rem;font-weight:900;line-height:1;font-family:'Montserrat',sans-serif}
+    .preco-valor sup{font-size:.9rem;vertical-align:top;margin-top:4px}
+    .preco-valor span{font-size:1rem}
+    .preco-tag{font-size:11px;font-weight:600;margin-top:1px}
+    .preco-tag.promo{color:#7EC8FF}
+    .preco-tag.normal{color:rgba(255,255,255,.6)}
+
+    .hero-rating{display:flex;align-items:center;gap:10px;margin-bottom:26px;background:rgba(255,255,255,.08);border-radius:var(--radius-btn);padding:8px 16px;width:fit-content}
+    .hero-stars{font-size:14px}
+    .hero-rating-txt{color:rgba(255,255,255,.9);font-size:12px;font-weight:600}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:var(--radius-btn);transition:.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+    .btn-wpp:hover{background:#1ebe5a;transform:translateY(-1px)}
+    .btn-wpp svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-weight:600;font-size:15px;padding:13px 24px;border-radius:var(--radius-btn);border:2px solid rgba(255,255,255,.5);transition:.2s}
+    .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .hero-img{flex-shrink:0}
+    .hero-img img{height:300px;width:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));animation:float 4s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    /* URGÊNCIA */
+    .urgencia{background:var(--laranja);padding:13px 20px;text-align:center}
+    .urgencia p{color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .urgencia a{color:#fff;background:rgba(0,0,0,.2);padding:5px 16px;border-radius:var(--radius-btn);font-weight:800}
+
+    /* BADGES */
+    .badges{background:#f8faff;border-bottom:1px solid var(--borda);padding:14px 20px}
+    .badges-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+    .badge-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--azul);padding:6px 14px;background:#fff;border:1px solid #c5d8ff;border-radius:var(--radius-btn)}
+    .badge-item svg{width:15px;height:15px;fill:var(--azul);flex-shrink:0}
+
+    /* SEÇÃO PADRÃO */
+    .section{padding:64px 20px}
+    .section-alt{background:#f8faff}
+    .section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.3rem,2.5vw,1.9rem);font-weight:800;color:var(--azul);margin-bottom:10px;letter-spacing:-.01em}
+    .section-sub{color:var(--cinza-sub);font-size:15px;margin-bottom:40px}
+    .text-center{text-align:center}
+
+    /* COMO PEDIR */
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin-top:40px}
+    .step{background:#fff;border:1px solid var(--borda);border-radius:var(--radius);padding:28px 24px;text-align:center;position:relative}
+    .step-num{width:38px;height:38px;background:var(--azul);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin:0 auto 14px}
+    .step h3{font-size:15px;font-weight:700;color:var(--azul);margin-bottom:8px}
+    .step p{font-size:13px;color:var(--cinza-sub);line-height:1.55}
+
+    /* PRODUTO DESTAQUE */
+    .produto-box{background:linear-gradient(135deg,#f0f6ff,#e8f0fe);border:2px solid #c5d8ff;border-radius:var(--radius);padding:40px;display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+    .produto-img{flex-shrink:0}
+    .produto-img img{height:220px;width:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.15))}
+    .produto-info{flex:1;min-width:280px}
+    .produto-tag{display:inline-block;background:var(--azul);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:var(--radius-btn);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+    .produto-info h2{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:800;color:var(--azul);margin-bottom:10px}
+    .produto-info p{font-size:14px;color:var(--cinza-sub);line-height:1.65;margin-bottom:20px}
+    .produto-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+    .spec-item{background:#fff;border-radius:10px;padding:10px 14px;border:1px solid var(--borda)}
+    .spec-label{font-size:10px;font-weight:700;color:var(--cinza-sub);text-transform:uppercase;letter-spacing:.06em}
+    .spec-val{font-size:14px;font-weight:700;color:var(--azul)}
+
+    /* BAIRROS */
+    .bairros-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .bairro-tag{background:#fff;border:1.5px solid #c5d8ff;color:var(--azul-medio);font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--radius-btn)}
+
+    /* DEPOIMENTOS */
+    .depo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .depo-card{background:#fff;border:1px solid var(--borda);border-radius:var(--radius);padding:24px}
+    .depo-stars{font-size:14px;margin-bottom:10px}
+    .depo-text{font-size:14px;color:var(--cinza-texto);line-height:1.6;margin-bottom:14px;font-style:italic}
+    .depo-autor{font-size:13px;font-weight:700;color:var(--azul)}
+    .depo-local{font-size:12px;color:var(--cinza-sub)}
+
+    /* FAQ */
+    .faq-list{max-width:760px;margin:0 auto}
+    .faq-item{border:1px solid var(--borda);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+    .faq-btn{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-size:15px;font-weight:700;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Inter',sans-serif}
+    .faq-btn::after{content:'+';font-size:22px;font-weight:400;color:var(--azul-medio);flex-shrink:0;transition:transform .3s}
+    .faq-item.open .faq-btn::after{transform:rotate(45deg)}
+    .faq-body{display:none;padding:0 22px 18px;font-size:14px;color:var(--cinza-sub);line-height:1.7}
+    .faq-item.open .faq-body{display:block}
+
+    /* CTA FINAL */
+    .cta-final{background:linear-gradient(130deg,#001A4D,#003087);padding:64px 20px;text-align:center}
+    .cta-final h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#fff;margin-bottom:12px}
+    .cta-final p{color:rgba(255,255,255,.8);font-size:15px;margin-bottom:32px}
+    .cta-final .btn-wpp{font-size:17px;padding:16px 36px}
+
+    /* FOOTER */
+    footer{background:var(--footer);padding:40px 20px 24px;color:rgba(255,255,255,.6);font-size:13px}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-brand .logo{color:#fff;margin-bottom:10px}
+    .footer-brand p{font-size:13px;line-height:1.6;max-width:280px}
+    .footer-col h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+    .footer-col a{display:block;margin-bottom:8px;color:rgba(255,255,255,.6);font-size:13px;transition:.2s}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{max-width:1100px;margin:20px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
+
+    /* WPP FLOAT */
+    .wpp-float{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:center;gap:10px}
+    .wpp-float a{display:flex;align-items:center;justify-content:center;width:58px;height:58px;background:var(--verde-wpp);border-radius:50%;box-shadow:0 4px 20px rgba(37,162,68,.45);transition:.2s}
+    .wpp-float a:hover{transform:scale(1.08)}
+    .wpp-float svg{width:30px;height:30px;fill:#fff}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      .hero-inner{flex-direction:column;text-align:center}
+      .hero-btns{justify-content:center}
+      .hero-img{display:none}
+      .hero-rating{margin:0 auto 26px}
+      .preco-card{justify-content:center}
+      .produto-box{flex-direction:column;text-align:center;padding:28px 20px}
+      .produto-img{display:none}
+      .produto-specs{grid-template-columns:1fr 1fr}
+      .topbar-left{display:none}
+      .nav-links{display:none}
+      .footer-inner{flex-direction:column}
+    }
+  </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Mosko Gás — Revenda Autorizada Ultragaz",
+        "description": "Revenda autorizada de gás de cozinha P13 em Campo Grande MS. Botijão Ultragaz com entrega rápida.",
+        "url": "https://moskogas.com.br/gas-de-cozinha/",
+        "telephone": "+5567993330303",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Panamericana, 295",
+          "addressLocality": "Campo Grande",
+          "addressRegion": "MS",
+          "postalCode": "79037-072",
+          "addressCountry": "BR"
+        },
+        "geo": {"@type": "GeoCoordinates","latitude": -20.4697,"longitude": -54.6201},
+        "openingHours": "Mo-Sa 07:00-18:30",
+        "priceRange": "R$103,99 - R$124,90",
+        "aggregateRating": {"@type": "AggregateRating","ratingValue": "5","reviewCount": "350"},
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Gás de Cozinha",
+          "itemListElement": [
+            {"@type": "Offer","name": "Botijão P13 na Portaria","price": "103.99","priceCurrency": "BRL"},
+            {"@type": "Offer","name": "Botijão P13 com Entrega","price": "124.90","priceCurrency": "BRL"}
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question","name": "Qual o preço do gás de cozinha P13 em Campo Grande?","acceptedAnswer": {"@type": "Answer","text": "Na Mosko Gás, o botijão P13 está R$ 103,99 na portaria (preço promocional) ou R$ 124,90 com entrega na sua casa. Somos revendedor autorizado Ultragaz."}},
+          {"@type": "Question","name": "Quanto tempo demora a entrega do gás?","acceptedAnswer": {"@type": "Answer","text": "A entrega de gás de cozinha em Campo Grande é rápida, geralmente em poucos minutos após o pedido, dependendo do bairro e horário. Atendemos de segunda a sábado das 7h às 18h30."}},
+          {"@type": "Question","name": "Quais bairros vocês atendem em Campo Grande?","acceptedAnswer": {"@type": "Answer","text": "Atendemos Carandá Bosque, Giocondo Orsi, Estrela Dalva, Autonomista, Vila Rica, Santa Fé, Centro, Jardim dos Estados, Vila Margarida, Novos Estados, Mata do Jacinto, Nova Lima, Jardim Presidente e outras regiões de Campo Grande MS."}},
+          {"@type": "Question","name": "O botijão de gás vem lacrado e certificado?","acceptedAnswer": {"@type": "Answer","text": "Sim. Todo botijão P13 da Mosko Gás é entregue lacrado, com selo de qualidade Ultragaz e certificação INMETRO. Trabalhamos somente com produtos que atendem todas as normas de segurança da ANP."}},
+          {"@type": "Question","name": "Quais formas de pagamento vocês aceitam?","acceptedAnswer": {"@type": "Answer","text": "Aceitamos Pix, dinheiro, cartão de crédito e débito. O pagamento é feito no momento da entrega, sem taxas escondidas."}},
+          {"@type": "Question","name": "Quanto dura um botijão de gás P13?","acceptedAnswer": {"@type": "Answer","text": "Para uma família de 4 pessoas, o botijão P13 dura em média 40 a 60 dias de uso normal (somente fogão). Para casas com aquecedor a gás, o consumo é maior e pode durar menos de 30 dias."}},
+          {"@type": "Question","name": "Como faço o pedido de gás de cozinha?","acceptedAnswer": {"@type": "Answer","text": "É simples: mande mensagem no WhatsApp (67) 99333-0303 com seu endereço. Nosso atendimento funciona de segunda a sábado, das 7h às 18h30."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+      Campo Grande, MS
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="2" fill="none"/></svg>
+      Seg–Sáb 7h às 18h30
+    </span>
+    <span>⭐ 350 avaliações 5 estrelas no Google</span>
+  </div>
+  <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20de%20cozinha!" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    Pedir Agora
+  </a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#003087"/><text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-weight="900" font-family="Montserrat,sans-serif">M</text></svg>
+      Mosko Gás
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/gas-de-cozinha/" class="active">Gás de Cozinha</a>
+      <a href="/gas-p45/">Gás Industrial</a>
+      <a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a>
+      <a href="/contato/">Contato</a>
+    </div>
+    <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20de%20cozinha!" class="nav-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      Pedir pelo WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="#7EC8FF"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Revenda Autorizada Ultragaz — Campo Grande/MS
+      </div>
+      <h1><span>Gás de Cozinha em Campo Grande</span> — Botijão P13 com Entrega Rápida</h1>
+      <p>Botijão P13 lacrado, qualidade Ultragaz, nota fiscal garantida. Peça pelo WhatsApp e receba no seu endereço em Campo Grande.</p>
+
+      <div class="preco-card">
+        <div class="preco-item">
+          <div class="preco-label">P13 na Portaria</div>
+          <div class="preco-valor"><sup>R$</sup> 103<span>,99</span></div>
+          <div class="preco-tag promo">⚡ Preço promocional</div>
+        </div>
+        <div class="preco-item">
+          <div class="preco-label">P13 com Entrega</div>
+          <div class="preco-valor"><sup>R$</sup> 124<span>,90</span></div>
+          <div class="preco-tag normal">Na sua porta</div>
+        </div>
+      </div>
+
+      <div class="hero-rating">
+        <span class="hero-stars">⭐⭐⭐⭐⭐</span>
+        <span class="hero-rating-txt">350 avaliações reais no Google</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20de%20cozinha%20P13!" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          Pedir Gás de Cozinha Agora
+        </a>
+        <a class="btn-outline" href="tel:6799333-0303">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          (67) 99333-0303
+        </a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="/images/Gas-24-horas-de-Cozinha.webp" alt="Botijão de Gás de Cozinha P13 Ultragaz Campo Grande MS" width="300" height="250" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- URGÊNCIA -->
+<div class="urgencia">
+  <p>
+    🔥 Acabou o gás no meio do preparo da comida? A Mosko Gás resolve!
+    <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20acabou%20meu%20g%C3%A1s%2C%20preciso%20urgente!" target="_blank" rel="noopener">👉 Pedir Agora pelo WhatsApp</a>
+  </p>
+</div>
+
+<!-- BADGES -->
+<div class="badges">
+  <div class="badges-inner">
+    <div class="badge-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Revenda Autorizada ANP</div>
+    <div class="badge-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Distribuidora Oficial Ultragaz</div>
+    <div class="badge-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>Toda Campo Grande/MS</div>
+    <div class="badge-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke="#003087" stroke-width="2" fill="none"/></svg>Seg–Sáb 7h às 18h30</div>
+    <div class="badge-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>350 avaliações 5 estrelas</div>
+  </div>
+</div>
+
+<!-- PRODUTO DESTAQUE -->
+<section class="section">
+  <div class="container">
+    <div class="produto-box">
+      <div class="produto-img">
+        <img src="/images/Gas-24-horas-de-Cozinha.webp" alt="Botijão P13 Ultragaz" width="200" height="220" loading="lazy">
+      </div>
+      <div class="produto-info">
+        <div class="produto-tag">Produto mais vendido</div>
+        <h2>Botijão de Gás de Cozinha P13 — Ultragaz</h2>
+        <p>O botijão P13 é o gás de cozinha mais utilizado nas residências brasileiras. Com 13kg de GLP, é ideal para fogões residenciais e aquecedores. Todo botijão Ultragaz vem lacrado, com plugue fusível de segurança e certificação INMETRO.</p>
+        <div class="produto-specs">
+          <div class="spec-item"><div class="spec-label">Peso</div><div class="spec-val">13 kg de GLP</div></div>
+          <div class="spec-item"><div class="spec-label">Duração média</div><div class="spec-val">40 a 60 dias</div></div>
+          <div class="spec-item"><div class="spec-label">Na portaria</div><div class="spec-val">R$ 103,99 ⚡</div></div>
+          <div class="spec-item"><div class="spec-label">Com entrega</div><div class="spec-val">R$ 124,90</div></div>
+          <div class="spec-item"><div class="spec-label">Marca</div><div class="spec-val">Ultragaz</div></div>
+          <div class="spec-item"><div class="spec-label">Certificação</div><div class="spec-val">INMETRO / ANP</div></div>
+        </div>
+        <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20um%20bot%C3%ABj%C3%A3o%20P13!" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#fff"/></svg>
+          Pedir P13 pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO PEDIR -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title text-center">Como pedir gás de cozinha em Campo Grande</h2>
+    <p class="section-sub text-center">Em 3 passos simples, seu botijão P13 chega até você</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Mande mensagem no WhatsApp</h3>
+        <p>Envie seu endereço pelo WhatsApp (67) 99333-0303. Atendemos de seg a sáb, das 7h às 18h30.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Confirmamos o pedido</h3>
+        <p>Nossa equipe confirma disponibilidade, informa o tempo estimado e as formas de pagamento aceitas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Entrega rápida ou retire</h3>
+        <p>Receba na sua porta por R$ 124,90 ou retire na portaria por R$ 103,99. Botijão lacrado e com nota fiscal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAIRROS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Bairros atendidos com entrega de gás em Campo Grande</h2>
+    <p class="section-sub">Entregamos gás de cozinha P13 nas principais regiões de Campo Grande MS</p>
+    <div class="bairros-grid">
+      <span class="bairro-tag">Carandá Bosque</span>
+      <span class="bairro-tag">Giocondo Orsi</span>
+      <span class="bairro-tag">Estrela Dalva</span>
+      <span class="bairro-tag">Autonomista</span>
+      <span class="bairro-tag">Vila Rica</span>
+      <span class="bairro-tag">Santa Fé</span>
+      <span class="bairro-tag">Centro</span>
+      <span class="bairro-tag">Jardim dos Estados</span>
+      <span class="bairro-tag">Vila Margarida</span>
+      <span class="bairro-tag">Novos Estados</span>
+      <span class="bairro-tag">Mata do Jacinto</span>
+      <span class="bairro-tag">Vila Nascente</span>
+      <span class="bairro-tag">Nova Lima</span>
+      <span class="bairro-tag">Jardim Presidente</span>
+      <span class="bairro-tag">Columbia</span>
+      <span class="bairro-tag">Chácara Cachoeira</span>
+      <span class="bairro-tag">Monte Castelo</span>
+      <span class="bairro-tag">São Francisco</span>
+      <span class="bairro-tag">Universitário</span>
+      <span class="bairro-tag">e toda Campo Grande/MS</span>
+    </div>
+    <p style="margin-top:20px;font-size:14px;color:var(--cinza-sub)">Não encontrou seu bairro? <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20saber%20se%20entregam%20no%20meu%20bairro" target="_blank" style="color:var(--azul-medio);font-weight:600">Consulte pelo WhatsApp →</a></p>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title text-center">O que nossos clientes dizem</h2>
+    <p class="section-sub text-center">350 avaliações 5 estrelas no Google — veja o que falam da Mosko Gás</p>
+    <div class="depo-grid">
+      <div class="depo-card">
+        <div class="depo-stars">⭐⭐⭐⭐⭐</div>
+        <p class="depo-text">"Ótima distribuidora de gás em Campo Grande. Entregam no Carandá Bosque e Giocondo Orsi com rapidez. Recomendo!"</p>
+        <div class="depo-autor">Cliente Google</div>
+        <div class="depo-local">Carandá Bosque — Campo Grande/MS</div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">⭐⭐⭐⭐⭐</div>
+        <p class="depo-text">"Excelente atendimento e o melhor preço do gás! Melhor distribuidora de gás de Campo Grande. Recomendo a todos!"</p>
+        <div class="depo-autor">Cliente Google</div>
+        <div class="depo-local">Campo Grande/MS</div>
+      </div>
+      <div class="depo-card">
+        <div class="depo-stars">⭐⭐⭐⭐⭐</div>
+        <p class="depo-text">"Foi minha primeira compra e pode ter certeza que vocês ganharam uma cliente. Atendimento rápido e excelente do início ao fim!"</p>
+        <div class="depo-autor">Cliente Google</div>
+        <div class="depo-local">Estrela Dalva — Campo Grande/MS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title text-center">Perguntas frequentes sobre gás de cozinha em Campo Grande</h2>
+    <p class="section-sub text-center">Dúvidas sobre o botijão P13, preço, entrega e segurança</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn">Qual o preço do gás de cozinha P13 em Campo Grande?</button>
+        <div class="faq-body">Na Mosko Gás, o botijão P13 Ultragaz está <strong>R$ 103,99 na portaria</strong> (preço promocional para retirada) ou <strong>R$ 124,90 com entrega</strong> no seu endereço em Campo Grande. Consulte disponibilidade pelo WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Qual o horário de atendimento da Mosko Gás?</button>
+        <div class="faq-body">Atendemos de <strong>segunda a sábado, das 7h às 18h30</strong>, em Campo Grande MS. Pedidos via WhatsApp (67) 99333-0303.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Quais bairros de Campo Grande vocês atendem?</button>
+        <div class="faq-body">Atendemos Carandá Bosque, Giocondo Orsi, Estrela Dalva, Autonomista, Vila Rica, Santa Fé, Centro, Jardim dos Estados, Vila Margarida, Novos Estados, Mata do Jacinto, Nova Lima, Jardim Presidente, Columbia, Chácara Cachoeira e várias outras regiões de Campo Grande/MS. Consulte seu bairro pelo WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">O botijão P13 é entregue lacrado e com nota fiscal?</button>
+        <div class="faq-body">Sim. Todo botijão P13 Ultragaz da Mosko Gás é entregue <strong>lacrado de fábrica</strong>, com nota fiscal eletrônica e certificação INMETRO. Somos revendedor autorizado pela ANP (CNPJ 12.977.901/0001-17).</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Quais formas de pagamento vocês aceitam?</button>
+        <div class="faq-body">Aceitamos <strong>Pix, dinheiro, cartão de crédito e cartão de débito</strong>. O pagamento é realizado no momento da entrega ou na retirada, sem taxas adicionais.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Quanto tempo dura um botijão de gás P13?</button>
+        <div class="faq-body">Para uma família de 4 pessoas usando apenas o fogão, o botijão P13 dura em média <strong>40 a 60 dias</strong>. Casas com aquecedor a gás consomem mais, podendo durar entre 20 a 30 dias. Para calcular, leve em conta quantos queimadores você usa e com qual frequência.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Como faço para pedir gás de cozinha pela Mosko Gás?</button>
+        <div class="faq-body">É simples: mande uma mensagem no <strong>WhatsApp (67) 99333-0303</strong> com seu endereço completo. Confirmamos o pedido, informamos o tempo estimado e entregamos na sua porta. Atendemos de segunda a sábado das 7h às 18h30.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">A Mosko Gás é uma revenda autorizada?</button>
+        <div class="faq-body">Sim. A Mosko Gás é <strong>revendedor autorizado Ultragaz</strong> e possui registro na ANP (Agência Nacional do Petróleo), CNPJ 12.977.901/0001-17. Todos os nossos produtos seguem as normas de segurança vigentes.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Precisa de gás de cozinha em Campo Grande?</h2>
+    <p>Botijão P13 Ultragaz lacrado — R$ 103,99 na portaria ou R$ 124,90 com entrega. Seg–Sáb das 7h às 18h30.</p>
+    <a class="btn-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20de%20cozinha%20P13!" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#fff"/></svg>
+      Pedir Gás de Cozinha Agora
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo" style="color:#fff;margin-bottom:10px">
+        <svg viewBox="0 0 40 40" fill="none" width="34" height="34"><circle cx="20" cy="20" r="20" fill="rgba(255,255,255,.1)"/><text x="20" y="26" text-anchor="middle" fill="#fff" font-size="16" font-weight="900" font-family="Montserrat,sans-serif">M</text></svg>
+        Mosko Gás
+      </div>
+      <p>Revenda autorizada Ultragaz em Campo Grande/MS desde 1995. CNPJ 12.977.901/0001-17</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produtos</h4>
+      <a href="/gas-de-cozinha/">Gás de Cozinha P13</a>
+      <a href="/gas-p45/">Gás Industrial P45</a>
+      <a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/+5567993330303" target="_blank">(67) 99333-0303 — WhatsApp</a>
+      <a href="https://maps.google.com/?q=Av+Panamericana,295+Campo+Grande" target="_blank">Av. Panamericana, 295 — Estrela Dalva</a>
+      <a>Seg–Sáb 7h às 18h30</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mosko Gás Ltda — Todos os direitos reservados</span>
+    <span>Revenda Autorizada Ultragaz — ANP/INMETRO</span>
+  </div>
+</footer>
+
+<!-- WPP FLOAT -->
+<div class="wpp-float">
+  <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s%20de%20cozinha!" target="_blank" rel="noopener" aria-label="WhatsApp Mosko Gás">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

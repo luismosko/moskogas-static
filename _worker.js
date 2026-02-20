@@ -1,4 +1,4 @@
-// _worker.js | Versão: 1.7.0 | Atualizado: 2026-02-20 | Descrição: arquivos estáticos (imagens/css/js) sempre pelo Cloudflare
+// _worker.js | Versão: 1.8.0 | Atualizado: 2026-02-19 | Descrição: rota /gas-de-cozinha/ ativada
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 const DOMINIO = 'moskogas.com.br';
@@ -6,7 +6,7 @@ const DOMINIO = 'moskogas.com.br';
 // ✅ Páginas com HTML pronto no repositório
 const PAGINAS_ESTATICAS = [
   '/',
-  // '/gas-de-cozinha/',
+  '/gas-de-cozinha/',
   // '/gas-p45/',
   // '/gas-industrial-campo-grande-ms/',
   // '/agua-mineral-em-campo-grande-ms/',
