@@ -12,7 +12,7 @@ const PAGINAS_ESTATICAS = [
   '/agua-mineral-em-campo-grande-ms/',
   '/vendas-corporativas/',
   '/sobre-a-mosko-gas/',
-  // '/contato/',   ← ainda não criada
+  '/contato/',
 ];
 
 // Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
