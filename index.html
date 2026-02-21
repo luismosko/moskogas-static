@@ -216,6 +216,11 @@
       .topbar{flex-direction:column;align-items:center;gap:8px}
       .float-wpp{bottom:18px;right:18px;width:52px;height:52px}
     }
+  
+    .onde-entregamos{padding:60px 20px;background:var(--cinza-bg)}
+    .bairros-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px}
+    .bairro-link{background:#fff;color:var(--azul-medio);font-size:13px;font-weight:600;padding:7px 16px;border-radius:var(--radius-btn);border:1.5px solid var(--borda);transition:.2s;text-decoration:none}
+    .bairro-link:hover{background:var(--azul);color:#fff;border-color:var(--azul)}
   </style>
 </head>
 <body>
@@ -270,22 +275,23 @@
       </div>
       <h1><span>Gás de Cozinha em Campo Grande</span> — Entrega Rápida Ultragaz</h1>
       <p>Botijão P13 com <strong style="color:#fff">qualidade Ultragaz, entrega ágil e preço justo.</strong> Seg a Sáb das 7h às 18h30.</p>
-      <div style="display:inline-flex;align-items:center;gap:18px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 22px;margin-bottom:22px;flex-wrap:wrap">
-        <div>
+      <div style="display:inline-flex;align-items:center;gap:0;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;margin-bottom:14px;overflow:hidden">
+        <div style="padding:14px 22px">
           <div style="color:rgba(255,255,255,.7);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px">P13 na Portaria</div>
           <div style="color:#fff;font-size:2rem;font-weight:900;line-height:1">R$ 103<span style="font-size:1.1rem">,99</span></div>
-          <div style="color:#7EC8FF;font-size:11px;font-weight:600;margin-top:2px">⚡ Preço promocional — retire na loja</div>
+          <div style="color:#7EC8FF;font-size:11px;font-weight:600;margin-top:2px">⚡ Preço promocional</div>
         </div>
-        <div style="width:1px;height:48px;background:rgba(255,255,255,.2)"></div>
-        <div>
+        <div style="width:1px;align-self:stretch;background:rgba(255,255,255,.2)"></div>
+        <div style="padding:14px 22px">
           <div style="color:rgba(255,255,255,.7);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px">P13 com Entrega</div>
           <div style="color:#fff;font-size:2rem;font-weight:900;line-height:1">R$ 124<span style="font-size:1.1rem">,90</span></div>
-          <div style="color:rgba(255,255,255,.6);font-size:11px;font-weight:600;margin-top:2px">Direto na sua porta</div>
+          <div style="color:rgba(255,255,255,.6);font-size:11px;font-weight:600;margin-top:2px">Na sua porta</div>
         </div>
-        <div style="width:1px;height:48px;background:rgba(255,255,255,.2)"></div>
-        <div style="color:rgba(255,255,255,.85);font-size:13px;line-height:1.55">
-          Botijão lacrado<br>Qualidade Ultragaz<br>Nota fiscal garantida
-        </div>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px">
+        <span style="color:rgba(255,255,255,.85);font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7EC8FF" stroke-width="2"/><path d="M7 12l3.5 3.5L17 9" stroke="#7EC8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Botijão lacrado</span>
+        <span style="color:rgba(255,255,255,.85);font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7EC8FF" stroke-width="2"/><path d="M7 12l3.5 3.5L17 9" stroke="#7EC8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Qualidade Ultragaz</span>
+        <span style="color:rgba(255,255,255,.85);font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#7EC8FF" stroke-width="2"/><path d="M7 12l3.5 3.5L17 9" stroke="#7EC8FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Nota fiscal garantida</span>
       </div>
       <div class="hero-rating">
         <span class="hero-stars">⭐⭐⭐⭐⭐</span>
