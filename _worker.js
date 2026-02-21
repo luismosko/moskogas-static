@@ -18,6 +18,24 @@ const DOMINIO = 'moskogas.com.br';
 
 // ✅ Páginas com HTML pronto no repositório
 const PAGINAS_ESTATICAS = [
+  '/blog/',
+  '/blog/o-que-e-o-gas-de-cozinha-ou-glp/',
+  '/blog/como-saber-se-o-gas-esta-acabando/',
+  '/blog/onde-instalar-o-gas-de-cozinha/',
+  '/blog/nao-e-so-no-fogao-conheca-3-utilidades-do-gas-de-cozinha/',
+  '/blog/como-utilizar-o-gas-de-cozinha-de-maneira-correta-em-seu-comercio/',
+  '/blog/5-receitas-para-voce-economizar-gas-de-cozinha/',
+  '/blog/gas-de-cozinha-ou-gas-p45/',
+  '/blog/vantagens-de-utilizar-o-gas-glp/',
+  '/blog/gas-p45-saiba-como-armazenar-cilindro-de-gas/',
+  '/blog/gas-p20-tudo-o-que-voce-precisa-saber-sobre-o-gas-para-empilhadeira/',
+  '/blog/nem-diesel-nem-gasolina-conheca-as-vantagens-do-gas-para-empilhadeira/',
+  '/blog/gas-liquefeito-de-petroleo-glp-a-vantagem-competitiva-para-hoteis-e-pousadas/',
+  '/blog/agua-mineral-com-gas-por-que-servir-no-seu-restaurante/',
+  '/blog/agua-mineral-de-onde-vem-a-agua-que-bebemos/',
+  '/blog/agua-mineral-qual-a-melhor-forma-de-servir-no-meu-estabelecimento/',
+  '/blog/por-que-voce-deve-beber-agua-mineral-e-quais-sao-seus-beneficios/',
+  '/blog/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
   '/',
   '/gas-de-cozinha/',
   '/gas-p45/',
@@ -151,6 +169,19 @@ export default {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }
+
+
+    // Redirects: posts antigos com emoji no slug → páginas estáticas
+    const REDIRECTS = {
+      '/%f0%9f%94%a5-gas-de-cozinha-no-jardim-veraneio-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-jardim-veraneio/',
+      '/%f0%9f%94%a5-gas-de-cozinha-nos-novos-estados-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-novos-estados/',
+      '/%f0%9f%94%a5-gas-de-cozinha-no-estrela-dalva-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-estrela-dalva/',
+      '/%f0%9f%94%a5-gas-de-cozinha-no-mata-do-jacinto-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-na-mata-do-jacinto/',
+      '/%f0%9f%94%a5-entrega-de-gas-no-coronel-antonino-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-coronel-antonino/',
+      '/%f0%9f%94%a5-gas-de-cozinha-no-danubio-azul-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-danubio-azul/',
+    };
+    const redirDest = REDIRECTS[pathname.toLowerCase()];
+    if (redirDest) return Response.redirect('https://' + DOMINIO + redirDest, 301);
 
     // Passa para o WordPress com pathname ORIGINAL (sem modificar)
     const wpUrl = ORIGIN + pathname + url.search;
