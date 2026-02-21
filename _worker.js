@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.2.0 | Atualizado: 2026-02-20 | Descrição: redirects 301 para páginas -antigo + fix sitemap XML
+// _worker.js | Versão: 2.3.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -150,6 +150,12 @@ export default {
     // 301 permanentes — redireciona páginas antigas antes de qualquer outra lógica
     if (REDIRECTS_301[pathname]) {
       return Response.redirect('https://moskogas.com.br' + REDIRECTS_301[pathname], 301);
+    }
+
+    // Serve sitemap.xml estático (tem prioridade sobre o do WordPress)
+    if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
     }
 
     // Serve arquivos estáticos (imagens, fontes, etc) direto pelo Cloudflare
