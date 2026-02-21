@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.3.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
+// _worker.js | Versão: 2.4.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -152,10 +152,15 @@ export default {
       return Response.redirect('https://moskogas.com.br' + REDIRECTS_301[pathname], 301);
     }
 
-    // Serve sitemap.xml estático (tem prioridade sobre o do WordPress)
+    // Serve sitemap.xml e robots.txt estáticos (prioridade sobre WordPress)
     if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
       const asset = await env.ASSETS.fetch(request);
-      if (asset.status !== 404) return asset;
+      if (asset.status !== 404) {
+        const h = new Headers(asset.headers);
+        h.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+        h.set('Content-Type', pathname.endsWith('.xml') ? 'application/xml; charset=utf-8' : 'text/plain');
+        return new Response(asset.body, { status: asset.status, headers: h });
+      }
     }
 
     // Serve arquivos estáticos (imagens, fontes, etc) direto pelo Cloudflare
