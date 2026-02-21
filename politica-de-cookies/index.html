@@ -1,0 +1,188 @@
+<!--
+  politica-de-cookies/index.html | Versão: 1.0.0 | Atualizado: 2026-02-21 | Descrição: Política de Cookies — Layout novo
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies | Mosko Gás</title>
+  <meta name="description" content="Política de Cookies da Mosko Gás Distribuidora. CNPJ 12.977.901/0001-17 — Campo Grande/MS.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://moskogas.com.br/politica-de-cookies/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--azul:#003087;--azul-medio:#0055CC;--azul-claro:#E8F0FD;--ciano:#00AEEF;--verde-limao:#8DC63F;--verde-wpp:#25D366;--cinza-bg:#F4F6FA;--cinza-texto:#333;--cinza-sub:#666;--borda:#E0E7F3;--footer-bg:#001A4D;--radius:14px;--radius-btn:50px}
+    body{font-family:'Inter',sans-serif;color:var(--cinza-texto);line-height:1.7;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    .topbar{background:var(--azul);padding:8px 20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .topbar a{color:#fff;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;padding:6px 18px;border-radius:var(--radius-btn);transition:.2s}
+    .topbar a.t-tel{border:1.5px solid rgba(255,255,255,.4)}.topbar a.t-tel:hover{background:rgba(255,255,255,.1)}
+    .topbar a.t-wpp{background:var(--verde-wpp)}.topbar a.t-wpp:hover{background:#1ebe5a}
+    .topbar svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+    header{background:#fff;border-bottom:1.5px solid var(--borda);position:sticky;top:0;z-index:100}
+    nav{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo img{height:50px;width:auto}
+    .nav-links{display:flex;list-style:none;gap:2px}
+    .nav-links a{color:var(--cinza-texto);font-size:14px;font-weight:500;padding:7px 14px;border-radius:var(--radius-btn);white-space:nowrap}
+    .nav-links a:hover{background:var(--azul-claro);color:var(--azul-medio)}
+    .nav-links .n-wpp{background:var(--verde-wpp);color:#fff;font-weight:700;padding:8px 18px;margin-left:6px}
+    .nav-links .n-wpp:hover{background:#1ebe5a;color:#fff}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:26px;height:3px;background:var(--azul);border-radius:3px}
+    .mobile-menu{display:none;background:#fff;border-top:1px solid var(--borda);padding:12px 20px 18px}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:10px 0;color:var(--azul);font-weight:600;border-bottom:1px solid #f0f0f0;font-size:15px}
+    .page-hero{background:linear-gradient(130deg,#001A4D 0%,#003087 100%);padding:40px 20px}
+    .page-hero .container{max-width:860px;margin:0 auto}
+    .breadcrumb{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:12px}
+    .breadcrumb a{color:rgba(255,255,255,.7);font-weight:500}
+    .breadcrumb a:hover{color:#fff}
+    .page-hero h1{color:#fff;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;line-height:1.2}
+    .page-hero .updated{color:rgba(255,255,255,.55);font-size:13px;margin-top:8px}
+    .page-body{padding:48px 20px 60px;background:#fff}
+    .page-body .container{max-width:860px;margin:0 auto}
+    .page-body h2{font-size:1.15rem;font-weight:800;color:var(--azul);margin:36px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--azul-claro)}
+    .page-body h3{font-size:1rem;font-weight:700;color:var(--azul-medio);margin:24px 0 8px}
+    .page-body p{margin-bottom:14px;font-size:15px;color:#444;line-height:1.75}
+    .page-body ul,.page-body ol{margin:0 0 16px 24px}
+    .page-body li{margin-bottom:8px;font-size:15px;color:#444;line-height:1.65}
+    .page-body strong{color:var(--azul);font-weight:700}
+    .page-body a{color:var(--azul-medio);text-decoration:underline}
+    .page-body hr{border:none;border-top:1px solid var(--borda);margin:32px 0}
+    .contact-box{background:var(--azul-claro);border:1.5px solid #c5d8ff;border-radius:var(--radius);padding:24px 28px;margin:32px 0}
+    .contact-box h3{color:var(--azul);font-size:1rem;font-weight:800;margin-bottom:10px}
+    .contact-box p{margin:0;font-size:14px;color:var(--cinza-sub)}
+    .contact-box a{color:var(--azul-medio);font-weight:700}
+    footer{background:var(--footer-bg);padding:40px 20px 20px;color:rgba(255,255,255,.7)}
+    .footer-inner{max-width:1180px;margin:0 auto}
+    .footer-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-nav a{color:rgba(255,255,255,.55);font-size:13px}.footer-nav a:hover{color:#fff}
+    .footer-info{font-size:13px;line-height:1.8;color:rgba(255,255,255,.6);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-info strong{color:#fff;font-size:15px;display:block;margin-bottom:4px}
+    .footer-legal{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-legal a{color:rgba(255,255,255,.5);font-size:12px}.footer-legal a:hover{color:#fff}
+    .float-wpp{position:fixed;bottom:28px;right:28px;width:58px;height:58px;border-radius:50%;background:var(--verde-wpp);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);z-index:999}
+    .float-wpp:hover{transform:scale(1.1)}
+    .float-wpp svg{width:32px;height:32px;fill:#fff}
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
+    @media(max-width:600px){.topbar{flex-direction:column;align-items:center;gap:8px}}
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <a href="tel:6799333-0303" class="t-tel"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>LIGUE (67) 99333-0303</a>
+  <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" class="t-wpp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>Peça pelo WhatsApp</a>
+</div>
+<header>
+  <nav>
+    <a href="/" class="logo"><img src="/images/logo.webp" alt="Mosko Gás Ultragaz Campo Grande" width="160" height="50"></a>
+    <ul class="nav-links">
+      <li><a href="/gas-de-cozinha/">Gás de Cozinha</a></li>
+      <li><a href="/gas-industrial-campo-grande-ms/">Gás P45 e P20</a></li>
+      <li><a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a></li>
+      <li><a href="/vendas-corporativas/">Corporativo</a></li>
+      <li><a href="/sobre-a-mosko-gas/">Sobre</a></li>
+      <li><a href="/contato/">Contato</a></li>
+      <li><a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" class="n-wpp">Peça agora</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/gas-de-cozinha/">Gás de Cozinha</a>
+    <a href="/gas-p45/">Gás P45</a>
+    <a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a>
+    <a href="/vendas-corporativas/">Vendas Corporativas</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener">📲 Peça pelo WhatsApp</a>
+  </div>
+</header>
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a> › Política de Cookies</div>
+    <h1>Política de Cookies</h1>
+    <div class="updated">Última atualização: fevereiro de 2026</div>
+  </div>
+</div>
+<section class="page-body">
+  <div class="container">
+
+    <h2>1. O que são cookies</h2>
+    <p>Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles permitem que o site reconheça seu dispositivo em visitas futuras, melhore a experiência de navegação e colete informações estatísticas de uso.</p>
+
+    <h2>2. Quais cookies utilizamos</h2>
+
+    <h3>2.1 Cookies Essenciais</h3>
+    <p>Necessários para o funcionamento básico do site. Não podem ser desativados. Incluem cookies de sessão e segurança.</p>
+
+    <h3>2.2 Cookies de Análise (Google Analytics)</h3>
+    <p>Utilizamos o <strong>Google Analytics</strong> para analisar o tráfego do site e entender como os visitantes interagem com nossas páginas. Os dados coletados são anônimos e incluem:</p>
+    <ul>
+      <li>Páginas mais visitadas;</li>
+      <li>Tempo de permanência no site;</li>
+      <li>Dispositivo e navegador utilizados;</li>
+      <li>Origem do tráfego (busca orgânica, redes sociais, acesso direto).</li>
+    </ul>
+    <p>Você pode optar por não ser rastreado pelo Google Analytics instalando o <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+    <h3>2.3 Cookies de Marketing</h3>
+    <p>Podemos utilizar pixels de rastreamento do <strong>Facebook/Meta</strong> e <strong>Google Ads</strong> para exibir anúncios relevantes em outras plataformas. Esses cookies identificam se você visitou nosso site para permitir a exibição de publicidade relacionada.</p>
+
+    <h3>2.4 Cookies de Funcionalidade</h3>
+    <p>Armazenam preferências como idioma e configurações de exibição para melhorar sua experiência em visitas futuras.</p>
+
+    <h2>3. Cookies de terceiros</h2>
+    <p>Nosso site pode conter conteúdos de terceiros (Google Maps, WhatsApp, redes sociais) que podem definir seus próprios cookies. Não temos controle sobre esses cookies e recomendamos consultar as políticas de privacidade de cada empresa.</p>
+
+    <h2>4. Como gerenciar os cookies</h2>
+    <p>Você pode controlar e gerenciar cookies de diversas formas:</p>
+    <ul>
+      <li><strong>Configurações do navegador:</strong> A maioria dos navegadores permite visualizar, bloquear ou excluir cookies nas configurações de privacidade.</li>
+      <li><strong>Chrome:</strong> Configurações → Privacidade e segurança → Cookies e outros dados de sites;</li>
+      <li><strong>Firefox:</strong> Configurações → Privacidade e segurança → Cookies e dados de sites;</li>
+      <li><strong>Safari:</strong> Preferências → Privacidade → Gerenciar dados de sites.</li>
+    </ul>
+    <p><strong>Atenção:</strong> Desabilitar cookies essenciais pode prejudicar o funcionamento correto do site.</p>
+
+    <h2>5. Retenção de dados de cookies</h2>
+    <p>Os cookies analíticos são retidos por até <strong>26 meses</strong>. Os cookies de sessão são excluídos automaticamente quando você fecha o navegador.</p>
+
+    <h2>6. Atualização desta política</h2>
+    <p>Esta Política de Cookies pode ser atualizada para refletir mudanças em nossas práticas ou na legislação. Recomendamos verificar periodicamente esta página.</p>
+
+    <div class="contact-box">
+      <h3>❓ Dúvidas sobre cookies?</h3>
+      <p>Entre em contato pelo <a href="https://wa.me/+5567993330303" target="_blank" rel="noopener">WhatsApp (67) 99333-0303</a> ou por e-mail em <a href="mailto:privacidade@moskogas.com.br">privacidade@moskogas.com.br</a></p>
+    </div>
+
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="/">Home</a><a href="/gas-de-cozinha/">Gás de Cozinha</a><a href="/gas-p45/">Gás P45</a>
+      <a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a><a href="/vendas-corporativas/">Corporativo</a>
+      <a href="/sobre-a-mosko-gas/">Sobre nós</a><a href="/contato/">Contato</a><a href="/blog/">Blog</a>
+    </div>
+    <div class="footer-info">
+      <strong>Mosko Gás Distribuidora de Gás e Água Mineral</strong>
+      Av. Panamericana, 295 – Estrela Dalva · Campo Grande – MS · CEP 79034-722<br>
+      WhatsApp: (67) 99333-0303 · Telefone: (67) 3026-5454<br>
+      CNPJ: 12.977.901/0001-17 — Revenda autorizada Ultragaz / ANP — MoskoGás® INPI nº 912827599
+    </div>
+    <div class="footer-legal">
+      <a href="/politica-de-privacidade/">Política de Privacidade</a>
+      <a href="/termos-de-uso-mosko-gas/">Termos de Uso</a>
+      <a href="/politica-de-cookies/">Política de Cookies</a>
+    </div>
+  </div>
+</footer>
+<a class="float-wpp" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido%20de%20G%C3%A1s" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.653-.518-5.16-1.419l-.37-.22-3.777.88.898-3.678-.242-.378A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+<script>document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));</script>
+</body>
+</html>

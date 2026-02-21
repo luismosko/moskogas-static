@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.4.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
+// _worker.js | Versão: 2.5.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -38,6 +38,9 @@ const PAGINAS_ESTATICAS = [
   '/blog/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
   '/',
   '/gas-de-cozinha/',
+  '/politica-de-privacidade/',
+  '/termos-de-uso-mosko-gas/',
+  '/politica-de-cookies/',
   '/gas-p45/',
   '/gas-industrial-campo-grande-ms/',
   '/agua-mineral-em-campo-grande-ms/',
