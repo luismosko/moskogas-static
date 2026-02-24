@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.5.0 | Atualizado: 2026-02-21 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
+// _worker.js | Versão: 2.6.0 | Atualizado: 2026-02-24 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -36,6 +36,16 @@ const PAGINAS_ESTATICAS = [
   '/blog/agua-mineral-qual-a-melhor-forma-de-servir-no-meu-estabelecimento/',
   '/blog/por-que-voce-deve-beber-agua-mineral-e-quais-sao-seus-beneficios/',
   '/blog/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
+  '/blog/gas-de-cozinha-preco-p13-campo-grande/',
+  '/blog/botijao-vazio-como-pedir-entrega-campo-grande/',
+  '/blog/p13-p20-p45-qual-botijao-escolher/',
+  '/blog/como-identificar-botijao-ultragaz-original/',
+  '/blog/gas-sem-nota-fiscal-riscos/',
+  '/blog/quanto-dura-botijao-p13/',
+  '/blog/gas-para-restaurante-p45-ou-p20/',
+  '/blog/disk-gas-bairros-campo-grande/',
+  '/blog/revenda-autorizada-gas-campo-grande/',
+  '/blog/mosko-gas-vs-supermercado/',
   '/',
   '/gas-de-cozinha/',
   '/politica-de-privacidade/',
