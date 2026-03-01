@@ -1,9 +1,18 @@
-// _worker.js | Versão: 2.6.0 | Atualizado: 2026-02-24 | Descrição: redirects 301 + sitemap.xml estático com prioridade sobre WordPress
+// _worker.js | Versão: 2.7.0 | Atualizado: 2026-02-28 | Descrição: +redirects páginas quebradas com backlinks (SEMrush fix)
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
 // 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
 const REDIRECTS_301 = {
+  // ── Páginas quebradas com backlinks (corrigidas 2026-02-28) ──────────────
+  '/gas-de-cozinha-ou-gas-p45/':                       '/blog/gas-de-cozinha-ou-gas-p45/',   // 13 backlinks
+  '/gas-industrial/':                                  '/gas-industrial-campo-grande-ms/',    // 5 backlinks
+  '/gas-mais-proximo/':                                '/gas-mais-proximo-em-campo-grande-ms/', // 4 backlinks
+  // slugs sem trailing slash
+  '/gas-de-cozinha-ou-gas-p45':                        '/blog/gas-de-cozinha-ou-gas-p45/',
+  '/gas-industrial':                                   '/gas-industrial-campo-grande-ms/',
+  '/gas-mais-proximo':                                 '/gas-mais-proximo-em-campo-grande-ms/',
+  // ── Redirects anteriores ─────────────────────────────────────────────────
   '/agua-mineral-distribuidora-antigo/':               '/agua-mineral-em-campo-grande-ms/',
   '/agua-mineral-campo-grande-ms-antigo/':             '/agua-mineral-em-campo-grande-ms/',
   '/gas-p45-antigo/':                                  '/gas-p45/',
