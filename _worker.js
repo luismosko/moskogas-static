@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.0 | Atualizado: 2026-03-03 | Descrição: +4 posts blog segurança/comercial convertidos do glossário
+// _worker.js | Versão: 2.9.1 | Atualizado: 2026-03-03 | Descrição: +4 posts blog segurança/comercial convertidos do glossário
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -59,6 +59,12 @@ const PAGINAS_ESTATICAS = [
   '/blog/botijao-de-gas-tem-validade/',
   '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
   '/blog/gas-comercial-p13-p20-ou-p45/',
+  '/blog/bebedouro-de-agua-mineral-para-empresa/',
+  '/blog/como-funciona-entrega-de-gas-em-campo-grande/',
+  '/blog/como-saber-se-revenda-de-gas-e-autorizada/',
+  '/blog/galao-de-agua-retornavel-ou-descartavel/',
+  '/blog/gas-glp-para-aquecedor-qual-botijao-usar/',
+  '/blog/ph-da-agua-mineral-o-que-significa/',
   '/',
   '/gas-de-cozinha/',
   '/politica-de-privacidade/',
