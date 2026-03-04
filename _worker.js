@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.7.0 | Atualizado: 2026-02-28 | Descrição: +redirects páginas quebradas com backlinks (SEMrush fix)
+// _worker.js | Versão: 2.8.0 | Atualizado: 2026-03-03 | Descrição: +intercepta 404s glossário e URLs WordPress antigas → home 301
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -219,6 +219,36 @@ export default {
     };
     const redirDest = REDIRECTS[pathname.toLowerCase()];
     if (redirDest) return Response.redirect('https://' + DOMINIO + redirDest, 301);
+
+    // ── Intercepta padrões que geram 404 em massa ─────────────────────────
+    // URLs WordPress antigas com query param de ID
+    const searchParams = url.searchParams;
+    if (searchParams.has('p') || searchParams.has('page_id') || searchParams.has('attachment_id')) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
+
+    // Prefixos do glossário deletado e outros padrões antigos
+    const PREFIXOS_404 = [
+      '/glossario/',
+      '/glp/',
+      '/glossary/',
+      '/termos/',
+      '/dicionario/',
+      '/term/',
+      '/wp-json/',
+      '/wp-admin/',
+      '/.well-known/',
+      '/feed/',
+      '/comments/',
+      '/trackback/',
+      '/xmlrpc.php',
+      '/wp-login.php',
+      '/wp-cron.php',
+      '/?author=',
+    ];
+    if (PREFIXOS_404.some(p => pathname.startsWith(p) || pathname === p.replace('/', ''))) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
 
     // Passa para o WordPress com pathname ORIGINAL (sem modificar)
     const wpUrl = ORIGIN + pathname + url.search;
