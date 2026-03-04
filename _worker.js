@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.8.0 | Atualizado: 2026-03-03 | Descrição: +intercepta 404s glossário e URLs WordPress antigas → home 301
+// _worker.js | Versão: 2.9.0 | Atualizado: 2026-03-03 | Descrição: +4 posts blog segurança/comercial convertidos do glossário
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -55,6 +55,10 @@ const PAGINAS_ESTATICAS = [
   '/blog/disk-gas-bairros-campo-grande/',
   '/blog/revenda-autorizada-gas-campo-grande/',
   '/blog/mosko-gas-vs-supermercado/',
+  '/blog/como-identificar-vazamento-de-gas/',
+  '/blog/botijao-de-gas-tem-validade/',
+  '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/blog/gas-comercial-p13-p20-ou-p45/',
   '/',
   '/gas-de-cozinha/',
   '/politica-de-privacidade/',
