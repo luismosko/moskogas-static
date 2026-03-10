@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.1 | Atualizado: 2026-03-03 | Descrição: +4 posts blog segurança/comercial convertidos do glossário
+// _worker.js | Versão: 2.9.2 | Atualizado: 2026-03-10 | Descrição: +rota /botijao-de-gas/
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -76,6 +76,7 @@ const PAGINAS_ESTATICAS = [
   '/blog/gas-entrega-urgente-campo-grande/',
   '/blog/beneficio-gas-do-povo-como-funciona/',
   '/',
+  '/botijao-de-gas/',
   '/gas-de-cozinha/',
   '/politica-de-privacidade/',
   '/termos-de-uso-mosko-gas/',
