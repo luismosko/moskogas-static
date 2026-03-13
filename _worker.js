@@ -104,6 +104,7 @@ const PAGINAS_ESTATICAS = [
   '/gas-entrega-hoje-em-campo-grande-ms/',
   '/gas-mais-proximo-em-campo-grande-ms/',
   '/gas-perto-de-mim-campo-grande/',
+  '/entrega-de-gas-campo-grande-ms/',
   '/whatsappgas/',
   '/gas-de-empilhadeiras-p20/',
   '/gas-na-mata-do-jacinto/',
