@@ -100,6 +100,7 @@ const PAGINAS_ESTATICAS = [
   '/contato/',
   '/gas-do-povo-em-campo-grande-ms/',
   '/disk-gas-em-campo-grande-ms/',
+  '/disk-gas-campo-grande-ms/',
   '/gas-entrega-hoje-em-campo-grande-ms/',
   '/gas-mais-proximo-em-campo-grande-ms/',
   '/whatsappgas/',
