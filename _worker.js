@@ -76,6 +76,7 @@ const PAGINAS_ESTATICAS = [
   '/blog/gas-entrega-urgente-campo-grande/',
   '/blog/beneficio-gas-do-povo-como-funciona/',
   '/',
+  '/gas-em-campo-grande-ms/',
   '/botijao-de-gas/',
   '/gas-de-cozinha/',
   '/politica-de-privacidade/',
