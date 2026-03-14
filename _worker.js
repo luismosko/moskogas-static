@@ -80,6 +80,7 @@ const PAGINAS_ESTATICAS = [
   '/preco-gas-campo-grande-ms/',
   '/botijao-de-gas/',
   '/gas-de-cozinha/',
+  '/gas-de-cozinha-ou-gas-p45/',
   '/politica-de-privacidade/',
   '/termos-de-uso-mosko-gas/',
   '/politica-de-cookies/',
