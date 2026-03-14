@@ -78,6 +78,7 @@ const PAGINAS_ESTATICAS = [
   '/',
   '/gas-em-campo-grande-ms/',
   '/preco-gas-campo-grande-ms/',
+  '/como-saber-se-o-gas-esta-acabando/',
   '/botijao-de-gas/',
   '/gas-de-cozinha/',
   '/gas-de-cozinha-ou-gas-p45/',
