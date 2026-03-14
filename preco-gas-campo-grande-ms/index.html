@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  preco-gas-campo-grande-ms/index.html | Versão: 1.0.0 | Atualizado: 2026-03-13 | Descrição: Hub de preço — tabela P13/P20/P45, calculadora portaria vs entrega, FAQ preço, schema Offer/ItemList
+  preco-gas-campo-grande-ms/index.html | Versão: 1.1.0 | Atualizado: 2026-03-14 | Descrição: Hub de preço — tabela P13/P20/P45, calculadora portaria vs entrega, FAQ preço, schema Offer/ItemList
 -->
 <html lang="pt-BR">
 <head>
@@ -626,29 +626,39 @@
       "geo":{"@type":"GeoCoordinates","latitude":-20.4697,"longitude":-54.6201},
       "openingHours":"Mo-Sa 07:00-18:30",
       "priceRange":"R$ 103,99 – R$ 124,90",
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"350"}
+    },
+    {
+      "@type":"Product",
+      "name":"Botijão de Gás P13 Ultragaz — Retirada na Portaria",
+      "description":"Botijão P13 13kg GLP Ultragaz lacrado com nota fiscal. Retirada na portaria Av. Panamericana 295 Campo Grande MS.",
+      "brand":{"@type":"Brand","name":"Ultragaz"},
       "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"350"},
-      "hasOfferCatalog":{
-        "@type":"OfferCatalog",
-        "name":"Botijões de Gás — Campo Grande MS",
-        "itemListElement":[
-          {
-            "@type":"Offer",
-            "itemOffered":{"@type":"Product","name":"Botijão de Gás P13 Ultragaz — Retirada na Portaria","description":"Botijão P13 13kg GLP Ultragaz lacrado com nota fiscal. Retirada na portaria Av. Panamericana 295 Campo Grande MS"},
-            "price":"103.99",
-            "priceCurrency":"BRL",
-            "availability":"https://schema.org/InStock",
-            "seller":{"@type":"Organization","name":"Mosko Gás"}
-          },
-          {
-            "@type":"Offer",
-            "itemOffered":{"@type":"Product","name":"Botijão de Gás P13 Ultragaz — Entrega Domiciliar","description":"Botijão P13 13kg GLP Ultragaz lacrado com nota fiscal. Entrega em todos os bairros de Campo Grande MS"},
-            "price":"124.90",
-            "priceCurrency":"BRL",
-            "availability":"https://schema.org/InStock",
-            "seller":{"@type":"Organization","name":"Mosko Gás"},
-            "eligibleRegion":{"@type":"City","name":"Campo Grande","addressRegion":"MS"}
-          }
-        ]
+      "offers":{
+        "@type":"Offer",
+        "price":"103.99",
+        "priceCurrency":"BRL",
+        "availability":"https://schema.org/InStock",
+        "itemCondition":"https://schema.org/NewCondition",
+        "seller":{"@type":"Organization","name":"Mosko Gás"},
+        "url":"https://moskogas.com.br/preco-gas-campo-grande-ms/"
+      }
+    },
+    {
+      "@type":"Product",
+      "name":"Botijão de Gás P13 Ultragaz — Entrega Domiciliar Campo Grande MS",
+      "description":"Botijão P13 13kg GLP Ultragaz lacrado com nota fiscal. Entrega em todos os bairros de Campo Grande MS.",
+      "brand":{"@type":"Brand","name":"Ultragaz"},
+      "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"350"},
+      "offers":{
+        "@type":"Offer",
+        "price":"124.90",
+        "priceCurrency":"BRL",
+        "availability":"https://schema.org/InStock",
+        "itemCondition":"https://schema.org/NewCondition",
+        "seller":{"@type":"Organization","name":"Mosko Gás"},
+        "areaServed":{"@type":"City","name":"Campo Grande","addressRegion":"MS","addressCountry":"BR"},
+        "url":"https://moskogas.com.br/preco-gas-campo-grande-ms/"
       }
     },
     {
