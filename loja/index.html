@@ -91,7 +91,7 @@
     .ag-s{font-size:10px;color:var(--sb)}
     .agf{display:none;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}
     .agf.on{display:grid}
-    .popts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:9px}
+    .popts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:9px}
     .popt{border:2px solid var(--bd);border-radius:10px;padding:9px 5px;cursor:pointer;text-align:center}
     .popt.on{border-color:var(--azm);background:var(--azc)}
     .popt-i{font-size:19px;margin-bottom:3px}
@@ -243,7 +243,8 @@
     <div class="popts">
       <div class="popt" id="ppix" onclick="sPag('pix',this)"><div class="popt-i">🔵</div><div class="popt-l">Pix</div></div>
       <div class="popt" id="pdin" onclick="sPag('dinheiro',this)"><div class="popt-i">💵</div><div class="popt-l">Dinheiro</div></div>
-      <div class="popt" id="pcar" onclick="sPag('cartao',this)"><div class="popt-i">💳</div><div class="popt-l">Cartão</div></div>
+      <div class="popt" id="pdeb" onclick="sPag('cartao_debito',this)"><div class="popt-i">💳</div><div class="popt-l">Débito</div></div>
+      <div class="popt" id="pcre" onclick="sPag('cartao_credito',this)"><div class="popt-i">💳</div><div class="popt-l">Crédito</div></div>
     </div>
     <div id="trocoW" style="display:none"><div class="fg"><label>Troco para</label><input type="text" class="fi" id="ftr" placeholder="Ex: R$ 300,00"></div></div>
     <div class="info" style="margin-top:10px">💡 Sem taxas adicionais. Pagamento no ato da entrega.</div>
@@ -394,7 +395,7 @@ function rRes(){
   var tot=cart.reduce(function(s,i){return s+i.pr*i.q;},0);
   var end=ped.ent==='portaria'?'Retirada: Av. Panamericana, 295':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
   var ag=ped.ag&&ped.agD?(ped.agD+(ped.agH?' as '+ped.agH:'')):'O mais rapido possivel';
-  var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
+  var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else if(ped.pg==='cartao_debito'){pg='Cartao Debito';}else{pg='Cartao Credito';}
   var h='<div class="fbt">Resumo do pedido</div>';
   cart.forEach(function(i){h+='<div class="res-item"><span>'+i.q+'x '+i.n+'</span><strong>R$ '+(i.pr*i.q).toFixed(2).replace('.',',')+'</strong></div>';});
   h+='<div class="res-item tot"><span>Total</span><span>R$ '+tot.toFixed(2).replace('.',',')+'</span></div>';
@@ -425,7 +426,7 @@ async function finalizar(){
       email:ped.em||null
     },
     entrega:{
-      tipo:ped.ent,
+      tipo:(ped.ent==="portaria"?"retirada":ped.ent),
       rua:ped.ru||null,
       numero:ped.nu||null,
       bairro:ped.ba||null,
@@ -467,7 +468,7 @@ async function finalizar(){
     console.warn('Backend offline, abrindo WPP fallback',e);
     var end=ped.ent==='portaria'?'Retirada na portaria':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
     var ag=ped.ag&&ped.agD?('Agendado: '+ped.agD+(ped.agH?' as '+ped.agH:'')):'Entrega: o mais rapido possivel';
-    var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
+    var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else if(ped.pg==='cartao_debito'){pg='Cartao Debito';}else{pg='Cartao Credito';}
     var itens=cart.map(function(i){return i.q+'x '+i.n+' R$ '+(i.pr*i.q).toFixed(2).replace('.',',');}).join(', ');
     var msg='PEDIDO '+num+' | '+ped.n+' | '+ped.t+' | '+end+' | '+itens+' | Total R$ '+tot.toFixed(2).replace('.',',')+' | '+pg+' | '+ag;
     window.open('https://wa.me/+5567993330303?text='+encodeURIComponent(msg),'_blank');
