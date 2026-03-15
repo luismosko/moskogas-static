@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  loja/index.html | Versão: 2.1.0 | Atualizado: 2026-03-15 | Descrição: Loja mobile-first — fluxo etapas sem sidebar, 4 produtos, carrinho como step
+  loja/index.html | Versão: 2.2.0 | Atualizado: 2026-03-15 | Descrição: Loja mobile-first — fluxo etapas sem sidebar, 4 produtos, carrinho como step
 -->
 <html lang="pt-BR">
 <head>
@@ -407,19 +407,40 @@ function rRes(){
 
 function gNum(){const d=new Date();return 'MG'+String(d.getFullYear()).slice(-2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);}
 
-function finalizar(){
+async function finalizar(){
+  const btn=document.querySelector('#tela-confirmar .bp.vd');
+  btn.disabled=true;btn.textContent='Enviando pedido...';
   const num=gNum();
   const tot=cart.reduce((s,i)=>s+i.pr*i.q,0);
-  const dt=new Date().toLocaleString('pt-BR',{timeZone:'America/Campo_Grande'});
-  const end=ped.ent==='portaria'?'Retirada na portaria':`${ped.ru}, ${ped.nu}${ped.co?' — '+ped.co:''}, ${ped.ba}${ped.ce?' — CEP '+ped.ce:''}${ped.rf?'\nRef: '+ped.rf:''}`;
-  const ag=ped.ag&&ped.agD?`📅 Agendado: ${ped.agD}${ped.agH?' às '+ped.agH:''}`:'⚡ Entrega: o mais rápido possível';
-  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?`Dinheiro${ped.tr?' (troco p/ '+ped.tr+')':''}`:ped.pg==='cartao'?'Cartão':'—';
-  const itens=cart.map(i=>`  • ${i.q}× ${i.n} (${i.m==='entrega'?'entrega':'portaria'}) — R$ ${(i.pr*i.q).toFixed(2).replace('.',',')}`).join('\n');
-  const msg=['🛒 *PEDIDO SITE — '+num+'*','📆 '+dt,'','*ITENS:*',itens,`💰 *Total: R$ ${tot.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}*`,'','*CLIENTE:*','👤 '+ped.n,'📱 '+ped.t,ped.cpf?'📋 CPF: '+ped.cpf:'',ped.em?'✉️ '+ped.em:'','','*ENTREGA:*','📍 '+end,ag,'','*PAGAMENTO:* '+pg,'','🔗 moskogas.com.br/loja/'].filter(Boolean).join('\n');
-  // Payload Mosko App — substituir URL do worker:
-  // fetch('https://moskogas-backend-v2.WORKER.workers.dev/pedidos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({numero_pedido:num,origem:'site',data_hora:dt,cliente:{nome:ped.n,telefone:ped.t,cpf:ped.cpf||null,email:ped.em||null},entrega:{tipo:ped.ent,rua:ped.ru||null,numero:ped.nu||null,complemento:ped.co||null,bairro:ped.ba||null,cep:ped.ce||null,referencia:ped.rf||null,agendado:ped.ag,data_agendada:ped.agD||null,hora_agendada:ped.agH||null},itens:cart.map(i=>({produto_id:i.id,nome:i.n,modalidade:i.m,preco_unitario:i.pr,quantidade:i.q,subtotal:i.pr*i.q})),total:tot,pagamento:{forma:ped.pg,troco_para:ped.tr||null,momento:'na_entrega'},status:'novo'})}).catch(()=>{});
+  const dtISO=new Date().toLocaleString('sv-SE',{timeZone:'America/Campo_Grande'}).replace(' ','T');
+  const dtBR=new Date().toLocaleString('pt-BR',{timeZone:'America/Campo_Grande'});
+  const payload={
+    numero_pedido:num,origem:'site',data_hora:dtISO,
+    cliente:{nome:ped.n,telefone:ped.t.replace(/\D/g,''),email:ped.em||null},
+    entrega:{tipo:ped.ent,rua:ped.ru||null,numero:ped.nu||null,bairro:ped.ba||null,cep:ped.ce||null,agendado:ped.ag,data_agendada:ped.agD||null,hora_agendada:ped.agH||null},
+    itens:cart.map(i=>({produto_id:i.id,nome:i.n,quantidade:i.q,preco_unitario:i.pr,subtotal:i.pr*i.q})),
+    total:tot,
+    pagamento:{forma:ped.pg,troco_para:ped.tr?parseFloat(ped.tr.replace(/[^\d,.]/g,'').replace(',','.'))||null:null}
+  };
+  let pidNum=null,bkOk=false;
+  try{
+    const r=await fetch('https://api.moskogas.com.br/api/pub/pedido-site',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Site-Key':'sk_site_mosko_2026'},
+      body:JSON.stringify(payload)
+    });
+    const d=await r.json();
+    if(d.ok){pidNum=d.pedido_id;bkOk=true;}
+    else{console.warn('Backend retornou erro:',d);}
+  }catch(e){console.warn('Backend offline — pedido segue pelo WhatsApp',e);}
+  const end=ped.ent==='portaria'?'Retirada na portaria':ped.ru+', '+ped.nu+(ped.co?' — '+ped.co:'')+', '+ped.ba+(ped.ce?' — CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':'');
+  const ag=ped.ag&&ped.agD?'📅 Agendado: '+ped.agD+(ped.agH?' às '+ped.agH:''):'⚡ Entrega: o mais rápido possível';
+  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?'Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')'):'Cartão';
+  const itens=cart.map(i=>'  • '+i.q+'× '+i.n+' — R$ '+(i.pr*i.q).toFixed(2).replace('.',',')).join('\n');
+  const label=pidNum?'#'+pidNum:num;
+  const msg=['🛒 *PEDIDO SITE — '+label+'*','📆 '+dtBR,'','*ITENS:*',itens,'💰 *Total: R$ '+tot.toFixed(2).replace('.',',')+'*','','*CLIENTE:*','👤 '+ped.n,'📱 '+ped.t,ped.em?'✉️ '+ped.em:'','','*ENTREGA:*','📍 '+end,ag,'','*PAGAMENTO:* '+pg,'',bkOk?'✅ Pedido #'+pidNum+' registrado no sistema':'⚠️ Confirmar manualmente','🔗 moskogas.com.br/loja/'].filter(Boolean).join('\n');
   window.open('https://wa.me/+5567993330303?text='+encodeURIComponent(msg),'_blank');
-  document.getElementById('npv').textContent=num;
+  document.getElementById('npv').textContent=label;
   ir('sucesso');cart=[];updH();
 }
 function novoPedido(){ped={ent:'entrega',ag:false};ir('produtos');}
