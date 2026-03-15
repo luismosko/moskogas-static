@@ -435,7 +435,7 @@ async function finalizar(){
   }catch(e){console.warn('Backend offline — pedido segue pelo WhatsApp',e);}
   const end=ped.ent==='portaria'?'Retirada na portaria':ped.ru+', '+ped.nu+(ped.co?' — '+ped.co:'')+', '+ped.ba+(ped.ce?' — CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':'');
   const ag=ped.ag&&ped.agD?'📅 Agendado: '+ped.agD+(ped.agH?' às '+ped.agH:''):'⚡ Entrega: o mais rápido possível';
-  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?'Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')'):'Cartão';
+  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?'Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':''):'Cart\u00e3o';
   const itens=cart.map(i=>'  • '+i.q+'× '+i.n+' — R$ '+(i.pr*i.q).toFixed(2).replace('.',',')).join('\n');
   const label=pidNum?'#'+pidNum:num;
   const msg=['🛒 *PEDIDO SITE — '+label+'*','📆 '+dtBR,'','*ITENS:*',itens,'💰 *Total: R$ '+tot.toFixed(2).replace('.',',')+'*','','*CLIENTE:*','👤 '+ped.n,'📱 '+ped.t,ped.em?'✉️ '+ped.em:'','','*ENTREGA:*','📍 '+end,ag,'','*PAGAMENTO:* '+pg,'',bkOk?'✅ Pedido #'+pidNum+' registrado no sistema':'⚠️ Confirmar manualmente','🔗 moskogas.com.br/loja/'].filter(Boolean).join('\n');
