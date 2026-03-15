@@ -270,7 +270,7 @@
     <div class="suc-ico">✅</div>
     <div class="suc-t">Pedido enviado!</div>
     <div class="suc-s">Mensagem enviada pelo WhatsApp.<br>Nossa equipe confirma em até 5 minutos.</div>
-    <div class="nped"><div class="nped-l">Número do pedido</div><div class="nped-v" id="npv">—</div></div>
+    <div class="nped"><div class="nped-l">Número do pedido</div><div class="nped-v" id="npv">—</div></div><p id="nped-msg" style="font-size:13px;color:#166534;background:#f0fdf4;border-radius:8px;padding:10px;margin-bottom:16px;line-height:1.5">Seu pedido foi registrado!</p><div style="display:none"></div>
     <button class="bp" onclick="novoPedido()">Fazer novo pedido</button>
   </div>
 </div>
@@ -410,20 +410,39 @@ function gNum(){var d=new Date();return 'MG'+String(d.getFullYear()).slice(-2)+S
 
 async function finalizar(){
   var btn=document.querySelector('#tela-confirmar .bp.vd');
-  btn.disabled=true;btn.textContent='Enviando pedido...';
+  btn.disabled=true;
+  btn.textContent='Enviando pedido...';
   var num=gNum();
   var tot=cart.reduce(function(s,i){return s+i.pr*i.q;},0);
   var dtISO=new Date().toLocaleString('sv-SE',{timeZone:'America/Campo_Grande'}).replace(' ','T');
-  var dtBR=new Date().toLocaleString('pt-BR',{timeZone:'America/Campo_Grande'});
   var payload={
-    numero_pedido:num,origem:'site',data_hora:dtISO,
-    cliente:{nome:ped.n,telefone:ped.t.replace(/\D/g,''),email:ped.em||null},
-    entrega:{tipo:ped.ent,rua:ped.ru||null,numero:ped.nu||null,bairro:ped.ba||null,cep:ped.ce||null,agendado:ped.ag,data_agendada:ped.agD||null,hora_agendada:ped.agH||null},
-    itens:cart.map(function(i){return {produto_id:i.id,nome:i.n,quantidade:i.q,preco_unitario:i.pr,subtotal:i.pr*i.q};}),
+    numero_pedido:num,
+    origem:'site',
+    data_hora:dtISO,
+    cliente:{
+      nome:ped.n,
+      telefone:ped.t.replace(/\D/g,''),
+      email:ped.em||null
+    },
+    entrega:{
+      tipo:ped.ent,
+      rua:ped.ru||null,
+      numero:ped.nu||null,
+      bairro:ped.ba||null,
+      cep:ped.ce||null,
+      agendado:ped.ag,
+      data_agendada:ped.agD||null,
+      hora_agendada:ped.agH||null
+    },
+    itens:cart.map(function(i){
+      return {produto_id:i.id,nome:i.n,quantidade:i.q,preco_unitario:i.pr,subtotal:i.pr*i.q};
+    }),
     total:tot,
-    pagamento:{forma:ped.pg,troco_para:ped.tr?parseFloat(ped.tr.replace(/[^\d,.]/g,'').replace(',','.'))||null:null}
+    pagamento:{
+      forma:ped.pg,
+      troco_para:ped.tr?parseFloat(ped.tr.replace(/[^\d,.]/g,'').replace(',','.'))||null:null
+    }
   };
-  var pidNum=null,bkOk=false;
   try{
     var r=await fetch('/api/pub/pedido-site',{
       method:'POST',
@@ -431,29 +450,31 @@ async function finalizar(){
       body:JSON.stringify(payload)
     });
     var d=await r.json();
-    if(d.ok){pidNum=d.pedido_id;bkOk=true;}
-    else{console.warn('Backend erro:',d);}
-  }catch(e){console.warn('Backend offline',e);}
-  var end=ped.ent==='portaria'?'Retirada na portaria':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
-  var ag=ped.ag&&ped.agD?('Agendado: '+ped.agD+(ped.agH?' as '+ped.agH:'')):'Entrega: o mais rapido possivel';
-  var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
-  var itens=cart.map(function(i){return '  - '+i.q+'x '+i.n+' - R$ '+(i.pr*i.q).toFixed(2).replace('.',',');}).join('\n');
-  var label=pidNum?'#'+pidNum:num;
-  var msg=[
-    'PEDIDO SITE - '+label,
-    dtBR,'',
-    'ITENS:',itens,
-    'Total: R$ '+tot.toFixed(2).replace('.',','),'',
-    'CLIENTE:',ped.n,ped.t,
-    ped.em?ped.em:'','',
-    'ENTREGA:',end,ag,'',
-    'PAGAMENTO: '+pg,'',
-    bkOk?'Pedido #'+pidNum+' registrado no sistema':'Confirmar manualmente',
-    'moskogas.com.br/loja/'
-  ].filter(Boolean).join('\n');
-  window.open('https://wa.me/+5567993330303?text='+encodeURIComponent(msg),'_blank');
-  document.getElementById('npv').textContent=label;
-  ir('sucesso');cart=[];updH();
+    if(d.ok){
+      // Sucesso — backend gravou no gestao e enviou WPP pro 9333
+      document.getElementById('npv').textContent='#'+d.pedido_id;
+      document.getElementById('nped-msg').textContent='Pedido recebido e registrado no sistema!';
+      ir('sucesso');
+      cart=[];updH();
+    } else {
+      // Backend retornou erro — mostrar mensagem e reativar botao
+      alert('Erro ao registrar pedido: '+(d.mensagem||d.error||'Tente novamente.'));
+      btn.disabled=false;
+      btn.textContent='Confirmar pelo WhatsApp';
+    }
+  } catch(e){
+    // Backend offline — fallback: abre WPP do cliente como ultima opcao
+    console.warn('Backend offline, abrindo WPP fallback',e);
+    var end=ped.ent==='portaria'?'Retirada na portaria':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
+    var ag=ped.ag&&ped.agD?('Agendado: '+ped.agD+(ped.agH?' as '+ped.agH:'')):'Entrega: o mais rapido possivel';
+    var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
+    var itens=cart.map(function(i){return i.q+'x '+i.n+' R$ '+(i.pr*i.q).toFixed(2).replace('.',',');}).join(', ');
+    var msg='PEDIDO '+num+' | '+ped.n+' | '+ped.t+' | '+end+' | '+itens+' | Total R$ '+tot.toFixed(2).replace('.',',')+' | '+pg+' | '+ag;
+    window.open('https://wa.me/+5567993330303?text='+encodeURIComponent(msg),'_blank');
+    document.getElementById('npv').textContent=num;
+    document.getElementById('nped-msg').textContent='Sistema indisponivel. Pedido enviado pelo WhatsApp.';
+    ir('sucesso');cart=[];updH();
+  }
 }
 function novoPedido(){ped={ent:'entrega',ag:false};ir('produtos');}
 document.getElementById('agD').min=new Date().toISOString().split('T')[0];
