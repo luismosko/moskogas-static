@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.3 | Atualizado: 2026-03-15 | Descrição: +proxy /api/pub/pedido-site → backend sem CORS
+// _worker.js | Versão: 2.9.4 | Atualizado: 2026-03-15 | Descrição: +rota /politica-de-troca/ para Google Merchant Center
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -110,6 +110,7 @@ const PAGINAS_ESTATICAS = [
   '/politica-de-privacidade/',
   '/termos-de-uso-mosko-gas/',
   '/politica-de-cookies/',
+  '/politica-de-troca/',
   '/gas-p45/',
   '/gas-industrial-campo-grande-ms/',
   '/agua-mineral-em-campo-grande-ms/',
