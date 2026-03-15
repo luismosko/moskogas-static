@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  gas-de-cozinha/index.html | Versão: 1.4.0 | Atualizado: 2026-03-14 | Desc: Fix 3 itens: title gás de cozinha no início, intenção transacional, links internos /gas-de-cozinha-ou-gas-p45/
+  gas-de-cozinha/index.html | Versão: 1.5.0 | Atualizado: 2026-03-15 | Desc: Adicionado schema Product com preços P13 portaria R$103,99 e entrega R$124,90 para Google Merchant Center
 -->
 <html lang="pt-BR">
 <head>
@@ -947,6 +947,104 @@
       "item": "https://moskogas.com.br/gas-de-cozinha/"
     }
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Botijão de Gás P13 Ultragaz - Campo Grande MS",
+  "description": "Botijão de gás de cozinha P13 (13kg) Ultragaz. Entrega rápida em Campo Grande MS. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP.",
+  "image": "https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp",
+  "brand": {
+    "@type": "Brand",
+    "name": "Ultragaz"
+  },
+  "sku": "P13-ULTRAGAZ-CG",
+  "mpn": "P13-MOSKOGAS",
+  "category": "Casa e Jardim > Aquecimento e Refrigeração > Combustíveis",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "P13 Retirada na Portaria",
+      "price": "103.99",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "Mosko Gás",
+        "telephone": "+5567993330303"
+      },
+      "priceValidUntil": "2025-12-31",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR",
+          "addressRegion": "MS"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY"
+          }
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "P13 com Entrega em Domicílio",
+      "price": "124.90",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition",
+      "seller": {
+        "@type": "LocalBusiness",
+        "name": "Mosko Gás",
+        "telephone": "+5567993330303"
+      },
+      "priceValidUntil": "2025-12-31",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "BRL"
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "BR",
+          "addressRegion": "MS"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 1,
+            "unitCode": "HOU"
+          }
+        }
+      }
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "350",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
 }
 </script>
 </body>
