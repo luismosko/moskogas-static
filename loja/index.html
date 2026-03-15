@@ -280,7 +280,7 @@
 </a>
 
 <script>
-const P={p13:{n:'Botijão P13 — 13 kg GLP',e:124.90,p:103.99},p20:{n:'Botijão P20 — 20 kg GLP',e:220.00,p:220.00},p45:{n:'Botijão P45 — 45 kg GLP',e:495.00,p:495.00},agua20:{n:'Água Mineral 20 L',e:25.00,p:25.00}};
+const P={p13:{n:'P13 - 13 kg GLP',e:124.90,p:103.99},p20:{n:'P20 - 20 kg GLP',e:220.00,p:220.00},p45:{n:'P45 - 45 kg GLP',e:495.00,p:495.00},agua20:{n:'Agua Mineral 20 L',e:25.00,p:25.00}};
 const mod={p13:'entrega',p20:'entrega',p45:'entrega',agua20:'entrega'};
 let cart=[],ped={ent:'entrega',ag:false};
 const STEPS=['produtos','carrinho','dados','pagamento','confirmar'];
@@ -303,7 +303,7 @@ function sMod(id,tipo,btn){
   btn.classList.add('on');
   const pr=tipo==='entrega'?P[id].e:P[id].p;
   const s=pr.toFixed(2).split('.');
-  document.getElementById('pp'+id).innerHTML=`<sup>R$</sup>${s[0]}<span>,${s[1]}</span>`;
+  document.getElementById('pp'+id).innerHTML='<sup>R$</sup>'+s[0]+'<span>,'+s[1]+'</span>';
   document.getElementById('np'+id).textContent=tipo==='entrega'?'Entrega em Campo Grande':'Portaria Av. Panamericana, 295';
 }
 
@@ -312,35 +312,36 @@ function add(id){
   const pr=m==='entrega'?P[id].e:P[id].p;
   const it=cart.find(i=>i.id===id&&i.m===m);
   if(it)it.q++;else cart.push({id,n:P[id].n,m,pr,q:1});
-  updH();anim(id);setTimeout(()=>ir('carrinho'),400);
+  updH();anim(id);setTimeout(function(){ir('carrinho');},400);
 }
+
 function updH(){
-  const t=cart.reduce((s,i)=>s+i.q,0);
+  const t=cart.reduce(function(s,i){return s+i.q;},0);
   const el=document.getElementById('hnum');
   el.textContent=t;el.className='hdr-n'+(t===0?' z':'');
 }
+
 function anim(id){
-  const b=document.querySelector(`[data-id="${id}"] .badd`);
+  const b=document.querySelector('[data-id="'+id+'"] .badd');
   if(!b)return;
   const o=b.innerHTML;
-  b.innerHTML='<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#fff"/></svg>Adicionado!';
+  b.innerHTML='Adicionado!';
   b.style.background='#16a34a';
-  setTimeout(()=>{b.innerHTML=o;b.style.background='';},1100);
+  setTimeout(function(){b.innerHTML=o;b.style.background='';},1100);
 }
 
 function rCart(){
   const vz=document.getElementById('cvz'),ci=document.getElementById('cit');
   if(!cart.length){vz.style.display='';ci.style.display='none';return;}
   vz.style.display='none';ci.style.display='';
-  const tot=cart.reduce((s,i)=>s+i.pr*i.q,0);
-  document.getElementById('clista').innerHTML=cart.map((it,i)=>`
-    <div class="ci">
-      <div class="ci-info"><div class="ci-n">${it.n}</div><div class="ci-m">${it.m==='entrega'?'🚐 Entrega':'🏪 Portaria'}</div></div>
-      <div class="qrow"><button class="qb" onclick="chQ(${i},-1)">−</button><span class="qn">${it.q}</span><button class="qb" onclick="chQ(${i},1)">+</button></div>
-      <div class="ci-p">R$ ${(it.pr*it.q).toFixed(2).replace('.',',')}</div>
-      <button class="cdel" onclick="del(${i})">✕</button>
-    </div>`).join('');
-  document.getElementById('ctotv').textContent='R$ '+tot.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  const tot=cart.reduce(function(s,i){return s+i.pr*i.q;},0);
+  var html='';
+  cart.forEach(function(it,i){
+    html+='<div class="ci"><div class="ci-info"><div class="ci-n">'+it.n+'</div><div class="ci-m">'+(it.m==='entrega'?'Entrega':'Portaria')+'</div></div><div class="qrow"><button class="qb" onclick="chQ('+i+',-1)">-</button><span class="qn">'+it.q+'</span><button class="qb" onclick="chQ('+i+',1)">+</button></div><div class="ci-p">R$ '+(it.pr*it.q).toFixed(2).replace('.',',')+'</div><button class="cdel" onclick="del('+i+')">X</button></div>';
+  });
+  document.getElementById('clista').innerHTML=html;
+  var totStr='R$ '+tot.toFixed(2).replace('.',',');
+  document.getElementById('ctotv').textContent=totStr;
 }
 function chQ(i,d){cart[i].q=Math.max(1,cart[i].q+d);rCart();updH();}
 function del(i){cart.splice(i,1);rCart();updH();}
@@ -351,94 +352,105 @@ function sEnt(t){
   document.getElementById('op').className='eopt'+(t==='portaria'?' on':'');
   document.getElementById('bend').style.display=t==='portaria'?'none':'';
 }
-function tAg(){const sw=document.getElementById('agSw');const on=sw.classList.toggle('on');document.getElementById('agF').classList.toggle('on',on);ped.ag=on;}
+function tAg(){var sw=document.getElementById('agSw');var on=sw.classList.toggle('on');document.getElementById('agF').classList.toggle('on',on);ped.ag=on;}
 function mT(e){e.value=e.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2').substr(0,15);}
 function mC(e){e.value=e.value.replace(/\D/g,'').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2').substr(0,14);}
 function mZ(e){e.value=e.value.replace(/\D/g,'').replace(/(\d{5})(\d)/,'$1-$2').substr(0,9);}
 
 function sDados(){
-  const n=document.getElementById('fn').value.trim();
-  const t=document.getElementById('ft').value.trim();
+  var n=document.getElementById('fn').value.trim();
+  var t=document.getElementById('ft').value.trim();
   if(!n){alert('Informe seu nome.');return;}
-  if(t.length<10){alert('Telefone inválido.');return;}
+  if(t.length<10){alert('Telefone invalido.');return;}
   if(ped.ent!=='portaria'){
-    if(!document.getElementById('fr').value.trim()||!document.getElementById('fnu').value.trim()||!document.getElementById('fb').value.trim()){alert('Preencha o endereço.');return;}
+    if(!document.getElementById('fr').value.trim()||!document.getElementById('fnu').value.trim()||!document.getElementById('fb').value.trim()){alert('Preencha o endereco.');return;}
   }
   ped.n=n;ped.t=t;
   ped.cpf=document.getElementById('fc').value.trim();
   ped.em=document.getElementById('fe').value.trim();
-  ped.ru=document.getElementById('fr')?.value.trim()||'';
-  ped.nu=document.getElementById('fnu')?.value.trim()||'';
-  ped.co=document.getElementById('fco')?.value.trim()||'';
-  ped.ba=document.getElementById('fb')?.value.trim()||'';
-  ped.ce=document.getElementById('fz')?.value.trim()||'';
-  ped.rf=document.getElementById('frf')?.value.trim()||'';
-  ped.agD=document.getElementById('agD')?.value||'';
-  ped.agH=document.getElementById('agH')?.value||'';
+  ped.ru=document.getElementById('fr')?document.getElementById('fr').value.trim():'';
+  ped.nu=document.getElementById('fnu')?document.getElementById('fnu').value.trim():'';
+  ped.co=document.getElementById('fco')?document.getElementById('fco').value.trim():'';
+  ped.ba=document.getElementById('fb')?document.getElementById('fb').value.trim():'';
+  ped.ce=document.getElementById('fz')?document.getElementById('fz').value.trim():'';
+  ped.rf=document.getElementById('frf')?document.getElementById('frf').value.trim():'';
+  ped.agD=document.getElementById('agD')?document.getElementById('agD').value:'';
+  ped.agH=document.getElementById('agH')?document.getElementById('agH').value:'';
   ir('pagamento');
 }
 
 function sPag(t,el){
-  document.querySelectorAll('.popt').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.popt').forEach(function(p){p.classList.remove('on');});
   el.classList.add('on');ped.pg=t;
   document.getElementById('trocoW').style.display=t==='dinheiro'?'':'none';
 }
 function sPg(){
   if(!ped.pg){alert('Selecione a forma de pagamento.');return;}
-  ped.tr=document.getElementById('ftr')?.value.trim()||'';
+  ped.tr=document.getElementById('ftr')?document.getElementById('ftr').value.trim():'';
   ir('confirmar');
 }
 
 function rRes(){
-  const tot=cart.reduce((s,i)=>s+i.pr*i.q,0);
-  const end=ped.ent==='portaria'?'Retirada: Av. Panamericana, 295':`${ped.ru}, ${ped.nu}${ped.co?' — '+ped.co:''}, ${ped.ba}${ped.ce?' — '+ped.ce:''}${ped.rf?' ('+ped.rf+')':''}`;
-  const ag=ped.ag&&ped.agD?`${ped.agD}${ped.agH?' — '+ped.agH:''}`:'O mais rápido possível';
-  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?`Dinheiro${ped.tr?' (troco p/ '+ped.tr+')':''}`:ped.pg==='cartao'?'Cartão':'—';
-  document.getElementById('resBox').innerHTML=`
-    <div class="fbt">Resumo do pedido</div>
-    ${cart.map(i=>`<div class="res-item"><span>${i.q}× ${i.n}</span><strong>R$ ${(i.pr*i.q).toFixed(2).replace('.',',')}</strong></div>`).join('')}
-    <div class="res-item tot"><span>Total</span><span>R$ ${tot.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}</span></div>
-    <div style="height:6px"></div>
-    <div class="res-item"><span>👤 ${ped.n}</span><span>${ped.t}</span></div>
-    <div class="res-item"><span>📍</span><span style="text-align:right;font-size:11px">${end}</span></div>
-    <div class="res-item"><span>🕐</span><span style="font-size:11px">${ag}</span></div>
-    <div class="res-item"><span>💳</span><span>${pg}</span></div>`;
+  var tot=cart.reduce(function(s,i){return s+i.pr*i.q;},0);
+  var end=ped.ent==='portaria'?'Retirada: Av. Panamericana, 295':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
+  var ag=ped.ag&&ped.agD?(ped.agD+(ped.agH?' as '+ped.agH:'')):'O mais rapido possivel';
+  var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
+  var h='<div class="fbt">Resumo do pedido</div>';
+  cart.forEach(function(i){h+='<div class="res-item"><span>'+i.q+'x '+i.n+'</span><strong>R$ '+(i.pr*i.q).toFixed(2).replace('.',',')+'</strong></div>';});
+  h+='<div class="res-item tot"><span>Total</span><span>R$ '+tot.toFixed(2).replace('.',',')+'</span></div>';
+  h+='<div style="height:6px"></div>';
+  h+='<div class="res-item"><span>'+ped.n+'</span><span>'+ped.t+'</span></div>';
+  h+='<div class="res-item"><span>Endereco</span><span style="text-align:right;font-size:11px">'+end+'</span></div>';
+  h+='<div class="res-item"><span>Entrega</span><span style="font-size:11px">'+ag+'</span></div>';
+  h+='<div class="res-item"><span>Pagamento</span><span>'+pg+'</span></div>';
+  document.getElementById('resBox').innerHTML=h;
 }
 
-function gNum(){const d=new Date();return 'MG'+String(d.getFullYear()).slice(-2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);}
+function gNum(){var d=new Date();return 'MG'+String(d.getFullYear()).slice(-2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+String(Math.floor(Math.random()*9000)+1000);}
 
 async function finalizar(){
-  const btn=document.querySelector('#tela-confirmar .bp.vd');
+  var btn=document.querySelector('#tela-confirmar .bp.vd');
   btn.disabled=true;btn.textContent='Enviando pedido...';
-  const num=gNum();
-  const tot=cart.reduce((s,i)=>s+i.pr*i.q,0);
-  const dtISO=new Date().toLocaleString('sv-SE',{timeZone:'America/Campo_Grande'}).replace(' ','T');
-  const dtBR=new Date().toLocaleString('pt-BR',{timeZone:'America/Campo_Grande'});
-  const payload={
+  var num=gNum();
+  var tot=cart.reduce(function(s,i){return s+i.pr*i.q;},0);
+  var dtISO=new Date().toLocaleString('sv-SE',{timeZone:'America/Campo_Grande'}).replace(' ','T');
+  var dtBR=new Date().toLocaleString('pt-BR',{timeZone:'America/Campo_Grande'});
+  var payload={
     numero_pedido:num,origem:'site',data_hora:dtISO,
     cliente:{nome:ped.n,telefone:ped.t.replace(/\D/g,''),email:ped.em||null},
     entrega:{tipo:ped.ent,rua:ped.ru||null,numero:ped.nu||null,bairro:ped.ba||null,cep:ped.ce||null,agendado:ped.ag,data_agendada:ped.agD||null,hora_agendada:ped.agH||null},
-    itens:cart.map(i=>({produto_id:i.id,nome:i.n,quantidade:i.q,preco_unitario:i.pr,subtotal:i.pr*i.q})),
+    itens:cart.map(function(i){return {produto_id:i.id,nome:i.n,quantidade:i.q,preco_unitario:i.pr,subtotal:i.pr*i.q};}),
     total:tot,
     pagamento:{forma:ped.pg,troco_para:ped.tr?parseFloat(ped.tr.replace(/[^\d,.]/g,'').replace(',','.'))||null:null}
   };
-  let pidNum=null,bkOk=false;
+  var pidNum=null,bkOk=false;
   try{
-    const r=await fetch('https://api.moskogas.com.br/api/pub/pedido-site',{
+    var r=await fetch('/api/pub/pedido-site',{
       method:'POST',
-      headers:{'Content-Type':'application/json','X-Site-Key':'sk_site_mosko_2026'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify(payload)
     });
-    const d=await r.json();
+    var d=await r.json();
     if(d.ok){pidNum=d.pedido_id;bkOk=true;}
-    else{console.warn('Backend retornou erro:',d);}
-  }catch(e){console.warn('Backend offline — pedido segue pelo WhatsApp',e);}
-  const end=ped.ent==='portaria'?'Retirada na portaria':ped.ru+', '+ped.nu+(ped.co?' — '+ped.co:'')+', '+ped.ba+(ped.ce?' — CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':'');
-  const ag=ped.ag&&ped.agD?'📅 Agendado: '+ped.agD+(ped.agH?' às '+ped.agH:''):'⚡ Entrega: o mais rápido possível';
-  const pg=ped.pg==='pix'?'Pix':ped.pg==='dinheiro'?'Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':''):'Cart\u00e3o';
-  const itens=cart.map(i=>'  • '+i.q+'× '+i.n+' — R$ '+(i.pr*i.q).toFixed(2).replace('.',',')).join('\n');
-  const label=pidNum?'#'+pidNum:num;
-  const msg=['🛒 *PEDIDO SITE — '+label+'*','📆 '+dtBR,'','*ITENS:*',itens,'💰 *Total: R$ '+tot.toFixed(2).replace('.',',')+'*','','*CLIENTE:*','👤 '+ped.n,'📱 '+ped.t,ped.em?'✉️ '+ped.em:'','','*ENTREGA:*','📍 '+end,ag,'','*PAGAMENTO:* '+pg,'',bkOk?'✅ Pedido #'+pidNum+' registrado no sistema':'⚠️ Confirmar manualmente','🔗 moskogas.com.br/loja/'].filter(Boolean).join('\n');
+    else{console.warn('Backend erro:',d);}
+  }catch(e){console.warn('Backend offline',e);}
+  var end=ped.ent==='portaria'?'Retirada na portaria':(ped.ru+', '+ped.nu+(ped.co?' - '+ped.co:'')+', '+ped.ba+(ped.ce?' - CEP '+ped.ce:'')+(ped.rf?' ('+ped.rf+')':''));
+  var ag=ped.ag&&ped.agD?('Agendado: '+ped.agD+(ped.agH?' as '+ped.agH:'')):'Entrega: o mais rapido possivel';
+  var pg;if(ped.pg==='pix'){pg='Pix';}else if(ped.pg==='dinheiro'){pg='Dinheiro'+(ped.tr?' (troco p/ '+ped.tr+')':'');}else{pg='Cartao';}
+  var itens=cart.map(function(i){return '  - '+i.q+'x '+i.n+' - R$ '+(i.pr*i.q).toFixed(2).replace('.',',');}).join('\n');
+  var label=pidNum?'#'+pidNum:num;
+  var msg=[
+    'PEDIDO SITE - '+label,
+    dtBR,'',
+    'ITENS:',itens,
+    'Total: R$ '+tot.toFixed(2).replace('.',','),'',
+    'CLIENTE:',ped.n,ped.t,
+    ped.em?ped.em:'','',
+    'ENTREGA:',end,ag,'',
+    'PAGAMENTO: '+pg,'',
+    bkOk?'Pedido #'+pidNum+' registrado no sistema':'Confirmar manualmente',
+    'moskogas.com.br/loja/'
+  ].filter(Boolean).join('\n');
   window.open('https://wa.me/+5567993330303?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('npv').textContent=label;
   ir('sucesso');cart=[];updH();

@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.2 | Atualizado: 2026-03-10 | Descrição: +rota /botijao-de-gas/
+// _worker.js | Versão: 2.9.3 | Atualizado: 2026-03-15 | Descrição: +proxy /api/pub/pedido-site → backend sem CORS
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -225,6 +225,28 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+
+    // ── Proxy /api/pub/pedido-site → backend Mosko App (resolve CORS) ─────
+    if (pathname === '/api/pub/pedido-site' && request.method === 'POST') {
+      try {
+        const body = await request.text();
+        const resp = await fetch('https://api.moskogas.com.br/api/pub/pedido-site', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Site-Key': 'sk_site_mosko_2026' },
+          body: body,
+        });
+        const data = await resp.text();
+        return new Response(data, {
+          status: resp.status,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        });
+      } catch (e) {
+        return new Response(JSON.stringify({ ok: false, error: e.message }), {
+          status: 502,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        });
+      }
+    }
 
     // 301 permanentes — redireciona páginas antigas antes de qualquer outra lógica
     if (REDIRECTS_301[pathname]) {
