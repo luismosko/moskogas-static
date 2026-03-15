@@ -97,6 +97,8 @@ const PAGINAS_ESTATICAS = [
   '/blog/gas-entrega-urgente-campo-grande/',
   '/blog/beneficio-gas-do-povo-como-funciona/',
   '/',
+  '/distribuidora-de-gas-campo-grande/',
+  '/gas-aberto-agora-campo-grande/',
   '/gas-em-campo-grande-ms/',
   '/preco-gas-campo-grande-ms/',
   '/glossario/o-que-e-botijao-de-gas-glp/',
