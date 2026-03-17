@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.4 | Atualizado: 2026-03-15 | Descrição: +rota /politica-de-troca/ para Google Merchant Center
+// _worker.js | Versão: 2.9.5 | Atualizado: 2026-03-17 | Descrição: +rota /bairros/ hub de todos os bairros
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -111,6 +111,7 @@ const PAGINAS_ESTATICAS = [
   '/termos-de-uso-mosko-gas/',
   '/politica-de-cookies/',
   '/politica-de-troca/',
+  '/bairros/',
   '/gas-p45/',
   '/gas-industrial-campo-grande-ms/',
   '/agua-mineral-em-campo-grande-ms/',
