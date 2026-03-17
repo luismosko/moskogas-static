@@ -1,15 +1,15 @@
-// _worker.js | Versão: 2.9.5 | Atualizado: 2026-03-17 | Descrição: +rota /bairros/ hub de todos os bairros
+// _worker.js | Versão: 2.9.6 | Atualizado: 2026-03-17 | Descrição: Corrige conflito redirect vs página estática /gas-de-cozinha-ou-gas-p45/
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
 // 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
 const REDIRECTS_301 = {
   // ── Páginas quebradas com backlinks (corrigidas 2026-02-28) ──────────────
-  '/gas-de-cozinha-ou-gas-p45/':                       '/blog/gas-de-cozinha-ou-gas-p45/',   // 13 backlinks
+  // '/gas-de-cozinha-ou-gas-p45/' → removido, página estática existe (13 backlinks preservados)
   '/gas-industrial/':                                  '/gas-industrial-campo-grande-ms/',    // 5 backlinks
   '/gas-mais-proximo/':                                '/gas-mais-proximo-em-campo-grande-ms/', // 4 backlinks
   // slugs sem trailing slash
-  '/gas-de-cozinha-ou-gas-p45':                        '/blog/gas-de-cozinha-ou-gas-p45/',
+  '/gas-de-cozinha-ou-gas-p45':                        '/gas-de-cozinha-ou-gas-p45/',  // normaliza trailing slash
   '/gas-industrial':                                   '/gas-industrial-campo-grande-ms/',
   '/gas-mais-proximo':                                 '/gas-mais-proximo-em-campo-grande-ms/',
   // ── Glossário → páginas produto (consolidação de juice — 87 páginas thin) ─
