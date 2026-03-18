@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.6 | Atualizado: 2026-03-17 | Descrição: Corrige conflito redirect vs página estática /gas-de-cozinha-ou-gas-p45/
+// _worker.js | Versão: 2.9.7 | Atualizado: 2026-03-18 | Descrição: Consolida duplicata disk-gas-campo-grande-ms → disk-gas-em-campo-grande-ms
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -6,6 +6,8 @@ const ORIGIN = 'http://origin.moskogas.com.br';
 const REDIRECTS_301 = {
   // ── Páginas quebradas com backlinks (corrigidas 2026-02-28) ──────────────
   // '/gas-de-cozinha-ou-gas-p45/' → removido, página estática existe (13 backlinks preservados)
+  '/disk-gas-campo-grande-ms/':                        '/disk-gas-em-campo-grande-ms/',  // consolidação duplicata
+  '/disk-gas-campo-grande-ms':                         '/disk-gas-em-campo-grande-ms/',  // sem trailing slash
   '/gas-industrial/':                                  '/gas-industrial-campo-grande-ms/',    // 5 backlinks
   '/gas-mais-proximo/':                                '/gas-mais-proximo-em-campo-grande-ms/', // 4 backlinks
   // slugs sem trailing slash
@@ -131,7 +133,6 @@ const PAGINAS_ESTATICAS = [
   '/contato/',
   '/gas-do-povo-em-campo-grande-ms/',
   '/disk-gas-em-campo-grande-ms/',
-  '/disk-gas-campo-grande-ms/',
   '/gas-entrega-hoje-em-campo-grande-ms/',
   '/gas-mais-proximo-em-campo-grande-ms/',
   '/gas-perto-de-mim-campo-grande/',
