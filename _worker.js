@@ -1,4 +1,4 @@
-// _worker.js | Versão: 2.9.7 | Atualizado: 2026-03-18 | Descrição: Consolida duplicata disk-gas-campo-grande-ms → disk-gas-em-campo-grande-ms
+// _worker.js | Versão: 2.10.0 | Atualizado: 2026-03-18 | Descrição: +9 bairros novos (fechar lacuna competitiva vs gascampogrande.com.br)
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
@@ -218,6 +218,16 @@ const PAGINAS_ESTATICAS = [
   '/gas-doutor-albuquerque/',
   '/gas-joquei-club/',
   '/gas-conjunto-mata-jacinto/',
+  // ── Novos bairros 2026-03-18 (9 páginas — fechar lacuna competitiva) ──
+  '/gas-lar-trabalhador/',
+  '/gas-lageado/',
+  '/gas-jardim-ze-pereira/',
+  '/gas-jardim-veraneio/',
+  '/gas-jardim-morena/',
+  '/gas-jardim-tijuca/',
+  '/gas-jardim-taruma/',
+  '/gas-maria-aparecida/',
+  '/gas-los-angeles/',
 ];
 
 // Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)

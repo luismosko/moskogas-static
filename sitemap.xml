@@ -1008,4 +1008,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Novos bairros 2026-03-18 -->
+  <url><loc>https://moskogas.com.br/gas-lar-trabalhador/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-lageado/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-jardim-ze-pereira/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-jardim-veraneio/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-jardim-morena/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-jardim-tijuca/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-jardim-taruma/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-maria-aparecida/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://moskogas.com.br/gas-los-angeles/</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
