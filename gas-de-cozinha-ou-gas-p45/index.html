@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  gas-de-cozinha-ou-gas-p45/index.html | Versão: 1.0.1 | Atualizado: 2026-03-18 | Descrição: Título encurtado para SEO (90→51 chars)
+  gas-de-cozinha-ou-gas-p45/index.html | Versão: 1.1.0 | Atualizado: 2026-03-20 | Descrição: Links internos fortes para /gas-p45/ e /gas-de-empilhadeiras-p20/ — resolver canibalização
 -->
 <html lang="pt-BR">
 <head>
@@ -109,6 +109,8 @@
     .tipo-specs li:last-child{border-bottom:none}
     .tipo-specs li strong{color:var(--azul);font-weight:700}
     .tipo-uso{background:var(--azul-claro);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--azul-medio);font-weight:600;text-align:center;line-height:1.5}
+    .tipo-link{display:block;margin-top:14px;padding:10px 16px;background:var(--azul);color:#fff;font-size:13px;font-weight:700;text-align:center;border-radius:var(--radius-btn);transition:.2s}
+    .tipo-link:hover{background:var(--azul-medio);transform:translateY(-2px)}
 
     /* MEDIDAS / DIMENSÕES */
     .medidas{padding:60px 20px;background:var(--cinza-bg)}
@@ -337,6 +339,7 @@
             <li><span>Posição</span><strong>Horizontal</strong></li>
           </ul>
           <div class="tipo-uso">Restaurantes · Padarias · Lanchonetes · Empilhadeiras</div>
+          <a href="/gas-de-empilhadeiras-p20/" class="tipo-link">→ Ver página do Gás P20</a>
         </div>
       </div>
 
@@ -359,6 +362,7 @@
             <li><span>Pressão</span><strong>7–10 kgf/cm²</strong></li>
           </ul>
           <div class="tipo-uso">Indústrias · Condomínios · Grandes restaurantes · Fornos industriais</div>
+          <a href="/gas-p45/" class="tipo-link">→ Ver página do Gás P45</a>
         </div>
       </div>
 
@@ -434,6 +438,25 @@
       </table>
     </div>
     <p class="medidas-nota">Medidas são de referência para botijões padrão Ultragaz. Podem variar ligeiramente conforme o fabricante e o ano de produção. Peso vazio inclui o vasilhame metálico (casco).</p>
+    
+    <!-- CTAs para páginas de produto -->
+    <div class="ctas-produto" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:36px">
+      <a href="/gas-de-cozinha/" style="display:block;background:linear-gradient(135deg,#003087,#0055CC);border-radius:14px;padding:24px;text-decoration:none;transition:.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+        <strong style="color:#fff;font-size:18px;display:block;margin-bottom:6px">🔥 Gás P13 — Residencial</strong>
+        <span style="color:rgba(255,255,255,.8);font-size:14px;display:block;margin-bottom:10px">Botijão 13kg para casas e apartamentos. A partir de R$ 103,99.</span>
+        <span style="color:#7EC8FF;font-size:13px;font-weight:700">Ver preços e pedir →</span>
+      </a>
+      <a href="/gas-de-empilhadeiras-p20/" style="display:block;background:linear-gradient(135deg,#003087,#0055CC);border-radius:14px;padding:24px;text-decoration:none;transition:.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+        <strong style="color:#fff;font-size:18px;display:block;margin-bottom:6px">🚜 Gás P20 — Empilhadeiras</strong>
+        <span style="color:rgba(255,255,255,.8);font-size:14px;display:block;margin-bottom:10px">Cilindro 20kg horizontal para empilhadeiras e comércio.</span>
+        <span style="color:#7EC8FF;font-size:13px;font-weight:700">Ver página do P20 →</span>
+      </a>
+      <a href="/gas-p45/" style="display:block;background:linear-gradient(135deg,#003087,#0055CC);border-radius:14px;padding:24px;text-decoration:none;transition:.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='none'">
+        <strong style="color:#fff;font-size:18px;display:block;margin-bottom:6px">🏭 Gás P45 — Industrial</strong>
+        <span style="color:rgba(255,255,255,.8);font-size:14px;display:block;margin-bottom:10px">Botijão 45kg para restaurantes, indústrias e condomínios.</span>
+        <span style="color:#7EC8FF;font-size:13px;font-weight:700">Ver página do P45 →</span>
+      </a>
+    </div>
   </div>
 </section>
 
