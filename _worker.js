@@ -1,9 +1,12 @@
-// _worker.js | Versão: 2.10.0 | Atualizado: 2026-03-18 | Descrição: +9 bairros novos (fechar lacuna competitiva vs gascampogrande.com.br)
+// _worker.js | Versão: 2.11.0 | Atualizado: 2026-03-20 | Descrição: +redirect /gas-mata-do-jacinto/ → corrigir 404 no GSC
 
 const ORIGIN = 'http://origin.moskogas.com.br';
 
 // 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
 const REDIRECTS_301 = {
+  // ── Links quebrados detectados no GSC (corrigidos 2026-03-20) ───────────────
+  '/gas-mata-do-jacinto/':                             '/gas-na-mata-do-jacinto/',  // 404 GSC
+  '/gas-mata-do-jacinto':                              '/gas-na-mata-do-jacinto/',  // sem trailing slash
   // ── Páginas quebradas com backlinks (corrigidas 2026-02-28) ──────────────
   // '/gas-de-cozinha-ou-gas-p45/' → removido, página estática existe (13 backlinks preservados)
   '/disk-gas-campo-grande-ms/':                        '/disk-gas-em-campo-grande-ms/',  // consolidação duplicata
