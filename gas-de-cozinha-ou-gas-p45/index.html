@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  gas-de-cozinha-ou-gas-p45/index.html | Versão: 1.1.0 | Atualizado: 2026-03-20 | Descrição: Links internos fortes para /gas-p45/ e /gas-de-empilhadeiras-p20/ — resolver canibalização
+  gas-de-cozinha-ou-gas-p45/index.html | Versão: 1.2.0 | Atualizado: 2026-03-20 | Descrição: Schema Product completo P13/P20/P45 — offers + returnPolicy + shippingDetails
 -->
 <html lang="pt-BR">
 <head>
@@ -719,7 +719,32 @@
             "@type":"Product",
             "name":"Botijão de Gás P13 — 13 kg Ultragaz",
             "description":"Botijão P13 13kg de GLP para uso residencial. Altura ~49cm, diâmetro ~27cm. Disponível em Campo Grande MS.",
-            "offers":{"@type":"Offer","price":"103.99","priceCurrency":"BRL","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Mosko Gás"}}
+            "brand":{"@type":"Brand","name":"Ultragaz"},
+            "sku":"P13-ULTRAGAZ",
+            "mpn":"P13-13KG",
+            "offers":{
+              "@type":"Offer",
+              "url":"https://moskogas.com.br/gas-de-cozinha/",
+              "price":"103.99",
+              "priceCurrency":"BRL",
+              "availability":"https://schema.org/InStock",
+              "priceValidUntil":"2026-12-31",
+              "hasMerchantReturnPolicy":{
+                "@type":"MerchantReturnPolicy",
+                "applicableCountry":"BR",
+                "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays":7,
+                "returnMethod":"https://schema.org/ReturnAtKiosk",
+                "returnFees":"https://schema.org/FreeReturn"
+              },
+              "shippingDetails":{
+                "@type":"OfferShippingDetails",
+                "shippingDestination":{"@type":"DefinedRegion","addressCountry":"BR","addressRegion":"MS"},
+                "deliveryTime":{"@type":"ShippingDeliveryTime","transitTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":24,"unitCode":"h"}},
+                "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"BRL"}
+              },
+              "seller":{"@type":"Organization","name":"Mosko Gás","url":"https://moskogas.com.br/"}
+            }
           }
         },
         {
@@ -727,7 +752,33 @@
           "item":{
             "@type":"Product",
             "name":"Botijão de Gás P20 — 20 kg Ultragaz",
-            "description":"Botijão P20 20kg de GLP para uso comercial. Altura ~58cm, diâmetro ~30cm."
+            "description":"Botijão P20 20kg de GLP para uso comercial. Altura ~58cm, diâmetro ~30cm.",
+            "brand":{"@type":"Brand","name":"Ultragaz"},
+            "sku":"P20-ULTRAGAZ",
+            "mpn":"P20-20KG",
+            "offers":{
+              "@type":"Offer",
+              "url":"https://moskogas.com.br/gas-de-empilhadeiras-p20/",
+              "price":"220.00",
+              "priceCurrency":"BRL",
+              "availability":"https://schema.org/InStock",
+              "priceValidUntil":"2026-12-31",
+              "hasMerchantReturnPolicy":{
+                "@type":"MerchantReturnPolicy",
+                "applicableCountry":"BR",
+                "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays":7,
+                "returnMethod":"https://schema.org/ReturnAtKiosk",
+                "returnFees":"https://schema.org/FreeReturn"
+              },
+              "shippingDetails":{
+                "@type":"OfferShippingDetails",
+                "shippingDestination":{"@type":"DefinedRegion","addressCountry":"BR","addressRegion":"MS"},
+                "deliveryTime":{"@type":"ShippingDeliveryTime","transitTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":24,"unitCode":"h"}},
+                "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"BRL"}
+              },
+              "seller":{"@type":"Organization","name":"Mosko Gás","url":"https://moskogas.com.br/"}
+            }
           }
         },
         {
@@ -735,7 +786,33 @@
           "item":{
             "@type":"Product",
             "name":"Botijão de Gás P45 — 45 kg Ultragaz",
-            "description":"Botijão P45 45kg de GLP para uso industrial. Altura ~97cm, diâmetro ~30cm."
+            "description":"Botijão P45 45kg de GLP para uso industrial. Altura ~97cm, diâmetro ~30cm.",
+            "brand":{"@type":"Brand","name":"Ultragaz"},
+            "sku":"P45-ULTRAGAZ",
+            "mpn":"P45-45KG",
+            "offers":{
+              "@type":"Offer",
+              "url":"https://moskogas.com.br/gas-p45/",
+              "price":"495.00",
+              "priceCurrency":"BRL",
+              "availability":"https://schema.org/InStock",
+              "priceValidUntil":"2026-12-31",
+              "hasMerchantReturnPolicy":{
+                "@type":"MerchantReturnPolicy",
+                "applicableCountry":"BR",
+                "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays":7,
+                "returnMethod":"https://schema.org/ReturnAtKiosk",
+                "returnFees":"https://schema.org/FreeReturn"
+              },
+              "shippingDetails":{
+                "@type":"OfferShippingDetails",
+                "shippingDestination":{"@type":"DefinedRegion","addressCountry":"BR","addressRegion":"MS"},
+                "deliveryTime":{"@type":"ShippingDeliveryTime","transitTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":24,"unitCode":"h"}},
+                "shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"BRL"}
+              },
+              "seller":{"@type":"Organization","name":"Mosko Gás","url":"https://moskogas.com.br/"}
+            }
           }
         }
       ]
