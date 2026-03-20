@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  gas-p45/index.html | Versão: 1.6.0 | Atualizado: 2026-03-20 | Descrição: +keywords 'gás p45' e 'botijão p45' em FAQs — resolver canibalização
+  gas-p45/index.html | Versão: 1.7.0 | Atualizado: 2026-03-20 | Descrição: Schema Product corrigido: +hasMerchantReturnPolicy, +transitTime, unitCode HOU→h
 -->
 <html lang="pt-BR">
 <head>
@@ -722,7 +722,21 @@
       "name": "Mosko Gás",
       "telephone": "+5567993330303"
     },
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "BR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 7,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn",
+      "returnPolicySeasonalOverride": {
+        "@type": "MerchantReturnPolicySeasonalOverride",
+        "startDate": "2026-01-01",
+        "endDate": "2026-12-31",
+        "merchantReturnDays": 7
+      }
+    },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingRate": {
@@ -740,8 +754,14 @@
         "handlingTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
+          "maxValue": 4,
+          "unitCode": "h"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
           "maxValue": 24,
-          "unitCode": "HOU"
+          "unitCode": "h"
         }
       }
     }

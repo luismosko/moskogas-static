@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  agua-mineral-em-campo-grande-ms/index.html | Versão: 1.4.0 | Atualizado: 2026-03-19 | Descrição: SEO otimizado para keywords galão de água (260/mês) e água mineral (390/mês)
+  agua-mineral-em-campo-grande-ms/index.html | Versão: 1.5.0 | Atualizado: 2026-03-20 | Descrição: Schema Product corrigido: +hasMerchantReturnPolicy, +transitTime, unitCode HOU→h
 -->
 <html lang="pt-BR">
 <head>
@@ -605,7 +605,15 @@
       "name": "Mosko Gás",
       "telephone": "+5567993330303"
     },
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-12-31",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "BR",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 7,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingRate": {
@@ -623,8 +631,14 @@
         "handlingTime": {
           "@type": "QuantitativeValue",
           "minValue": 0,
+          "maxValue": 4,
+          "unitCode": "h"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
           "maxValue": 24,
-          "unitCode": "HOU"
+          "unitCode": "h"
         }
       }
     }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  gas-de-cozinha/index.html | Versão: 1.5.0 | Atualizado: 2026-03-15 | Desc: Adicionado schema Product com preços P13 portaria R$103,99 e entrega R$124,90 para Google Merchant Center
+  gas-de-cozinha/index.html | Versão: 1.6.0 | Atualizado: 2026-03-20 | Desc: Schema Product corrigido: +hasMerchantReturnPolicy, +transitTime, unitCode HOU→h, priceValidUntil 2026
 -->
 <html lang="pt-BR">
 <head>
@@ -1016,7 +1016,15 @@
         "name": "Mosko Gás",
         "telephone": "+5567993330303"
       },
-      "priceValidUntil": "2025-12-31",
+      "priceValidUntil": "2026-12-31",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
         "shippingRate": {
@@ -1035,7 +1043,13 @@
             "@type": "QuantitativeValue",
             "minValue": 0,
             "maxValue": 0,
-            "unitCode": "DAY"
+            "unitCode": "d"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "d"
           }
         }
       }
@@ -1052,7 +1066,15 @@
         "name": "Mosko Gás",
         "telephone": "+5567993330303"
       },
-      "priceValidUntil": "2025-12-31",
+      "priceValidUntil": "2026-12-31",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn"
+      },
       "shippingDetails": {
         "@type": "OfferShippingDetails",
         "shippingRate": {
@@ -1071,7 +1093,13 @@
             "@type": "QuantitativeValue",
             "minValue": 0,
             "maxValue": 1,
-            "unitCode": "HOU"
+            "unitCode": "h"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 2,
+            "unitCode": "h"
           }
         }
       }
