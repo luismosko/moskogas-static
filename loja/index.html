@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  loja/index.html | Versão: 2.2.0 | Atualizado: 2026-03-15 | Descrição: Loja mobile-first — fluxo etapas sem sidebar, 4 produtos, carrinho como step
+  loja/index.html | Versão: 2.3.0 | Atualizado: 2026-03-22 | Descrição: Auto-seleção de produto via URL (?produto=p13, p20, p45, agua)
 -->
 <html lang="pt-BR">
 <head>
@@ -285,6 +285,25 @@ const P={p13:{n:'P13 - 13 kg GLP',e:124.90,p:103.99},p20:{n:'P20 - 20 kg GLP',e:
 const mod={p13:'entrega',p20:'entrega',p45:'entrega',agua20:'entrega'};
 let cart=[],ped={ent:'entrega',ag:false};
 const STEPS=['produtos','carrinho','dados','pagamento','confirmar'];
+
+// Auto-selecionar produto pela URL (?produto=p13, p20, p45, agua)
+(function(){
+  const params=new URLSearchParams(window.location.search);
+  const prod=params.get('produto');
+  if(!prod)return;
+  const map={p13:'p13','p13-portaria':'p13','p13-entrega':'p13',p20:'p20',p45:'p45',agua:'agua20','agua20':'agua20'};
+  const id=map[prod.toLowerCase()];
+  if(!id||!P[id])return;
+  const modo=prod.includes('portaria')?'portaria':'entrega';
+  mod[id]=modo;
+  const pr=modo==='entrega'?P[id].e:P[id].p;
+  cart.push({id,n:P[id].n,m:modo,pr,q:1});
+  // Ir direto pro carrinho após DOM pronto
+  setTimeout(function(){
+    updH();
+    ir('carrinho');
+  },100);
+})();
 
 function ir(t){
   document.querySelectorAll('.tela').forEach(x=>x.classList.remove('on'));
