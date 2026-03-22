@@ -4,12 +4,27 @@
     <title>Mosko Gás - Produtos</title>
     <link>https://moskogas.com.br</link>
     <description>Gás de cozinha, gás industrial e água mineral em Campo Grande MS. Revenda autorizada Ultragaz.</description>
+    
+    <!-- INFORMAÇÕES DA EMPRESA -->
+    <!-- 
+      Merchant Center ID: 134264758
+      Google Meu Negócio: Mosko Gás Distribuidora
+      
+      DADOS PARA VINCULAR:
+      - Nome: Mosko Gás Distribuidora de Gás e Água Mineral
+      - CNPJ: 12.977.901/0001-17
+      - Endereço: Av. Panamericana, 295 - Estrela Dalva - Campo Grande/MS - CEP 79034-722
+      - Telefone: (67) 3026-5454
+      - WhatsApp: (67) 99333-0303
+      - Horário: Seg-Sáb 7h às 18h30
+      - Store Code: MOSKOGAS-CG
+    -->
 
     <!-- BOTIJÃO P13 - RETIRADA NA PORTARIA -->
     <item>
       <g:id>P13-PORTARIA</g:id>
       <g:title>Botijão de Gás P13 Ultragaz 13kg - Retirada na Portaria</g:title>
-      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz. Retirada na portaria da distribuidora. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. CNPJ 12.977.901/0001-17.</g:description>
+      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz. Retirada na portaria: Av. Panamericana, 295 - Estrela Dalva, Campo Grande MS. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. Peça pelo WhatsApp (67) 99333-0303.</g:description>
       <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
       <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
       <g:availability>in_stock</g:availability>
@@ -30,7 +45,7 @@
     <item>
       <g:id>P13-ENTREGA</g:id>
       <g:title>Botijão de Gás P13 Ultragaz 13kg - Entrega em Domicílio</g:title>
-      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz com entrega rápida em Campo Grande MS. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. Entrega seg-sáb 7h-18h30.</g:description>
+      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz com entrega rápida em Campo Grande MS. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. Seg-sáb 7h-18h30. Peça pelo WhatsApp (67) 99333-0303.</g:description>
       <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
       <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
       <g:availability>in_stock</g:availability>
@@ -55,7 +70,7 @@
     <item>
       <g:id>P20-EMPILHADEIRA</g:id>
       <g:title>Gás P20 para Empilhadeiras Ultragaz 20kg - Campo Grande MS</g:title>
-      <g:description>Botijão de gás P20 (20kg) Ultragaz para empilhadeiras e equipamentos industriais. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Revenda autorizada ANP. Comodato de vasilhames disponível.</g:description>
+      <g:description>Botijão de gás P20 (20kg) Ultragaz para empilhadeiras e equipamentos industriais. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Comodato de vasilhames disponível. Peça pelo WhatsApp (67) 99333-0303.</g:description>
       <g:link>https://moskogas.com.br/gas-de-empilhadeiras-p20/</g:link>
       <g:image_link>https://moskogas.com.br/images/gas-p20-botijao-campo-grande-moskogas.webp</g:image_link>
       <g:availability>in_stock</g:availability>
@@ -80,7 +95,7 @@
     <item>
       <g:id>P45-INDUSTRIAL</g:id>
       <g:title>Gás P45 Industrial Ultragaz 45kg - Campo Grande MS</g:title>
-      <g:description>Botijão de gás industrial P45 (45kg) Ultragaz para empresas, restaurantes, padarias e indústrias. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Revenda autorizada ANP.</g:description>
+      <g:description>Botijão de gás industrial P45 (45kg) Ultragaz para empresas, restaurantes, padarias e indústrias. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Peça pelo WhatsApp (67) 99333-0303.</g:description>
       <g:link>https://moskogas.com.br/gas-p45/</g:link>
       <g:image_link>https://moskogas.com.br/images/gas-p45-botijao-campo-grande-moskogas.webp</g:image_link>
       <g:availability>in_stock</g:availability>
@@ -105,7 +120,7 @@
     <item>
       <g:id>AGUA-20L</g:id>
       <g:title>Galão de Água Mineral 20 Litros - Campo Grande MS</g:title>
-      <g:description>Galão de água mineral 20 litros. Entrega rápida em Campo Grande MS. Ideal para residências e empresas. Qualidade garantida. Revenda autorizada.</g:description>
+      <g:description>Galão de água mineral 20 litros. Entrega rápida em Campo Grande MS. Ideal para residências e empresas. Qualidade garantida. Peça pelo WhatsApp (67) 99333-0303.</g:description>
       <g:link>https://moskogas.com.br/agua-mineral-em-campo-grande-ms/</g:link>
       <g:image_link>https://moskogas.com.br/wp-content/uploads/2024/05/agua-mineral-Campo-Grande-MS-1.webp</g:image_link>
       <g:availability>in_stock</g:availability>
