@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Mosko Gás - Produtos</title>
+    <link>https://moskogas.com.br</link>
+    <description>Gás de cozinha, gás industrial e água mineral em Campo Grande MS. Revenda autorizada Ultragaz.</description>
+
+    <!-- BOTIJÃO P13 - RETIRADA NA PORTARIA -->
+    <item>
+      <g:id>P13-PORTARIA</g:id>
+      <g:title>Botijão de Gás P13 Ultragaz 13kg - Retirada na Portaria</g:title>
+      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz. Retirada na portaria da distribuidora. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. CNPJ 12.977.901/0001-17.</g:description>
+      <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
+      <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>103.99 BRL</g:price>
+      <g:brand>Ultragaz</g:brand>
+      <g:condition>new</g:condition>
+      <g:gtin></g:gtin>
+      <g:mpn>P13-MOSKOGAS-PORTARIA</g:mpn>
+      <g:google_product_category>Hardware > Fuel > Kerosene</g:google_product_category>
+      <g:product_type>Casa e Jardim > Aquecimento e Refrigeração > Combustíveis > Gás de Cozinha</g:product_type>
+      <!-- Local Inventory -->
+      <g:pickup_method>buy</g:pickup_method>
+      <g:pickup_sla>same day</g:pickup_sla>
+      <g:store_code>MOSKOGAS-CG</g:store_code>
+    </item>
+
+    <!-- BOTIJÃO P13 - COM ENTREGA -->
+    <item>
+      <g:id>P13-ENTREGA</g:id>
+      <g:title>Botijão de Gás P13 Ultragaz 13kg - Entrega em Domicílio</g:title>
+      <g:description>Botijão de gás de cozinha P13 (13kg) Ultragaz com entrega rápida em Campo Grande MS. Produto lacrado com nota fiscal e certificação INMETRO. Revenda autorizada ANP. Entrega seg-sáb 7h-18h30.</g:description>
+      <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
+      <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>124.90 BRL</g:price>
+      <g:brand>Ultragaz</g:brand>
+      <g:condition>new</g:condition>
+      <g:gtin></g:gtin>
+      <g:mpn>P13-MOSKOGAS-ENTREGA</g:mpn>
+      <g:google_product_category>Hardware > Fuel > Kerosene</g:google_product_category>
+      <g:product_type>Casa e Jardim > Aquecimento e Refrigeração > Combustíveis > Gás de Cozinha</g:product_type>
+      <!-- Shipping -->
+      <g:shipping>
+        <g:country>BR</g:country>
+        <g:region>MS</g:region>
+        <g:service>Entrega Local</g:service>
+        <g:price>0 BRL</g:price>
+      </g:shipping>
+      <g:shipping_label>entrega_local_cg</g:shipping_label>
+    </item>
+
+    <!-- BOTIJÃO P20 - EMPILHADEIRAS -->
+    <item>
+      <g:id>P20-EMPILHADEIRA</g:id>
+      <g:title>Gás P20 para Empilhadeiras Ultragaz 20kg - Campo Grande MS</g:title>
+      <g:description>Botijão de gás P20 (20kg) Ultragaz para empilhadeiras e equipamentos industriais. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Revenda autorizada ANP. Comodato de vasilhames disponível.</g:description>
+      <g:link>https://moskogas.com.br/gas-de-empilhadeiras-p20/</g:link>
+      <g:image_link>https://moskogas.com.br/images/gas-p20-botijao-campo-grande-moskogas.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>220.00 BRL</g:price>
+      <g:brand>Ultragaz</g:brand>
+      <g:condition>new</g:condition>
+      <g:gtin></g:gtin>
+      <g:mpn>P20-MOSKOGAS</g:mpn>
+      <g:google_product_category>Hardware > Fuel > Kerosene</g:google_product_category>
+      <g:product_type>Casa e Jardim > Aquecimento e Refrigeração > Combustíveis > Gás Industrial</g:product_type>
+      <!-- Shipping -->
+      <g:shipping>
+        <g:country>BR</g:country>
+        <g:region>MS</g:region>
+        <g:service>Entrega Local</g:service>
+        <g:price>0 BRL</g:price>
+      </g:shipping>
+      <g:shipping_label>entrega_local_cg</g:shipping_label>
+    </item>
+
+    <!-- BOTIJÃO P45 - INDUSTRIAL -->
+    <item>
+      <g:id>P45-INDUSTRIAL</g:id>
+      <g:title>Gás P45 Industrial Ultragaz 45kg - Campo Grande MS</g:title>
+      <g:description>Botijão de gás industrial P45 (45kg) Ultragaz para empresas, restaurantes, padarias e indústrias. Entrega em Campo Grande MS. Produto lacrado com nota fiscal. Revenda autorizada ANP.</g:description>
+      <g:link>https://moskogas.com.br/gas-p45/</g:link>
+      <g:image_link>https://moskogas.com.br/images/gas-p45-botijao-campo-grande-moskogas.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>495.00 BRL</g:price>
+      <g:brand>Ultragaz</g:brand>
+      <g:condition>new</g:condition>
+      <g:gtin></g:gtin>
+      <g:mpn>P45-MOSKOGAS</g:mpn>
+      <g:google_product_category>Hardware > Fuel > Kerosene</g:google_product_category>
+      <g:product_type>Casa e Jardim > Aquecimento e Refrigeração > Combustíveis > Gás Industrial</g:product_type>
+      <!-- Shipping -->
+      <g:shipping>
+        <g:country>BR</g:country>
+        <g:region>MS</g:region>
+        <g:service>Entrega Local</g:service>
+        <g:price>0 BRL</g:price>
+      </g:shipping>
+      <g:shipping_label>entrega_local_cg</g:shipping_label>
+    </item>
+
+    <!-- ÁGUA MINERAL 20L -->
+    <item>
+      <g:id>AGUA-20L</g:id>
+      <g:title>Galão de Água Mineral 20 Litros - Campo Grande MS</g:title>
+      <g:description>Galão de água mineral 20 litros. Entrega rápida em Campo Grande MS. Ideal para residências e empresas. Qualidade garantida. Revenda autorizada.</g:description>
+      <g:link>https://moskogas.com.br/agua-mineral-em-campo-grande-ms/</g:link>
+      <g:image_link>https://moskogas.com.br/wp-content/uploads/2024/05/agua-mineral-Campo-Grande-MS-1.webp</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>25.00 BRL</g:price>
+      <g:brand>Água Mineral</g:brand>
+      <g:condition>new</g:condition>
+      <g:gtin></g:gtin>
+      <g:mpn>AGUA-20L-MOSKOGAS</g:mpn>
+      <g:google_product_category>Food, Beverages &amp; Tobacco > Beverages > Water</g:google_product_category>
+      <g:product_type>Alimentos e Bebidas > Bebidas > Água Mineral</g:product_type>
+      <!-- Shipping -->
+      <g:shipping>
+        <g:country>BR</g:country>
+        <g:region>MS</g:region>
+        <g:service>Entrega Local</g:service>
+        <g:price>0 BRL</g:price>
+      </g:shipping>
+      <g:shipping_label>entrega_local_cg</g:shipping_label>
+    </item>
+
+  </channel>
+</rss>
