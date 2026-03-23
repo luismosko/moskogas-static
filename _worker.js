@@ -1,6 +1,43 @@
-// _worker.js | Versão: 2.11.0 | Atualizado: 2026-03-20 | Descrição: +redirect /gas-mata-do-jacinto/ → corrigir 404 no GSC
+// _worker.js | Versão: 2.12.0 | Atualizado: 2026-03-23 | Descrição: +410 Gone para URLs WP de sistema (reduz 404s de 63% para <5%)
 
 const ORIGIN = 'http://origin.moskogas.com.br';
+
+// ══════════════════════════════════════════════════════════════════════════════
+// URLs WordPress de SISTEMA — retornar 410 Gone (não existem e nunca voltarão)
+// 410 diz ao Google: "pare de rastrear, não vai existir"
+// ══════════════════════════════════════════════════════════════════════════════
+const PREFIXOS_410_GONE = [
+  '/wp-content/',
+  '/wp-includes/',
+  '/wp-admin/',
+  '/.env',
+  '/.git',
+  '/.htaccess',
+  '/readme.html',
+  '/license.txt',
+  '/wp-config',
+  '/phpmyadmin',
+  '/admin/',
+  '/administrator/',
+  '/backup/',
+  '/cache/',
+  '/cgi-bin/',
+];
+
+const ARQUIVOS_410_GONE = [
+  '/xmlrpc.php',
+  '/wp-login.php',
+  '/wp-cron.php',
+  '/wp-signup.php',
+  '/wp-activate.php',
+  '/wp-trackback.php',
+  '/wp-comments-post.php',
+  '/wp-mail.php',
+  '/wp-links-opml.php',
+  '/wp-blog-header.php',
+  '/wp-load.php',
+  '/wp-settings.php',
+];
 
 // 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
 const REDIRECTS_301 = {
@@ -264,6 +301,38 @@ export default {
       }
     }
 
+    // ══════════════════════════════════════════════════════════════════════════
+    // 410 GONE — URLs WordPress de sistema (resposta instantânea, <10ms)
+    // Economiza crawl budget: Google para de rastrear essas URLs
+    // ══════════════════════════════════════════════════════════════════════════
+    const pathLower = pathname.toLowerCase();
+    
+    // Prefixos que indicam arquivos de sistema WordPress
+    for (const prefix of PREFIXOS_410_GONE) {
+      if (pathLower.startsWith(prefix)) {
+        return new Response('Gone', { 
+          status: 410, 
+          headers: { 
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex'
+          } 
+        });
+      }
+    }
+    
+    // Arquivos PHP específicos do WordPress
+    for (const arquivo of ARQUIVOS_410_GONE) {
+      if (pathLower === arquivo || pathLower.startsWith(arquivo + '?')) {
+        return new Response('Gone', { 
+          status: 410, 
+          headers: { 
+            'Cache-Control': 'public, max-age=86400',
+            'X-Robots-Tag': 'noindex'
+          } 
+        });
+      }
+    }
+
     // 301 permanentes — redireciona páginas antigas antes de qualquer outra lógica
     if (REDIRECTS_301[pathname]) {
       return Response.redirect('https://moskogas.com.br' + REDIRECTS_301[pathname], 301);
@@ -318,26 +387,32 @@ export default {
       return Response.redirect('https://' + DOMINIO + '/', 301);
     }
 
-    // Prefixos do glossário deletado e outros padrões antigos
-    const PREFIXOS_404 = [
+    // Prefixos do glossário deletado e outros padrões antigos → 301 para home
+    // (URLs que tinham conteúdo real, diferente das de sistema que retornam 410)
+    const PREFIXOS_REDIRECIONAR_HOME = [
       '/glossario/',
       '/glp/',
       '/glossary/',
       '/termos/',
       '/dicionario/',
       '/term/',
-      '/wp-json/',
-      '/wp-admin/',
-      '/.well-known/',
-      '/feed/',
+      '/author/',
+      '/tag/',
+      '/category/',
+      '/page/',
       '/comments/',
       '/trackback/',
-      '/xmlrpc.php',
-      '/wp-login.php',
-      '/wp-cron.php',
-      '/?author=',
+      '/feed/',
+      '/.well-known/',
+      '/attachment/',
+      '/embed/',
     ];
-    if (PREFIXOS_404.some(p => pathname.startsWith(p) || pathname === p.replace('/', ''))) {
+    if (PREFIXOS_REDIRECIONAR_HOME.some(p => pathLower.startsWith(p))) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
+    
+    // Query params WordPress antigos → 301 para home
+    if (url.search.includes('?author=') || url.search.includes('&author=')) {
       return Response.redirect('https://' + DOMINIO + '/', 301);
     }
 
