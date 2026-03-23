@@ -54,6 +54,8 @@ const ARQUIVOS_410_GONE = [
 // ══════════════════════════════════════════════════════════════════════════════
 const REDIRECTS_301 = {
   // ── Links quebrados detectados no GSC ───────────────
+  '/gas-no-giocondo-orsi/': '/gas-giocondo-orsi/',
+  '/gas-no-giocondo-orsi': '/gas-giocondo-orsi/',
   '/gas-mata-do-jacinto/': '/gas-na-mata-do-jacinto/',
   '/gas-mata-do-jacinto': '/gas-na-mata-do-jacinto/',
   
