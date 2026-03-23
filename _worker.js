@@ -1,15 +1,25 @@
-// _worker.js | Versão: 2.12.0 | Atualizado: 2026-03-23 | Descrição: +410 Gone para URLs WP de sistema (reduz 404s de 63% para <5%)
+/**
+ * _worker.js | Versão: 3.0.0 | Atualizado: 2026-03-23
+ * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * 
+ * MUDANÇAS v3.0.0:
+ * - Removido proxy para WordPress (origin.moskogas.com.br)
+ * - Todas as 181 páginas servidas direto pelo Cloudflare
+ * - 404 customizado para URLs não mapeadas
+ * - Mantidos todos os redirects 301 para SEO
+ * - Mantidos 410 Gone para URLs WP de sistema
+ */
 
-const ORIGIN = 'http://origin.moskogas.com.br';
+const DOMINIO = 'moskogas.com.br';
 
 // ══════════════════════════════════════════════════════════════════════════════
-// URLs WordPress de SISTEMA — retornar 410 Gone (não existem e nunca voltarão)
-// 410 diz ao Google: "pare de rastrear, não vai existir"
+// 410 GONE — URLs WordPress de sistema (resposta instantânea, economiza crawl)
 // ══════════════════════════════════════════════════════════════════════════════
 const PREFIXOS_410_GONE = [
   '/wp-content/',
   '/wp-includes/',
   '/wp-admin/',
+  '/wp-json/',
   '/.env',
   '/.git',
   '/.htaccess',
@@ -39,199 +49,200 @@ const ARQUIVOS_410_GONE = [
   '/wp-settings.php',
 ];
 
-// 301 permanentes — páginas antigas para as novas (SEO: preserva link juice)
+// ══════════════════════════════════════════════════════════════════════════════
+// 301 PERMANENTES — páginas antigas → novas (preserva link juice)
+// ══════════════════════════════════════════════════════════════════════════════
 const REDIRECTS_301 = {
-  // ── Links quebrados detectados no GSC (corrigidos 2026-03-20) ───────────────
-  '/gas-mata-do-jacinto/':                             '/gas-na-mata-do-jacinto/',  // 404 GSC
-  '/gas-mata-do-jacinto':                              '/gas-na-mata-do-jacinto/',  // sem trailing slash
-  // ── Páginas quebradas com backlinks (corrigidas 2026-02-28) ──────────────
-  // '/gas-de-cozinha-ou-gas-p45/' → removido, página estática existe (13 backlinks preservados)
-  '/disk-gas-campo-grande-ms/':                        '/disk-gas-em-campo-grande-ms/',  // consolidação duplicata
-  '/disk-gas-campo-grande-ms':                         '/disk-gas-em-campo-grande-ms/',  // sem trailing slash
-  '/gas-industrial/':                                  '/gas-industrial-campo-grande-ms/',    // 5 backlinks
-  '/gas-mais-proximo/':                                '/gas-mais-proximo-em-campo-grande-ms/', // 4 backlinks
-  // slugs sem trailing slash
-  '/gas-de-cozinha-ou-gas-p45':                        '/gas-de-cozinha-ou-gas-p45/',  // normaliza trailing slash
-  '/gas-industrial':                                   '/gas-industrial-campo-grande-ms/',
-  '/gas-mais-proximo':                                 '/gas-mais-proximo-em-campo-grande-ms/',
-  // ── Glossário → páginas produto (consolidação de juice — 87 páginas thin) ─
-  '/glossario/o-que-e-botijao-de-gas-glp-p13/':                    '/gas-de-cozinha/',
-  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-domestico/':     '/gas-de-cozinha/',
-  '/glossario/o-que-e-cilindro-de-gas-glp-para-residencias/':      '/gas-de-cozinha/',
-  '/glossario/o-que-e-botijao-de-gas-glp-de-13kg/':                '/gas-de-cozinha/',
-  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-residencial/':   '/gas-de-cozinha/',
-  '/glossario/o-que-e-gas-glp-de-uso-domestico/':                  '/gas-de-cozinha/',
-  '/glossario/o-que-e-botijao-de-gas-glp-p5/':                     '/gas-de-cozinha-ou-gas-p45/',
-  '/glossario/o-que-e-botijao-de-gas-glp-de-5kg/':                 '/gas-de-cozinha-ou-gas-p45/',
-  '/glossario/o-que-e-botijao-de-gas-glp-p45/':                    '/gas-p45/',
-  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-alimenticio/':   '/gas-industrial-campo-grande-ms/',
-  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-industrial/':    '/gas-industrial-campo-grande-ms/',
-  '/glossario/o-que-e-cilindro-de-gas-glp-para-industrias/':       '/gas-industrial-campo-grande-ms/',
-  '/glossario/o-que-e-cilindro-de-gas-glp-p45/':                   '/gas-industrial-campo-grande-ms/',
-  '/glossario/o-que-e-botijao-de-gas-glp-de-45kg/':                '/gas-p45/',
-  '/glossario/o-que-e-garrafa-de-gas-glp/':                        '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-recipiente-de-armazenamento-do-gas-glp/':    '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-gas-glp-em-vasilhame/':                      '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-limite-de-validade-do-gas-glp/':             '/gas-de-cozinha-ou-gas-p45/',
-  '/glossario/o-que-e-procedimento-de-troca-do-gas-glp/':          '/como-saber-se-o-gas-esta-acabando/',
-  '/glossario/o-que-e-gas-glp-liquido/':                           '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-gas-glp-de-baixa-pressao/':                  '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/agua-mineral-distribuidora-antigo/':               '/agua-mineral-em-campo-grande-ms/',
-  '/agua-mineral-campo-grande-ms-antigo/':             '/agua-mineral-em-campo-grande-ms/',
-  '/gas-p45-antigo/':                                  '/gas-p45/',
-  '/gas-entrega-hoje-em-campo-grande-ms-antigo/':      '/gas-entrega-hoje-em-campo-grande-ms/',
-  // slugs antigos sem trailing slash (segurança)
-  '/agua-mineral-distribuidora-antigo':                '/agua-mineral-em-campo-grande-ms/',
-  '/agua-mineral-campo-grande-ms-antigo':              '/agua-mineral-em-campo-grande-ms/',
-  '/gas-p45-antigo':                                   '/gas-p45/',
-  '/gas-entrega-hoje-em-campo-grande-ms-antigo':       '/gas-entrega-hoje-em-campo-grande-ms/',
+  // ── Links quebrados detectados no GSC ───────────────
+  '/gas-mata-do-jacinto/': '/gas-na-mata-do-jacinto/',
+  '/gas-mata-do-jacinto': '/gas-na-mata-do-jacinto/',
+  
+  // ── Páginas quebradas com backlinks ──────────────
+  '/disk-gas-campo-grande-ms/': '/disk-gas-em-campo-grande-ms/',
+  '/disk-gas-campo-grande-ms': '/disk-gas-em-campo-grande-ms/',
+  '/gas-industrial/': '/gas-industrial-campo-grande-ms/',
+  '/gas-mais-proximo/': '/gas-mais-proximo-em-campo-grande-ms/',
+  '/gas-de-cozinha-ou-gas-p45': '/gas-de-cozinha-ou-gas-p45/',
+  '/gas-industrial': '/gas-industrial-campo-grande-ms/',
+  '/gas-mais-proximo': '/gas-mais-proximo-em-campo-grande-ms/',
+  
+  // ── Glossário → páginas produto (consolidação de juice) ─
+  '/glossario/o-que-e-botijao-de-gas-glp-p13/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-domestico/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-cilindro-de-gas-glp-para-residencias/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-botijao-de-gas-glp-de-13kg/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-residencial/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-gas-glp-de-uso-domestico/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-botijao-de-gas-glp-p5/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-botijao-de-gas-glp-de-5kg/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-botijao-de-gas-glp-p45/': '/gas-p45/',
+  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-alimenticio/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-industrial/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-cilindro-de-gas-glp-para-industrias/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-cilindro-de-gas-glp-p45/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-botijao-de-gas-glp-de-45kg/': '/gas-p45/',
+  '/glossario/o-que-e-garrafa-de-gas-glp/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/glossario/o-que-e-recipiente-de-armazenamento-do-gas-glp/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/glossario/o-que-e-gas-glp-em-vasilhame/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/glossario/o-que-e-limite-de-validade-do-gas-glp/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-procedimento-de-troca-do-gas-glp/': '/como-saber-se-o-gas-esta-acabando/',
+  '/glossario/o-que-e-gas-glp-liquido/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/glossario/o-que-e-gas-glp-de-baixa-pressao/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  
+  // ── URLs antigas ─
+  '/agua-mineral-distribuidora-antigo/': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-distribuidora-antigo': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms-antigo/': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms-antigo': '/agua-mineral-em-campo-grande-ms/',
+  '/gas-p45-antigo/': '/gas-p45/',
+  '/gas-p45-antigo': '/gas-p45/',
+  '/gas-entrega-hoje-em-campo-grande-ms-antigo/': '/gas-entrega-hoje-em-campo-grande-ms/',
+  '/gas-entrega-hoje-em-campo-grande-ms-antigo': '/gas-entrega-hoje-em-campo-grande-ms/',
 };
-const DOMINIO = 'moskogas.com.br';
 
-// ✅ Páginas com HTML pronto no repositório
+// Posts antigos com emoji no slug
+const REDIRECTS_EMOJI = {
+  '/%f0%9f%94%a5-gas-de-cozinha-no-jardim-veraneio-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-jardim-veraneio/',
+  '/%f0%9f%94%a5-gas-de-cozinha-nos-novos-estados-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-novos-estados/',
+  '/%f0%9f%94%a5-gas-de-cozinha-no-estrela-dalva-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-estrela-dalva/',
+  '/%f0%9f%94%a5-gas-de-cozinha-no-mata-do-jacinto-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-na-mata-do-jacinto/',
+  '/%f0%9f%94%a5-entrega-de-gas-no-coronel-antonino-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-coronel-antonino/',
+  '/%f0%9f%94%a5-gas-de-cozinha-no-danubio-azul-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-danubio-azul/',
+};
+
+// Prefixos que redirecionam 301 para home
+const PREFIXOS_REDIRECIONAR_HOME = [
+  '/glossario/',
+  '/glp/',
+  '/glossary/',
+  '/termos/',
+  '/dicionario/',
+  '/term/',
+  '/author/',
+  '/tag/',
+  '/category/',
+  '/page/',
+  '/comments/',
+  '/trackback/',
+  '/feed/',
+  '/.well-known/',
+  '/attachment/',
+  '/embed/',
+];
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PÁGINAS ESTÁTICAS — todas as 181 páginas HTML do site
+// ══════════════════════════════════════════════════════════════════════════════
 const PAGINAS_ESTATICAS = [
+  '/',
+  '/agua-mineral-em-campo-grande-ms/',
+  '/bairros/',
   '/blog/',
-  '/blog/o-que-e-o-gas-de-cozinha-ou-glp/',
-  '/blog/como-saber-se-o-gas-esta-acabando/',
-  '/blog/onde-instalar-o-gas-de-cozinha/',
-  '/blog/nao-e-so-no-fogao-conheca-3-utilidades-do-gas-de-cozinha/',
-  '/blog/como-utilizar-o-gas-de-cozinha-de-maneira-correta-em-seu-comercio/',
   '/blog/5-receitas-para-voce-economizar-gas-de-cozinha/',
-  '/blog/gas-de-cozinha-ou-gas-p45/',
-  '/blog/vantagens-de-utilizar-o-gas-glp/',
-  '/blog/gas-p45-saiba-como-armazenar-cilindro-de-gas/',
-  '/blog/gas-p20-tudo-o-que-voce-precisa-saber-sobre-o-gas-para-empilhadeira/',
-  '/blog/nem-diesel-nem-gasolina-conheca-as-vantagens-do-gas-para-empilhadeira/',
-  '/blog/gas-liquefeito-de-petroleo-glp-a-vantagem-competitiva-para-hoteis-e-pousadas/',
   '/blog/agua-mineral-com-gas-por-que-servir-no-seu-restaurante/',
   '/blog/agua-mineral-de-onde-vem-a-agua-que-bebemos/',
   '/blog/agua-mineral-qual-a-melhor-forma-de-servir-no-meu-estabelecimento/',
-  '/blog/por-que-voce-deve-beber-agua-mineral-e-quais-sao-seus-beneficios/',
-  '/blog/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
-  '/blog/gas-de-cozinha-preco-p13-campo-grande/',
-  '/blog/botijao-vazio-como-pedir-entrega-campo-grande/',
-  '/blog/p13-p20-p45-qual-botijao-escolher/',
-  '/blog/como-identificar-botijao-ultragaz-original/',
-  '/blog/gas-sem-nota-fiscal-riscos/',
-  '/blog/quanto-dura-botijao-p13/',
-  '/blog/gas-para-restaurante-p45-ou-p20/',
-  '/blog/disk-gas-bairros-campo-grande/',
-  '/blog/revenda-autorizada-gas-campo-grande/',
-  '/blog/mosko-gas-vs-supermercado/',
-  '/blog/como-identificar-vazamento-de-gas/',
-  '/blog/botijao-de-gas-tem-validade/',
-  '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
-  '/blog/gas-comercial-p13-p20-ou-p45/',
   '/blog/bebedouro-de-agua-mineral-para-empresa/',
-  '/blog/como-funciona-entrega-de-gas-em-campo-grande/',
-  '/blog/como-saber-se-revenda-de-gas-e-autorizada/',
-  '/blog/galao-de-agua-retornavel-ou-descartavel/',
-  '/blog/gas-glp-para-aquecedor-qual-botijao-usar/',
-  '/blog/ph-da-agua-mineral-o-que-significa/',
-  '/blog/gas-para-sauna-qual-botijao/',
-  '/blog/o-que-e-botijao-p45/',
-  '/blog/regulamentacao-anp-revenda-gas/',
-  '/blog/gas-para-condominio-central-glp/',
-  '/blog/quando-trocar-mangueira-regulador-gas/',
-  '/blog/gas-para-pizzaria-campo-grande/',
-  '/blog/como-calcular-consumo-gas-restaurante/',
-  '/blog/gas-p20-empilhadeira-campo-grande/',
-  '/blog/gas-entrega-urgente-campo-grande/',
   '/blog/beneficio-gas-do-povo-como-funciona/',
-  '/',
-  '/loja/',
-  '/distribuidora-de-gas-campo-grande/',
-  '/gas-aberto-agora-campo-grande/',
-  '/gas-em-campo-grande-ms/',
-  '/preco-gas-campo-grande-ms/',
-  '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/como-saber-se-o-gas-esta-acabando/',
+  '/blog/botijao-de-gas-tem-validade/',
+  '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/blog/botijao-vazio-como-pedir-entrega-campo-grande/',
+  '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/blog/como-calcular-consumo-gas-restaurante/',
+  '/blog/como-funciona-entrega-de-gas-em-campo-grande/',
+  '/blog/como-identificar-botijao-ultragaz-original/',
+  '/blog/como-identificar-vazamento-de-gas/',
+  '/blog/como-saber-se-o-gas-esta-acabando/',
+  '/blog/como-saber-se-revenda-de-gas-e-autorizada/',
+  '/blog/como-utilizar-o-gas-de-cozinha-de-maneira-correta-em-seu-comercio/',
+  '/blog/disk-gas-bairros-campo-grande/',
+  '/blog/galao-de-agua-retornavel-ou-descartavel/',
+  '/blog/gas-comercial-p13-p20-ou-p45/',
+  '/blog/gas-de-cozinha-ou-gas-p45/',
+  '/blog/gas-de-cozinha-preco-p13-campo-grande/',
+  '/blog/gas-entrega-urgente-campo-grande/',
+  '/blog/gas-glp-para-aquecedor-qual-botijao-usar/',
+  '/blog/gas-liquefeito-de-petroleo-glp-a-vantagem-competitiva-para-hoteis-e-pousadas/',
+  '/blog/gas-p20-empilhadeira-campo-grande/',
+  '/blog/gas-p20-tudo-o-que-voce-precisa-saber-sobre-o-gas-para-empilhadeira/',
+  '/blog/gas-p45-saiba-como-armazenar-cilindro-de-gas/',
+  '/blog/gas-para-condominio-central-glp/',
+  '/blog/gas-para-pizzaria-campo-grande/',
+  '/blog/gas-para-restaurante-p45-ou-p20/',
+  '/blog/gas-para-sauna-qual-botijao/',
+  '/blog/gas-sem-nota-fiscal-riscos/',
+  '/blog/mosko-gas-vs-supermercado/',
+  '/blog/nao-e-so-no-fogao-conheca-3-utilidades-do-gas-de-cozinha/',
+  '/blog/nem-diesel-nem-gasolina-conheca-as-vantagens-do-gas-para-empilhadeira/',
+  '/blog/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
+  '/blog/o-que-e-botijao-p45/',
+  '/blog/o-que-e-o-gas-de-cozinha-ou-glp/',
+  '/blog/onde-instalar-o-gas-de-cozinha/',
+  '/blog/p13-p20-p45-qual-botijao-de-gas-escolher/',
+  '/blog/p13-p20-p45-qual-botijao-escolher/',
+  '/blog/ph-da-agua-mineral-o-que-significa/',
+  '/blog/por-que-voce-deve-beber-agua-mineral-e-quais-sao-seus-beneficios/',
+  '/blog/preco-botijao-de-gas-campo-grande-ms/',
+  '/blog/quando-trocar-mangueira-regulador-gas/',
+  '/blog/quanto-custa-botijao-de-gas-completo/',
+  '/blog/quanto-dura-botijao-p13/',
+  '/blog/regulamentacao-anp-revenda-gas/',
+  '/blog/revenda-autorizada-gas-campo-grande/',
+  '/blog/vantagens-de-utilizar-o-gas-glp/',
   '/botijao-de-gas/',
-  '/gas-de-cozinha/',
-  '/gas-de-cozinha-ou-gas-p45/',
-  '/politica-de-privacidade/',
-  '/termos-de-uso-mosko-gas/',
-  '/politica-de-cookies/',
-  '/politica-de-troca/',
-  '/bairros/',
-  '/gas-p45/',
-  '/gas-industrial-campo-grande-ms/',
-  '/agua-mineral-em-campo-grande-ms/',
-  '/vendas-corporativas/',
-  '/gas-para-restaurantes/',
-  '/gas-para-padarias/',
-  '/gas-para-hoteis/',
-  '/gas-para-bares/',
-  '/gas-industrial-empresas/',
-  '/gas-para-saloes-de-festas/',
-  '/gas-para-escolas/',
-  '/gas-para-construcao-civil/',
-  '/gas-para-condominios/',
-  '/gas-para-lavanderias/',
-  '/gas-para-clinicas/',
-  '/sobre-a-mosko-gas/',
+  '/como-saber-se-o-gas-esta-acabando/',
   '/contato/',
-  '/gas-do-povo-em-campo-grande-ms/',
   '/disk-gas-em-campo-grande-ms/',
-  '/gas-entrega-hoje-em-campo-grande-ms/',
-  '/gas-mais-proximo-em-campo-grande-ms/',
-  '/gas-perto-de-mim-campo-grande/',
+  '/distribuidora-de-gas-campo-grande/',
   '/entrega-de-gas-campo-grande-ms/',
-  '/whatsappgas/',
-  '/gas-de-empilhadeiras-p20/',
-  '/gas-na-mata-do-jacinto/',
-  '/gas-caranda-bosque/',
-  '/gas-giocondo-orsi/',
-  '/gas-autonomista/',
-  '/gas-vila-rica/',
-  '/gas-santa-fe/',
-  '/gas-centro/',
-  '/gas-jardim-dos-estados/',
-  '/gas-vila-margarida/',
-  '/gas-novos-estados/',
-  '/gas-vila-nascente/',
-  '/gas-no-futurista/',
-  '/gas-no-damha/',
-  '/gas-no-alphaville/',
-  '/gas-vivendas-do-bosque/',
-  '/gas-nova-lima/',
-  '/gas-jardim-presidente/',
-  '/gas-columbia/',
-  '/gas-chacara-cachoeira/',
-  '/gas-monte-castelo/',
-  '/gas-sao-francisco/',
-  '/gas-universitario/',
-  '/gas-estrela-dalva/',
+  '/gas-aberto-agora-campo-grande/',
   '/gas-aero-rancho/',
   '/gas-aeroporto/',
   '/gas-alves-pereira/',
   '/gas-amambai/',
   '/gas-america/',
+  '/gas-autonomista/',
   '/gas-bandeirantes/',
   '/gas-batistao/',
   '/gas-bela-vista/',
   '/gas-cabreuva/',
   '/gas-caicara/',
   '/gas-carada/',
+  '/gas-caranda-bosque/',
   '/gas-carlota/',
   '/gas-carvalho/',
   '/gas-centenario/',
   '/gas-centro-oeste/',
+  '/gas-centro/',
+  '/gas-chacara-cachoeira/',
   '/gas-chacara-das-mansoes/',
+  '/gas-columbia/',
   '/gas-conjunto-aero-rancho/',
-  '/gas-conjunto-jose-abrao/',
   '/gas-conjunto-estrela-do-sul/',
+  '/gas-conjunto-jose-abrao/',
+  '/gas-conjunto-mata-jacinto/',
   '/gas-coophafe/',
   '/gas-coophasul/',
   '/gas-coophatrabalho/',
   '/gas-coophavila-ii/',
   '/gas-coronel-antonino/',
   '/gas-cruzeiro/',
+  '/gas-de-cozinha-ou-gas-p45/',
+  '/gas-de-cozinha/',
+  '/gas-de-empilhadeiras-p20/',
+  '/gas-do-povo-em-campo-grande-ms/',
+  '/gas-doutor-albuquerque/',
+  '/gas-em-campo-grande-ms/',
+  '/gas-entrega-hoje-em-campo-grande-ms/',
+  '/gas-estrela-dalva/',
+  '/gas-giocondo-orsi/',
   '/gas-gloria/',
-  '/gas-guanandi/',
   '/gas-guanandi-ii/',
-  '/gas-itanhanga/',
+  '/gas-guanandi/',
+  '/gas-industrial-campo-grande-ms/',
+  '/gas-industrial-empresas/',
   '/gas-itanhanga-park/',
+  '/gas-itanhanga/',
   '/gas-jacy/',
   '/gas-jardim-aero-rancho/',
   '/gas-jardim-aeroporto/',
@@ -240,6 +251,7 @@ const PAGINAS_ESTATICAS = [
   '/gas-jardim-campo-alto/',
   '/gas-jardim-centenario/',
   '/gas-jardim-columbia/',
+  '/gas-jardim-dos-estados/',
   '/gas-jardim-ima/',
   '/gas-jardim-itamaraca/',
   '/gas-jardim-jacy/',
@@ -247,39 +259,77 @@ const PAGINAS_ESTATICAS = [
   '/gas-jardim-leblon/',
   '/gas-jardim-monte-libano/',
   '/gas-jardim-monumento/',
+  '/gas-jardim-morena/',
   '/gas-jardim-nhanha/',
   '/gas-jardim-noroeste/',
   '/gas-jardim-parati/',
   '/gas-jardim-paulista/',
+  '/gas-jardim-presidente/',
   '/gas-jardim-santa-emilia/',
   '/gas-jardim-sao-bento/',
   '/gas-jardim-sao-conrado/',
   '/gas-jardim-sao-lourenco/',
-  '/gas-doutor-albuquerque/',
-  '/gas-joquei-club/',
-  '/gas-conjunto-mata-jacinto/',
-  // ── Novos bairros 2026-03-18 (9 páginas — fechar lacuna competitiva) ──
-  '/gas-lar-trabalhador/',
-  '/gas-lageado/',
-  '/gas-jardim-ze-pereira/',
-  '/gas-jardim-veraneio/',
-  '/gas-jardim-morena/',
-  '/gas-jardim-tijuca/',
   '/gas-jardim-taruma/',
-  '/gas-maria-aparecida/',
+  '/gas-jardim-tijuca/',
+  '/gas-jardim-veraneio/',
+  '/gas-jardim-ze-pereira/',
+  '/gas-joquei-club/',
+  '/gas-lageado/',
+  '/gas-lar-trabalhador/',
   '/gas-los-angeles/',
+  '/gas-mais-proximo-em-campo-grande-ms/',
+  '/gas-maria-aparecida/',
+  '/gas-monte-castelo/',
+  '/gas-na-mata-do-jacinto/',
+  '/gas-no-alphaville/',
+  '/gas-no-damha/',
+  '/gas-no-futurista/',
+  '/gas-nova-lima/',
+  '/gas-novos-estados/',
+  '/gas-p45/',
+  '/gas-para-bares/',
+  '/gas-para-clinicas/',
+  '/gas-para-condominios/',
+  '/gas-para-construcao-civil/',
+  '/gas-para-escolas/',
+  '/gas-para-hoteis/',
+  '/gas-para-lavanderias/',
+  '/gas-para-padarias/',
+  '/gas-para-restaurantes/',
+  '/gas-para-saloes-de-festas/',
+  '/gas-perto-de-mim-campo-grande/',
+  '/gas-santa-fe/',
+  '/gas-sao-francisco/',
+  '/gas-universitario/',
+  '/gas-vila-margarida/',
+  '/gas-vila-nascente/',
+  '/gas-vila-rica/',
+  '/gas-vivendas-do-bosque/',
+  '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/loja/',
+  '/politica-de-cookies/',
+  '/politica-de-privacidade/',
+  '/politica-de-troca/',
+  '/preco-gas-campo-grande-ms/',
+  '/sobre-a-mosko-gas/',
+  '/termos-de-uso-mosko-gas/',
+  '/vendas-corporativas/',
+  '/whatsappgas/',
 ];
 
-// Extensões de arquivos estáticos do Cloudflare Pages (só imagens/fontes — CSS e JS do WP vão direto)
-// .xml REMOVIDO — sitemaps e feeds XML devem sempre proxiar para o WordPress
-const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|pdf|txt)$/i;
+// Extensões de arquivos estáticos
+const EXTENSOES_ESTATICAS = /\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|pdf|txt|xml|json|css|js)$/i;
 
+// ══════════════════════════════════════════════════════════════════════════════
+// HANDLER PRINCIPAL
+// ══════════════════════════════════════════════════════════════════════════════
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+    const pathLower = pathname.toLowerCase();
 
-    // ── Proxy /api/pub/pedido-site → backend Mosko App (resolve CORS) ─────
+    // ── 1. Proxy API → backend Mosko App (resolve CORS) ─────────────────────
     if (pathname === '/api/pub/pedido-site' && request.method === 'POST') {
       try {
         const body = await request.text();
@@ -301,183 +351,138 @@ export default {
       }
     }
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // 410 GONE — URLs WordPress de sistema (resposta instantânea, <10ms)
-    // Economiza crawl budget: Google para de rastrear essas URLs
-    // ══════════════════════════════════════════════════════════════════════════
-    const pathLower = pathname.toLowerCase();
-    
-    // Prefixos que indicam arquivos de sistema WordPress
+    // ── 2. 410 GONE — URLs WordPress de sistema ─────────────────────────────
     for (const prefix of PREFIXOS_410_GONE) {
       if (pathLower.startsWith(prefix)) {
         return new Response('Gone', { 
           status: 410, 
-          headers: { 
-            'Cache-Control': 'public, max-age=86400',
-            'X-Robots-Tag': 'noindex'
-          } 
+          headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
         });
       }
     }
-    
-    // Arquivos PHP específicos do WordPress
     for (const arquivo of ARQUIVOS_410_GONE) {
       if (pathLower === arquivo || pathLower.startsWith(arquivo + '?')) {
         return new Response('Gone', { 
           status: 410, 
-          headers: { 
-            'Cache-Control': 'public, max-age=86400',
-            'X-Robots-Tag': 'noindex'
-          } 
+          headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
         });
       }
     }
 
-    // 301 permanentes — redireciona páginas antigas antes de qualquer outra lógica
+    // ── 3. Redirects 301 ────────────────────────────────────────────────────
     if (REDIRECTS_301[pathname]) {
-      return Response.redirect('https://moskogas.com.br' + REDIRECTS_301[pathname], 301);
+      return Response.redirect('https://' + DOMINIO + REDIRECTS_301[pathname], 301);
+    }
+    
+    // Redirects com emoji
+    const redirEmoji = REDIRECTS_EMOJI[pathLower];
+    if (redirEmoji) {
+      return Response.redirect('https://' + DOMINIO + redirEmoji, 301);
     }
 
-    // Serve sitemap.xml e robots.txt estáticos (prioridade sobre WordPress)
-    if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
+    // Query params WordPress antigos → 301 para home
+    if (url.searchParams.has('p') || url.searchParams.has('page_id') || url.searchParams.has('attachment_id')) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
+    if (url.search.includes('?author=') || url.search.includes('&author=')) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
+
+    // Prefixos antigos → 301 para home
+    if (PREFIXOS_REDIRECIONAR_HOME.some(p => pathLower.startsWith(p))) {
+      return Response.redirect('https://' + DOMINIO + '/', 301);
+    }
+
+    // ── 4. Arquivos estáticos (imagens, fontes, XML, etc) ───────────────────
+    if (EXTENSOES_ESTATICAS.test(pathname)) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) {
-        const h = new Headers(asset.headers);
-        h.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-        h.set('Content-Type', pathname.endsWith('.xml') ? 'application/xml; charset=utf-8' : 'text/plain');
-        return new Response(asset.body, { status: asset.status, headers: h });
+        // Cache especial para sitemap e robots
+        if (pathname === '/sitemap.xml' || pathname === '/robots.txt' || pathname === '/products.xml') {
+          const h = new Headers(asset.headers);
+          h.set('Cache-Control', 'public, max-age=3600');
+          h.set('Content-Type', pathname.endsWith('.xml') ? 'application/xml; charset=utf-8' : 'text/plain');
+          return new Response(asset.body, { status: asset.status, headers: h });
+        }
+        return asset;
       }
     }
 
-    // Serve arquivos estáticos (imagens, fontes, etc) direto pelo Cloudflare
-    if (EXTENSOES_ESTATICAS.test(pathname)) {
-      const asset = await env.ASSETS.fetch(request);
-      if (asset.status !== 404) return asset;
-    }
-
-    // Normaliza barra APENAS para checar páginas estáticas
+    // ── 5. Páginas HTML estáticas ───────────────────────────────────────────
     let pathnameNorm = pathname;
     if (!pathnameNorm.endsWith('/') && !pathnameNorm.includes('.')) {
       pathnameNorm = pathnameNorm + '/';
     }
 
-    // Serve HTML estático do Cloudflare Pages
     if (PAGINAS_ESTATICAS.includes(pathnameNorm)) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }
 
-
-    // Redirects: posts antigos com emoji no slug → páginas estáticas
-    const REDIRECTS = {
-      '/%f0%9f%94%a5-gas-de-cozinha-no-jardim-veraneio-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-jardim-veraneio/',
-      '/%f0%9f%94%a5-gas-de-cozinha-nos-novos-estados-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-novos-estados/',
-      '/%f0%9f%94%a5-gas-de-cozinha-no-estrela-dalva-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-estrela-dalva/',
-      '/%f0%9f%94%a5-gas-de-cozinha-no-mata-do-jacinto-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-na-mata-do-jacinto/',
-      '/%f0%9f%94%a5-entrega-de-gas-no-coronel-antonino-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-coronel-antonino/',
-      '/%f0%9f%94%a5-gas-de-cozinha-no-danubio-azul-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-danubio-azul/',
-    };
-    const redirDest = REDIRECTS[pathname.toLowerCase()];
-    if (redirDest) return Response.redirect('https://' + DOMINIO + redirDest, 301);
-
-    // ── Intercepta padrões que geram 404 em massa ─────────────────────────
-    // URLs WordPress antigas com query param de ID
-    const searchParams = url.searchParams;
-    if (searchParams.has('p') || searchParams.has('page_id') || searchParams.has('attachment_id')) {
-      return Response.redirect('https://' + DOMINIO + '/', 301);
-    }
-
-    // Prefixos do glossário deletado e outros padrões antigos → 301 para home
-    // (URLs que tinham conteúdo real, diferente das de sistema que retornam 410)
-    const PREFIXOS_REDIRECIONAR_HOME = [
-      '/glossario/',
-      '/glp/',
-      '/glossary/',
-      '/termos/',
-      '/dicionario/',
-      '/term/',
-      '/author/',
-      '/tag/',
-      '/category/',
-      '/page/',
-      '/comments/',
-      '/trackback/',
-      '/feed/',
-      '/.well-known/',
-      '/attachment/',
-      '/embed/',
-    ];
-    if (PREFIXOS_REDIRECIONAR_HOME.some(p => pathLower.startsWith(p))) {
-      return Response.redirect('https://' + DOMINIO + '/', 301);
-    }
-    
-    // Query params WordPress antigos → 301 para home
-    if (url.search.includes('?author=') || url.search.includes('&author=')) {
-      return Response.redirect('https://' + DOMINIO + '/', 301);
-    }
-
-    // Passa para o WordPress com pathname ORIGINAL (sem modificar)
-    const wpUrl = ORIGIN + pathname + url.search;
-
-    const wpRequest = new Request(wpUrl, {
-      method: request.method,
-      headers: (() => {
-        const h = new Headers(request.headers);
-        h.set('Host', DOMINIO);
-        h.set('X-Forwarded-Proto', 'https');
-        h.set('X-Forwarded-Host', DOMINIO);
-        h.delete('accept-encoding'); // força resposta sem gzip — evita conflito na reescrita
-        h.delete('cf-connecting-ip');
-        h.delete('cf-ipcountry');
-        return h;
-      })(),
-      body: ['GET', 'HEAD'].includes(request.method) ? undefined : request.body,
-      redirect: 'manual',
+    // ── 6. 404 — Página não encontrada ──────────────────────────────────────
+    return new Response(pagina404(), {
+      status: 404,
+      headers: { 
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'public, max-age=60'
+      }
     });
-
-    try {
-      const response = await fetch(wpRequest);
-
-      // Reescreve redirects para o domínio correto
-      if ([301, 302, 307, 308].includes(response.status)) {
-        const location = response.headers.get('location') || '';
-        const newLocation = location
-          .replace(ORIGIN, 'https://' + DOMINIO)
-          .replace('http://' + DOMINIO, 'https://' + DOMINIO);
-        return new Response(null, {
-          status: response.status,
-          headers: { 'Location': newLocation },
-        });
-      }
-
-      const newHeaders = new Headers(response.headers);
-      newHeaders.delete('x-frame-options');
-      newHeaders.delete('content-security-policy');
-
-      // Reescreve URLs no body HTML para trocar origin.moskogas.com.br → moskogas.com.br
-      const contentType = response.headers.get('content-type') || '';
-      if (contentType.includes('text/html') || contentType.includes('text/css') || contentType.includes('javascript') || contentType.includes('text/xml') || contentType.includes('application/xml')) {
-        let body = await response.text();
-        body = body
-          .replace(/http:\/\/origin\.moskogas\.com\.br/g, 'https://moskogas.com.br')
-          .replace(/https:\/\/origin\.moskogas\.com\.br/g, 'https://moskogas.com.br')
-          .replace(/http:\/\/moskogas\.com\.br/g, 'https://moskogas.com.br');
-        newHeaders.delete('content-encoding'); // evita conflito com gzip após reescrita
-        return new Response(body, {
-          status: response.status,
-          statusText: response.statusText,
-          headers: newHeaders,
-        });
-      }
-
-      return new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: newHeaders,
-      });
-
-    } catch (err) {
-      return new Response('Erro: ' + err.message, { status: 502 });
-    }
   },
 };
+
+// ══════════════════════════════════════════════════════════════════════════════
+// PÁGINA 404 CUSTOMIZADA
+// ══════════════════════════════════════════════════════════════════════════════
+function pagina404() {
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada — Mosko Gás</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#001A4D 0%,#003087 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:#fff}
+    .container{text-align:center;max-width:500px}
+    .icon{font-size:80px;margin-bottom:20px;opacity:.9}
+    h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;margin-bottom:12px}
+    p{font-size:16px;opacity:.85;margin-bottom:32px;line-height:1.6}
+    .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:.2s}
+    .btn-wpp{background:#25D366;color:#fff}
+    .btn-wpp:hover{background:#1ebe5a;transform:translateY(-2px)}
+    .btn-home{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)}
+    .btn-home:hover{background:rgba(255,255,255,.25);border-color:#fff}
+    .links{margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15)}
+    .links p{font-size:14px;margin-bottom:16px;opacity:.7}
+    .links a{color:rgba(255,255,255,.8);font-size:13px;margin:0 8px;text-decoration:none}
+    .links a:hover{color:#fff;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🔍</div>
+    <h1>Página não encontrada</h1>
+    <p>A página que você procura não existe ou foi movida. Mas não se preocupe — estamos aqui para ajudar!</p>
+    <div class="btns">
+      <a href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20preciso%20de%20ajuda" class="btn btn-wpp">
+        <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="/" class="btn btn-home">Voltar ao início</a>
+    </div>
+    <div class="links">
+      <p>Páginas populares:</p>
+      <a href="/gas-de-cozinha/">Gás P13</a>
+      <a href="/gas-p45/">Gás P45</a>
+      <a href="/gas-de-empilhadeiras-p20/">Gás P20</a>
+      <a href="/agua-mineral-em-campo-grande-ms/">Água Mineral</a>
+      <a href="/loja/">Loja</a>
+    </div>
+  </div>
+</body>
+</html>`;
+}
