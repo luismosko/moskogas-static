@@ -1,6 +1,10 @@
 /**
- * _worker.js | Versão: 3.0.0 | Atualizado: 2026-03-23
+ * _worker.js | Versão: 3.0.1 | Atualizado: 2026-04-03
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * 
+ * MUDANÇAS v3.0.1:
+ * - Adicionado redirect /avaliar/ → Google Reviews
+ * - Suporte a redirects externos (URLs absolutas com http/https)
  * 
  * MUDANÇAS v3.0.0:
  * - Removido proxy para WordPress (origin.moskogas.com.br)
@@ -100,6 +104,10 @@ const REDIRECTS_301 = {
   '/gas-p45-antigo': '/gas-p45/',
   '/gas-entrega-hoje-em-campo-grande-ms-antigo/': '/gas-entrega-hoje-em-campo-grande-ms/',
   '/gas-entrega-hoje-em-campo-grande-ms-antigo': '/gas-entrega-hoje-em-campo-grande-ms/',
+  
+  // ── Links encurtados ───────────────────────────────
+  '/avaliar/': 'https://g.page/r/CYaoce2pbc5CEBM/review',
+  '/avaliar': 'https://g.page/r/CYaoce2pbc5CEBM/review',
 };
 
 // Posts antigos com emoji no slug
@@ -373,7 +381,9 @@ export default {
 
     // ── 3. Redirects 301 ────────────────────────────────────────────────────
     if (REDIRECTS_301[pathname]) {
-      return Response.redirect('https://' + DOMINIO + REDIRECTS_301[pathname], 301);
+      const destino = REDIRECTS_301[pathname];
+      const url = destino.startsWith('http') ? destino : 'https://' + DOMINIO + destino;
+      return Response.redirect(url, 301);
     }
     
     // Redirects com emoji
