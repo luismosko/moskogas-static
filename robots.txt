@@ -1,35 +1,27 @@
+# robots.txt — moskogas.com.br
+# Atualizado: 2026-04-04
+# Todas as páginas de conteúdo estão LIBERADAS para indexação
+
 User-agent: *
 Allow: /
 
-# Bloquear URLs WordPress que geram 404
-Disallow: /wp-content/
-Disallow: /wp-includes/
+# Bloquear apenas URLs técnicas do WordPress (que geram 404 ou são irrelevantes)
 Disallow: /wp-admin/
+Disallow: /wp-includes/
 Disallow: /wp-json/
+Disallow: /wp-login.php
+Disallow: /wp-cron.php
+Disallow: /xmlrpc.php
 Disallow: /feed/
 Disallow: /author/
 Disallow: /comments/
 Disallow: /trackback/
-Disallow: /xmlrpc.php
-Disallow: /wp-login.php
-Disallow: /wp-cron.php
 Disallow: /?p=
 Disallow: /?page_id=
 Disallow: /?attachment_id=
 Disallow: /.well-known/
 
-# Glossário liberado para indexação
-Allow: /glossario/
-
-# Bloquear bots específicos em URLs desnecessárias
-User-agent: AdsBot-Google
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /blog/
-Allow: /gas-de-cozinha/
-Allow: /gas-p45/
-Allow: /gas-de-empilhadeiras-p20/
-Allow: /agua-mineral-em-campo-grande-ms/
-Allow: /loja/
+# Permitir imagens do WordPress (usadas nas páginas)
+Allow: /wp-content/uploads/
 
 Sitemap: https://moskogas.com.br/sitemap.xml
