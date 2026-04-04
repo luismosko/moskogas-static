@@ -16,8 +16,10 @@ Disallow: /wp-cron.php
 Disallow: /?p=
 Disallow: /?page_id=
 Disallow: /?attachment_id=
-Disallow: /glossario/
 Disallow: /.well-known/
+
+# Glossário liberado para indexação
+Allow: /glossario/
 
 # Bloquear bots específicos em URLs desnecessárias
 User-agent: AdsBot-Google
