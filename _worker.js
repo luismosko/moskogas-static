@@ -1,8 +1,9 @@
 /**
- * _worker.js | Versão: 3.0.1 | Atualizado: 2026-04-03
+ * _worker.js | Versão: 3.0.2 | Atualizado: 2026-04-04
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
  * 
- * MUDANÇAS v3.0.1:
+ * MUDANÇAS v3.0.2:
+ * - Adicionadas 10 novas rotas de blog (total: 62 posts)
  * - Adicionado redirect /avaliar/ → Google Reviews
  * - Suporte a redirects externos (URLs absolutas com http/https)
  * 
@@ -199,6 +200,16 @@ const PAGINAS_ESTATICAS = [
   '/blog/regulamentacao-anp-revenda-gas/',
   '/blog/revenda-autorizada-gas-campo-grande/',
   '/blog/vantagens-de-utilizar-o-gas-glp/',
+  '/blog/p13-p20-ou-p45-como-escolher-botijao-certo/',
+  '/blog/guia-gas-para-restaurantes-campo-grande/',
+  '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/blog/entrega-gas-caranda-bosque-mata-jacinto/',
+  '/blog/por-que-preco-gas-varia/',
+  '/blog/gas-para-churrasco-p13-ou-p45/',
+  '/blog/agua-mineral-para-empresas-beneficios/',
+  '/blog/gas-perto-de-mim-como-encontrar/',
+  '/blog/entrega-gas-mesmo-dia-como-funciona/',
+  '/blog/economia-gas-cozinha-8-dicas/',
   '/botijao-de-gas/',
   '/como-saber-se-o-gas-esta-acabando/',
   '/contato/',
