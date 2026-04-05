@@ -1,185 +1,384 @@
+# INSTRUÇÕES DO PROJETO — moskogas.com.br (Site Estático)
+
+## IDENTIDADE DO PROJETO
+Site 100% estático hospedado no Cloudflare Pages (WordPress removido em março/2026).  
+**Meta PageSpeed:** 95+  
+**Token GitHub:** Ver arquivo `token_github.txt` no Claude Projects  
+**Repositório:** `github.com/luismosko/moskogas-static`
 
 ---
 
-## BLOCOS OBRIGATÓRIOS EM TODAS AS PÁGINAS (ATUALIZAÇÃO)
+## DADOS DA EMPRESA
 
-> Regra adicionada em 2026-02-20. Aplicar em todas as páginas novas e nas revisões das existentes.
-
-### 1. LINKAGEM INTERNA — obrigatório
-
-Toda menção a um produto ou serviço deve virar um link para a respectiva página:
-
-| Quando mencionar... | Linkar para |
+| Campo | Valor |
 |---|---|
-| "gás de cozinha", "botijão P13", "P13" | `/gas-de-cozinha/` |
-| "gás P45", "botijão 45kg", "industrial" | `/gas-industrial-campo-grande-ms/` |
-| "gás P20", "empilhadeira" | `/gas-de-empilhadeiras-p20/` |
-| "água mineral" | `/agua-mineral-em-campo-grande-ms/` |
-| "vendas corporativas", "empresas", "frotista" | `/vendas-corporativas/` |
-| "Disk Gás", "gás urgente" | `/disk-gas-em-campo-grande-ms/` |
-| "Gás do Povo" | `/gas-do-povo-em-campo-grande-ms/` |
-| nome de bairro atendido | página do bairro (ver slugs abaixo) |
+| Empresa | Mosko Gás Distribuidora de Gás e Água Mineral |
+| CNPJ | 12.977.901/0001-17 |
+| Endereço | Av. Panamericana, 295 – Estrela Dalva – Campo Grande/MS – CEP 79034-722 |
+| WhatsApp | (67) 99333-0303 |
+| Telefone | (67) 3026-5454 |
+| Horário | Seg–Sáb 7h às 18h30 |
+| Marca | Revenda autorizada Ultragaz / Registro ANP |
+| INPI | MoskoGás® — Processo nº 912827599 |
+| Avaliações | +350 avaliações 5 estrelas no Google |
+| Facebook | facebook.com/gasdecozinhaCampoGrandeMosko |
+| Instagram | instagram.com/moskogas |
 
-**Slugs dos bairros para linkagem:**
-```
-/gas-caranda-bosque/
-/gas-no-giocondo-orsi/
-/gas-estrela-dalva/
-/gas-no-autonomista/
-/gas-novos-estados/
-/gas-nova-lima/
-/gas-na-mata-do-jacinto/
-/gas-santa-fe/
-/gas-chacara-cachoeira/
-/gas-no-futurista/
-/gas-no-damha/
-/gas-no-alphaville/
-/gas-vivendas-do-bosque/
-```
-
-Regra: se a página do bairro ainda não existir no estático, linkar mesmo assim (WordPress responde no fallback do worker).
+**Preços atuais (atualizar quando mudar):**
+- P13 na portaria: **R$ 103,99** (promoção)
+- P13 com entrega: **R$ 124,90**
 
 ---
 
-### 2. SEÇÃO DE AVALIAÇÕES GOOGLE — obrigatório
+## ARQUITETURA — SITE 100% ESTÁTICO
 
-Deve aparecer em todas as páginas, preferencialmente após as seções de produto/como funciona, antes do FAQ.
-
-```html
-<!-- AVALIAÇÕES GOOGLE -->
-<section class="depoimentos" style="padding:60px 20px;background:var(--cinza-bg)">
-  <div class="container" style="text-align:center">
-    <h2 class="section-title">O que os clientes dizem da Mosko Gás</h2>
-    <p class="section-sub">+350 avaliações reais no Google</p>
-    <!-- google-badge + 3 review-cards — ver código completo na seção depoimentos da home -->
-  </div>
-</section>
+```
+Usuário → moskogas.com.br
+              ↓
+        Cloudflare DNS
+              ↓
+        Cloudflare Pages (moskogas-static)
+              ↓
+        _worker.js verifica a rota:
+         ├─ Rota em PAGINAS_ESTATICAS? → Serve HTML do repositório ✅
+         └─ Rota NÃO listada?         → Retorna 404 ❌
 ```
 
-Usar 3 review cards com nomes reais e textos reais (buscar no Google Maps). Background `var(--cinza-bg)`.
+> ⚠️ **IMPORTANTE:** O WordPress foi desativado em março/2026. Todo o conteúdo agora é HTML estático.
+
+### Infraestrutura
+
+| Componente | Detalhe |
+|---|---|
+| DNS/CDN | Cloudflare |
+| Site estático | Cloudflare Pages — projeto `moskogas-static` |
+| SSL | Cloudflare (gerenciado automaticamente) |
+| Deploy | Automático via `git push` (~30 segundos) |
 
 ---
 
-### 3. SEÇÃO DE BAIRROS COM LINKS — obrigatório
+## REPOSITÓRIO — ESTRUTURA DE PASTAS
 
-Substituir as `.regiao-tag` simples por `<a>` com href para a página do bairro:
-
-```html
-<a href="/gas-caranda-bosque/" class="regiao-tag">Carandá Bosque</a>
-<a href="/gas-estrela-dalva/" class="regiao-tag">Estrela Dalva</a>
-<!-- etc -->
+```
+moskogas-static/
+├── index.html                               ✅ Home
+├── gas-de-cozinha/index.html                ✅ Gás de Cozinha P13
+├── gas-p45/index.html                       ✅ Gás P45
+├── agua-mineral-em-campo-grande-ms/         ✅ Água Mineral
+├── vendas-corporativas/                     ✅ Vendas Corporativas
+├── sobre-a-mosko-gas/                       ✅ Sobre
+├── contato/                                 ✅ Contato
+├── blog/                                    ✅ 62 posts de blog
+│   ├── index.html                           ← Listagem do blog
+│   ├── gas-para-churrasco-p13-ou-p45/       ← Exemplo de post
+│   └── ...
+├── bairros/                                 ✅ ~110 páginas de bairros
+├── glossario/                               ✅ Termos do glossário
+├── images/                                  ← Imagens do site
+│   ├── logo.webp                            ← Logo nav (height:50px)
+│   ├── Gas-24-horas-de-Cozinha.webp         ← Botijão P13 (hero)
+│   └── ...
+├── _worker.js                               ✅ v3.0.2 — Roteador (CRÍTICO!)
+├── sitemap.xml                              ✅ ~190 URLs
+├── robots.txt                               ✅ Configuração de crawlers
+├── INSTRUCOES-PROJETO.md                    ← Este arquivo
+└── wrangler.jsonc                           ✅ Config Cloudflare Pages
 ```
 
-Se o bairro não tiver página própria, ainda assim incluir a tag (sem href ou com href para `/gas-de-cozinha/`).
+> **Blog:** Os posts ficam em `blog/slug-do-post/index.html` — são HTML estático como o resto do site.  
+> **Imagens extras** ficam em `moskogas.com.br/wp-content/uploads/` (usar URLs absolutas quando necessário).
 
 ---
 
-### 4. MAPA GOOGLE MAPS — obrigatório, carregamento lazy
+## COMO ADICIONAR NOVA PÁGINA (fluxo completo)
 
-**Posição:** Logo antes do footer, depois do CTA final. Sempre o último bloco de conteúdo.
+> ⚠️ **REGRA CRÍTICA:** Toda página nova DEVE ser registrada no `_worker.js`. Sem isso, o Cloudflare retorna 404 e o Google não indexa!
 
-**Regra de performance:** NUNCA carregar o iframe diretamente. Usar o padrão click-to-load:
+### Checklist obrigatório — NUNCA PULAR ETAPAS
 
+| # | Etapa | Arquivo | O que fazer |
+|---|-------|---------|-------------|
+| 1 | Criar HTML | `pasta/index.html` | Criar arquivo baseado no TEMPLATE |
+| 2 | **Registrar rota** | `_worker.js` | Adicionar em `PAGINAS_ESTATICAS` |
+| 3 | Adicionar sitemap | `sitemap.xml` | Inserir `<url>` antes de `</urlset>` |
+| 4 | Commit e push | — | `git add . && git commit && git push` |
+| 5 | Solicitar indexação | Google Search Console | Inspeção de URL → Solicitar indexação |
+
+### Fluxo de comandos
+
+```bash
+# 1. Clonar repositório (se ainda não clonado na sessão)
+git clone https://TOKEN@github.com/luismosko/moskogas-static.git
+cd moskogas-static
+
+# 2. Criar pasta e arquivo
+mkdir nome-da-pagina
+# ... criar index.html baseado no TEMPLATE-PAGINA.html ...
+
+# 3. OBRIGATÓRIO: Adicionar rota no _worker.js
+# No array PAGINAS_ESTATICAS, adicionar:
+#   '/nome-da-pagina/',
+
+# 4. OBRIGATÓRIO: Adicionar no sitemap.xml
+# Antes de </urlset>, adicionar:
+#   <url><loc>https://moskogas.com.br/nome-da-pagina/</loc></url>
+
+# 5. Commitar tudo
+git add .
+git commit -m "v1.0.0 /nome-da-pagina/ — descrição"
+git push origin main
+# Cloudflare publica em ~30 segundos
+```
+
+---
+
+## COMO ADICIONAR NOVO POST DE BLOG
+
+> ⚠️ **LIÇÃO APRENDIDA (abril/2026):** Posts de blog TAMBÉM precisam ser registrados no `_worker.js`. Sem isso = 404 no Google!
+
+### Checklist obrigatório para posts de blog
+
+| # | Etapa | Arquivo | O que fazer |
+|---|-------|---------|-------------|
+| 1 | Criar pasta | `blog/slug-do-post/` | `mkdir blog/slug-do-post` |
+| 2 | Criar HTML | `blog/slug-do-post/index.html` | Baseado no template de blog |
+| 3 | **Registrar rota** | `_worker.js` | Adicionar `'/blog/slug-do-post/',` |
+| 4 | Adicionar sitemap | `sitemap.xml` | Inserir URL do post |
+| 5 | Commit e push | — | `git add . && git commit && git push` |
+| 6 | Solicitar indexação | GSC | Após deploy (~30s) |
+
+### Exemplo prático
+
+```bash
+# Criar post
+mkdir blog/meu-novo-post
+# Criar blog/meu-novo-post/index.html
+
+# OBRIGATÓRIO: Adicionar no _worker.js
+# Na seção PAGINAS_ESTATICAS, adicionar:
+  '/blog/meu-novo-post/',
+
+# OBRIGATÓRIO: Adicionar no sitemap.xml
+# Antes de </urlset>:
+  <url><loc>https://moskogas.com.br/blog/meu-novo-post/</loc></url>
+
+# Commit
+git add .
+git commit -m "v1.0.0 /blog/meu-novo-post/ — novo post sobre X"
+git push origin main
+```
+
+### Por que isso é necessário?
+
+O `_worker.js` funciona como um **roteador**:
+- Se a URL está em `PAGINAS_ESTATICAS` → Serve o HTML estático ✅
+- Se NÃO está → Retorna 404 ❌
+
+**Não basta criar o arquivo HTML** — ele precisa estar registrado no worker!
+
+---
+
+## ESTADO ATUAL DO WORKER (v3.0.2)
+
+```javascript
+const PAGINAS_ESTATICAS = [
+  '/',
+  '/agua-mineral-em-campo-grande-ms/',
+  '/bairros/',
+  '/blog/',
+  '/blog/5-receitas-para-voce-economizar-gas-de-cozinha/',
+  // ... + 60 posts de blog ...
+  '/gas-de-cozinha/',
+  '/gas-p45/',
+  // ... + 100 páginas de bairros ...
+];
+// Total: ~190 rotas
+```
+
+---
+
+## VERSIONAMENTO — REGRA OBRIGATÓRIA
+
+Primeira linha de todo HTML deve conter:
 ```html
-<!-- MAPA — sempre no final, lazy load obrigatório -->
-<section class="mapa-section" style="background:#fff;padding:40px 20px 0">
-  <div class="container" style="text-align:center">
-    <h2 class="section-title" style="margin-bottom:8px">Onde estamos</h2>
-    <p style="color:var(--cinza-sub);font-size:15px;margin-bottom:20px">
-      Av. Panamericana, 295 – Estrela Dalva – Campo Grande/MS
-    </p>
-    <div id="mapa-container" style="width:100%;max-width:900px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--borda);cursor:pointer;background:var(--cinza-bg);height:350px;display:flex;align-items:center;justify-content:center" onclick="carregarMapa()">
-      <div style="text-align:center">
-        <div style="font-size:40px;margin-bottom:12px">📍</div>
-        <p style="font-weight:700;color:var(--azul);font-size:16px">Ver no Google Maps</p>
-        <p style="color:var(--cinza-sub);font-size:13px">Clique para carregar o mapa</p>
-      </div>
-    </div>
-  </div>
-</section>
-<script>
-function carregarMapa(){
-  document.getElementById('mapa-container').innerHTML='<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.34!2d-54.6400!3d-20.4550!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI3JzE4LjAiUyA1NMKwMzgnMjQuMCJX!5e0!3m2!1spt!2sbr!4v1" width="100%" height="350" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+<!--
+  pasta/index.html | Versão: X.X.X | Atualizado: AAAA-MM-DD | Descrição: resumo
+-->
+```
+
+---
+
+## IDENTIDADE VISUAL — REGRAS QUE NÃO PODEM MUDAR
+
+> **REGRA MÁXIMA:** Topbar, nav, banner urgência, badges, footer e float-wpp são IDÊNTICOS em todas as páginas. Nunca modificar esses blocos. Só o conteúdo interno (hero, seções do meio) muda.
+
+### Variáveis CSS — copiar exatas
+```css
+:root {
+  --azul: #003087;
+  --azul-medio: #0055CC;
+  --azul-claro: #E8F0FD;
+  --verde-wpp: #25D366;
+  --laranja: #FF6B00;
+  --cinza-bg: #F4F6FA;
+  --cinza-texto: #333;
+  --cinza-sub: #666;
+  --borda: #E0E7F3;
+  --footer-bg: #001A4D;
+  --radius: 14px;
+  --radius-btn: 50px;
 }
-</script>
 ```
 
----
-
-### 5. LINKS INTERNOS NO RODAPÉ DE CADA SEÇÃO — recomendado
-
-Ao final de seções relevantes, adicionar um bloco de "Veja também":
-
+### Fonte única
 ```html
-<div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--borda);display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
-  <span style="font-size:13px;color:var(--cinza-sub);font-weight:600">Veja também:</span>
-  <a href="/gas-de-cozinha/" style="font-size:13px;color:var(--azul-medio);font-weight:600">Gás de Cozinha P13</a>
-  <a href="/gas-industrial-campo-grande-ms/" style="font-size:13px;color:var(--azul-medio);font-weight:600">Gás P45 e P20</a>
-  <a href="/disk-gas-em-campo-grande-ms/" style="font-size:13px;color:var(--azul-medio);font-weight:600">Disk Gás Urgente</a>
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+```
+**Só Inter.** Não usar Montserrat, Roboto, nem outras.
+
+### Gradiente hero
+```css
+background: linear-gradient(130deg, #001A4D 0%, #003087 55%, #0055CC 100%);
+```
+
+### Tipos de botão (não criar outros)
+| Classe | Onde | Aparência |
+|---|---|---|
+| `.btn-wpp` | CTAs principais | Verde `#25D366`, pill, ícone WhatsApp SVG |
+| `.btn-outline` | Hero secundário | Transparente, borda branca, só no fundo azul |
+| `.n-wpp` | Nav desktop | Verde, sem ícone |
+| `.t-wpp` | Topbar | Verde com ícone WPP |
+| `.t-tel` | Topbar | Borda branca semi-transparente |
+
+### Estrutura obrigatória de cada página
+```
+1. <head>        → meta SEO + canonical + OG + schema JSON-LD + CSS
+2. TOPBAR        → idêntico à home
+3. NAV           → idêntico à home (só .active muda)
+4. HERO          → h1 focado na keyword + card preços (se tiver) + rating + botões
+5. URGÊNCIA      → banner laranja, idêntico
+6. BADGES        → faixa cinza com credenciais, idêntico
+7. [seções específicas da página]
+8. FAQ           → accordion, mín. 7 perguntas, idêntico ao estilo da home
+9. CTA FINAL     → seção azul escuro com btn-wpp
+10. FOOTER       → idêntico à home
+11. FLOAT WPP    → idêntico à home
+12. <script>     → FAQ accordion + hambúrguer
+13. Schema JSON-LD → LocalBusiness + FAQPage
 ```
 
 ---
 
-### ORDEM FINAL OBRIGATÓRIA DE SEÇÕES (atualizada)
+## SEO — ESTRATÉGIA E PADRÕES
 
+### Por que estamos perdendo para concorrentes fracos
+O site passou por ataque de malware em set/2024 e perdeu ranking. Concorrentes como `gascampogrande.com.br` têm Authority Score 9 (igual ao nosso) mas só 2 backlinks — rankeiam por keyword-match no domínio e conteúdo focado. Nossa vantagem: 145 backlinks reais, 350 avaliações 5★, marca registrada, Ultragaz oficial.
+
+**Solução:** Criar páginas HTML ultra-rápidas com keyword exata no título, URL semântica, preços explícitos, schema.org completo e FAQs para rich snippets.
+
+### Title Tag — fórmula
 ```
-1.  <head>           → meta SEO + canonical + OG + Schema + CSS
-2.  TOPBAR           → idêntico (não alterar)
-3.  NAV              → idêntico (só .active muda)
-4.  HERO             → h1 + keyword + preços (se tiver) + rating + botões WPP
-5.  URGÊNCIA         → banner laranja (não alterar)
-6.  BADGES           → faixa credenciais (não alterar)
-7.  [seções específicas do produto/serviço com links internos]
-8.  AVALIAÇÕES       → google-badge + 3 review-cards reais (bg cinza-bg)
-9.  BAIRROS          → regiao-tags com <a href="/gas-BAIRRO/"> (bg branco ou cinza-bg)
-10. FAQ              → accordion mín. 7 perguntas (bg branco)
-11. CTA FINAL        → gradiente azul + btn-wpp
-12. MAPA             → click-to-load iframe, último bloco antes do footer
-13. FOOTER           → idêntico (não alterar)
-14. FLOAT WPP        → idêntico (não alterar)
-15. <script>         → FAQ + hamburger + carregarMapa()
-16. Schema JSON-LD   → LocalBusiness + FAQPage
+[Keyword Principal em Campo Grande MS] — [Diferencial concreto] | Mosko Gás
 ```
+Exemplos:
+- `Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 103,99 | Mosko Gás`
+- `Água Mineral em Campo Grande MS — Entrega Rápida | Mosko Gás`
+- `Gás P45 em Campo Grande MS — GLP Industrial Ultragaz | Mosko Gás`
 
----
+### Meta Description — deve conter
+1. Keyword principal
+2. Preço atual (quando aplicável)
+3. Autoridade ("Revenda autorizada Ultragaz" ou "350 avaliações 5★")
+4. Telefone ou "WhatsApp"
+5. Máx 160 caracteres
 
-## CORREÇÃO APLICADA EM 2026-02-20
-
-- Substituir "Na sua porta" por **"Na sua casa"** em todos os cards de preço de entrega
-- Mapa Google Maps: usar iframe com `loading="lazy"` nativo (não click-to-load) — carrega ao rolar, não pesa no LCP, e mantém o sinal geográfico para SEO local
-- Avaliações (review-cards): sempre adaptar os textos para referenciar o produto/serviço da página em questão
-
-### Código padrão do mapa (iframe lazy nativo — substituir o click-to-load)
+### H1 — estrutura padrão
 ```html
-<section class="mapa-section" style="background:#fff;padding:40px 20px">
-  <div class="container" style="text-align:center">
-    <h2 class="section-title" style="margin-bottom:8px">Onde estamos</h2>
-    <p style="color:var(--cinza-sub);font-size:15px;margin-bottom:20px">
-      Av. Panamericana, 295 – Estrela Dalva – Campo Grande/MS
-    </p>
-    <div style="width:100%;max-width:900px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--borda)">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.34!2d-54.64003!3d-20.45500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e9271f3df10d%3A0x5c53b1e81df51e02!2sMosko%20G%C3%A1s!5e0!3m2!1spt-BR!2sbr!4v1"
-        width="100%" height="350" style="border:0;display:block"
-        allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Mosko Gás — Localização em Campo Grande MS">
-      </iframe>
-    </div>
-  </div>
-</section>
+<h1><span>Keyword Principal em Campo Grande</span> — Complemento descritivo</h1>
+```
+Uma única H1 por página. O `<span>` fica em `color: #7EC8FF` (azul claro no fundo escuro).
+
+### Canonical — sempre incluir
+```html
+<link rel="canonical" href="https://moskogas.com.br/SLUG-DA-PAGINA/">
 ```
 
-### Regra de imagem padrão (hero)
-- **Imagem padrão do hero:** `/images/Gas-24-horas-de-Cozinha.webp` — usar SEMPRE que não houver imagem específica
-- `entrega.webp` — apenas em seções internas ("como funciona", "sobre"), NUNCA no hero
-- Imagens corretas por tipo de página:
-  | Página | Hero |
-  |---|---|
-  | Gás cozinha, P13, disk gás, entrega hoje, mais próximo | `Gas-24-horas-de-Cozinha.webp` |
-  | Gás P45 / industrial | `p45-campo-grande-ms-moskogas-ultragaz.webp` |
-  | Gás P20 / empilhadeiras | `gas-p20-entrega-campo-grande.webp` |
-  | Água mineral | `Pedir-gas-Whatsaap.webp` ou URL do WP |
-  | Sobre / institucional | `Sobre-a-Mosko-Gas-Distribuidora-(...).webp` |
-  | Gás do Povo | `gas-do-povo-campo-grande-ms.webp` |
+### FAQs — mínimo 7 por página — sempre responder
+1. Qual o preço de [produto] em Campo Grande?
+2. Qual o horário de atendimento?
+3. Quais bairros vocês atendem?
+4. [Produto] é entregue lacrado e com nota fiscal?
+5. Quais formas de pagamento?
+6. Como fazer o pedido?
+7. A Mosko Gás é revenda autorizada?
+
+### Schema.org — obrigatório em toda página
+- `LocalBusiness` com preços, horário, avaliações, endereço, coordenadas
+- `FAQPage` com todas as perguntas da seção FAQ
+
+### Bairros atendidos — lista padrão para incluir nas páginas
+Carandá Bosque, Giocondo Orsi, Estrela Dalva, Autonomista, Vila Rica, Santa Fé, Centro, Jardim dos Estados, Vila Margarida, Novos Estados, Mata do Jacinto, Vila Nascente, Nova Lima, Jardim Presidente, Columbia, Chácara Cachoeira, Monte Castelo, São Francisco, Universitário
+
+### Google Search Console — após cada nova página
+Submeter a URL manualmente para indexação rápida: Search Console → Inspeção de URL → Solicitar indexação.
+
+---
+
+## PÁGINAS A CRIAR — PRIORIDADE E KEYWORDS
+
+| Prioridade | Slug | Keyword-alvo | Produto |
+|---|---|---|---|
+| 1 | `/gas-p45/` | "gás p45 campo grande" | Botijão industrial 45kg |
+| 2 | `/gas-industrial-campo-grande-ms/` | "gás industrial campo grande" | P45 + P20 empresas |
+| 3 | `/agua-mineral-em-campo-grande-ms/` | "água mineral campo grande entrega" | Água mineral |
+| 4 | `/vendas-corporativas/` | "gás para empresas campo grande" | B2B / frotista |
+| 5 | `/sobre-a-mosko-gas/` | "Mosko Gás campo grande" | Institucional |
+| 6 | `/contato/` | "contato Mosko Gás" | Formulário/mapa |
+
+---
+
+## IMAGENS DISPONÍVEIS EM /images/
+
+| Arquivo | Usar em |
+|---|---|
+| `logo.webp` | Nav de todas as páginas |
+| `Gas-24-horas-de-Cozinha.webp` | Hero e seção produto do P13 |
+| `entrega.webp` | Seções "como funciona", "sobre nós" |
+| `Sobre-a-Mosko-Gas-Distribuidora-(...).webp` | Página Sobre, hero institucional |
+| `gas-do-povo-campo-grande-ms.webp` | Seção Gás do Povo |
+| `gas-p20-entrega-campo-grande.webp` | Páginas P20 / Industrial |
+| `p45-campo-grande-ms-moskogas-ultragaz.webp` | Páginas P45 / Industrial |
+| `Pedir-gas-Whatsaap.webp` | CTAs secundários |
+| `pedir-gas-agora-no-whatsapp.webp` | Banners CTA |
+
+Regra de carregamento:
+- Imagem do hero: `loading="eager"`
+- Todas as outras: `loading="lazy"`
+
+---
+
+## RESULTADO ESPERADO — PAGESPEED
+
+| Métrica | Antes (WP+Elementor) | Meta (HTML puro) |
+|---|---|---|
+| Performance | 75 | 95+ |
+| LCP | 4,9s | < 2s |
+| Speed Index | 5,7s | < 2s |
+| Acessibilidade | 94 | 95+ |
+| SEO | 100 | 100 |
+
+---
+
+## OBSERVAÇÃO — PROJETO RELACIONADO
+
+Existe o projeto **Mosko APP - Bling Interface** (Claude Projects separado) com backend no Cloudflare Worker `moskogas-backend-v2` (R2 + D1 + API Bling). No futuro será integrado ao site estático para dados dinâmicos (preços em tempo real, pedidos).
+
+---
+
+## ARQUIVOS ANEXOS DESTE PROJETO
+
+| Arquivo | Conteúdo |
+|---|---|
+| `INSTRUCOES-PROJETO.md` | Este documento |
+| `TEMPLATE-PAGINA.html` | Template HTML completo para novas páginas |
+| `token_github.txt` | Token de acesso ao repositório |
