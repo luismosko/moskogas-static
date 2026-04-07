@@ -1,5 +1,69 @@
 # BASELINE SEO — moskogas.com.br
-## Data: Abril 2026 (dados coletados entre 24/03 e 07/04/2026)
+## Data: Abril 2026 (dados coletados entre 24/03 e 08/04/2026)
+
+---
+
+## 📈 ATUALIZAÇÃO 08/04/2026 — Position Tracking
+
+### Visibilidade Estabilizando Após Core Update
+
+| Métrica | 24/03 | 01/04 | 08/04 | Tendência |
+|---------|-------|-------|-------|-----------|
+| Visibilidade | 23,30% | 14,46% | **14,49%** | ↗️ Estabilizando |
+| Posição "gás p45" | #1 | #3 | **#3** | → Manteve |
+| Posição "gás p20" | #3 | #2 | **#2** | → Manteve |
+| Posição "gás campo grande ms" | — | #5 | **#4** | ↑ Subiu |
+| Posição "gás de cozinha" | — | #7 | **#6** | ↑ Subiu |
+
+### Ranking de Visibilidade (08/04/2026)
+
+| Posição | Domínio | Visibilidade | Variação |
+|---------|---------|--------------|----------|
+| 1 | facebook.com | 42,95% | +2,77% |
+| 2 | mercadolivre.com.br | 36,41% | +19,03% |
+| 3 | fraga.com.br | 26,20% | -0,11% |
+| 4 | supergasbras.com.br | 18,51% | +3,21% |
+| 5 | ultragaz.com.br | 17,52% | +5,07% |
+| **6** | **moskogas.com.br** | **14,49%** | **+0,03%** |
+| 7 | compegaz.com.br | 13,88% | -11,43% |
+| 8 | gascampogrande.com.br | 10,86% | — |
+
+### Top Keywords — moskogas.com.br (08/04/2026)
+
+| Keyword | Posição | Variação | Volume |
+|---------|---------|----------|--------|
+| gás p20 | #2 | → | 10 |
+| gás p45 | #3 | → | 46 |
+| gás campo grande ms | #4 | ↑1 | 590 |
+| gás de cozinha | #6 | ↑1 | 2.400 |
+| disk gás campo grande ms | #8 | ↓1 | 90 |
+| gás de cozinha campo grande | #8 | → | 20 |
+| galão de água | — | ↓ | 200 |
+| água mineral | — | ↓ | 390 |
+
+### Top Landing Pages — Tráfego Estimado (08/04/2026)
+
+| URL | Tráfego | Variação | Keywords | Posição Média |
+|-----|---------|----------|----------|---------------|
+| / (home) | 4,98 | +3,59 | 4 | 5,5 |
+| /whatsappgas/ | 0,86 | -0,24 | 3 | 18,67 |
+| /disk-gas-em-campo-grande-ms/ | 0,45 | +0,45 | 2 | 40 | 🆕 |
+| /gas-mais-proximo-em-campo-grande-ms/ | 0,08 | -0,13 | 2 | 11 |
+| /blog/gas-entrega-urgente-campo-grande/ | 0,04 | +0,04 | 1 | 14 | 🆕 |
+| /gas-jardim-veraneio/ | 0,03 | +0,03 | 1 | 23 | 🆕 |
+| /gas-aeroporto/ | 0,02 | +0,02 | 1 | 40 | 🆕 |
+
+### Páginas que Perderam Ranking (LOST)
+
+| URL | Keywords Antes | Agora |
+|-----|----------------|-------|
+| /gas-estrela-dalva/ | 1 | 0 |
+| /gas-do-povo-em-campo-grande-ms/ | 1 | 0 |
+| /gas-nova-lima/ | 1 | 0 |
+| /gas-jardim-sao-conrado/ | 1 | 0 |
+| /gas-vivendas-do-bosque/ | 1 | 0 |
+
+> ⚠️ **Observação:** Páginas de bairros perderam rankings temporariamente. Monitorar nas próximas semanas.
 
 ---
 
