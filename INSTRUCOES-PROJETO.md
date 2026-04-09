@@ -102,7 +102,7 @@ moskogas-static/
 | 2 | **Registrar rota** | `_worker.js` | Adicionar em `PAGINAS_ESTATICAS` |
 | 3 | Adicionar sitemap | `sitemap.xml` | Inserir `<url>` antes de `</urlset>` |
 | 4 | Commit e push | — | `git add . && git commit && git push` |
-| 5 | Solicitar indexação | Google Search Console | Inspeção de URL → Solicitar indexação |
+| 5 | Solicitar indexação | GSC ou API | Manual: Inspeção de URL, ou `python _tools/google-indexing.py` |
 
 ### Fluxo de comandos
 
@@ -320,7 +320,20 @@ Uma única H1 por página. O `<span>` fica em `color: #7EC8FF` (azul claro no fu
 Carandá Bosque, Giocondo Orsi, Estrela Dalva, Autonomista, Vila Rica, Santa Fé, Centro, Jardim dos Estados, Vila Margarida, Novos Estados, Mata do Jacinto, Vila Nascente, Nova Lima, Jardim Presidente, Columbia, Chácara Cachoeira, Monte Castelo, São Francisco, Universitário
 
 ### Google Search Console — após cada nova página
-Submeter a URL manualmente para indexação rápida: Search Console → Inspeção de URL → Solicitar indexação.
+
+**Opção 1 — Manual (1-2 URLs):**
+Search Console → Inspeção de URL → Solicitar indexação.
+
+**Opção 2 — API (múltiplas URLs):**
+Usar o script em `_tools/google-indexing.py` (limite: 200 URLs/dia):
+```bash
+python _tools/google-indexing.py "https://moskogas.com.br/nova-pagina/"
+```
+
+**Configuração da API (já feita):**
+- Conta de serviço: `indexing-bot@mosko-marketing.iam.gserviceaccount.com`
+- Projeto GCP: `mosko-marketing`
+- Credencial: `_tools/google-credentials.json` (não commitado)
 
 ---
 
