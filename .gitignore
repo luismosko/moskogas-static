@@ -1,0 +1,7 @@
+# Credenciais sensíveis - NUNCA commitar
+_tools/google-credentials.json
+*.json.bak
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
