@@ -12,13 +12,16 @@
   <link rel="canonical" href="https://moskogas.com.br/loja/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Carregamento assíncrono -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--az:#003087;--azm:#0055CC;--azc:#E8F0FD;--vd:#25D366;--lj:#FF6B00;--cz:#F4F6FA;--tx:#333;--sb:#666;--bd:#E0E7F3;--r:16px;--p:50px}
-    body{font-family:'Inter',sans-serif;color:var(--tx);background:var(--cz);min-height:100vh}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;color:var(--tx);background:var(--cz);min-height:100vh}
     img{max-width:100%;display:block}
-    button,input,select{font-family:'Inter',sans-serif}
+    button,input,select{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
     .hdr{background:#fff;border-bottom:1.5px solid var(--bd);position:sticky;top:0;z-index:100;padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
     .hdr-logo img{height:38px}
     .hdr-cart{background:var(--az);color:#fff;border:none;border-radius:var(--p);padding:8px 16px 8px 12px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px}

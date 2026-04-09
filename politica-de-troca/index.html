@@ -17,7 +17,10 @@
   <meta property="og:locale" content="pt_BR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Carregamento assíncrono -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -27,7 +30,7 @@
       --borda:#E0E7F3;--footer-bg:#001A4D;
       --radius:14px;--radius-btn:50px;
     }
-    body{font-family:'Inter',sans-serif;color:var(--cinza-texto);line-height:1.6;overflow-x:hidden}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;color:var(--cinza-texto);line-height:1.6;overflow-x:hidden}
     a{text-decoration:none;color:inherit}
     img{max-width:100%;height:auto}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -72,7 +75,7 @@
     .contact-box h3{font-size:1rem;font-weight:700;color:var(--azul);margin-bottom:12px}
     .contact-box p{margin-bottom:8px;color:var(--cinza-sub)}
     .contact-box a{color:var(--azul-medio);font-weight:600}
-    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:var(--radius-btn);transition:.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px}
+    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:var(--radius-btn);transition:.2s;border:none;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;margin-top:10px}
     .btn-wpp:hover{background:#1ebe5a;transform:translateY(-1px)}
     .btn-wpp svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
     .update-info{text-align:center;padding:20px;color:var(--cinza-sub);font-size:13px;border-top:1px solid var(--borda);margin-top:40px}

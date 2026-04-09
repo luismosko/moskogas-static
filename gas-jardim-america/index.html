@@ -17,11 +17,14 @@
   <meta property="og:locale" content="pt_BR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Carregamento assíncrono -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--azul:#003087;--azul-medio:#0055CC;--azul-claro:#E8F0FD;--verde-wpp:#25D366;--ciano:#00AEEF;--verde-limao:#8DC63F;--laranja:#FF6B00;--cinza-bg:#F4F6FA;--cinza-texto:#333;--cinza-sub:#666;--borda:#E0E7F3;--footer-bg:#001A4D;--radius:14px;--radius-btn:50px}
-    body{font-family:'Inter',sans-serif;color:var(--cinza-texto);line-height:1.6;overflow-x:hidden}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;color:var(--cinza-texto);line-height:1.6;overflow-x:hidden}
     a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}strong{font-weight:700}
     .topbar{background:var(--azul);padding:8px 20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
@@ -59,7 +62,7 @@
     .hero-rating{display:flex;align-items:center;gap:10px;margin-bottom:28px;background:rgba(255,255,255,.08);border-radius:var(--radius-btn);padding:8px 16px;width:fit-content}
     .hero-stars{font-size:16px}.hero-rating-txt{color:rgba(255,255,255,.9);font-size:13px;font-weight:600}
     .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:var(--radius-btn);transition:.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 26px;border-radius:var(--radius-btn);transition:.2s;border:none;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
     .btn-wpp:hover{background:#1ebe5a;transform:translateY(-1px)}.btn-wpp svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
     .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-weight:600;font-size:15px;padding:13px 24px;border-radius:var(--radius-btn);border:2px solid rgba(255,255,255,.5);transition:.2s}
     .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
@@ -117,7 +120,7 @@
     .faq .container{text-align:center}
     .faq-list{max-width:800px;margin:36px auto 0;text-align:left}
     .faq-item{background:#fff;border-radius:var(--radius);border:1.5px solid var(--borda);margin-bottom:10px;overflow:hidden}
-    .faq-btn{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-size:15px;font-weight:700;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Inter',sans-serif}
+    .faq-btn{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-size:15px;font-weight:700;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
     .faq-btn::after{content:'+';font-size:22px;font-weight:400;color:var(--azul-medio);flex-shrink:0;transition:transform .3s}
     .faq-item.open .faq-btn::after{transform:rotate(45deg)}
     .faq-content{max-height:0;overflow:hidden;transition:max-height .35s ease}
