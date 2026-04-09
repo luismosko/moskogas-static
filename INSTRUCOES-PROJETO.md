@@ -25,8 +25,8 @@ Site 100% estático hospedado no Cloudflare Pages (WordPress removido em março/
 | Instagram | instagram.com/moskogas |
 
 **Preços atuais (atualizar quando mudar):**
-- P13 na portaria: **R$ 103,99** (promoção)
-- P13 com entrega: **R$ 124,90**
+- P13 na portaria: **R$ 109,99** (promoção)
+- P13 com entrega: **R$ 129,99**
 
 ---
 
@@ -281,7 +281,7 @@ O site passou por ataque de malware em set/2024 e perdeu ranking. Concorrentes c
 [Keyword Principal em Campo Grande MS] — [Diferencial concreto] | Mosko Gás
 ```
 Exemplos:
-- `Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 103,99 | Mosko Gás`
+- `Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 109,99 | Mosko Gás`
 - `Água Mineral em Campo Grande MS — Entrega Rápida | Mosko Gás`
 - `Gás P45 em Campo Grande MS — GLP Industrial Ultragaz | Mosko Gás`
 
