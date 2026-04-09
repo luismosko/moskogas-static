@@ -307,3 +307,32 @@
 ---
 
 *Baseline criado em 07/04/2026 para comparação futura*
+
+---
+
+## 📤 INDEXAÇÃO VIA API — 08/04/2026
+
+**11 URLs submetidas com sucesso:**
+
+| URL | Status |
+|-----|--------|
+| /blog/gas-para-churrasco-p13-ou-p45/ | ✅ Enviado |
+| /blog/por-que-preco-gas-varia/ | ✅ Enviado |
+| /blog/economia-gas-cozinha-8-dicas/ | ✅ Enviado |
+| /blog/agua-mineral-para-empresas-beneficios/ | ✅ Enviado |
+| /blog/gas-perto-de-mim-como-encontrar/ | ✅ Enviado |
+| /blog/entrega-gas-mesmo-dia-como-funciona/ | ✅ Enviado |
+| /blog/p13-p20-ou-p45-como-escolher-botijao-certo/ | ✅ Enviado |
+| /blog/guia-gas-para-restaurantes-campo-grande/ | ✅ Enviado |
+| /blog/seguranca-gas-cozinha-7-dicas-essenciais/ | ✅ Enviado |
+| /blog/entrega-gas-caranda-bosque-mata-jacinto/ | ✅ Enviado |
+| /glossario/o-que-e-botijao-de-gas-glp/ | ✅ Enviado |
+
+**Configuração:**
+- Conta de serviço: `indexing-bot@mosko-marketing.iam.gserviceaccount.com`
+- Projeto GCP: `mosko-marketing`
+- Limite diário: 200 URLs
+
+**Próximos passos:**
+- Verificar indexação no GSC em 24-48h
+- Adicionar conta de serviço nos outros domínios
