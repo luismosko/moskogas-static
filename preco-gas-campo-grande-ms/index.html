@@ -258,12 +258,12 @@
     <div class="preco-tabela-hero">
       <div class="preco-card-hero destaque">
         <div class="ptag">P13 · Portaria</div>
-        <div class="pval"><sup>R$</sup>103<span>,99</span></div>
+        <div class="pval"><sup>R$</sup>109<span>,99</span></div>
         <div class="pnota verde">⚡ Melhor preço</div>
       </div>
       <div class="preco-card-hero">
         <div class="ptag">P13 · Entrega</div>
-        <div class="pval"><sup>R$</sup>124<span>,90</span></div>
+        <div class="pval"><sup>R$</sup>129<span>,99</span></div>
         <div class="pnota">Na sua porta</div>
       </div>
       <div class="preco-card-hero">
@@ -642,8 +642,8 @@
   function calcular() {
     const freq = parseInt(document.getElementById('rangeFreq').value);
     document.getElementById('valFreq').textContent = freq + '×';
-    const entregaAno = freq * 12 * 124.90;
-    const portariaAno = freq * 12 * 103.99;
+    const entregaAno = freq * 12 * 129.99;
+    const portariaAno = freq * 12 * 109.99;
     const eco = entregaAno - portariaAno;
     const fmt = v => 'R$ ' + v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
     document.getElementById('custoEntrega').textContent = fmt(entregaAno);
@@ -677,7 +677,7 @@
       "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"350"},
       "offers":{
         "@type":"Offer",
-        "price":"103.99",
+        "price":"109.99",
         "priceCurrency":"BRL",
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
@@ -693,7 +693,7 @@
       "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"350"},
       "offers":{
         "@type":"Offer",
-        "price":"124.90",
+        "price":"129.99",
         "priceCurrency":"BRL",
         "availability":"https://schema.org/InStock",
         "itemCondition":"https://schema.org/NewCondition",
