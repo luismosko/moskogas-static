@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- products.xml | Versão: 2.0.0 | Atualizado: 2026-04-09 | Feed corrigido: preços atuais, links válidos, categoria adequada -->
+<!-- products.xml | Versão: 2.1.0 | Atualizado: 2026-04-15 | Feed corrigido: preços atuais, links válidos, categoria adequada -->
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
     <title>Mosko Gás - Produtos</title>
@@ -22,7 +22,7 @@
       <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
       <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>103.99 BRL</g:price>
+      <g:price>109.99 BRL</g:price>
       <g:brand>Ultragaz</g:brand>
       <g:condition>new</g:condition>
       <g:mpn>P13-MOSKOGAS-PORTARIA</g:mpn>
@@ -38,7 +38,7 @@
       <g:link>https://moskogas.com.br/gas-de-cozinha/</g:link>
       <g:image_link>https://moskogas.com.br/images/Gas-24-horas-de-Cozinha.webp</g:image_link>
       <g:availability>in_stock</g:availability>
-      <g:price>124.90 BRL</g:price>
+      <g:price>129.99 BRL</g:price>
       <g:brand>Ultragaz</g:brand>
       <g:condition>new</g:condition>
       <g:mpn>P13-MOSKOGAS-ENTREGA</g:mpn>
