@@ -1,6 +1,7 @@
 /**
- * _worker.js | Versão: 3.0.2 | Atualizado: 2026-04-04
+ * _worker.js | Versão: 3.0.3 | Atualizado: 2026-04-19
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.0.3: + rota /blog/armazenamento-cilindros-p20/ + pasta /downloads/
  * 
  * MUDANÇAS v3.0.2:
  * - Adicionadas 10 novas rotas de blog (total: 62 posts)
@@ -210,6 +211,7 @@ const PAGINAS_ESTATICAS = [
   '/blog/gas-perto-de-mim-como-encontrar/',
   '/blog/entrega-gas-mesmo-dia-como-funciona/',
   '/blog/economia-gas-cozinha-8-dicas/',
+  '/blog/armazenamento-cilindros-p20/',
   '/botijao-de-gas/',
   '/como-saber-se-o-gas-esta-acabando/',
   '/contato/',
