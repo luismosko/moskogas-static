@@ -1,7 +1,7 @@
 /**
- * _worker.js | Versão: 3.0.3 | Atualizado: 2026-04-19
+ * _worker.js | Versão: 3.0.4 | Atualizado: 2026-04-25
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
- * MUDANÇAS v3.0.3: + rota /blog/armazenamento-cilindros-p20/ + pasta /downloads/
+ * MUDANÇAS v3.0.4: + redirects 301 /agua-mineral-distribuidora/ e /agua-mineral-campo-grande-ms/ → /agua-mineral-em-campo-grande-ms/ (consolidação canibalização)
  * 
  * MUDANÇAS v3.0.2:
  * - Adicionadas 10 novas rotas de blog (total: 62 posts)
@@ -102,6 +102,11 @@ const REDIRECTS_301 = {
   '/agua-mineral-distribuidora-antigo': '/agua-mineral-em-campo-grande-ms/',
   '/agua-mineral-campo-grande-ms-antigo/': '/agua-mineral-em-campo-grande-ms/',
   '/agua-mineral-campo-grande-ms-antigo': '/agua-mineral-em-campo-grande-ms/',
+  // ── Consolidação canibalização água mineral (abr/2026) ─
+  '/agua-mineral-distribuidora/': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-distribuidora': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms/': '/agua-mineral-em-campo-grande-ms/',
+  '/agua-mineral-campo-grande-ms': '/agua-mineral-em-campo-grande-ms/',
   '/gas-p45-antigo/': '/gas-p45/',
   '/gas-p45-antigo': '/gas-p45/',
   '/gas-entrega-hoje-em-campo-grande-ms-antigo/': '/gas-entrega-hoje-em-campo-grande-ms/',
