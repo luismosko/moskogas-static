@@ -1,13 +1,17 @@
 /**
- * _worker.js | Versão: 3.1.0 | Atualizado: 2026-04-25
+ * _worker.js | Versão: 3.1.3 | Atualizado: 2026-04-26
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
- * MUDANÇAS v3.1.0: ESTRATÉGIA GLOSSÁRIO (recuperação pós-redirect-home):
- *   + 114 redirects específicos /glossario/[top-performers] → páginas comerciais relevantes
- *   ~ Move /glossario/ de PREFIXOS_REDIRECIONAR_HOME para PREFIXOS_410_GONE
- *     (era 301→home, causava soft 404 — agora 410 Gone limpa o índice)
- *   = REDIRECTS_301 é processado ANTES de PREFIXOS_410_GONE, então top performers
- *     mantêm o juice migrando para destinos relevantes ao intent original.
- * MUDANÇAS v3.0.4: + redirects 301 /agua-mineral-distribuidora/ e /agua-mineral-campo-grande-ms/ → /agua-mineral-em-campo-grande-ms/ (consolidação canibalização)
+ * MUDANÇAS v3.1.3: ONDA 3 — Artigos pilares do blog
+ *   + 5 rotas novas em PAGINAS_ESTATICAS:
+ *     /blog/quanto-pesa-galao-de-agua-mineral/
+ *     /blog/como-trocar-galao-de-agua-no-bebedouro/
+ *     /blog/queimadura-por-gas-glp-primeiros-socorros/
+ *     /blog/agua-alcalina-vs-agua-acida/
+ *     /blog/quanto-pesa-botijao-de-gas-cheio/
+ *   ~ 2 redirects glossário re-apontados para artigos dedicados (não mais para hubs):
+ *     queimadura → /blog/queimadura-por-gas-glp-primeiros-socorros/ (era /blog/seguranca/)
+ *     agua-alcalina → /blog/agua-alcalina-vs-agua-acida/ (era /agua-mineral/)
+ * MUDANÇAS v3.1.2: noindex /whatsappgas/, title transacional /gas-de-cozinha-ou-gas-p45/, +redirects 301 água mineral
  * 
  * MUDANÇAS v3.0.2:
  * - Adicionadas 10 novas rotas de blog (total: 62 posts)
@@ -137,7 +141,7 @@ const REDIRECTS_301 = {
   // ════════════════════════════════════════════════════════════════════════════
   // ── Água mineral / qualidade da água ─
   '/glossario/acidez-e-alcalinidade-em-diferentes-tipos-de-agua/': '/agua-mineral-em-campo-grande-ms/',
-  '/glossario/agua-alcalina-vs-agua-acida-entendendo-as-diferencas/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/agua-alcalina-vs-agua-acida-entendendo-as-diferencas/': '/blog/agua-alcalina-vs-agua-acida/',
   '/glossario/o-que-e-analise-de-metais-pesados-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
   '/glossario/o-que-e-analise-de-sodio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
   '/glossario/o-que-e-comercializacao-de-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
@@ -201,7 +205,7 @@ const REDIRECTS_301 = {
   '/glossario/o-que-e-mascara-de-protecao-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
   '/glossario/o-que-e-plano-de-emergencia-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
   '/glossario/o-que-e-procedimento-de-seguranca-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
-  '/glossario/o-que-e-queimadura-por-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-queimadura-por-gas-glp/': '/blog/queimadura-por-gas-glp-primeiros-socorros/',
   '/glossario/o-que-e-treinamento-de-seguranca-no-uso-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
   '/glossario/o-que-e-valvula-de-seguranca-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
   // ── Armazenamento de cilindros ─
@@ -345,6 +349,9 @@ const PAGINAS_ESTATICAS = [
   '/blog/quanto-dura-botijao-p13/',
   '/blog/quanto-pesa-galao-de-agua-mineral/',
   '/blog/como-trocar-galao-de-agua-no-bebedouro/',
+  '/blog/queimadura-por-gas-glp-primeiros-socorros/',
+  '/blog/agua-alcalina-vs-agua-acida/',
+  '/blog/quanto-pesa-botijao-de-gas-cheio/',
   '/blog/regulamentacao-anp-revenda-gas/',
   '/blog/revenda-autorizada-gas-campo-grande/',
   '/blog/vantagens-de-utilizar-o-gas-glp/',
