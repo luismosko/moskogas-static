@@ -1,6 +1,12 @@
 /**
- * _worker.js | Versão: 3.0.4 | Atualizado: 2026-04-25
+ * _worker.js | Versão: 3.1.0 | Atualizado: 2026-04-25
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.1.0: ESTRATÉGIA GLOSSÁRIO (recuperação pós-redirect-home):
+ *   + 114 redirects específicos /glossario/[top-performers] → páginas comerciais relevantes
+ *   ~ Move /glossario/ de PREFIXOS_REDIRECIONAR_HOME para PREFIXOS_410_GONE
+ *     (era 301→home, causava soft 404 — agora 410 Gone limpa o índice)
+ *   = REDIRECTS_301 é processado ANTES de PREFIXOS_410_GONE, então top performers
+ *     mantêm o juice migrando para destinos relevantes ao intent original.
  * MUDANÇAS v3.0.4: + redirects 301 /agua-mineral-distribuidora/ e /agua-mineral-campo-grande-ms/ → /agua-mineral-em-campo-grande-ms/ (consolidação canibalização)
  * 
  * MUDANÇAS v3.0.2:
@@ -38,6 +44,14 @@ const PREFIXOS_410_GONE = [
   '/backup/',
   '/cache/',
   '/cgi-bin/',
+  // Glossário: top performers ficam mapeados em REDIRECTS_301 (executado antes).
+  // Resto vira 410 Gone para limpar índice (era 301→home, causava soft 404)
+  '/glossario/',
+  '/glp/',
+  '/glossary/',
+  '/termos/',
+  '/dicionario/',
+  '/term/',
 ];
 
 const ARQUIVOS_410_GONE = [
@@ -90,12 +104,12 @@ const REDIRECTS_301 = {
   '/glossario/o-que-e-cilindro-de-gas-glp-p45/': '/gas-industrial-campo-grande-ms/',
   '/glossario/o-que-e-botijao-de-gas-glp-de-45kg/': '/gas-p45/',
   '/glossario/o-que-e-garrafa-de-gas-glp/': '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-recipiente-de-armazenamento-do-gas-glp/': '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-gas-glp-em-vasilhame/': '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-limite-de-validade-do-gas-glp/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-recipiente-de-armazenamento-do-gas-glp/': '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/glossario/o-que-e-gas-glp-em-vasilhame/': '/gas-de-cozinha/',
+  '/glossario/o-que-e-limite-de-validade-do-gas-glp/': '/blog/botijao-de-gas-tem-validade/',
   '/glossario/o-que-e-procedimento-de-troca-do-gas-glp/': '/como-saber-se-o-gas-esta-acabando/',
   '/glossario/o-que-e-gas-glp-liquido/': '/glossario/o-que-e-botijao-de-gas-glp/',
-  '/glossario/o-que-e-gas-glp-de-baixa-pressao/': '/glossario/o-que-e-botijao-de-gas-glp/',
+  '/glossario/o-que-e-gas-glp-de-baixa-pressao/': '/gas-industrial-campo-grande-ms/',
   
   // ── URLs antigas ─
   '/agua-mineral-distribuidora-antigo/': '/agua-mineral-em-campo-grande-ms/',
@@ -115,6 +129,138 @@ const REDIRECTS_301 = {
   // ── Links encurtados ───────────────────────────────
   '/avaliar/': 'https://g.page/r/CYaoce2pbc5CEBM/review',
   '/avaliar': 'https://g.page/r/CYaoce2pbc5CEBM/review',
+  
+  // ════════════════════════════════════════════════════════════════════════════
+  // GLOSSÁRIO TOP PERFORMERS (Onda 1 — abr/2026)
+  // Substitui o catch-all /glossario/* → home (que causava soft 404).
+  // Cada URL aponta para a página comercial mais relevante ao intent.
+  // ════════════════════════════════════════════════════════════════════════════
+  // ── Água mineral / qualidade da água ─
+  '/glossario/acidez-e-alcalinidade-em-diferentes-tipos-de-agua/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/agua-alcalina-vs-agua-acida-entendendo-as-diferencas/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-analise-de-metais-pesados-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-analise-de-sodio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-comercializacao-de-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-algas-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-antimonio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-arsenio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-bario-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-cloretos-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-estroncio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-niquel-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-sulfatos-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-controle-de-zinco-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-distribuidora-de-agua-mineral-para-condominios/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-eliminacao-de-cloro-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-eliminacao-de-sabor-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-eliminacao-de-sais-minerais-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-esterilizacao-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-fosfato-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-hidrogenio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-hidrogenio-sulfito-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-hidroxido-de-sodio-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-indice-de-acidez-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-inibidor-de-gelo-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-injecao-de-minerais-na-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-inspecao-visual-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-liberacao-para-venda-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-linha-de-producao-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-lista-de-documentacao-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-logistica-de-entrega-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-lote-de-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-marcacao-de-validade-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-material-de-embalagem-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-medicao-de-temperatura-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-nota-fiscal-de-comercializacao-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-numero-de-serie-da-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/o-que-e-peso-do-garrafao-de-agua-mineral/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/tipos-de-fontes-de-agua-mineral-e-suas-caracteristicas/': '/agua-mineral-em-campo-grande-ms/',
+  '/glossario/tratamentos-especiais-para-aguas-minerais/': '/agua-mineral-em-campo-grande-ms/',
+  // ── GLP industrial / equipamentos / comercial ─
+  '/glossario/o-que-e-botijao-de-gas-glp-para-uso-hospitalar/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-cilindro-de-gas-glp-para-laboratorios/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-garrafa-de-gas-glp-para-corte/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-garrafa-de-gas-glp-para-food-truck/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-garrafa-de-gas-glp-para-gerador-eletrico/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-de-alta-pressao/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-em-tanque-estacionario/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-para-autoclave/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-para-caldeira/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-para-equipamentos-de-soldagem/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-gas-glp-para-maquinas-agricolas/': '/gas-industrial-campo-grande-ms/',
+  '/glossario/o-que-e-quimica-de-combustao-do-gas-glp/': '/gas-industrial-campo-grande-ms/',
+  // ── Segurança / queimadura / emergência ─
+  '/glossario/o-que-e-dispositivo-de-alivio-de-pressao-no-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-dispositivo-de-seguranca-no-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-equipamento-de-protecao-para-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-inspecao-de-cilindros-de-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-inspecao-de-instalacoes-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-kit-de-avaliacao-de-qualidade-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-kit-de-emergencia-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-mapeamento-de-riscos-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-mascara-de-protecao-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-plano-de-emergencia-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-procedimento-de-seguranca-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-queimadura-por-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-treinamento-de-seguranca-no-uso-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  '/glossario/o-que-e-valvula-de-seguranca-do-gas-glp/': '/blog/seguranca-gas-cozinha-7-dicas-essenciais/',
+  // ── Armazenamento de cilindros ─
+  '/glossario/o-que-e-armazenamento-em-esferas-para-gas-glp/': '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/glossario/o-que-e-deposito-de-gas-glp/': '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/glossario/o-que-e-janela-de-condicoes-de-armazenamento-do-gas-glp/': '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  '/glossario/o-que-e-jaula-de-gas-glp/': '/blog/como-armazenar-botijao-de-gas-com-seguranca/',
+  // ── Validade / peso / dura ─
+  '/glossario/o-que-e-balanca-para-verificacao-de-peso-do-gas-glp/': '/blog/botijao-de-gas-tem-validade/',
+  '/glossario/o-que-e-peso-do-cilindro-de-gas-glp/': '/blog/botijao-de-gas-tem-validade/',
+  // ── Duração ─
+  '/glossario/o-que-e-quantidade-de-gas-glp/': '/blog/quanto-dura-botijao-p13/',
+  // ── Descarte / sustentabilidade ─
+  '/glossario/o-que-e-descarte-de-cilindros-de-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/glossario/o-que-e-descarte-responsavel-de-cilindros-de-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/glossario/o-que-e-logistica-reversa-do-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/glossario/o-que-e-normas-de-descarte-do-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/glossario/o-que-e-normas-de-metodo-de-descarte-do-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  '/glossario/o-que-e-sustentabilidade-no-uso-do-gas-glp/': '/blog/botijao-de-gas-vazio-quanto-vale-o-casco/',
+  // ── Vazamento ─
+  '/glossario/o-que-e-aditivo-para-odorizacao-do-gas-glp/': '/blog/como-identificar-vazamento-de-gas/',
+  // ── Lacre / autenticidade ─
+  '/glossario/o-que-e-lacre-de-seguranca-do-gas-glp/': '/blog/como-identificar-botijao-ultragaz-original/',
+  // ── P13 doméstico ─
+  '/glossario/o-que-e-cilindro-de-gas-glp-em-p13/': '/gas-de-cozinha/',
+  // ── P5 / P20 / outros tamanhos ─
+  '/glossario/o-que-e-cilindro-de-gas-glp-p5/': '/gas-de-cozinha-ou-gas-p45/',
+  // ── Distribuição / logística / transporte / técnica ─
+  '/glossario/kpis-importantes-na-distribuicao-de-gas-e-agua/': '/sobre-a-mosko-gas/',
+  '/glossario/metodos-de-extracao-de-gas-uma-visao-tecnica/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-aditivo-para-estabilizacao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-atestado-de-conformidade-para-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-autorizacao-para-transporte-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-conexoes-para-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-despressurizacao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-documentacao-para-distribuicao-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-dutos-de-distribuicao-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-envasamento-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-estacao-de-carregamento-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-estacao-de-carregamento-e-descarregamento-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-estacao-de-compressao-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-estacao-de-distribuicao-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-estacao-de-envase-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-filtragem-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-inflamabilidade-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-jornada-de-trabalho-na-distribuidora-de-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-limpeza-de-tanques-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-lista-de-documentacao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-logistica-de-distribuicao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-logistica-de-transporte-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-nota-fiscal-de-distribuicao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-numero-de-identificacao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-ponto-de-enchimento-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-ponto-de-entrega-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-rastreabilidade-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-sistema-de-distribuicao-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-sistema-de-transporte-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-veiculo-de-transporte-do-gas-glp/': '/sobre-a-mosko-gas/',
+  '/glossario/o-que-e-xenonio-xe-implementacao-em-metodos-de-armazenamento-do-gas-glp/': '/sobre-a-mosko-gas/',
 };
 
 // Posts antigos com emoji no slug
@@ -127,14 +273,8 @@ const REDIRECTS_EMOJI = {
   '/%f0%9f%94%a5-gas-de-cozinha-no-danubio-azul-em-campo-grande-ms-rapido-barato-e-perto-de-voce/': '/gas-danubio-azul/',
 };
 
-// Prefixos que redirecionam 301 para home
+// Prefixos que redirecionam 301 para home (URLs WordPress de sistema)
 const PREFIXOS_REDIRECIONAR_HOME = [
-  '/glossario/',
-  '/glp/',
-  '/glossary/',
-  '/termos/',
-  '/dicionario/',
-  '/term/',
   '/author/',
   '/tag/',
   '/category/',
@@ -380,12 +520,20 @@ export default {
     }
 
     // ── 2. 410 GONE — URLs WordPress de sistema ─────────────────────────────
-    for (const prefix of PREFIXOS_410_GONE) {
-      if (pathLower.startsWith(prefix)) {
-        return new Response('Gone', { 
-          status: 410, 
-          headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
-        });
+    // Exceção: páginas estáticas reais (hub /glossario/o-que-e-botijao-de-gas-glp/)
+    // têm prioridade sobre o catch-all 410 — checamos PAGINAS_ESTATICAS primeiro.
+    let pathnameNorm410 = pathname;
+    if (!pathnameNorm410.endsWith('/') && !pathnameNorm410.includes('.')) {
+      pathnameNorm410 = pathnameNorm410 + '/';
+    }
+    if (!PAGINAS_ESTATICAS.includes(pathnameNorm410)) {
+      for (const prefix of PREFIXOS_410_GONE) {
+        if (pathLower.startsWith(prefix)) {
+          return new Response('Gone', { 
+            status: 410, 
+            headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
+          });
+        }
       }
     }
     for (const arquivo of ARQUIVOS_410_GONE) {
