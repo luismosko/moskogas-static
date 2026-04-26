@@ -343,6 +343,8 @@ const PAGINAS_ESTATICAS = [
   '/blog/quando-trocar-mangueira-regulador-gas/',
   '/blog/quanto-custa-botijao-de-gas-completo/',
   '/blog/quanto-dura-botijao-p13/',
+  '/blog/quanto-pesa-galao-de-agua-mineral/',
+  '/blog/como-trocar-galao-de-agua-no-bebedouro/',
   '/blog/regulamentacao-anp-revenda-gas/',
   '/blog/revenda-autorizada-gas-campo-grande/',
   '/blog/vantagens-de-utilizar-o-gas-glp/',

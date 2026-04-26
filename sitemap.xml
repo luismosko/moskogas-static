@@ -1103,4 +1103,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Novos artigos pilares 2026-04-26 (Onda 3) -->
+  <url><loc>https://moskogas.com.br/blog/quanto-pesa-galao-de-agua-mineral/</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://moskogas.com.br/blog/como-trocar-galao-de-agua-no-bebedouro/</loc><lastmod>2026-04-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
