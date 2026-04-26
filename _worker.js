@@ -519,7 +519,16 @@ export default {
       }
     }
 
-    // ── 2. 410 GONE — URLs WordPress de sistema ─────────────────────────────
+    // ── 2. Redirects 301 ────────────────────────────────────────────────────
+    // PRIMEIRO checamos redirects exatos (top performers do glossário, URLs
+    // antigas com mapeamento específico) ANTES do catch-all 410 Gone.
+    if (REDIRECTS_301[pathname]) {
+      const destino = REDIRECTS_301[pathname];
+      const url = destino.startsWith('http') ? destino : 'https://' + DOMINIO + destino;
+      return Response.redirect(url, 301);
+    }
+
+    // ── 3. 410 GONE — URLs WordPress de sistema + catch-all glossário ───────
     // Exceção: páginas estáticas reais (hub /glossario/o-que-e-botijao-de-gas-glp/)
     // têm prioridade sobre o catch-all 410 — checamos PAGINAS_ESTATICAS primeiro.
     let pathnameNorm410 = pathname;
@@ -545,13 +554,7 @@ export default {
       }
     }
 
-    // ── 3. Redirects 301 ────────────────────────────────────────────────────
-    if (REDIRECTS_301[pathname]) {
-      const destino = REDIRECTS_301[pathname];
-      const url = destino.startsWith('http') ? destino : 'https://' + DOMINIO + destino;
-      return Response.redirect(url, 301);
-    }
-    
+    // ── 4. Redirects extras (emoji, queries WP) ─────────────────────────────
     // Redirects com emoji
     const redirEmoji = REDIRECTS_EMOJI[pathLower];
     if (redirEmoji) {
