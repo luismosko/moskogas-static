@@ -1,6 +1,5 @@
 <!--
-  blog/como-identificar-vazamento-de-gas/index.html | Versão: 1.1.0 | Atualizado: 2026-04-04 | Descrição: Otimização CTR — urgência e sinais claros
--->
+  blog/como-identificar-vazamento-de-gas/index.html | Versão: 2.0.0 | Atualizado: 2026-04-26 | Descrição: +CTA box premium pós-breadcrumb (Mosko Gás · preços · WhatsApp · 350 reviews) — captura tráfego do glossário-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -77,6 +76,23 @@
     .btn-wpp:hover{background:#1ebe5a;transform:translateY(-1px)}
     .breadcrumb{font-size:13px;color:var(--cinza-sub);margin-bottom:28px}
     .breadcrumb a{color:var(--azul-medio);font-weight:500}
+    /* CTA Box Mosko Gás (v2 — abr/2026) */
+    .mosko-cta-box{background:linear-gradient(135deg,#003087 0%,#0055CC 100%);border-radius:16px;padding:24px 28px;margin:24px 0 32px;color:#fff;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 8px 24px rgba(0,48,135,.18)}
+    .mosko-cta-box-content{flex:1;min-width:220px}
+    .mosko-cta-box-tag{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+    .mosko-cta-box h3{color:#fff !important;font-size:1.2rem;font-weight:800;line-height:1.25;margin-bottom:6px;letter-spacing:-.01em}
+    .mosko-cta-box p{color:rgba(255,255,255,.88);font-size:14px;line-height:1.5;margin-bottom:0}
+    .mosko-cta-box-prices{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+    .mosko-cta-box-price{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:8px 14px;flex:1;min-width:130px}
+    .mosko-cta-box-price-label{color:rgba(255,255,255,.65);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+    .mosko-cta-box-price-val{color:#fff;font-size:1.15rem;font-weight:900;letter-spacing:-.02em}
+    .mosko-cta-box-price-val sup{font-size:.7em;vertical-align:top;margin-right:1px}
+    .mosko-cta-box-action{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .mosko-cta-box-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:700;font-size:15px;padding:14px 24px;border-radius:50px;transition:.2s;white-space:nowrap}
+    .mosko-cta-box-btn:hover{background:#1ebe5a;transform:translateY(-1px)}
+    .mosko-cta-box-btn svg{width:20px;height:20px;fill:#fff}
+    .mosko-cta-box-stars{color:#FFC107;font-size:13px;font-weight:600}
+    @media(max-width:600px){.mosko-cta-box{padding:20px;flex-direction:column;align-items:stretch;text-align:center}.mosko-cta-box-action{margin-top:8px}}
     .relacionados{background:var(--cinza-bg);padding:44px 20px}
     .relacionados h2{font-size:1.1rem;font-weight:800;color:var(--azul);margin-bottom:16px}
     .relacionados ul{list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -138,6 +154,31 @@
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a> › <a href="/blog/">Blog</a> › Como Identificar Vazamento de Gás</div>
 
+    <!-- CTA Box (v2 abr/2026) -->
+    <aside class="mosko-cta-box">
+      <div class="mosko-cta-box-content">
+        <span class="mosko-cta-box-tag">⚡ Vazamento? Aja agora</span>
+        <h3>Não use isqueiro · abra janelas · troque o botijão depois</h3>
+        <p>Após contornar o vazamento, troque o botijão por um lacrado da revenda Ultragaz oficial. Entregamos em Campo Grande.</p>
+        <div class="mosko-cta-box-prices">
+          <div class="mosko-cta-box-price">
+            <div class="mosko-cta-box-price-label">P13 portaria</div>
+            <div class="mosko-cta-box-price-val"><sup>R$</sup>109,99</div>
+          </div>
+          <div class="mosko-cta-box-price">
+            <div class="mosko-cta-box-price-label">P13 entrega</div>
+            <div class="mosko-cta-box-price-val"><sup>R$</sup>129,99</div>
+          </div>
+        </div>
+      </div>
+      <div class="mosko-cta-box-action">
+        <a class="mosko-cta-box-btn" href="https://wa.me/+5567993330303?text=Ol%C3%A1%2C%20preciso%20trocar%20o%20bot%C3%ADj%C3%A3o%20com%20urg%C3%AAncia" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          Pedir agora
+        </a>
+        <span class="mosko-cta-box-stars">⭐⭐⭐⭐⭐ 350 avaliações</span>
+      </div>
+    </aside>
     <p>Vazamento de gás é uma das situações que mais assustam em casa — e com razão. O <strong>GLP (Gás Liquefeito de Petróleo)</strong>, usado nos botijões P13, P20 e P45, é inflamável e pode causar explosões se não houver ventilação adequada. A boa notícia é que identificar um vazamento é simples quando você sabe o que observar.</p>
 
     <figure class="post-img">
