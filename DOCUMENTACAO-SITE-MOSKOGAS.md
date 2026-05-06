@@ -1,8 +1,8 @@
 # 📘 DOCUMENTAÇÃO COMPLETA — moskogas.com.br
 
-**Última atualização:** 28 de março de 2026  
+**Última atualização:** 05 de maio de 2026  
 **Versão do site:** 100% estático (WordPress removido em 23/03/2026)  
-**Versão do Worker:** 3.0.0
+**Versão do Worker:** 3.0.1
 
 ---
 
@@ -11,11 +11,11 @@
 ### Status Atual
 | Métrica | Valor |
 |---------|-------|
-| **Total de páginas HTML** | 185 |
+| **Total de páginas HTML** | 204 |
 | **Páginas de bairros** | 110 |
-| **Posts do blog** | 56 |
+| **Posts do blog** | 80 |
 | **Imagens otimizadas** | 35 |
-| **URLs no sitemap** | 181+ |
+| **URLs no sitemap** | 199 |
 | **Backlinks** | 167 |
 | **Authority Score** | 10 |
 | **Avaliações Google** | 350+ ⭐⭐⭐⭐⭐ |
@@ -78,12 +78,12 @@
 
 ## 💰 PRODUTOS E PREÇOS
 
-### Tabela de Preços Atual
+### Tabela de Preços Atual (Maio/2026)
 
 | Produto | Preço | Observação |
 |---------|-------|------------|
-| **P13 na Portaria** | R$ 103,99 | ⚡ Promoção |
-| **P13 com Entrega** | R$ 124,90 | Entrega grátis |
+| **P13 na Portaria** | R$ 109,99 | ⚡ Promoção |
+| **P13 com Entrega** | R$ 129,99 | Entrega grátis |
 | **P20 Empilhadeira** | R$ 220,00 | Industrial |
 | **P45 Industrial** | R$ 495,00 | Restaurantes/Empresas |
 | **Água 20L** | R$ 25,00 | Galão retornável |
@@ -356,6 +356,100 @@ background: linear-gradient(130deg, #001A4D 0%, #003087 55%, #0055CC 100%);
 
 ---
 
+## ✅ CHECKLIST OBRIGATÓRIO — NOVA PÁGINA
+
+> **REGRA DE OURO:** Nenhuma página pode existir isolada. Toda página precisa de links PARA ela e DELA para outras páginas.
+
+### 1. Linkagem Interna (OBRIGATÓRIO)
+
+#### Links PARA a nova página (entrada):
+| Onde adicionar | Ação |
+|----------------|------|
+| `blog/index.html` | Adicionar card na seção temática correspondente |
+| Páginas relacionadas | Adicionar na seção "Leia também" de posts do mesmo tema |
+| Páginas de produto | Se relevante, linkar na seção de conteúdo |
+| Home (se destaque) | Considerar adicionar em seção de destaques |
+
+#### Links DA nova página (saída):
+| Elemento | Quantidade mínima |
+|----------|-------------------|
+| Seção "Leia também" | 3 links para posts relacionados |
+| CTAs de produto | 1-2 links para páginas de produto/WhatsApp |
+| Links contextuais no texto | 2-3 links naturais no conteúdo |
+
+### 2. SEO On-Page (OBRIGATÓRIO)
+
+| Elemento | Regra |
+|----------|-------|
+| **Title Tag** | `[Keyword em Campo Grande MS] — [Diferencial] \| Mosko Gás` |
+| **Meta Description** | Keyword + preço + autoridade + WhatsApp (máx 160 chars) |
+| **H1 único** | `<h1><span>Keyword em Campo Grande</span> — Complemento</h1>` |
+| **Canonical** | `<link rel="canonical" href="https://moskogas.com.br/SLUG/">` |
+| **URL semântica** | Slug com keyword, sem acentos, hífens separando palavras |
+
+### 3. Schema.org (OBRIGATÓRIO)
+
+| Tipo de página | Schemas necessários |
+|----------------|---------------------|
+| **Blog post** | Article + FAQPage + BreadcrumbList |
+| **Página de produto** | LocalBusiness + Product + FAQPage |
+| **Página de bairro** | LocalBusiness + FAQPage + areaServed |
+| **Página institucional** | LocalBusiness + FAQPage |
+
+### 4. FAQ (OBRIGATÓRIO — mínimo 7 perguntas)
+
+Perguntas que DEVEM estar em toda página:
+1. Qual o preço de [produto/serviço] em Campo Grande?
+2. Qual o horário de atendimento da Mosko Gás?
+3. Quais bairros de Campo Grande vocês atendem?
+4. O [produto] vem lacrado e com nota fiscal?
+5. Quais formas de pagamento vocês aceitam?
+6. Como faço meu pedido pela Mosko Gás?
+7. A Mosko Gás é revenda autorizada?
++ 2-3 perguntas específicas do tema da página
+
+### 5. Elementos Visuais (OBRIGATÓRIO)
+
+| Elemento | Regra |
+|----------|-------|
+| Imagem hero | `loading="eager"`, alt com keyword |
+| Outras imagens | `loading="lazy"`, formato WebP |
+| Botão WhatsApp | CTA verde `#25D366` com ícone SVG |
+| Seção urgência | Banner laranja `#FF6B00` |
+
+### 6. Pós-Publicação (OBRIGATÓRIO)
+
+- [ ] Adicionar URL ao `sitemap.xml`
+- [ ] Adicionar link no `blog/index.html` (se blog post)
+- [ ] Commit com versão: `v1.0.0 /slug/ — descrição`
+- [ ] Push para `main` (deploy automático ~30s)
+- [ ] Submeter URL no GSC via URL Inspection
+- [ ] Verificar se Schema está válido (Rich Results Test)
+
+### Exemplo de Fluxo Completo
+
+```bash
+# 1. Criar a página
+mkdir blog/novo-post && vim blog/novo-post/index.html
+
+# 2. Adicionar linkagem de entrada
+# Editar blog/index.html → adicionar card na seção correta
+
+# 3. Verificar linkagem de saída
+# Confirmar seção "Leia também" com 3 links
+
+# 4. Atualizar sitemap
+# Adicionar <url> antes do </urlset>
+
+# 5. Commit e push
+git add . && git commit -m "v1.0.0 /blog/novo-post/ — descrição" && git push
+
+# 6. Indexar no GSC
+# Manualmente: URL Inspection → Solicitar indexação
+```
+
+---
+
 ## 📍 BAIRROS ATENDIDOS
 
 ### Lista Completa (110 páginas)
@@ -388,17 +482,17 @@ Vila Rica, Vivendas do Bosque, Alphaville, Damha, Futurista
 
 ---
 
-## 📝 BLOG — 56 POSTS
+## 📝 BLOG — 80 POSTS
 
 ### Categorias
 | Categoria | Quantidade |
 |-----------|------------|
-| Gás de Cozinha | 15 |
-| Gás Industrial | 12 |
-| Água Mineral | 8 |
-| Segurança | 7 |
-| Dicas/Economia | 8 |
-| Institucional | 6 |
+| Gás de Cozinha | 20 |
+| Gás Industrial | 15 |
+| Água Mineral | 12 |
+| Segurança | 10 |
+| Dicas/Economia | 12 |
+| Preços/Compra | 11 |
 
 ### Posts Mais Importantes (SEO)
 1. `/blog/gas-de-cozinha-preco-p13-campo-grande/`
