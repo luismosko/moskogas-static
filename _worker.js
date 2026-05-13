@@ -1,6 +1,10 @@
 /**
- * _worker.js | Versão: 3.1.3 | Atualizado: 2026-04-26
+ * _worker.js | Versão: 3.1.4 | Atualizado: 2026-05-13
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.1.4: CRITICAL FIX — redirect HTTP→HTTPS
+ *   + Adicionado redirect 301 de HTTP para HTTPS (estava causando duplicação de indexação)
+ *   ~ Detectado no GSC: http://moskogas.com.br/ competindo com https://moskogas.com.br/
+ * 
  * MUDANÇAS v3.1.3: ONDA 3 — Artigos pilares do blog
  *   + 5 rotas novas em PAGINAS_ESTATICAS:
  *     /blog/quanto-pesa-galao-de-agua-mineral/
@@ -505,6 +509,13 @@ export default {
     const url = new URL(request.url);
     const pathname = url.pathname;
     const pathLower = pathname.toLowerCase();
+
+    // ── 0. REDIRECT HTTP → HTTPS (301) ─────────────────────────────────────
+    // CRITICAL: evita duplicação de indexação no Google
+    // Detectado no GSC: http://moskogas.com.br/ competindo com https://
+    if (url.protocol === 'http:') {
+      return Response.redirect('https://' + url.host + url.pathname + url.search, 301);
+    }
 
     // ── 1. Proxy API → backend Mosko App (resolve CORS) ─────────────────────
     if (pathname === '/api/pub/pedido-site' && request.method === 'POST') {
