@@ -1,8 +1,8 @@
 # 📘 DOCUMENTAÇÃO COMPLETA — moskogas.com.br
 
-**Última atualização:** 05 de maio de 2026  
+**Última atualização:** 16 de maio de 2026  
 **Versão do site:** 100% estático (WordPress removido em 23/03/2026)  
-**Versão do Worker:** 3.0.1
+**Versão do Worker:** 3.1.4
 
 ---
 
@@ -19,6 +19,43 @@
 | **Backlinks** | 167 |
 | **Authority Score** | 10 |
 | **Avaliações Google** | 350+ ⭐⭐⭐⭐⭐ |
+
+### ⚠️ IMPORTANTE: Glossário e Indexação (LEIA ANTES DE ENTRAR EM PÂNICO)
+
+**CONTEXTO HISTÓRICO:**
+Em 2024-2025, o site tinha ~4.000 páginas de glossário auto-geradas (ex: "/glossario/o-que-e-botijao-de-gas-glp/"). Essas páginas estavam **canibalizando o SEO** — páginas fracas competindo com páginas fortes pelas mesmas keywords.
+
+**O QUE FIZEMOS (Março-Abril 2026):**
+1. Identificamos as ~50 páginas de glossário com melhor desempenho (backlinks, tráfego)
+2. Convertemos essas 50 para redirects 301 apontando para páginas comerciais relevantes
+3. O restante (~3.950 páginas) foi transformado em **410 Gone** via `_worker.js`
+
+**RESULTADO ESPERADO NO GOOGLE SEARCH CONSOLE:**
+- ✅ **162 páginas indexadas** — são as que importam (produtos, bairros, blog)
+- ⚠️ **~2.300 páginas "404" ou "Bloqueadas"** — glossário deletado, Google vai limpar sozinho
+- ⚠️ **~1.200 páginas "Rastreadas mas não indexadas"** — thin content, páginas duplicadas de bairro
+- Total: ~3.700 páginas "não indexadas" no GSC
+
+**ISTO É NORMAL E ESPERADO!** 
+
+O Google demora 2-6 meses pra limpar completamente páginas deletadas do índice. Enquanto isso, você vai ver milhares de páginas "não indexadas" no GSC — **IGNORE ISSO**.
+
+**O QUE NUNCA FAZER:**
+- ❌ Tentar "forçar indexação" das 3.700 páginas não indexadas
+- ❌ Adicionar de volta páginas de glossário
+- ❌ Criar redirects 301 de TODAS as páginas antigas pra home (gera soft 404)
+- ❌ Entrar em pânico vendo "3.685 páginas não indexadas" no GSC
+
+**O QUE FOCAR:**
+- ✅ Otimizar CTR das 162 páginas indexadas
+- ✅ Criar conteúdo de qualidade (blog)
+- ✅ Google Meu Negócio (local SEO)
+- ✅ Backlinks de qualidade
+
+**Data da limpeza:** Março-Abril 2026  
+**Status esperado em Set/2026:** GSC mostrando ~300-500 páginas não indexadas (apenas duplicadas de bairro, normal)
+
+---
 
 ### Infraestrutura
 ```
