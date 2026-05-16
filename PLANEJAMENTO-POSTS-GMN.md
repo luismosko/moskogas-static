@@ -8,9 +8,9 @@
 ## 🎯 20 TÍTULOS DE POSTS PRONTOS
 
 ### CATEGORIA: Preços e Promoções
-1. 🔥 **Gás P13 a partir de R$ 103,99 em Campo Grande!**
-2. 💰 **Promoção: P13 na Portaria por R$ 103,99 — Retire Hoje!**
-3. ⚡ **Gás de Cozinha com Entrega Rápida — R$ 124,90 na Sua Porta**
+1. 🔥 **Gás P13 a partir de R$ 109,99 em Campo Grande!**
+2. 💰 **Promoção: P13 na Portaria por R$ 109,99 — Retire Hoje!**
+3. ⚡ **Gás de Cozinha com Entrega Rápida — R$ 129,99 na Sua Porta**
 4. 🎁 **Desconto Especial: Gás P45 Industrial para Empresas**
 
 ### CATEGORIA: Entrega e Localização
@@ -45,7 +45,7 @@
 | Dia | Título | Foto sugerida |
 |-----|--------|---------------|
 | **Seg 19** | #5 🚚 Gás Perto de Você — Entrega 30-60min | Caminhão de entrega na rua |
-| **Qua 21** | #1 🔥 Gás P13 a partir de R$ 103,99 | Botijão P13 com preço em destaque |
+| **Qua 21** | #1 🔥 Gás P13 a partir de R$ 109,99 | Botijão P13 com preço em destaque |
 | **Sex 23** | #13 ⭐ 350+ Avaliações 5 Estrelas | Print de avaliações Google |
 
 ### SEMANA 2 (26-30 Mai)
@@ -59,7 +59,7 @@
 | Dia | Título | Foto sugerida |
 |-----|--------|---------------|
 | **Seg 02** | #7 ⏰ Acabou o Gás Agora? Entrega Expressa | Entregador com botijão |
-| **Qua 04** | #2 💰 Promoção: P13 na Portaria R$ 103,99 | Botijão com selo "Promoção" |
+| **Qua 04** | #2 💰 Promoção: P13 na Portaria R$ 109,99 | Botijão com selo "Promoção" |
 | **Sex 06** | #14 🛡️ Revenda Autorizada Ultragaz — ANP | Certificado ANP + logo Ultragaz |
 
 ### SEMANA 4 (09-13 Jun)
@@ -72,7 +72,7 @@
 ### SEMANA 5 (16-20 Jun)
 | Dia | Título | Foto sugerida |
 |-----|--------|---------------|
-| **Seg 16** | #3 ⚡ Gás de Cozinha R$ 124,90 na Sua Porta | Entrega sendo feita |
+| **Seg 16** | #3 ⚡ Gás de Cozinha R$ 129,99 na Sua Porta | Entrega sendo feita |
 | **Qua 18** | #11 🔵 Botijão P13 Ultragaz — Lacrado | Selo de lacre em destaque |
 | **Sex 20** | #15 ✅ Entregamos com Nota e Certificado | Nota fiscal + certificado |
 
@@ -88,7 +88,7 @@
 |-----|--------|---------------|
 | **Seg 30** | #16 🏆 20 Anos Atendendo Campo Grande | Foto histórica + atual |
 | **Qua 02** | #20 📞 Disk Gás Campo Grande — Imediato | Telefone em destaque |
-| **Sex 04** | #1 🔥 Gás P13 R$ 103,99 (REPETIR) | Botijão com preço |
+| **Sex 04** | #1 🔥 Gás P13 R$ 109,99 (REPETIR) | Botijão com preço |
 
 ---
 
@@ -117,12 +117,12 @@ Copiar e colar no Google Meu Negócio:
 
 **POST #1:**
 ```
-🔥 Gás P13 a partir de R$ 103,99 em Campo Grande!
+🔥 Gás P13 a partir de R$ 109,99 em Campo Grande!
 
 Botijão de gás Ultragaz com o melhor preço da cidade. Retire na loja ou solicite entrega rápida!
 
-✅ P13 na portaria: R$ 103,99 (promoção)
-✅ P13 com entrega: R$ 124,90
+✅ P13 na portaria: R$ 109,99
+✅ P13 com entrega: R$ 129,99
 ✅ Lacrado, com nota fiscal e certificado INMETRO
 
 📲 Peça agora pelo WhatsApp: (67) 99333-0303
