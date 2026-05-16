@@ -686,6 +686,32 @@ git config user.name "Luis Mosko"
 
 ---
 
+## 📚 Arquivos Importantes do Repositório
+
+### Documentação
+- **DOCUMENTACAO-SITE-MOSKOGAS.md** — Este arquivo (documentação completa)
+- **HISTORICO-SEO.md** — Timeline de visibilidade e rankings Mar/25 → presente
+- **CHECKLIST-NOVO-POST.md** — ⭐ Passos obrigatórios ao criar novo post de blog
+- **PLANO-GOOGLE-MEU-NEGOCIO.md** — Estratégia completa GMN local SEO
+- **PLANEJAMENTO-POSTS-GMN.md** — 20 títulos + calendário 7 semanas
+- **POSTS-GMN-COMPLETOS.md** — 20 posts completos prontos para copiar
+- **POSTS-PRONTOS-ORDEM-CRONOLOGICA.md** — 21 posts em ordem de postagem
+- **PROMPT-FIX-HTTP-HTTPS.md** — Prompt replicável fix duplicação HTTP/HTTPS
+
+### Scripts Úteis
+- **verificar-sitemap.sh** — ⭐ Script verificação sitemap.xml ↔ _worker.js (rodar antes de commit)
+
+### Configuração
+- **_worker.js** — Roteador Cloudflare (registra todas as páginas estáticas)
+- **sitemap.xml** — Sitemap para Google (203 URLs)
+- **robots.txt** — Controle de crawling
+- **wrangler.jsonc** — Config Cloudflare Pages
+
+**⚠️ IMPORTANTE:** Ao criar novo post, sempre seguir CHECKLIST-NOVO-POST.md e rodar verificar-sitemap.sh antes do commit!
+
+---
+
 **Documentação gerada em:** 28/03/2026  
+**Última atualização:** 16/05/2026  
 **Por:** Claude (Anthropic AI)  
 **Para:** Luis Mosko — Mosko Gás
