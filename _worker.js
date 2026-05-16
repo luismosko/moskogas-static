@@ -1,6 +1,21 @@
 /**
- * _worker.js | Versão: 3.1.4 | Atualizado: 2026-05-13
+ * _worker.js | Versão: 3.1.5 | Atualizado: 2026-05-16
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.1.5: Sitemap sync — adicionadas 12 rotas de blog que estavam no sitemap mas não no worker
+ *   + 12 rotas de blog adicionadas (estavam causando 404 mesmo estando no sitemap.xml):
+ *     /blog/agua-mineral-entrega-rapida-campo-grande/
+ *     /blog/checklist-seguranca-gas-residencial/
+ *     /blog/como-economizar-gas-de-cozinha-2026/
+ *     /blog/como-pedir-gas-whatsapp-campo-grande/
+ *     /blog/diferenca-gas-p13-p20-p45/
+ *     /blog/gas-do-povo-revenda-autorizada-campo-grande/
+ *     /blog/gas-encanado-vs-botijao/
+ *     /blog/gas-para-churrasco-dicas-economia/
+ *     /blog/preco-gas-abril-2026-campo-grande/
+ *     /blog/preco-gas-maio-2026-campo-grande/
+ *     /blog/quem-tem-direito-gas-do-povo-ms/
+ *     /blog/vale-gas-abril-2026-campo-grande/
+ * 
  * MUDANÇAS v3.1.4: CRITICAL FIX — redirect HTTP→HTTPS
  *   + Adicionado redirect 301 de HTTP para HTTPS (estava causando duplicação de indexação)
  *   ~ Detectado no GSC: http://moskogas.com.br/ competindo com https://moskogas.com.br/
@@ -370,6 +385,18 @@ const PAGINAS_ESTATICAS = [
   '/blog/entrega-gas-mesmo-dia-como-funciona/',
   '/blog/economia-gas-cozinha-8-dicas/',
   '/blog/armazenamento-cilindros-p20/',
+  '/blog/agua-mineral-entrega-rapida-campo-grande/',
+  '/blog/checklist-seguranca-gas-residencial/',
+  '/blog/como-economizar-gas-de-cozinha-2026/',
+  '/blog/como-pedir-gas-whatsapp-campo-grande/',
+  '/blog/diferenca-gas-p13-p20-p45/',
+  '/blog/gas-do-povo-revenda-autorizada-campo-grande/',
+  '/blog/gas-encanado-vs-botijao/',
+  '/blog/gas-para-churrasco-dicas-economia/',
+  '/blog/preco-gas-abril-2026-campo-grande/',
+  '/blog/preco-gas-maio-2026-campo-grande/',
+  '/blog/quem-tem-direito-gas-do-povo-ms/',
+  '/blog/vale-gas-abril-2026-campo-grande/',
   '/botijao-de-gas/',
   '/como-saber-se-o-gas-esta-acabando/',
   '/contato/',
