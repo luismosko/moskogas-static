@@ -1,7 +1,11 @@
 /**
- * _worker.js | Versão: 3.1.5 | Atualizado: 2026-05-16
+ * _worker.js | Versão: 3.1.6 | Atualizado: 2026-06-03
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
- * MUDANÇAS v3.1.5: Sitemap sync — adicionadas 12 rotas de blog que estavam no sitemap mas não no worker
+ * MUDANÇAS v3.1.6: Novas páginas + reforços CTR/keyword
+ *   + /gas-24-horas-campo-grande/ (novo) — target "gás 24 horas" (5.4K vol)
+ *   + /blog/deposito-gas-campo-grande/ (novo post) — target "deposito de gás" (6.8K vol)
+ *   + Reforço 3x páginas existentes com "perto de mim" / "24 horas" keywords
+ *   + 2 novas rotas no sitemap.xml sincronizadas
  *   + 12 rotas de blog adicionadas (estavam causando 404 mesmo estando no sitemap.xml):
  *     /blog/agua-mineral-entrega-rapida-campo-grande/
  *     /blog/checklist-seguranca-gas-residencial/
@@ -381,6 +385,7 @@ const PAGINAS_ESTATICAS = [
   '/blog/por-que-preco-gas-varia/',
   '/blog/gas-para-churrasco-p13-ou-p45/',
   '/blog/agua-mineral-para-empresas-beneficios/',
+  '/blog/deposito-gas-campo-grande/',
   '/blog/gas-perto-de-mim-como-encontrar/',
   '/blog/entrega-gas-mesmo-dia-como-funciona/',
   '/blog/economia-gas-cozinha-8-dicas/',
@@ -441,6 +446,7 @@ const PAGINAS_ESTATICAS = [
   '/gas-do-povo-em-campo-grande-ms/',
   '/gas-doutor-albuquerque/',
   '/gas-em-campo-grande-ms/',
+  '/gas-24-horas-campo-grande/',
   '/gas-entrega-hoje-em-campo-grande-ms/',
   '/gas-estrela-dalva/',
   '/gas-giocondo-orsi/',

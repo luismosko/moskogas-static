@@ -589,6 +589,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://moskogas.com.br/gas-24-horas-campo-grande/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://moskogas.com.br/gas-entrega-hoje-em-campo-grande-ms/</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1034,6 +1040,12 @@
   <url>
     <loc>https://moskogas.com.br/blog/agua-mineral-para-empresas-beneficios/</loc>
     <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://moskogas.com.br/blog/deposito-gas-campo-grande/</loc>
+    <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
