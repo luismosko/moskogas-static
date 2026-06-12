@@ -1,6 +1,16 @@
 /**
- * _worker.js | Versão: 3.2.0 | Atualizado: 2026-06-11
+ * _worker.js | Versão: 3.3.0 | Atualizado: 2026-06-11
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.3.0: Limpeza do resíduo 404 (diagnóstico Crawl Stats GSC jun/2026)
+ *   Contexto: 57% do crawl era 404; 905/1000 já tratados (glossário 410, query 301,
+ *   blog 200). Este bump mata o resíduo estrutural que ainda devolvia 404 puro:
+ *   + PREFIXOS_410_GONE: /alfabeto/, ghosts de tradução (/no/ /cz/ /da/ /gk/ /en/...),
+ *     prefixos-lixo (/conserv/ /dei/ /novo/ /fwd/ /local-portfolio/ /emulation/),
+ *     dirs de malware set/2024 (/recipe/ /unregistered/ /domestic* /salzburg*)
+ *   + SUFIXOS_410_GONE: .htm (hack) e .php (WP residual) → 410
+ *   + REDIRECTS_301: /index.html /home.html /index.php → / (home duplicada)
+ *   ~ Páginas-conteúdo antigas (57 URLs) NÃO incluídas — aguardam decisão 301-vs-410
+ *   + Rollback: reverter este commit (mudança puramente aditiva em dados + 1 loop)
  * MUDANÇAS v3.2.0: Blog serve /blog/<slug>/ por PRESENÇA (env.ASSETS)
  *   + Posts novos (importados via API LeadLoop ou criados à mão) funcionam só
  *     por existir o arquivo — não precisa mais registrar cada um em PAGINAS_ESTATICAS.
@@ -84,6 +94,14 @@ const PREFIXOS_410_GONE = [
   '/termos/',
   '/dicionario/',
   '/term/',
+  // ── Resíduo 404 detectado no GSC (jun/2026) ──────────────────────────────
+  '/alfabeto/',          // índice A-Z do glossário antigo (WP)
+  // Ghosts de plugin de tradução (WPML/Polylang) — sem valor, nunca foram PT
+  '/no/', '/cz/', '/da/', '/gk/', '/en/', '/es/', '/de/', '/fr/', '/it/', '/ru/',
+  // Prefixos-lixo de scraper/plugin antigo (não existe rota real com eles)
+  '/conserv/', '/dei/', '/novo/', '/fwd/', '/local-portfolio/', '/emulation/',
+  // Diretórios da injeção de malware set/2024 (limpeza definitiva)
+  '/recipe/', '/unregistered/', '/domestic', '/salzburg',
 ];
 
 const ARQUIVOS_410_GONE = [
@@ -101,10 +119,19 @@ const ARQUIVOS_410_GONE = [
   '/wp-settings.php',
 ];
 
+// Sufixos 410 — site estático NUNCA serve .htm/.php.
+// .htm = arquivos da injeção de malware set/2024 (dir aleatório + hex.htm).
+// .php = entry-points WP residuais. Exceção /index.php tratada em REDIRECTS_301 (roda antes).
+const SUFIXOS_410_GONE = ['.htm', '.php'];
+
 // ══════════════════════════════════════════════════════════════════════════════
 // 301 PERMANENTES — páginas antigas → novas (preserva link juice)
 // ══════════════════════════════════════════════════════════════════════════════
 const REDIRECTS_301 = {
+  // ── Home duplicada → canônica (resíduo GSC jun/2026) ─
+  '/index.html': '/',
+  '/home.html': '/',
+  '/index.php': '/',
   // ── Links quebrados detectados no GSC ───────────────
   '/gas-no-giocondo-orsi/': '/gas-giocondo-orsi/',
   '/gas-no-giocondo-orsi': '/gas-giocondo-orsi/',
@@ -609,6 +636,17 @@ export default {
           status: 410, 
           headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
         });
+      }
+    }
+    // Sufixos 410 (.htm hack / .php WP) — só se não for página estática real
+    if (!PAGINAS_ESTATICAS.includes(pathnameNorm410)) {
+      for (const suf of SUFIXOS_410_GONE) {
+        if (pathLower.endsWith(suf)) {
+          return new Response('Gone', { 
+            status: 410, 
+            headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
+          });
+        }
       }
     }
 
