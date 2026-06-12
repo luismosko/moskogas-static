@@ -1,6 +1,14 @@
 /**
- * _worker.js | Versão: 3.3.0 | Atualizado: 2026-06-11
+ * _worker.js | Versão: 3.3.1 | Atualizado: 2026-06-11
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.3.1: Resíduo 404 conteúdo antigo — Opção B (decisão Luis)
+ *   + REDIRECTS_301: 15 duplicatas 1:1 → equivalente vivo (bairros -antigo/-2,
+ *     p20 singular→plural, 2 artigos que migraram p/ /blog/). Só destino = mesmo conteúdo.
+ *   + URLS_410_GONE: 21 artigos WP antigos SEM equivalente → 410 (evita soft-404 de
+ *     301→categoria genérica, antipadrão conhecido)
+ *   + PREFIXOS_410_GONE: scraper/spam JP (/shopdetail/ /man/ /vallarta/ /stafford/
+ *     /stargate/ /geo/ /eds/)
+ *   + Rollback: reverter commit (aditivo: 1 dict + 1 array + 1 loop)
  * MUDANÇAS v3.3.0: Limpeza do resíduo 404 (diagnóstico Crawl Stats GSC jun/2026)
  *   Contexto: 57% do crawl era 404; 905/1000 já tratados (glossário 410, query 301,
  *   blog 200). Este bump mata o resíduo estrutural que ainda devolvia 404 puro:
@@ -102,6 +110,8 @@ const PREFIXOS_410_GONE = [
   '/conserv/', '/dei/', '/novo/', '/fwd/', '/local-portfolio/', '/emulation/',
   // Diretórios da injeção de malware set/2024 (limpeza definitiva)
   '/recipe/', '/unregistered/', '/domestic', '/salzburg',
+  // Prefixos scraper/spam restantes (GSC jun/2026) — spam JP + lixo
+  '/shopdetail/', '/man/', '/vallarta/', '/stafford/', '/stargate/', '/geo/', '/eds/',
 ];
 
 const ARQUIVOS_410_GONE = [
@@ -124,6 +134,31 @@ const ARQUIVOS_410_GONE = [
 // .php = entry-points WP residuais. Exceção /index.php tratada em REDIRECTS_301 (roda antes).
 const SUFIXOS_410_GONE = ['.htm', '.php'];
 
+// URLs 410 exatas — artigos WP antigos SEM equivalente 1:1 (301→categoria = soft-404).
+const URLS_410_GONE = [
+  '/regulador-mangueira-validade/',
+  '/gas-liquefeito-de-petroleo-glp-a-vantagem-competitiva-para-hoteis-e-pousadas/',
+  '/onde-instalar-o-gas-de-cozinha/',
+  '/o-consumo-de-agua-mineral-e-a-importancia-de-escolher-agua-mineral-de-qualidade-e-segura-para-consumo/',
+  '/como-trocar-garrafao-de-agua-do-bebedouro',
+  '/glossario-sobre-gas-e-agua-mineral/',
+  '/agua-mineral-qual-a-melhor-forma-de-servir-no-meu-estabelecimento/',
+  '/por-que-voce-deve-beber-agua-mineral-e-quais-sao-seus-beneficios/',
+  '/agua-mineral-de-onde-vem-a-agua-que-bebemos/',
+  '/nao-e-so-no-fogao-conheca-3-utilidades-do-gas-de-cozinha/',
+  '/como-utilizar-o-gas-de-cozinha-de-maneira-correta-em-seu-comercio/',
+  '/agua-mineral-com-gas-por-que-servir-no-seu-restaurante/',
+  '/gas-p45-saiba-como-armazenar-cilindro-de-gas/',
+  '/vantagens-de-utilizar-o-gas-glp/',
+  '/o-que-e-o-gas-de-cozinha-ou-glp/',
+  '/como-fazer-a-troca-do-gas-de-cozinha/',
+  '/5-receitas-para-voce-economizar-gas-de-cozinha/',
+  '/empilhadeira-a-gas-principais-cuidados/',
+  '/gas-caraada-bosque/',
+  '/gas-proximo-alphaville/',
+  '/gas-proximo-alphaville-antigo/',
+];
+
 // ══════════════════════════════════════════════════════════════════════════════
 // 301 PERMANENTES — páginas antigas → novas (preserva link juice)
 // ══════════════════════════════════════════════════════════════════════════════
@@ -132,6 +167,22 @@ const REDIRECTS_301 = {
   '/index.html': '/',
   '/home.html': '/',
   '/index.php': '/',
+  // ── Conteúdo antigo: duplicatas 1:1 → equivalente vivo (Opção B, jun/2026) ─
+  '/gas-estrela-dalva-2/': '/gas-estrela-dalva/',
+  '/gas-no-autonomista/': '/gas-autonomista/',
+  '/gas-autonomista-e-giocondo-orsi/': '/gas-autonomista/',
+  '/gas-novos-estados-antigo/': '/gas-novos-estados/',
+  '/gas-chacara-cachoeira-antigo/': '/gas-chacara-cachoeira/',
+  '/chacara-cachoeira/': '/gas-chacara-cachoeira/',
+  '/gas-mais-proximo-antigo/': '/gas-mais-proximo-em-campo-grande-ms/',
+  '/gas-industrial-antigo/': '/gas-industrial-campo-grande-ms/',
+  '/gas-de-empilhadeira-p20/': '/gas-de-empilhadeiras-p20/',
+  '/gas-de-empilhadeira-p20': '/gas-de-empilhadeiras-p20/',
+  '/gas-de-empilhadeira-p20-antigo/': '/gas-de-empilhadeiras-p20/',
+  '/produtos/gas-de-empilhadeira-p20/': '/gas-de-empilhadeiras-p20/',
+  '/produtos/gas-de-empilhadeira-p20': '/gas-de-empilhadeiras-p20/',
+  '/gas-p20-tudo-o-que-voce-precisa-saber-sobre-o-gas-para-empilhadeira/': '/blog/gas-p20-tudo-o-que-voce-precisa-saber-sobre-o-gas-para-empilhadeira/',
+  '/nem-diesel-nem-gasolina-conheca-as-vantagens-do-gas-para-empilhadeira/': '/blog/nem-diesel-nem-gasolina-conheca-as-vantagens-do-gas-para-empilhadeira/',
   // ── Links quebrados detectados no GSC ───────────────
   '/gas-no-giocondo-orsi/': '/gas-giocondo-orsi/',
   '/gas-no-giocondo-orsi': '/gas-giocondo-orsi/',
@@ -642,6 +693,18 @@ export default {
     if (!PAGINAS_ESTATICAS.includes(pathnameNorm410)) {
       for (const suf of SUFIXOS_410_GONE) {
         if (pathLower.endsWith(suf)) {
+          return new Response('Gone', { 
+            status: 410, 
+            headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
+          });
+        }
+      }
+    }
+    // URLs 410 exatas (artigos WP antigos sem equivalente). REDIRECTS_301 já rodou antes.
+    {
+      const semBarra = pathLower.replace(/\/$/, '');
+      for (const u of URLS_410_GONE) {
+        if (u === pathLower || u.replace(/\/$/, '') === semBarra) {
           return new Response('Gone', { 
             status: 410, 
             headers: { 'Cache-Control': 'public, max-age=86400', 'X-Robots-Tag': 'noindex' } 
