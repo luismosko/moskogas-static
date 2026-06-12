@@ -1,0 +1,60 @@
+name: Importar posts (LeadLoop API)
+
+# Roda todo dia às 09:00 UTC (06:00 em Campo Grande) + botão manual
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: pip install pillow
+
+      - name: Importar posts da API (como rascunho)
+        env:
+          LEADLOOP_API_KEY: ${{ secrets.LEADLOOP_API_KEY }}
+        run: python3 scripts/importar_posts.py
+
+      - name: Commitar novos rascunhos
+        id: commit
+        run: |
+          git config user.name "Mosko Bot"
+          git config user.email "bot@moskogas.com.br"
+          git add blog/ images/blog/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "nada_novo=true" >> "$GITHUB_OUTPUT"
+            echo "Nenhum post novo."
+          else
+            git commit -m "blog: importa rascunhos via API LeadLoop ($(date +%F))"
+            git push
+            echo "nada_novo=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Marcar como consumidos (só após push OK)
+        if: steps.commit.outputs.nada_novo == 'false'
+        env:
+          LEADLOOP_API_KEY: ${{ secrets.LEADLOOP_API_KEY }}
+        run: |
+          if [ -f imported_ids.txt ]; then
+            while IFS=$'\t' read -r id slug; do
+              [ -z "$id" ] && continue
+              code=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+                -H "Authorization: Bearer $LEADLOOP_API_KEY" \
+                "https://api-seo.studioartemis.co/api/integration/posts/$id/mark-consumed")
+              echo "mark-consumed $slug -> $code"
+            done < imported_ids.txt
+          fi

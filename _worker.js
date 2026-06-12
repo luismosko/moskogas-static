@@ -1,6 +1,11 @@
 /**
- * _worker.js | Versão: 3.1.6 | Atualizado: 2026-06-03
+ * _worker.js | Versão: 3.2.0 | Atualizado: 2026-06-11
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.2.0: Blog serve /blog/<slug>/ por PRESENÇA (env.ASSETS)
+ *   + Posts novos (importados via API LeadLoop ou criados à mão) funcionam só
+ *     por existir o arquivo — não precisa mais registrar cada um em PAGINAS_ESTATICAS.
+ *   + Mudança ADITIVA: rotas já registradas continuam tendo prioridade (inalteradas).
+ *   + Rollback: remover o bloco "5b. Blog serve por presença".
  * MUDANÇAS v3.1.6: Novas páginas + reforços CTR/keyword
  *   + /gas-24-horas-campo-grande/ (novo) — target "gás 24 horas" (5.4K vol)
  *   + /blog/deposito-gas-campo-grande/ (novo post) — target "deposito de gás" (6.8K vol)
@@ -649,6 +654,15 @@ export default {
     }
 
     if (PAGINAS_ESTATICAS.includes(pathnameNorm)) {
+      const asset = await env.ASSETS.fetch(request);
+      if (asset.status !== 404) return asset;
+    }
+
+    // ── 5b. Blog: serve qualquer /blog/<slug>/ por presença ─────────────────
+    // Posts importados via API (LeadLoop) caem como arquivos estáticos e passam
+    // a funcionar automaticamente, SEM precisar registrar cada um em
+    // PAGINAS_ESTATICAS (elimina o footgun do 404 documentado no CHECKLIST).
+    if (pathnameNorm.startsWith('/blog/')) {
       const asset = await env.ASSETS.fetch(request);
       if (asset.status !== 404) return asset;
     }
