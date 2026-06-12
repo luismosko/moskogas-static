@@ -10,7 +10,7 @@ Uso (local ou GitHub Action):
 Saída: blog/<slug>/index.html + imagens em images/blog/ + imported_ids.txt
 (imported_ids.txt é lido pelo passo de mark-consumed só APÓS o commit+push).
 """
-import os, re, io, json, sys, datetime, urllib.request
+import os, re, io, json, sys, datetime, urllib.request, html
 
 API_BASE = "https://api-seo.studioartemis.co"
 KEY = os.environ.get("LEADLOOP_API_KEY", "").strip()
@@ -68,6 +68,27 @@ def add_sitemap(slug):
                  f'<changefreq>monthly</changefreq><priority>0.7</priority></url>\n</urlset>')
         sm = sm.replace("</urlset>", entry, 1)
         open(sm_path, "w", encoding="utf-8").write(sm)
+
+
+def add_to_index(slug, title, desc):
+    """Insere o card do post na seção 'Últimos Artigos' da /blog/ (mais novo no topo)."""
+    idx_path = os.path.join(ROOT, "blog", "index.html")
+    idx = open(idx_path, encoding="utf-8").read()
+    url = f"https://moskogas.com.br/blog/{slug}/"
+    if url in idx:
+        return  # já listado, evita duplicar
+    t = html.escape(title)
+    d = desc.strip()
+    d = (d[:90] + "…") if len(d) > 90 else d
+    d = html.escape(d)
+    card = ('<!-- IMPORTADOS-API -->\n'
+            f'      <a href="{url}" class="post-card">\n'
+            f'        <h3>{t}</h3>\n'
+            f'        <p>{d}</p>\n'
+            f'        <span class="read-more">Ler artigo →</span>\n'
+            f'      </a>')
+    idx = idx.replace("<!-- IMPORTADOS-API -->", card, 1)
+    open(idx_path, "w", encoding="utf-8").write(idx)
 
 
 def listar_disponiveis():
@@ -172,6 +193,7 @@ def main():
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(html)
             add_sitemap(slug)
+            add_to_index(slug, p["title"], p.get("meta_description", ""))
             importados.append((p["id"], slug))
             print(f"  ✓ publicado: /blog/{slug}/")
         except Exception as e:
