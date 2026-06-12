@@ -30,22 +30,18 @@ jobs:
         run: python3 scripts/importar_posts.py
 
       - name: Commitar novos rascunhos
-        id: commit
         run: |
           git config user.name "Mosko Bot"
           git config user.email "bot@moskogas.com.br"
           git add blog/ images/blog/ 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "nada_novo=true" >> "$GITHUB_OUTPUT"
-            echo "Nenhum post novo."
+            echo "Nada novo para commitar."
           else
             git commit -m "blog: importa rascunhos via API LeadLoop ($(date +%F))"
-            git push
-            echo "nada_novo=false" >> "$GITHUB_OUTPUT"
           fi
+          git push
 
-      - name: Marcar como consumidos (só após push OK)
-        if: steps.commit.outputs.nada_novo == 'false'
+      - name: Marcar como consumidos (após conteúdo estar no repo)
         env:
           LEADLOOP_API_KEY: ${{ secrets.LEADLOOP_API_KEY }}
         run: |
