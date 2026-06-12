@@ -19,10 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto',
          'setembro','outubro','novembro','dezembro']
 
-BANNER = ('<div style="background:#FFF4CE;border-bottom:2px solid #FF6B00;color:#8a5a00;'
-          'text-align:center;padding:10px 16px;font-size:14px;font-weight:700;font-family:Inter,sans-serif">'
-          '📝 RASCUNHO — revisar e publicar (invisível ao Google: noindex). '
-          'Publicar com: <code>python3 scripts/publicar.py {slug}</code></div>')
+BANNER = ''  # auto-publicação: sem banner de rascunho
 
 RELATED = '''<div class="related-posts">
       <h3>Leia também:</h3>
@@ -58,6 +55,19 @@ def baixar_webp(url, destino_rel):
     except Exception as e:
         print(f"  ! imagem falhou ({url[:60]}...): {e}", file=sys.stderr)
         return url
+
+
+def add_sitemap(slug):
+    """Adiciona a URL do post ao sitemap.xml (antes de </urlset>) se ainda não existir."""
+    sm_path = os.path.join(ROOT, "sitemap.xml")
+    sm = open(sm_path, encoding="utf-8").read()
+    loc = f"https://moskogas.com.br/blog/{slug}/"
+    if loc not in sm:
+        hoje = datetime.date.today().isoformat()
+        entry = (f'  <url><loc>{loc}</loc><lastmod>{hoje}</lastmod>'
+                 f'<changefreq>monthly</changefreq><priority>0.7</priority></url>\n</urlset>')
+        sm = sm.replace("</urlset>", entry, 1)
+        open(sm_path, "w", encoding="utf-8").write(sm)
 
 
 def listar_disponiveis():
@@ -139,10 +149,10 @@ def render(post, tpl):
             .replace("{{SLUG}}", slug)
             .replace("{{TITLE}}", title)
             .replace("{{META_DESC}}", post.get("meta_description", "").replace('"', "'"))
-            .replace("{{ROBOTS}}", "noindex,nofollow")          # RASCUNHO
+            .replace("{{ROBOTS}}", "index, follow")
             .replace("{{DATE}}", data_iso)
             .replace("{{CRUMB}}", crumb)
-            .replace("{{BANNER}}", BANNER.format(slug=slug))     # banner de rascunho
+            .replace("{{BANNER}}", "")
             .replace("{{ARTICLE}}", article)
             .replace("{{SCHEMA}}", schema_block))
     return slug, html
@@ -161,8 +171,9 @@ def main():
             d = os.path.join(ROOT, "blog", slug)
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(html)
+            add_sitemap(slug)
             importados.append((p["id"], slug))
-            print(f"  ✓ rascunho: /blog/{slug}/")
+            print(f"  ✓ publicado: /blog/{slug}/")
         except Exception as e:
             print(f"  ✗ erro em {p.get('slug')}: {e}", file=sys.stderr)
     # ids para o passo de mark-consumed (só roda após commit+push)
