@@ -3,7 +3,7 @@ name: Importar posts (LeadLoop API)
 # Roda todo dia às 09:00 UTC (06:00 em Campo Grande) + botão manual
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 12,19 * * *'
   workflow_dispatch:
 
 permissions:
