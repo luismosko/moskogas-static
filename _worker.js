@@ -1,6 +1,10 @@
 /**
- * _worker.js | Versão: 3.3.1 | Atualizado: 2026-06-11
+ * _worker.js | Versão: 3.4.0 | Atualizado: 2026-06-13
  * Descrição: WordPress REMOVIDO — site 100% estático no Cloudflare Pages
+ * MUDANÇAS v3.4.0: Nova página produto /gas-p5/ (botijão 5kg portátil)
+ *   + Rota /gas-p5/ registrada em PAGINAS_ESTATICAS
+ *   + 3 redirects de glossário P5 repontados: glp-p5, de-5kg, cilindro-glp-p5
+ *     agora vão para /gas-p5/ (antes caíam em /gas-de-cozinha-ou-gas-p45/)
  * MUDANÇAS v3.3.1: Resíduo 404 conteúdo antigo — Opção B (decisão Luis)
  *   + REDIRECTS_301: 15 duplicatas 1:1 → equivalente vivo (bairros -antigo/-2,
  *     p20 singular→plural, 2 artigos que migraram p/ /blog/). Só destino = mesmo conteúdo.
@@ -205,8 +209,8 @@ const REDIRECTS_301 = {
   '/glossario/o-que-e-botijao-de-gas-glp-de-13kg/': '/gas-de-cozinha/',
   '/glossario/o-que-e-botijao-de-gas-glp-para-uso-residencial/': '/gas-de-cozinha/',
   '/glossario/o-que-e-gas-glp-de-uso-domestico/': '/gas-de-cozinha/',
-  '/glossario/o-que-e-botijao-de-gas-glp-p5/': '/gas-de-cozinha-ou-gas-p45/',
-  '/glossario/o-que-e-botijao-de-gas-glp-de-5kg/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-botijao-de-gas-glp-p5/': '/gas-p5/',
+  '/glossario/o-que-e-botijao-de-gas-glp-de-5kg/': '/gas-p5/',
   '/glossario/o-que-e-botijao-de-gas-glp-p45/': '/gas-p45/',
   '/glossario/o-que-e-botijao-de-gas-glp-para-uso-alimenticio/': '/gas-industrial-campo-grande-ms/',
   '/glossario/o-que-e-botijao-de-gas-glp-para-uso-industrial/': '/gas-industrial-campo-grande-ms/',
@@ -338,7 +342,7 @@ const REDIRECTS_301 = {
   // ── P13 doméstico ─
   '/glossario/o-que-e-cilindro-de-gas-glp-em-p13/': '/gas-de-cozinha/',
   // ── P5 / P20 / outros tamanhos ─
-  '/glossario/o-que-e-cilindro-de-gas-glp-p5/': '/gas-de-cozinha-ou-gas-p45/',
+  '/glossario/o-que-e-cilindro-de-gas-glp-p5/': '/gas-p5/',
   // ── Distribuição / logística / transporte / técnica ─
   '/glossario/kpis-importantes-na-distribuicao-de-gas-e-agua/': '/sobre-a-mosko-gas/',
   '/glossario/metodos-de-extracao-de-gas-uma-visao-tecnica/': '/sobre-a-mosko-gas/',
@@ -525,6 +529,7 @@ const PAGINAS_ESTATICAS = [
   '/gas-cruzeiro/',
   '/gas-de-cozinha-ou-gas-p45/',
   '/gas-de-cozinha/',
+  '/gas-p5/',
   '/gas-de-empilhadeiras-p20/',
   '/gas-do-povo-em-campo-grande-ms/',
   '/gas-doutor-albuquerque/',
