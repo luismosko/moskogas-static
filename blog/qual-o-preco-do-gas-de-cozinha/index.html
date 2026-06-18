@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--
+  blog/qual-o-preco-do-gas-de-cozinha/index.html | Versão: 1.0.0 | Atualizado: 2026-06-18 | Descrição: Qual o preço do gás de cozinha (importado via API LeadLoop)
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qual o preço do gás de cozinha | Mosko Gás</title>
+  <meta name="description" content="Descubra o preço atual do gás de cozinha em Campo Grande, como economizar com o Gás do Povo e dicas para não cair em fraudes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://moskogas.com.br/blog/qual-o-preco-do-gas-de-cozinha/">
+  <meta property="og:title" content="Qual o preço do gás de cozinha | Mosko Gás">
+  <meta property="og:description" content="Descubra o preço atual do gás de cozinha em Campo Grande, como economizar com o Gás do Povo e dicas para não cair em fraudes.">
+  <meta property="og:url" content="https://moskogas.com.br/blog/qual-o-preco-do-gas-de-cozinha/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--azul:#003087;--azul-medio:#0055CC;--azul-claro:#E8F0FD;--verde-wpp:#25D366;--laranja:#FF6B00;--cinza-bg:#F4F6FA;--cinza-texto:#333;--cinza-sub:#666;--borda:#E0E7F3;--footer-bg:#001A4D;--radius:14px;--radius-btn:50px}
+    body{font-family:'Inter',sans-serif;color:var(--cinza-texto);line-height:1.7}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;height:auto}
+    .container{max-width:800px;margin:0 auto;padding:0 20px}
+    .topbar{background:var(--azul);padding:8px 20px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .topbar a{color:#fff;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;padding:6px 18px;border-radius:var(--radius-btn);transition:.2s}
+    .topbar a.t-tel{border:1.5px solid rgba(255,255,255,.4)}
+    .topbar a.t-wpp{background:var(--verde-wpp)}
+    .topbar svg{width:15px;height:15px;fill:currentColor}
+    header{background:#fff;border-bottom:1.5px solid var(--borda);position:sticky;top:0;z-index:100}
+    nav{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo img{height:50px;width:auto}
+    .nav-links{display:flex;list-style:none;gap:2px}
+    .nav-links a{color:var(--cinza-texto);font-size:14px;font-weight:500;padding:7px 14px;border-radius:var(--radius-btn);transition:.2s}
+    .nav-links a:hover{background:var(--azul-claro);color:var(--azul-medio)}
+    .nav-links .n-wpp{background:var(--verde-wpp);color:#fff;font-weight:700;padding:8px 18px}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .hamburger span{display:block;width:26px;height:3px;background:var(--azul);border-radius:3px}
+    .mobile-menu{display:none;background:#fff;border-top:1px solid var(--borda);padding:12px 20px 18px}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:10px 0;color:var(--azul);font-weight:600;border-bottom:1px solid #f0f0f0}
+    .breadcrumb{background:var(--cinza-bg);padding:14px 20px;font-size:13px;color:var(--cinza-sub)}
+    .breadcrumb a{color:var(--azul-medio)}
+    .breadcrumb span{margin:0 8px;color:#ccc}
+    article{padding:40px 20px 60px}
+    article h1{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--azul);margin-bottom:16px;line-height:1.2}
+    .meta{display:flex;gap:16px;color:var(--cinza-sub);font-size:13px;margin-bottom:28px;flex-wrap:wrap}
+    article h2{font-size:1.4rem;font-weight:700;color:var(--azul);margin:32px 0 14px}
+    article h3{font-size:1.1rem;font-weight:700;color:var(--azul);margin:24px 0 10px}
+    article p{margin-bottom:16px}
+    article ul,article ol{margin:0 0 20px 24px}
+    article li{margin-bottom:10px}
+    article strong{color:var(--azul)}
+    .checklist{background:var(--cinza-bg);border-radius:var(--radius);padding:24px;margin:24px 0}
+    .checklist-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--borda)}
+    .checklist-item:last-child{border-bottom:none}
+    .checklist-num{background:var(--azul);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+    .checklist-text{flex:1}
+    .checklist-text strong{display:block;color:var(--azul);margin-bottom:4px}
+    .warning-box{background:#FFF3CD;border-left:4px solid #FFC107;padding:20px;border-radius:0 var(--radius) var(--radius) 0;margin:24px 0}
+    .warning-box p{margin:0}
+    .cta-box{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-medio) 100%);border-radius:var(--radius);padding:28px;text-align:center;margin:32px 0}
+    .cta-box h3{color:#fff;font-size:1.2rem;margin-bottom:12px}
+    .cta-box p{color:rgba(255,255,255,.9);margin-bottom:20px}
+    .btn-wpp{display:inline-flex;align-items:center;gap:8px;background:var(--verde-wpp);color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:var(--radius-btn);transition:.2s}
+    .btn-wpp:hover{background:#1ebe5a}
+    .btn-wpp svg{width:20px;height:20px;fill:#fff}
+    .faq-section{margin-top:40px}
+    .faq-item{border:1.5px solid var(--borda);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+    .faq-btn{width:100%;text-align:left;background:#fff;border:none;padding:18px 22px;font-size:15px;font-weight:700;color:var(--azul);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-btn::after{content:'+';font-size:22px;color:var(--azul-medio)}
+    .faq-item.open .faq-btn::after{transform:rotate(45deg)}
+    .faq-content{max-height:0;overflow:hidden;transition:max-height .3s}
+    .faq-item.open .faq-content{max-height:500px}
+    .faq-content p{padding:0 22px 20px;margin:0}
+    .related-posts{background:var(--cinza-bg);padding:32px 20px;margin-top:40px;border-radius:var(--radius)}
+    .related-posts h3{font-size:1.1rem;color:var(--azul);margin-bottom:16px}
+    .related-posts ul{list-style:none;margin:0;padding:0}
+    .related-posts li{margin-bottom:10px}
+    .related-posts a{color:var(--azul-medio);font-weight:600}
+    footer{background:var(--footer-bg);padding:40px 20px 20px;color:rgba(255,255,255,.7)}
+    .footer-inner{max-width:1180px;margin:0 auto}
+    .footer-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-nav a{color:rgba(255,255,255,.65);font-size:13px}
+    .footer-info{font-size:13px;line-height:1.8;color:rgba(255,255,255,.6)}
+    .footer-info strong{color:#fff}
+    .float-wpp{position:fixed;bottom:28px;right:28px;width:58px;height:58px;border-radius:50%;background:var(--verde-wpp);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);z-index:999}
+    .float-wpp svg{width:32px;height:32px;fill:#fff}
+    @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+  </style>
+</head>
+<body>
+
+
+<div class="topbar">
+  <a href="tel:6799333-0303" class="t-tel">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    LIGUE (67) 99333-0303
+  </a>
+  <a href="https://wa.me/5567993330303?text=Ol%C3%A1%2C%20quero%20pedir%20g%C3%A1s" target="_blank" rel="noopener" class="t-wpp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    Peça pelo WhatsApp
+  </a>
+</div>
+
+<header>
+  <nav>
+    <a href="/" class="logo">
+      <img src="https://moskogas.com.br/cdn-cgi/image/width=160,quality=85,format=auto/images/logo.webp" alt="Mosko Gás Campo Grande MS" width="160" height="50">
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://moskogas.com.br/gas-de-cozinha/">Gás de Cozinha</a></li>
+      <li><a href="https://moskogas.com.br/gas-industrial-campo-grande-ms/">Gás P45 e P20</a></li>
+      <li><a href="https://moskogas.com.br/blog/">Blog</a></li>
+      <li><a href="https://wa.me/5567993330303" target="_blank" rel="noopener" class="n-wpp">Peça agora</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="https://moskogas.com.br/gas-de-cozinha/">Gás de Cozinha</a>
+    <a href="https://moskogas.com.br/gas-industrial-campo-grande-ms/">Gás P45 e P20</a>
+    <a href="https://moskogas.com.br/blog/">Blog</a>
+    <a href="https://wa.me/5567993330303" target="_blank" rel="noopener">📲 WhatsApp</a>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="/">Início</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Qual o preço do gás de cozinha</div>
+</div>
+
+<article>
+  <div class="container">
+    <h1>Qual o preço do gás de cozinha</h1>
+    <div class="meta">
+      <span>📅 18 de junho de 2026</span>
+      <span>⏱️ 18 min de leitura</span>
+    </div>
+    <img src="/images/blog/qual-o-preco-do-gas-de-cozinha.webp" alt="Top view of natural quail eggs placed chaotically on white table during cooking process in kitchen" width="800" height="450" loading="eager" style="border-radius:14px;margin:8px 0 24px;width:100%;object-fit:cover">
+<p>Em Campo Grande, o preço do gás de cozinha (botijão P13) varia conforme a região, a distribuidora e a forma de pagamento, mas costuma ficar entre R$ 110 e R$ 140 na maioria dos bairros. Famílias cadastradas no programa Gás do Povo pagam ainda menos — em muitos casos, recebem o botijão gratuitamente ou com desconto integral. Para saber o valor atualizado na sua rua, o caminho mais rápido é consultar diretamente uma revenda autorizada, já que tabelas online raramente refletem o preço real do dia.</p>
+
+<p>Vários fatores influenciam quanto você vai pagar: a marca do gás (revendas autorizadas Ultragaz, por exemplo, seguem padrões de qualidade e lacre com nota fiscal), a distância da entrega, a forma de pagamento (Pix, cartão ou dinheiro na entrega podem ter condições diferentes) e até o horário do pedido. Vale também comparar o custo-benefício: um botijão lacrado, com peso correto e nota fiscal, evita o risco de levar gás adulterado ou com menos quilos do que o anunciado.</p>
+
+<p>A seguir, você confere uma faixa de preços atualizada para Campo Grande, como funciona o desconto do Gás do Povo, as diferenças entre P13, P20 e P45, e o que observar antes de fechar o pedido para garantir segurança e economia.</p>
+<h2>Qual o Preço do Gás de Cozinha Hoje? (Botijão 13 kg Atualizado 2025)</h2>
+
+<p>Saber qual o preço do gás de cozinha está entre as consultas mais frequentes dos brasileiros mês a mês — e há motivo de sobra para isso. O botijão P13, aquele de 13 kg presente na quase totalidade das cozinhas do país, compromete uma fatia considerável do orçamento doméstico, sobretudo nas classes C, D e E. Em 2025, o valor médio nacional do P13 oscila entre <strong>R$ 100 e R$ 145</strong>, conforme a região, a distribuidora e o canal de compra.</p>
+
+<p>Essa amplitude existe porque o valor cobrado ao consumidor não é definido pelo governo federal — ao contrário do que muitos imaginam. A Petrobras estabelece o preço de saída da refinaria, mas cada elo seguinte da cadeia (distribuidora, revendedor e frete) acrescenta sua margem, gerando diferenças expressivas até dentro de uma mesma cidade. Em Campo Grande/MS, por exemplo, o P13 é encontrado a partir de <strong>R$ 105</strong> em revendas autorizadas como a Mosko Gás, enquanto estabelecimentos sem credenciamento ou com estrutura logística precária podem cobrar acima de R$ 130 pelo mesmo produto.</p>
+
+<p>Compreender <a href="/qual-o-tipo-de-gas-de-cozinha">qual o tipo de gás de cozinha</a> que você utiliza e como seu preço é formado é o ponto de partida para não desembolsar mais do que o necessário. Ao longo deste artigo, você encontrará a tabela de valores por estado, o histórico de reajustes, os programas de subsídio vigentes, ferramentas de comparação e um guia completo sobre os diferentes tamanhos de botijão disponíveis no mercado.</p>
+
+<h2>Preço Médio do Gás de Cozinha por Estado e Capital</h2>
+
+<h3>Tabela de Preços Mínimo, Médio e Máximo nas Principais Cidades</h3>
+
+<p>Os valores abaixo foram compilados a partir de pesquisas do PROCON, da ANP (Agência Nacional do Petróleo, Gás Natural e Biocombustíveis) e de levantamentos de entidades de defesa do consumidor. As referências dizem respeito ao botijão P13 (13 kg) e foram atualizadas para o primeiro semestre de 2025. Pequenas variações podem ocorrer conforme o momento da consulta.</p>
+
+<ul>
+  <li><strong>São Paulo/SP:</strong> mínimo R$ 105 — médio R$ 120 — máximo R$ 148</li>
+  <li><strong>Rio de Janeiro/RJ:</strong> mínimo R$ 108 — médio R$ 125 — máximo R$ 155</li>
+  <li><strong>Belo Horizonte/MG:</strong> mínimo R$ 100 — médio R$ 115 — máximo R$ 140</li>
+  <li><strong>Salvador/BA:</strong> mínimo R$ 110 — médio R$ 128 — máximo R$ 158</li>
+  <li><strong>Fortaleza/CE:</strong> mínimo R$ 108 — médio R$ 122 — máximo R$ 150</li>
+  <li><strong>Manaus/AM:</strong> mínimo R$ 118 — médio R$ 138 — máximo R$ 165</li>
+  <li><strong>Porto Alegre/RS:</strong> mínimo R$ 102 — médio R$ 118 — máximo R$ 142</li>
+  <li><strong>Campo Grande/MS:</strong> mínimo R$ 105 — médio R$ 118 — máximo R$ 135</li>
+  <li><strong>Cuiabá/MT:</strong> mínimo R$ 110 — médio R$ 125 — máximo R$ 148</li>
+  <li><strong>Belém/PA:</strong> mínimo R$ 112 — médio R$ 130 — máximo R$ 160</li>
+</ul>
+
+<p>Norte e Nordeste registram sistematicamente os maiores patamares médios do país. Os principais fatores são a distância das refinarias e bases de distribuição, o custo logístico elevado e a menor concorrência entre distribuidoras em municípios do interior. Nas capitais do Sul e Sudeste, a maior densidade de revendas e a proximidade com centros de refino e armazenamento favorecem preços mais competitivos.</p>
+
+<h3>Por Que o Preço Varia Até R$ 50 Entre Revendas na Mesma Cidade?</h3>
+
+<p>Uma diferença de até R$ 50 no valor do botijão dentro de uma mesma cidade não é acaso nem equívoco — ela reflete disparidades estruturais e comerciais entre os agentes de revenda. Os principais fatores que explicam esse cenário são:</p>
+
+<ul>
+  <li><strong>Custo logístico:</strong> revendas que operam com frota própria de motos e veículos diluem melhor o custo de entrega, ao passo que as que terceirizam o transporte tendem a repassar essa despesa ao consumidor.</li>
+  <li><strong>Volume de compra:</strong> distribuidoras que adquirem grandes lotes da Ultragaz, Copagaz, Liquigás ou outras marcas negociam condições mais vantajosas na origem e podem transferir parte desse ganho ao cliente final.</li>
+  <li><strong>Credenciamento e regularidade fiscal:</strong> revendas autorizadas que emitem nota fiscal arcam com custos tributários maiores, mas garantem produto lacrado e com procedência. Estabelecimentos irregulares podem cobrar menos, porém o risco ao consumidor é real.</li>
+  <li><strong>Localização e bairro atendido:</strong> em regiões mais afastadas do centro ou de acesso difícil, o frete eleva o valor final.</li>
+  <li><strong>Concorrência local:</strong> onde há poucos revendedores, os preços tendem a ser mais altos pela ausência de pressão competitiva.</li>
+  <li><strong>Política comercial da marca:</strong> revendas Ultragaz, por exemplo, seguem diretrizes que incluem padrões de qualidade e rastreabilidade, o que pode influenciar ligeiramente o posicionamento de preço.</li>
+</ul>
+
+<p>Por isso, ao pesquisar o valor do gás, não leve em conta apenas o número anunciado. Verifique se a entrega está inclusa, se o botijão chega lacrado, se há emissão de nota fiscal e qual é o prazo estimado. Uma revenda que cobra R$ 5 a mais, mas entrega em 30 minutos com produto lacrado e comprovante fiscal, costuma ser a escolha mais segura.</p>
+
+<h2>Preço Oficial do GLP na Refinaria (Petrobras) vs. Preço Final ao Consumidor</h2>
+
+<h3>Como é Formado o Preço do Botijão: Refinaria, Distribuidora e Revendedor</h3>
+
+<p>Para entender <a href="/como-e-produzido-o-gas-de-cozinha">como é produzido o gás de cozinha</a> e por que ele chega ao valor que chega na sua porta, é preciso conhecer a cadeia de formação de preços do GLP (Gás Liquefeito de Petróleo). Esse processo envolve ao menos quatro etapas distintas:</p>
+
+<ol>
+  <li><strong>Preço na refinaria (Petrobras):</strong> a Petrobras define o valor de venda do GLP a granel para as distribuidoras nacionais. Esse montante é chamado de preço ex-refinaria e divulgado periodicamente. Em 2025, a média do GLP ex-refinaria para o P13 ficou na faixa de <strong>R$ 33 a R$ 38 por botijão</strong>, conforme a cotação do petróleo e o câmbio.</li>
+  <li><strong>Distribuidora nacional:</strong> empresas como Ultragaz, Copagaz, Liquigás (Vibra Energia) e outras adquirem o GLP a granel da Petrobras ou de importadores, enchem os botijões em suas bases de envase, acrescentam sua margem de distribuição e revendem aos revendedores locais. Nessa etapa, o valor já sobe consideravelmente, incorporando custo de envase, logística, ICMS e margem comercial.</li>
+  <li><strong>Revendedor (distribuidora local):</strong> é o elo que compra os botijões cheios das distribuidoras nacionais e os comercializa ao consumidor final. Aqui entram os custos de frete local, estrutura operacional, mão de obra e margem de lucro do revendedor.</li>
+  <li><strong>Consumidor final:</strong> o montante pago é a soma de todos os elos anteriores, acrescida de tributos estaduais (ICMS) que variam de estado para estado.</li>
+</ol>
+
+<p>Essa estrutura explica por que, mesmo quando a Petrobras não promove reajuste na refinaria, o valor final ao consumidor pode subir — basta que o ICMS aumente, que o frete encareça ou que a distribuidora nacional ajuste sua margem.</p>
+
+<h3>Impostos e Margens que Compõem o Valor Final do Gás</h3>
+
+<p>A composição tributária do botijão de gás é complexa e representa uma parcela expressiva do preço cobrado ao consumidor. Os principais componentes são:</p>
+
+<ul>
+  <li><strong>ICMS:</strong> o imposto de maior impacto no valor final. As alíquotas variam por estado — em alguns, como Goiás e Mato Grosso do Sul, há alíquotas diferenciadas para o GLP de uso residencial. O ICMS pode representar entre <strong>12% e 25%</strong> do total dependendo da unidade federativa.</li>
+  <li><strong>PIS/COFINS:</strong> tributos federais incidentes sobre a cadeia de produção e distribuição. Para o GLP residencial, há regimes de tributação monofásica que concentram a cobrança na refinaria.</li>
+  <li><strong>CIDE:</strong> a Contribuição de Intervenção no Domínio Econômico incide sobre combustíveis, incluindo o GLP, mas com alíquota zerada para o gás de cozinha desde 2001 — uma política de subsídio implícito mantida por governos sucessivos.</li>
+  <li><strong>Margem da distribuidora nacional:</strong> varia entre R$ 20 e R$ 35 por botijão P13, dependendo da marca e da região.</li>
+  <li><strong>Margem do revendedor local:</strong> tipicamente entre R$ 10 e R$ 25 por botijão, conforme os custos operacionais e o nível de concorrência.</li>
+  <li><strong>Frete e logística:</strong> pode representar de R$ 3 a R$ 15 por botijão, dependendo da distância entre a base de envase e o ponto de entrega.</li>
+</ul>
+
+<p>Somando todos esses componentes, fica evidente que o preço ex-refinaria (em torno de R$ 35) praticamente dobra até chegar ao consumidor final, que desembolsa entre R$ 105 e R$ 145. Isso não significa necessariamente abuso em toda a cadeia — os custos logísticos e tributários no Brasil são estruturalmente elevados.</p>
+
+<h2>Histórico de Reajustes do Gás de Cozinha em 2024 e 2025</h2>
+
+<h3>Linha do Tempo dos Últimos Reajustes e Impacto no Bolso do Consumidor</h3>
+
+<p>O valor do gás de cozinha passou por uma série de oscilações nos últimos anos. A seguir, os principais movimentos de preço na refinaria que afetaram o consumidor final:</p>
+
+<ul>
+  <li><strong>Janeiro de 2024:</strong> a Petrobras manteve o GLP estável, seguindo a política implementada em 2023 que desvinculou parcialmente as cotações domésticas da paridade de importação (PPI). O P13 ficou na faixa de R$ 100 a R$ 120 nas principais capitais.</li>
+  <li><strong>Março de 2024:</strong> reajuste de aproximadamente <strong>4,8%</strong> no preço ex-refinaria do GLP, motivado pela alta do petróleo no mercado internacional e pela desvalorização cambial do real. O impacto médio ao consumidor foi de R$ 4 a R$ 6 por botijão.</li>
+  <li><strong>Agosto de 2024:</strong> nova alta, desta vez de <strong>3,2%</strong>, pressionada pela depreciação do real frente ao dólar. Algumas regiões registraram médias acima de R$ 130 pela primeira vez desde 2022.</li>
+  <li><strong>Novembro de 2024:</strong> redução de <strong>2,1%</strong> no preço ex-refinaria, acompanhando queda temporária do barril de petróleo. O alívio ao consumidor foi parcial, pois nem todos os revendedores repassaram a diminuição integralmente.</li>
+  <li><strong>Fevereiro de 2025:</strong> alta de <strong>5,3%</strong> no GLP na refinaria, o maior reajuste em 12 meses, impulsionado pela valorização do dólar e pela retomada do alinhamento ao mercado internacional. O P13 voltou a superar R$ 120 na média nacional.</li>
+  <li><strong>Maio de 2025:</strong> estabilidade relativa, com variações de até 1,5% para cima ou para baixo dependendo da região, sem reajuste formal pela Petrobras.</li>
+</ul>
+
+<p>No acumulado de 2024 a meados de 2025, o botijão P13 ficou cerca de <strong>11% a 14%</strong> mais caro na média nacional — um aumento que pesa especialmente no orçamento das famílias de menor renda, que destinam uma proporção maior de seus ganhos ao gás de cozinha.</p>
+
+<h3>Gás de Cozinha vs. Inflação: Quanto o Preço Subiu Acima do IPCA?</h3>
+
+<p>O IPCA (Índice Nacional de Preços ao Consumidor Amplo), principal termômetro oficial da inflação brasileira, fechou 2024 em torno de <strong>4,8%</strong>. No mesmo período, o preço médio do P13 subiu aproximadamente <strong>8,5%</strong> — quase o dobro da inflação geral. Isso significa que o gás de cozinha encareceu em termos reais, corroendo o poder de compra das famílias.</p>
+
+<p>Em uma perspectiva mais ampla, desde 2019 o P13 acumula alta superior a <strong>100%</strong> em termos nominais, enquanto o IPCA acumulou cerca de 35% a 40% no mesmo intervalo. A defasagem é expressiva e tem alimentado pressões políticas por controle de valores e ampliação dos programas de subsídio. Para quem busca <a href="/como-economizar-gas-de-cozinha">como economizar gás de cozinha</a> no cotidiano, adotar boas práticas de uso é uma forma concreta de amenizar o impacto desses reajustes nas finanças domésticas.</p>
+
+<h2>Programas do Governo para Conter o Preço do Gás (Vale-Gás e Subsídios)</h2>
+
+<h3>Vale-Gás 2025: Quem Tem Direito, Valor e Como Solicitar</h3>
+
+<p>O Auxílio Gás dos Brasileiros, conhecido popularmente como <strong>Vale-Gás</strong>, é um programa federal instituído pela Lei nº 14.237/2021 e mantido pelo governo Lula com ampliações. Em 2025, o benefício passou por ajustes relevantes:</p>
+
+<ul>
+  <li><strong>Valor do benefício:</strong> equivale a <strong>100% do preço médio nacional</strong> do botijão P13, calculado com base nos dados da ANP. Em 2025, o montante ficou na faixa de <strong>R$ 104 a R$ 120</strong> por parcela, paga a cada dois meses.</li>
+  <li><strong>Quem tem direito:</strong> famílias inscritas no CadÚnico com renda per capita de até meio salário mínimo; famílias com membros beneficiários do BPC (Benefício de Prestação Continuada); e famílias em situação de extrema pobreza priorizadas pelo Bolsa Família.</li>
+  <li><strong>Como solicitar:</strong> não é necessário nenhuma solicitação formal. A inclusão é automática para quem já está inscrito no CadÚnico e atende aos critérios. O pagamento ocorre pelo Caixa Tem, no mesmo calendário do Bolsa Família.</li>
+  <li><strong>Como manter o benefício:</strong> é fundamental manter o CadÚnico atualizado — famílias com cadastro desatualizado há mais de 24 meses podem ser suspensas do programa.</li>
+  <li><strong>Número de beneficiários em 2025:</strong> o governo federal manteve a meta de atender aproximadamente <strong>21 milhões de famílias</strong> ao longo do ano, com dotação orçamentária de cerca de R$ 13 bilhões.</li>
+</ul>
+
+<p>Em Campo Grande/MS, famílias beneficiárias podem adquirir o P13 com desconto por meio de distribuidoras credenciadas ao <strong>Gás do Povo</strong>, programa estadual que complementa o Vale-Gás federal e tem a Mosko Gás como distribuidora credenciada na capital sul-mato-grossense.</p>
+
+<h3>Subsídio de R$ 330 Milhões do Governo: O Que Muda para o Consumidor?</h3>
+
+<p>Em 2025, o governo federal anunciou um pacote de subsídios diretos ao setor de GLP residencial no valor de <strong>R$ 330 milhões</strong>, com o objetivo de conter a escalada de preços e amortecer o impacto dos reajustes da Petrobras sobre as famílias de menor renda. As medidas incluem:</p>
+
+<ul>
+  <li><strong>Subsídio direto às distribuidoras:</strong> parte dos recursos é repassada diretamente às distribuidoras nacionais de GLP mediante compromisso de não transferir integralmente os reajustes ao consumidor final por um período determinado.</li>
+  <li><strong>Ampliação do Vale-Gás:</strong> uma parcela dos recursos é destinada à expansão da cobertura do Auxílio Gás, incorporando novas famílias que aguardavam na fila do CadÚnico.</li>
+  <li><strong>Monitoramento de preços:</strong> parte do investimento financia a estrutura de fiscalização da ANP e dos PROCONs estaduais para coibir abusos na ponta da cadeia.</li>
+</ul>
+
+<p>Na prática, para o consumidor que não é beneficiário do Vale-Gás, o efeito direto do subsídio é limitado — ele não se traduz automaticamente em redução no balcão. O impacto mais concreto é evitar que os reajustes da refinaria sejam integralmente repassados, funcionando como um amortecedor temporário. Para as famílias atendidas pelo programa, a ampliação significa maior capacidade de adquirir o botijão sem comprometer outras despesas essenciais.</p>
+
+<h2>Como Pesquisar e Encontrar o Menor Preço do Gás Perto de Você</h2>
+
+<h3>Sites e Aplicativos para Comparar Preços de Gás em Tempo Real</h3>
+
+<p>A ANP (Agência Nacional do Petróleo, Gás Natural e Biocombustíveis) é a principal fonte oficial de dados sobre preços de combustíveis e GLP no Brasil. Veja como utilizar as ferramentas disponíveis:</p>
+
+<ul>
+  <li><strong>Portal de Preços da ANP (precos.anp.gov.br):</strong> disponibiliza pesquisas semanais de preços de GLP por município, com valores mínimo, médio e máximo coletados em postos e revendas. É a referência mais confiável para saber o que está sendo praticado na sua cidade.</li>
+  <li><strong>App Meu Combustível (ANP):</strong> aplicativo oficial da ANP para consulta de preços de combustíveis, incluindo GLP, com dados georreferenciados por município.</li>
+  <li><strong>Google Maps e buscas locais:</strong> ao pesquisar "distribuidora de gás perto de mim" ou "<a href="/onde-vende-gas-de-cozinha-mais-proximo">onde vende gás de cozinha mais próximo</a>", o Google exibe revendas com avaliações, horários e, em alguns casos, valores informados pelos próprios estabelecimentos.</li>
+  <li><strong>WhatsApp e redes sociais:</strong> muitas distribuidoras locais divulgam preços atualizados em seus perfis no Instagram, Facebook e grupos de WhatsApp de bairros — uma forma ágil de comparar sem precisar ligar para várias revendas.</li>
+  <li><strong>Sites de comparação regionais:</strong> em algumas cidades, portais de notícias locais e plataformas de compras coletivas publicam pesquisas periódicas sobre o valor do gás.</li>
+</ul>
+
+<h3>Pesquisas de Preço do PROCON: Como Consultar na Sua Cidade</h3>
+
+<p>Os PROCONs estaduais e municipais realizam levantamentos periódicos de preços de produtos essenciais, incluindo o botijão de gás. Em Campo Grande/MS, o PROCON/MS publica dados mensais com os valores praticados por revendas cadastradas na capital. Para consultar:</p>
+
+<ol>
+  <li>Acesse o site do PROCON do seu estado (ex.: procon.ms.gov.br para Mato Grosso do Sul).</li>
+  <li>Localize a seção de "Pesquisa de Preços" ou "Cesta Básica".</li>
+  <li>Filtre por produto (GLP / botijão de gás / P13) e pelo município desejado.</li>
+  <li>Compare os valores e anote o nome das revendas com menor preço para contato direto.</li>
+</ol>
+
+<p>Além das consultas online, o PROCON oferece atendimento presencial e por telefone (0800 ou número local) para dúvidas e denúncias de preços abusivos. Em muitos estados, há também canais via aplicativo e chatbot para facilitar o acesso do consumidor.</p>
+
+<h3>Dicas para Negociar o Preço e Evitar Cobranças Abusivas</h3>
+
+<p>Negociar o valor do gás é mais comum do que parece, especialmente para clientes frequentes ou que compram em quantidade. Algumas estratégias práticas:</p>
+
+<ul>
+  <li><strong>Seja cliente fiel de uma distribuidora de confiança:</strong> revendas como a Mosko Gás em Campo Grande costumam oferecer condições diferenciadas para clientes recorrentes, especialmente condomínios, restaurantes e empresas com consumo regular.</li>
+  <li><strong>Confirme o preço antes de fechar o pedido:</strong> sempre verifique o valor total — incluindo entrega — antes de confirmar o pedido pelo WhatsApp ou telefone.</li>
+  <li><strong>Exija nota fiscal:</strong> revendas que se recusam a emitir nota fiscal operam de forma irregular. Além de ser um direito seu, o comprovante garante que o produto tem procedência e o botijão está lacrado.</li>
+  <li><strong>Desconfie de valores muito abaixo do mercado:</strong> botijões com preço suspeitamente baixo podem ser resultado de adulteração (peso inferior ao declarado) ou de revendas sem controle de qualidade.</li>
+  <li><strong>Compare o custo total, não apenas o valor do botijão:</strong> algumas revendas cobram taxa de entrega separada. Certifique-se de que o preço anunciado é o valor final.</li>
+  <li><strong>Verifique o peso na entrega:</strong> você tem o direito de pesar o botijão no momento do recebimento. Um P13 cheio deve conter entre 13 e 13,5 kg de GLP, além do peso da vasilha (tara), que varia entre 8 e 10 kg conforme o fabricante.</li>
+</ul>
+
+<h2>Preço do Gás de Cozinha em Outros Tamanhos de Botijão (P13, P20, P45)</h2>
+
+<p>O mercado de GLP residencial e comercial no Brasil oferece diferentes tamanhos de botijão para atender desde a família que cozinha em casa até o grande restaurante ou condomínio. Cada formato tem uma faixa de preço e um perfil de uso distinto. Para entender melhor <a href="/qual-o-melhor-gas-de-cozinha">qual o melhor gás de cozinha</a> para o seu perfil de consumo, vale conhecer as características de cada vasilhame.</p>
+
+<ul>
+  <li><strong>P13 (13 kg):</strong> o botijão residencial mais comum. Valor médio nacional em 2025: R$ 100 a R$ 145. Dura em média de 30 a 60 dias em uma residência com 4 pessoas, dependendo dos hábitos de cozinha.</li>
+  <li><strong>P20 (20 kg):</strong> utilizado principalmente em empilhadeiras, aquecedores industriais e alguns estabelecimentos comerciais de pequeno porte. Faixa de preço: R$ 160 a R$ 210. Não é indicado para uso residencial convencional.</li>
+  <li><strong>P45 (45 kg):</strong> botijão de uso comercial e industrial, muito presente em restaurantes, padarias, condomínios e lavanderias. Faixa de preço: R$ 350 a R$ 480, dependendo da região e da distribuidora. Em Campo Grande, a Mosko Gás atende esse segmento com entrega programada e contrato de fornecimento.</li>
+  <li><strong>P190 e granel:</strong> destinados a grandes consumidores industriais e condomínios com central de GLP. O abastecimento é feito por caminhão-tanque e o valor é negociado por contrato, geralmente abaixo do preço unitário do P45.</li>
+</ul>
+
+<h3>Vale a Pena Trocar o Botijão de 13 kg por um Maior? Comparativo de Custo</h3>
+
+<p>Migrar do P13 para um botijão maior só faz sentido econômico em contextos específicos. Veja a análise comparativa:</p>
+
+<ul>
+  <li><strong>Custo por kg de GLP no P13:</strong> com valor médio de R$ 120, o custo por kg fica em aproximadamente <strong>R$ 9,23/kg</strong>.</li>
+  <li><strong>Custo por kg de GLP no P45:</strong> com valor médio de R$ 410, o custo por kg fica em aproximadamente <strong>R$ 9,11/kg</strong>.</li>
+</ul>
+
+<p>A diferença de custo por kg entre o P13 e o P45 é pequena — menos de 2% — para o consumidor final. O ganho real ao migrar para o P45 está na <strong>redução da frequência de troca</strong>, no menor custo de entrega por ciclo e na praticidade operacional — vantagens muito mais relevantes para restaurantes, padarias e condomínios do que para residências.</p>
+
+<p>Para uma família que consome um P13 por mês, a mudança para o P45 não se justifica economicamente e ainda traz riscos de segurança caso o armazenamento doméstico não seja adequado. Já para um restaurante que utiliza três ou mais P13 por semana, a migração para o P45 ou para um sistema de central de GLP em bateria representa economia logística e operacional relevante. Nesse caso, vale conversar com a distribuidora local sobre condições de fornecimento regular com contrato.</p>
+
+<hr>
+
+<h2>FAQ</h2>
+
+<h3>Qual o preço médio do botijão de gás de 13 kg no Brasil em 2025?</h3>
+<p>Em 2025, o valor médio nacional do botijão P13 (13 kg) oscila entre <strong>R$ 100 e R$ 145</strong>, com média ponderada em torno de R$ 118 a R$ 122 nas principais capitais, segundo dados da ANP. As regiões Norte e Nordeste tendem a registrar valores mais elevados em função dos custos logísticos, enquanto capitais do Sul e Sudeste apresentam patamares ligeiramente mais baixos.</p>
+
+<h3>Por que o preço do gás de cozinha é diferente entre revendas?</h3>
+<p>O valor do gás não é tabelado ao consumidor final. Cada revendedor define sua margem com base em custos de frete, volume de compra junto à distribuidora nacional e nível de concorrência local. Estabelecimentos com frota própria, maior escala e estrutura operacional enxuta conseguem praticar valores mais competitivos. Diferenças de R$ 10 ou mais entre revendas da mesma cidade são comuns e decorrem diretamente dessas variáveis.</p>
+    <div style="background:linear-gradient(130deg,#001A4D,#0055CC);border-radius:14px;padding:28px;text-align:center;margin:32px 0"><p style="color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:16px">Precisa de gás em Campo Grande? A Mosko Gás entrega rápido.</p><a href="https://wa.me/5567993330303?text=Ol%C3%A1%2C%20quero%20fazer%20um%20pedido" target="_blank" rel="noopener" style="display:inline-block;background:#25D366;color:#fff;font-weight:700;padding:14px 28px;border-radius:50px">📲 Pedir pelo WhatsApp</a></div>
+    <div class="related-posts">
+      <h3>Leia também:</h3>
+      <ul>
+        <li><a href="/blog/como-saber-se-o-gas-esta-acabando/">Como Saber se o Gás Está Acabando</a></li>
+        <li><a href="/blog/botijao-de-gas-tem-validade/">Botijão de Gás Tem Validade?</a></li>
+        <li><a href="/blog/checklist-seguranca-gas-residencial/">Checklist de Segurança do Gás</a></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-nav">
+      <a href="/">Início</a>
+      <a href="/gas-de-cozinha/">Gás de Cozinha</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contato/">Contato</a>
+    </div>
+    <div class="footer-info">
+      <strong>Mosko Gás Distribuidora</strong><br>
+      Av. Panamericana, 295 – Estrela Dalva – Campo Grande/MS<br>
+      WhatsApp: (67) 99333-0303 · CNPJ: 12.977.901/0001-17<br>
+      Revenda autorizada Ultragaz — Registro ANP
+    </div>
+  </div>
+</footer>
+
+<a class="float-wpp" href="https://wa.me/5567993330303" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.806L0 24l6.362-1.481A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+</a>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');});});
+  document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('open');});
+</script>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Qual o preço do gás de cozinha", "description": "Descubra o preço atual do gás de cozinha em Campo Grande, como economizar com o Gás do Povo e dicas para não cair em fraudes.", "image": "https://moskogas.com.br/images/blog/qual-o-preco-do-gas-de-cozinha.webp", "datePublished": "2026-06-18", "dateModified": "2026-06-18", "author": {"@type": "Organization", "name": "Mosko Gás"}, "publisher": {"@type": "Organization", "name": "Mosko Gás"}, "mainEntityOfPage": "https://moskogas.com.br/blog/qual-o-preco-do-gas-de-cozinha/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://moskogas.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://moskogas.com.br/blog/"}, {"@type": "ListItem", "position": 3, "name": "Qual o preço do gás de cozinha"}]}]}
+</script>
+
+</body>
+</html>
