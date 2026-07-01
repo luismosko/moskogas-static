@@ -57,7 +57,7 @@
 
 | Semana | Segunda | Quarta | Sexta |
 |--------|---------|--------|-------|
-| 1 | 🔥 Preço P13 R$103,99 | ⚡ Entrega rápida Aero Rancho | 💧 Água mineral 20L promoção |
+| 1 | 🔥 Preço P13 R$109,99 | ⚡ Entrega rápida Aero Rancho | 💧 Água mineral 20L promoção |
 | 2 | 🏭 Gás P45 industrial | ⭐ Cliente satisfeito (depoimento) | 🚚 Atendemos toda CG |
 | 3 | 📍 Bairros atendidos | 🔐 Segurança: lacrado + NF | ☀️ Funcionamento sábado |
 | 4 | 🎯 Gás do Povo | 🆘 Emergência? Entrega hoje | 📞 Como pedir WhatsApp |
@@ -117,7 +117,7 @@ Mosko Gás — Distribuidora de Gás e Água Mineral em Campo Grande/MS 🚚
 Gás de cozinha P13, P45 e P20 com entrega rápida em toda Campo Grande. Revenda autorizada Ultragaz com 350+ avaliações 5 estrelas.
 
 ✅ Gás perto de você — Entrega 30-60min
-✅ Botijões P13 a partir de R$ 103,99
+✅ Botijões P13 a partir de R$ 109,99
 ✅ Gás industrial P45 e P20 para empresas
 ✅ Água mineral 10L e 20L
 ✅ Atendemos Aero Rancho, Nova Lima, Giocondo Orsi e toda CG
@@ -154,8 +154,8 @@ Revenda autorizada ANP | CNPJ 12.977.901/0001-17
 
 | Produto | Preço (a partir de) | Descrição curta |
 |---------|---------------------|-----------------|
-| Gás P13 (Retirada) | R$ 103,99 | Botijão 13kg na portaria |
-| Gás P13 (Entrega) | R$ 124,90 | Entrega em domicílio |
+| Gás P13 (Retirada) | R$ 109,99 | Botijão 13kg na portaria |
+| Gás P13 (Entrega) | R$ 129,99 | Entrega em domicílio |
 | Gás P45 Industrial | Sob consulta | Gás industrial 45kg |
 | Água Mineral 20L | R$ 12,90 | Galão 20 litros |
 
@@ -168,7 +168,7 @@ Revenda autorizada ANP | CNPJ 12.977.901/0001-17
 Monitorar seção "Perguntas" e responder em até 2h.
 
 **Perguntas comuns pra já deixar respondidas:**
-- "Qual o preço do P13?" → R$ 103,99 na portaria, R$ 124,90 com entrega
+- "Qual o preço do P13?" → R$ 109,99 na portaria, R$ 129,99 com entrega
 - "Vocês entregam no [bairro]?" → Sim, atendemos toda Campo Grande
 - "Qual o horário?" → Seg-Sáb 7h às 18h30
 - "Aceitam cartão?" → Sim, Pix, cartão e dinheiro

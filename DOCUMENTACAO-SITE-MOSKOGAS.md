@@ -359,7 +359,7 @@ background: linear-gradient(130deg, #001A4D 0%, #003087 55%, #0055CC 100%);
 ```
 
 **Exemplos:**
-- `Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 103,99 | Mosko Gás`
+- `Gás de Cozinha em Campo Grande MS — Botijão P13 R$ 109,99 | Mosko Gás`
 - `Gás P45 Industrial em Campo Grande MS — Ultragaz | Mosko Gás`
 - `Água Mineral em Campo Grande MS — Entrega Rápida | Mosko Gás`
 

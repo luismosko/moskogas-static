@@ -26,8 +26,8 @@ Migração do WordPress/Elementor para HTML puro no Cloudflare Pages.
 | Instagram | instagram.com/moskogas |
 
 **Preços atuais:**
-- P13 na portaria: **R$ 103,99** (promoção)
-- P13 com entrega: **R$ 124,90**
+- P13 na portaria: **R$ 109,99** (promoção)
+- P13 com entrega: **R$ 129,99**
 
 ---
 
